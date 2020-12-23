@@ -1,30 +1,35 @@
 Documentation
 ==============
 
-Papermerge is a document management system designed to work with scanned
-documents. As well as it extracts text from scanned documents (which can be PDF, TIFF, JPEG or PNG) indexes it and makes it ready for full text search. Papermerge provides the look and feel
-of major modern file browsers, with tags and hierarchical structure for files
-and folders, so that you can efficiently organize your documents.
+Papermerge is a open source document management system designed to work with **scanned
+documents**. It extracts text from your scans (which might be
+PDF, TIFF, JPEG or PNG), indexes it, and prepares it for full text search.
+Papermerge provides the look and feel of modern desktop file browsers. It has
+features like with tags, hierarchical folders and automations so
+that you can efficiently organize your documents.
+
+.. figure:: img/document-management-system-screenshot.png
+
+   Papermerge 2.0 screenshot
 
 What It Does
 ~~~~~~~~~~~~~
 
 * It extract and indexes text from your documents
-* Provides you nice user interface to easly browse your documents
-* Augments your documents with :doc:`metadata <metadata>`
+* Provides nice user interface to easly find your documents
+* Augments your documents with tags and :doc:`metadata <metadata>`
 * Helps you instantly find your documents:
     * based on extracted text
     * based on :doc:`metadata <metadata>`
     * based on :doc:`tags <tags>`
-
 * Helps you fix scanned documents issues
 
 
 What It Doesn't Do
 ~~~~~~~~~~~~~~~~~~~~
  
-* It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time.
-* It does **not** stay in your way when you make decisions about your data. 
+* It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time
+* It does **not** stay in your way when you make decisions about your data 
 
 
 Right Tool for You?

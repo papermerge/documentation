@@ -4,6 +4,18 @@ main h1 {
     margin-bottom: 1rem;
 }
 
+p {
+    color: #333;
+}
+
+figure img {
+    border: 1px solid #ccc;
+}
+
+strong {
+    color: #000;
+}
+
 main h2 {
     margin-top: 1rem;
     margin-bottom: 1rem;
