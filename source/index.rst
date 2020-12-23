@@ -5,7 +5,7 @@ Papermerge is a open source document management system designed to work with **s
 documents**. It extracts text from your scans (which might be
 PDF, TIFF, JPEG or PNG), indexes it, and prepares it for full text search.
 Papermerge provides the look and feel of modern desktop file browsers. It has
-features like with tags, hierarchical folders and automations so
+features like tags, hierarchical folders and automations so
 that you can efficiently organize your documents.
 
 .. figure:: img/document-management-system-screenshot.png
