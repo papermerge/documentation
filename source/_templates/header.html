@@ -1,0 +1,50 @@
+{#-
+  Template file for the header.
+
+  If there is a logo, clicking the logo leads back to the homepage.
+  If there is no logo, clicking the manual title leads back to the homepage.
+-#}
+
+{%- import "buttons.html" as buttons -%}
+
+<header class="md:sticky top-0 bg-gray-900 shadow-md flex md:flex-row justify-between items-center z-10">
+  {#- show logo on the left side of the header -#}
+  {%- if logo -%}
+  <a class="py-4 {% if pagename != master_doc -%}hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se{%- endif -%}"
+      {% if pagename != master_doc -%}
+      href="{{ pathto(master_doc) }}"
+      aria-label="{{ _('Back to homepage') }}"
+      {%- endif -%}>
+      <img class="h-8 mx-5" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo" />
+    </a>
+    {#- show manual title in the middle -#}
+    <h2 class="text-xl text-gray-100 mx-5 py-4">{{ docstitle }}</h2>
+  {%- else -%}
+  <a {% if pagename != master_doc -%}
+      class="hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se"
+      href="{{ pathto(master_doc) }}"
+      aria-label="{{ _('Back to homepage') }}"
+    {%- endif -%}>
+    <h2 class="text-xl text-gray-100 mx-5 py-4">{{ docstitle }}</h2>
+    </a>
+  {%- endif -%}
+
+  {#- show a search input field on the right side -#}
+  <form
+    id="searchbox"
+    action="{{ pathto('search') }}"
+    method="get"
+    class="hidden md:flex my-auto mx-5 justify-between items-center print:hidden">
+
+    <input
+      name="q"
+      id="search-input"
+      type="search"
+      aria-label="Search the docs"
+      placeholder="{{ _('Search the docs') }}"
+      class="p-2 flex-1 focus:bg-yellow-100"
+      style="width: 300px;"
+    />
+    {{ buttons.search() }}
+  </form>
+</header>

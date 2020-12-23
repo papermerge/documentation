@@ -1,0 +1,115 @@
+{%- macro script() %}
+<script id="documentation_options"
+        data-url_root="{{ pathto('', 1) }}"
+        src="{{ pathto('_static/documentation_options.js', 1) }}">
+</script>
+{%- for js in script_files %}
+{{ js_tag(js) }}
+{%- endfor %}
+<script src="{{ pathto('_static/theme.js', 1) }}" defer></script>
+{%- endmacro -%}
+
+{%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
+
+{%- if not embedded and docstitle -%}
+  {%- if title == docstitle -%}
+    {%- set titlesuffix = "" -%}
+  {%- else -%}
+    {%- set titlesuffix = " | "|safe + docstitle|e -%}
+  {%- endif -%}
+{%- else -%}
+  {%- set titlesuffix = "" -%}
+{%- endif %}
+
+<!DOCTYPE html>
+<html lang="{{ lang_attr }}">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    {{ metatags }}
+    {%- block htmltitle %}
+    <title>
+      {{ title|striptags|e if title else docstitle }}{{ titlesuffix }}
+    </title>
+    {%- endblock %}
+    <link
+      rel="stylesheet"
+      href="{{ pathto('_static/pygments.css', 1) }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ pathto('_static/' + style, 1) }}"
+    />
+    {#- Extra CSS files for overriding stuff #}
+    {%- for css in css_files %}
+      <link rel="stylesheet" href="{{ pathto(css, 1) }}" />
+    {%- endfor %}
+    {%- if pageurl %}
+      <link rel="canonical" href="{{ pageurl }}" />
+    {%- endif %}
+    {%- if favicon %}
+      <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
+    {%- endif %}
+    {%- block linktags %}
+      {%- if hasdoc('search') %}
+        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}"/>
+      {%- endif %}
+      {%- if hasdoc('genindex') %}
+        <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}"/>
+      {%- endif %}
+      {%- if next %}
+        <link
+          rel="next"
+          title="{{ next.title|striptags|e }}"
+          href="{{ next.link|e }}"
+        />
+      {%- endif %}
+      {%- if prev %}
+        <link
+          rel="prev"
+          title="{{ prev.title|striptags|e }}"
+          href="{{ prev.link|e }}"
+        />
+      {%- endif %}
+    {%- endblock %}
+  </head>
+
+  {#-
+    Theme variables are strings and even if they are defined as booleans in the
+    ``html_theme_options`` dictionary, they are treated as strings. Therefore,
+    we must use string comparison to check, whether a value is ``true`` or not.
+  -#}
+
+  <body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
+    {% include "skip.html" %}
+    {% include "header.html" %}
+    <div class="md:overflow-hidden flex flex-col md:flex-row flex-1">
+      {%- if theme_show_nav|lower == 'true' -%}
+        {%- include "nav.html" %}
+      {%- endif %}
+      <div id="main-wrapper" class="overflow-y-auto md:w-full flex flex-col flex-1">
+        <main role="main" class="px-5 md:ml-fluid flex-1 {% if theme_show_nav|lower != 'true' -%}mx-auto{%- endif -%}">
+          {%- if pagename != master_doc and theme_show_breadcrumbs|lower == 'true' %}
+            {%- include "breadcrumbs.html" %}
+          {% endif -%}
+          {#-
+              for normal pages, the "body" block is rendered in `page.html` which is
+              inherited unmodified from the "basic" theme.
+          -#}
+          {% block body %}{% endblock %}
+          {%- if theme_show_prev_next|lower == 'true' %}
+            {%- include "prev_next.html" %}
+          {%- endif %}
+        </main>
+        {% include "footer.html" %}
+      </div>
+      {% include "menu.html" %}
+      {% include "search-pane.html" %}
+      {% include "modals.html" %}
+    </div>
+    {% block scripts %}
+      {{ script() }}
+    {% endblock %}
+  </body>
+</html>

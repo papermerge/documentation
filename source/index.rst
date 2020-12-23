@@ -14,16 +14,15 @@ and folders, so that you can efficiently organize your documents.
 What It Does
 ~~~~~~~~~~~~~
 
- * It extract and indexes text from your documents
- * Provides you nice user interface to easly browse your documents
- * Augments your documents with :doc:`metadata <metadata>`
- * Helps you instantly find your documents:
-    
+* It extract and indexes text from your documents
+* Provides you nice user interface to easly browse your documents
+* Augments your documents with :doc:`metadata <metadata>`
+* Helps you instantly find your documents:
     * based on extracted text
     * based on :doc:`metadata <metadata>`
     * based on :doc:`tags <tags>`
 
- * Helps you fix scanned documents issues
+* Helps you fix scanned documents issues
 
 
 What It Doesn't Do
