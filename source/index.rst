@@ -1,13 +1,8 @@
 Documentation
 ==============
 
-I have nothing against paper. Paper is a brilliant invention of humanity. But
-in the 21st century I find it more appropriate for paper-based documents to be
-digitized (scanned). Once scanned, appropriate software can be used to find
-any document in a fraction of a second, just by typing a few keywords.
-
 Papermerge is a document management system designed to work with scanned
-documents. As well as OCR with full text search, it provides the look and feel
+documents. As well as it extracts text from scanned documents (which can be PDF, TIFF, JPEG or PNG) indexes it and makes it ready for full text search. Papermerge provides the look and feel
 of major modern file browsers, with tags and hierarchical structure for files
 and folders, so that you can efficiently organize your documents.
 
@@ -28,8 +23,8 @@ What It Does
 What It Doesn't Do
 ~~~~~~~~~~~~~~~~~~~~
  
- * It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time.
- * It does **not** stay in your way when you make decisions about your data. 
+* It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time.
+* It does **not** stay in your way when you make decisions about your data. 
 
 
 Right Tool for You?
@@ -81,12 +76,3 @@ designed for.
    Help/index.rst
    User's Manual/index.rst
    Contributing/index.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
