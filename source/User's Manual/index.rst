@@ -6,3 +6,4 @@ User's Manual
    
    getting_started
    metadata
+   page_management
