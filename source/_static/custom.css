@@ -34,3 +34,6 @@ li > p {
     margin-bottom: 0.25rem;
 }
 
+.admonition.note {
+    background-color: #e8f5ff;
+}

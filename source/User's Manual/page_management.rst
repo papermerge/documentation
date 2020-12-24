@@ -11,6 +11,13 @@ Page management is set of features which helps to fix scanning process errors.
 In other words you can delete, reorder, cut and paste pages within same
 document even outside it.
 
+.. note::
+
+    In order perform any of operations described below (delete, reorder, cut and
+    paste pages) you need to have **Change Permission** on respective document.
+    You have automatically granted **Change Permission**
+    on the documents you uploaded (because you own the documents uploaded by you).
+
 Delete Page(s)
 **************
 
