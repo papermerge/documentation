@@ -4,6 +4,28 @@ main h1 {
     margin-bottom: 1rem;
 }
 
+.highlight {
+    background-color: #f7f7f7;
+    border: 1px solid #eaeaea;
+}
+
+.highlight .code-header {
+    border-bottom: 1px solid #c3c3c3;
+}
+
+.content-wrapper {
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .content-wrapper {
+        width: 70%;
+    }
+}
+.content-wrapper {
+    margin: 0 auto;
+}
+
 p {
     color: #333;
 }
