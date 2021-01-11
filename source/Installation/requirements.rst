@@ -74,19 +74,50 @@ extracts text from images. It works fantastically well for wide range of
 human languages.
 
 
-In addition to the above, there are a number of Python requirements, all of which are listed in a file called ``requirements/base.txt`` in the project root directory.
+In addition to the above, there are a number of Python requirements, all of
+which are listed in a file called ``requirements/base.txt`` in the project
+root directory.
 
 
 Hardware Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The minimum hardware requirements are:
+Papermerge can run a single or multiple hosts (computers). OCR operations are
+performed by a component called worker. There can be one or more workers. For
+more efficient setups worker(s) should run on separate computer(s). The exact
+number of papermerge workers depends on your documents volume.
+
+Single Host
+###############
+
+On single host, both web component and worker components run on same computer.
+
+The minimum hardware requirements in this case are:
 
 * 1 GHz CPU
-* 512 MB RAM
+* 1 GB RAM
 * 25 GB disk space
 
-Please keep in mind that Papermerge uses Tesseract for optical character
-recognition (OCR) operations. OCR is very CPU intense process. The rule here
-is simple - more powerful CPU and more RAM - better! A more powerful CPU (+
-more RAM) will be able to complete OCR operations faster.
+.. note::
+
+    Please keep in mind that Papermerge uses Tesseract for optical character
+    recognition (OCR) operations. **OCR is very CPU intense task.** The rule here
+    is simple - more powerful CPU and more RAM - better! A more powerful CPU (+
+    more RAM) will be able to complete OCR operations faster.
+
+
+Multiple Hosts
+#################
+
+In multiple hosts scenarios, the web component (i.e. the web application)
+requires less resources:
+
+* 900 MHz CPU
+* 512 MB RAM
+* 15 GB disk space
+
+Minimum requirements for 1 worker are:
+
+* 1 GHz CPU
+* 1 GB RAM
+* 25 GB disk space
