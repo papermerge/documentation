@@ -48,7 +48,7 @@ main h1 {
     margin: 0 auto;
     border-left: 1px solid #c7c7c7;
     border-right: 1px solid #c7c7c7;
-    padding: 2rem;
+    padding: 0 0rem 2rem 2rem;
     background-color: #fff;
 }
 
