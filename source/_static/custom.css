@@ -2,6 +2,25 @@ body {
     background-color: #eaeaea;
 }
 
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header .header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header ul.header-nav li a {
+    color: #fff !important;
+    margin-right: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 main h1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
