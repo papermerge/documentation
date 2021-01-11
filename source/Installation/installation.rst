@@ -122,7 +122,10 @@ Step 1 - Python and Friends
 
 Papermerge is written in Python. First thing you need to make sure python interpreter is installed.
 Ubuntu 20.04 comes with python interpreter already installed. 
-However, the command to invoke python interpreter is ``python3``::
+However, the command to invoke python interpreter is ``python3``:
+
+.. code-block:: bash
+    :caption: Check python version
 
     $ python3 --version
     Python 3.8.2
@@ -141,19 +144,27 @@ However, the command to invoke python interpreter is ``python3``::
 
 A close python's friend is `pip <https://pip.pypa.io/en/stable/>`_ command. `pip <https://pip.pypa.io/en/stable/>`_ is python's package manager.
 Similar as with python interpreter story - there might be either pip or ``pip3`` - latter is specifically for
-python version 3. We will use pip3::
+python version 3. We will use pip3:
+
+.. code-block:: bash
+    :caption: Install pip3
 
     $ sudo apt install python3-pip
 
-Make sure it was installed::
+Make sure it was installed:
+
+.. code-block:: bash
+    :caption: Make sure pip3 is avilable
 
     $ pip3 --version
     pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
 
 
 Another package which you need to install is ``python3-venv``. This one will be
-used in Step 2  we'll learn and setup python virtual environment::
+used in Step 2  we'll learn and setup python virtual environment:
 
+.. code-block:: bash
+    :caption: Install python's virtual environment
 
     $ sudo apt install python3-venv
 
@@ -162,7 +173,10 @@ Although Papermerge is written in python, it uses some *special*
 python modules which are compiled from C sources and used in binary form. This
 means that you need `gcc compiler <https://gcc.gnu.org/>`_ installed as well.
 
-In Ubuntu 20.04, ``gcc`` is available via ``built-essential`` package::
+In Ubuntu 20.04, ``gcc`` is available via ``built-essential`` package:
+
+.. code-block:: bash
+    :caption: Install ubuntu build-essential package 
 
     sudo apt install build-essential
 
