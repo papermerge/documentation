@@ -30,7 +30,7 @@ Software Requirements
 In order to successfully deploy Papermerge you need following software:
 
 * `Python <https://www.python.org/>`_ >= 3.7
-* `Django <https://www.djangoproject.com/>`_ >= 3.0
+* `Django <https://www.djangoproject.com/>`_ >= 3.1
 * `Tesseract <https://github.com/tesseract-ocr/tesseract>`_ - because of :ref:`OCR <ocr>`
 * `Imagemagick <https://imagemagick.org/script/index.php>`_ - Image operations
 * `Poppler <https://poppler.freedesktop.org/>`_ - PDF operations
@@ -38,12 +38,24 @@ In order to successfully deploy Papermerge you need following software:
 Python
 #######
 
-Papermerge is a Python 3 application.
+Papermerge (server side) is written in Python programming language. The
+minimum Python version required is 3.7.
+
+Django
+########
+
+Papermerge uses Django Web Framework for its web facing components. The
+minimum required version for Django is 3.1. Generally speaking the fact that
+Papermerge is written in Django is not important for setup. You won't need to
+worry about exact version of Django (or other internal python libraries on
+which Papermerge depends) required as this details are conveniently covered by
+package management tools like ``pip``. 
 
 Imagemagick
 ###########
 
-Papermerge uses Imagemagick to convert between images format
+Papermerge uses Imagemagick to convert between images format. You will need to make sure
+you have image magic installed.
 
 Poppler
 #########
@@ -59,7 +71,7 @@ If you never heard of `Tesseract software
 source `Optical Character Recognition
 <https://en.wikipedia.org/wiki/Optical_character_recognition>`_ software.  It
 extracts text from images. It works fantastically well for wide range of
-languages.
+human languages.
 
 
 In addition to the above, there are a number of Python requirements, all of which are listed in a file called ``requirements/base.txt`` in the project root directory.
@@ -67,3 +79,14 @@ In addition to the above, there are a number of Python requirements, all of whic
 
 Hardware Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+The minimum hardware requirements are:
+
+* 1 GHz CPU
+* 512 MB RAM
+* 25 GB disk space
+
+Please keep in mind that Papermerge uses Tesseract for optical character
+recognition (OCR) operations. OCR is very CPU intense process. The rule here
+is simple - more powerful CPU and more RAM - better! A more powerful CPU (+
+more RAM) will be able to complete OCR operations faster.
