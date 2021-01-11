@@ -29,7 +29,8 @@ What It Doesn't Do
 ~~~~~~~~~~~~~~~~~~~~
  
 * It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time
-* It does **not** stay in your way when you make decisions about your data 
+* It does **not** stay in your way when you make decisions about your data
+* It does **not** overwrite your original documents
 
 
 Right Tool for You?
@@ -58,14 +59,19 @@ Most of the modern office scanners will output scanned files in PDF/A format.
 This is why, PDF is practically synonymous for document in context of
 Papermerge.
 
+A picture made with your phone of a A4 paper document is ragarded by papermege
+as full fledged document, even though digitally it is stored as jpeg or png
+format. You can think of a picture made with a phone (of a document) as a bad
+quality scan. 
+
 What is Not a Document?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Out of scope (at least for near future) are Office documents (ODT, DOCX,
-spreadsheets, presentations etc), text files (notes); these files are usually
-editable. In the future, Papermerge **might support Office documents** (ODT
-etc). In such case support for office documents will be provided as external
-plugins/Addon.
+Out of scope are Office documents (ODT, DOCX, spreadsheets, presentations
+etc), text files (notes); these files are usually editable i.e. user can alter
+the content of the document. Any format of alterable type of document is out of scope
+for Papermerge project.
+
 
 Papermerge is simply **not designed to store books**. Yes, you can scan a book
 and import it in Papermege, but again - this is not what Papermerge was
