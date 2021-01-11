@@ -180,7 +180,10 @@ In Ubuntu 20.04, ``gcc`` is available via ``built-essential`` package:
 
     sudo apt install build-essential
 
-Double check that ``gcc`` was installed::
+Double check that ``gcc`` was installed:
+
+.. code-block:: bash
+    :caption: Double check that gcc was installed
 
     $ gcc --version
     gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0
@@ -190,22 +193,31 @@ Double check that ``gcc`` was installed::
 
 Ok, great! We have to install one more utility - ``git``. Strictly speaking,
 you don't need ``git``, because you can :ref:`download` the tarball and unzip
-(or untar or extract) sources. But let's stick with git::
+(or untar or extract) sources. But let's stick with git:
+
+.. code-block:: bash
+    :caption: Install git
 
     $ sudo apt install git
 
-Double check that ``git`` was installed::
+Double check that ``git`` was installed:
+
+.. code-block:: bash
+    :caption: Double check that git was installed
 
     $ git --version
     git version 2.25.1
 
-And now clone the latest stable version of Papermerge directly from GitHub repository::
+And now clone the latest stable version of Papermerge directly from GitHub repository:
 
-    $ git clone --branch v1.4.0 https://github.com/ciur/papermerge.git  PapermergeDMS
+.. code-block:: bash
+    :caption: Clone latest stable release
+
+    $ git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
 
 .. note::
 
-    As of writing this - latest stable version of Papermerge is 1.4.0, thus the argument ``--branch``
+    As of writing this - latest stable version of Papermerge is 1.5.5, thus the argument ``--branch``
     with respective version. Also, notice that repository was cloned inside folder named PapermergeDMS, you
     can choose whatever title for that folder suites you.
 
@@ -215,7 +227,10 @@ level folder of the project*
 Step 2 - Python Virtual Environment
 ####################################
 
-Change directory to project's root (folder where you cloned/extracted sources)::
+Change directory to project's root (folder where you cloned/extracted sources):
+
+.. code-block:: bash
+    :caption: Change to project's directory
 
     $ cd PapermergeDMS
 
@@ -233,9 +248,12 @@ If you simply type ``pip insall -r requirements/base.txt`` - it will install
 packages **system-wide**. A better approach is to install dependencies **per
 project**. So, *the place* designated for python packages specific for this
 project is called a *virtual environment*. Let's create a python virtual
-environment and name it ``.venv``::
+environment and name it ``.venv``:
 
-$ python3 -m venv .venv --system-site-packages
+.. code-block:: bash
+    :caption: Create python virtual environment
+
+    $ python3 -m venv .venv --system-site-packages
 
 
 .. note::
@@ -251,7 +269,10 @@ $ python3 -m venv .venv --system-site-packages
     ``--system-site-packages`` is necessary, it will install a package called ``wheel``.
     Without ``wheel`` package, pip install later will issue warning.
 
-Alternatively you can create python virtual environment with following command::
+Alternatively you can create python virtual environment with following command:
+
+.. code-block:: bash
+    :caption: Another way to create python virtual environment
 
     $ virtualenv .venv -p python3.7
 
@@ -260,9 +281,12 @@ Advantage of last command is that it specifies exact python version.
 .. note::
     Papermerge requires python version >= 3.7
 
-Next we need to *activate* virtual environment::
+Next we need to *activate* virtual environment:
 
-$ source .venv/bin/activate
+.. code-block:: bash
+    :caption: Activate python virtual envitonment
+    
+    $ source .venv/bin/activate
 
 Terminal's prompt (bash - in Ubuntu) will change to indicate that python virtual environment is active.
 
@@ -277,7 +301,10 @@ Terminal's prompt (bash - in Ubuntu) will change to indicate that python virtual
     notice that ``PapermergeDMS/.venv/bin`` is first in path, this means that
     python interpreter first of all will look up for its dependencies there.
 
-And now, with python virtual environment active, let's install Papermerge dependencies::
+And now, with python virtual environment active, let's install Papermerge dependencies:
+
+.. code-block:: bash
+    :caption: Install python dependencies
 
     $ source .venv/bin/activate # a reminder to run this first
     $ pip3 install -r requirements/base.txt
@@ -293,7 +320,10 @@ Papermerge is based on `Django Web Framework <https://www.djangoproject.com/>`_.
 Django provides a ``manage.py`` script which is used to run all project related commands.
 ``manage.py`` script is located in project's root directory.
 
-First let's run migrations::
+First let's run migrations:
+
+.. code-block:: bash
+    :caption: Run migrations
 
     $ ./manage.py migrate
 
@@ -311,7 +341,10 @@ and is in project's root directory) and create database schema for the
 project.
 
 We are not ready yet, but at this point, you can built-in web server and
-access login screen::
+access login screen:
+
+.. code-block:: bash
+    :caption: Run builtin web server
 
     $ ./manage.py runserver
 
@@ -328,7 +361,10 @@ if all binary dependencies were installed run following command::
 
 $ ./manage.py check
 
-On freshly installed Ubuntu 20.04 LTS you will see following warnings::
+On freshly installed Ubuntu 20.04 LTS you will see following warnings:
+
+.. code-block:: bash
+    :caption: Possible warning messages
 
     System check identified some issues:
 
@@ -336,8 +372,6 @@ On freshly installed Ubuntu 20.04 LTS you will see following warnings::
     ?: Papermerge can't find convert. Without it, image resizing is not possible.
             HINT: Either it's not in your PATH or it's not installed.
     ?: Papermerge can't find identify. Without it, it is not possible to count pages in TIFF.
-            HINT: Either it's not in your PATH or it's not installed.
-    ?: Papermerge can't find pdftk. Without it, Papermerge won't be able to cut/paste PDF pages.
             HINT: Either it's not in your PATH or it's not installed.
     ?: Papermerge can't find tesseract. Without it, OCR of the documents is impossible.
             HINT: Either it's not in your PATH or it's not installed.
@@ -347,19 +381,23 @@ On freshly installed Ubuntu 20.04 LTS you will see following warnings::
     System check identified 5 issues (0 silenced).
 
 This means that you need to install all above dependencies. Let's install all
-of them in one shot::
+of them in one shot:
 
+.. code-block:: bash
+    :caption: Install tesseract, imagemagick and poppler-utils
 
     sudo apt install imagemagick \
         poppler-utils \
-        pdftk \
         tesseract-ocr \
         tesseract-ocr-eng \
         tesseract-ocr-deu \
         tesseract-ocr-fra \
         tesseract-ocr-spa
 
-When installation is complete, run check again::
+When installation is complete, run check again:
+
+.. code-block:: bash
+    :caption: Check again for warnings
 
     $ ./manage.py check
 
@@ -372,7 +410,10 @@ When installation is complete, run check again::
     System check identified 1 issue (0 silenced).
 
 To silence last warning, just create an empty ``papermerge.conf.py`` file in project's root,
-we will turn our attention to that file little bit later::
+we will turn our attention to that file little bit later:
+
+.. code-block:: bash
+    :caption: Create an empty papermerge.com.py file
 
     $ touch papermerge.conf.py
 
@@ -381,14 +422,21 @@ Step 4 - Superuser
 ####################
 
 
-It's time to create administrative (superuser) user for your Papermerge instance::
+It's time to create administrative (superuser) user for your Papermerge instance:
 
-$ ./manage.py createsuperuser
+.. code-block:: bash
+    :caption: Create web administrative user
+
+    $ ./manage.py createsuperuser
 
 The username and password you will type above you will use as login credentials.
-So, start server again (in case it is not running)::
+So, start server again (in case it is not running):
 
-$ ./manage.py runserver
+.. code-block:: bash
+    :caption: Run built-in web server
+
+    $ ./manage.py runserver
+
 
 Point your web browser to ``http://localhost:8000`` and use superuser's
 username/password to login.
@@ -399,7 +447,10 @@ Step 5 - Worker
 
 In a separate window, change to the project's root directory again, but this
 time, you should start the worker with ``./manage.py worker``.
-Remember to activate python virtual environment first::
+Remember to activate python virtual environment first:
+
+.. code-block:: bash
+    :caption: Start papermerge worker instance
 
     $ cd ~/PapermergeDMS
     $ source .venv/bin/activate
@@ -408,8 +459,8 @@ Remember to activate python virtual environment first::
 Worker is the part which performs :ref:`ocr` process. For correct function of Papermerge you must have both parts
 running:
 
-    * main app - the one which you start with ``./manage.py runserver``
-    * worker - the one which you start with ``./manage.py worker``
+* main app - the one which you start with ``./manage.py runserver``
+* worker - the one which you start with ``./manage.py worker``
 
 Now, you can start uploading documents. Remember that only PDF, TIFF, jpeg and
 png :ref:`file_formats` are supported.
@@ -422,7 +473,10 @@ Step 6 - Configurations
 
 By default, you don't need configuration ``papermerge.conf.py`` file.
 However, if there is no configuration file - Papermerge will issue a warning.
-In one of previous steps we created an empty configuration file::
+In one of previous steps we created an empty configuration file:
+
+.. code-block:: bash
+    :caption: Create empty configuration file
 
     $ cd ~/PapermergeDMS
     $ touch papermerge.conf.py # it is empty now
@@ -438,7 +492,10 @@ In one of previous steps we created an empty configuration file::
 
 
 By default, in language dropdown menu, two languages will be displayed German and English.
-You can change that with following configuration::
+You can change that with following configuration:
+
+.. code-block:: Python
+    :caption: Content of papermerge.conf.py
 
     OCR_LANGUAGES = {
         'eng': 'English',
@@ -449,10 +506,10 @@ You can change that with following configuration::
 
 Now four languages will be displayed in language dropdown.
 
-    .. note::
-        In previous steps we installed english, spanish, french and german tesseract language
-        packs (packages named tesseract-ocr-eng, tesseract-ocr-deu, tesseract-ocr-fra, tesseract-ocr-spa).
-        For each language you want to :ref:`ocr` you need to have tesseract language pack installed.
+.. note::
+    In previous steps we installed english, spanish, french and german tesseract language
+    packs (packages named tesseract-ocr-eng, tesseract-ocr-deu, tesseract-ocr-fra, tesseract-ocr-spa).
+    For each language you want to :ref:`ocr` you need to have tesseract language pack installed.
 
 Learn more Papermerge configurations in :ref:`settings`
 
