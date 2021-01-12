@@ -24,6 +24,10 @@ On the other hand, if you take a picture of a flower and upload that jpeg
 image to Papermerge - the 'document' will be processed. However, that jpeg
 format flower image is not a document in Papermerge sense.
 
+.. figure:: ../img/getting-started/pdf-png-jpeg-documents.png
+
+	png and jpeg formats along with PDF are natively supported
+
 Usually office formats with .docx (Microsoft Word), .odt (Libre Office), .txt
 (plain text) are not good candidates for archiving - as by their nature they
 are meant to be changed/edit regularly. However, once converted to PDF format
@@ -49,6 +53,8 @@ documents in folders doesn't need further introduction. It may be worth
 mentioning that Papermerge supports folders and that folders may be
 hierarchical i.e. one folder can contain other folder(s) as well. This nesting
 (folder in folder) ca be arbitrarily deep.
+
+.. figure:: ../img/getting-started/folder-with-tags.png
 
 The idea of using tags to organize your documents
 may be new for you though. Tags are kind of labels. You can associate
