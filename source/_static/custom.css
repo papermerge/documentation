@@ -90,3 +90,17 @@ li > p {
     padding-top: 0.25rem !important;
     padding-bottom: 0.1rem !important;
 }
+
+li.toctree-l1 a {
+    color: #363636 !important;
+    padding-left: 0.25rem
+}
+
+li.toctree-l2 a {
+    color: #666 !important;
+    padding-left: 0.25rem
+}
+
+li.toctree-l3 a.current {
+    border-bottom: 2px solid green;
+}
