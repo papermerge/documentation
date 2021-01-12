@@ -46,8 +46,9 @@ Tags and Folders
 
 Organizing documents in folders is very common. Thus the idea of keeping your
 documents in folders doesn't need further introduction. It may be worth
-mentioning that folders are hierarchical i.e. one folder can contain other
-folder(s) as well. This nesting (folder in folder) ca be arbitrarily deep.
+mentioning that Papermerge supports folders and that folders may be
+hierarchical i.e. one folder can contain other folder(s) as well. This nesting
+(folder in folder) ca be arbitrarily deep.
 
 The idea of using tags to organize your documents
 may be new for you though. Tags are kind of labels. You can associate
