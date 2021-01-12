@@ -18,10 +18,10 @@ Another important thing - if you take a picture of a paper document with your
 mobile phone - you'll have a file in jpeg format (or maybe png file format).
 In context of Papermerge that picture of a document (though just a single jpeg
 file) is a valid one page document. Generally speaking, pictures of the
-documents which  you make with your camera - are bad quality scans.
+documents produced by your camera - might be regarded as bad quality scans.
 
 On the other hand, if you take a picture of a flower and upload that jpeg
-picture to Papermerge - the 'document' will be processed. However, that jpeg
+image to Papermerge - the 'document' will be processed. However, that jpeg
 format flower image is not a document in Papermerge sense.
 
 Usually office formats with .docx (Microsoft Word), .odt (Libre Office), .txt
