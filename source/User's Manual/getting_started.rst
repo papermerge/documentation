@@ -44,8 +44,12 @@ OCR is a technique that extract **text** information from **binary image formats
 Tags and Folders
 ~~~~~~~~~~~~~~~~~~
 
-Organizing documents in folders is very common and concept of folder doesn't
-need further introduction. The idea of using tags to organize your documents
+Organizing documents in folders is very common. Thus the idea of keeping your
+documents in folders doesn't need further introduction. It may be worth
+mentioning that folders are hierarchical i.e. one folder can contain other
+folder(s) as well. This nesting (folder in folder) ca be arbitrarily deep.
+
+The idea of using tags to organize your documents
 may be new for you though. Tags are kind of labels. You can associate
 (add) tags to a document or to a folder. Tags have a color and a name. Once
 tagged, documents can be searched by their tags. Conversely, is it also
