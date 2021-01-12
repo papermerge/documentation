@@ -85,3 +85,8 @@ li > p {
 .admonition.note {
     background-color: #e8f5ff;
 }
+
+.nav-toc .nav-link {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.1rem !important;
+}

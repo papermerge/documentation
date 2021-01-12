@@ -6,7 +6,7 @@ Installation
    
    requirements
    downloading
-   install_dependencies
-   configuration
    installation
+   server_configuration
+   
    
