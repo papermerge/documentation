@@ -17,11 +17,11 @@ What It Does
 
 * It extract and indexes text from your documents
 * Provides nice user interface to easly find your documents
-* Augments your documents with tags and :doc:`metadata <metadata>`
+* Augments your documents with tags and :doc:`User's Manual/metadata`
 * Helps you instantly find your documents:
     * based on extracted text
-    * based on :doc:`metadata <metadata>`
-    * based on :doc:`tags <tags>`
+    * based on :doc:`User's Manual/metadata`
+    * based on :doc:`/User's Manual/tags_and_folders`
 * Helps you fix scanned documents issues
 
 

@@ -35,3 +35,40 @@ tiff, jpeg and png. However, many other formats (even email messages) can be
 imported as documents by converting incoming file *automatically* to PDF
 format. This is possible due to :ref:`document_pipelines` feature.
 
+Optical Character Recognition (OCR)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OCR is a technique that extract **text** information from **binary image formats**.
+
+
+Tags and Folders
+~~~~~~~~~~~~~~~~~~
+
+Organizing documents in folders is very common and concept of folder doesn't
+need further introduction. The idea of using tags to organize your documents
+may be new for you though. Tags are kind of labels. You can associate
+(add) tags to a document or to a folder. Tags have a color and a name. Once
+tagged, documents can be searched by their tags. Conversely, is it also
+possible to show all the documents tagged with a particular tag(s).
+
+Both tags and folders complement each other and provide you with powerful
+means to stay organized. Learn more details about tags :doc:`here
+<tags_and_folders>`.
+
+Page Management
+~~~~~~~~~~~~~~~~~
+
+Many times scanning documents in bulk yields documents with blank pages; some
+pages my be out of order or maybe part of totally different document. Even if
+you notices these flaws immediately it is time consuming and frustrating to
+redo scanning process. Papermerge helps your with your scanned documents like
+no other tool. With Papermerge you can delete blank or erroneous pages, you
+can move pages from one document into another (with cut and paste) and most
+importantly you can reorder document pages in case you need to do so.
+
+There is a separate chapter about :doc:`page_management` where you can learn
+details about this feature.
+
+
+Metadata
+~~~~~~~~~~~
