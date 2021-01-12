@@ -14,7 +14,7 @@ read them everyday, but eventually you will need them for your tax
 declaration. In this sense - scanned documents, which are usually in PDF or
 TIFF format, are perfect match.
 
-Anoter important thing - if you take a picture of a paper document with your
+Another important thing - if you take a picture of a paper document with your
 mobile phone - you'll have a file in jpeg format (or maybe png file format).
 In context of Papermerge that picture of a document (though just a single jpeg
 file) is a valid one page document. Generally speaking, pictures of the
@@ -24,9 +24,9 @@ On the other hand, if you take a picture of a flower and upload that jpeg
 picture to Papermerge - the 'document' will be processed. However, that jpeg
 format flower image is not a document in Papermerge sense.
 
-Usuall office formats with .docx (Microsoft Word), .odt (Libre Office), .txt
+Usually office formats with .docx (Microsoft Word), .odt (Libre Office), .txt
 (plain text) are not good candidates for archiving - as by their nature they
-are meant to be changed/edit regularely. However, once converted to PDF format
+are meant to be changed/edit regularly. However, once converted to PDF format
 (for instance Contract_C2.docx to Contract_C2.pdf) they are full fledged
 documents in Papermege sense.
 
