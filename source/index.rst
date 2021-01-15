@@ -10,7 +10,7 @@ that you can efficiently organize your documents.
 
 .. figure:: img/document-management-system-screenshot.png
 
-   Papermerge 2.0 screenshot
+   Papermerge screenshot
 
 What It Does
 ~~~~~~~~~~~~~
