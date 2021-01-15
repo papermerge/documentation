@@ -3,6 +3,8 @@
 Getting Started
 ================
 
+.. getting_started_documents:
+
 Documents
 ~~~~~~~~~~
 
@@ -39,11 +41,25 @@ tiff, jpeg and png. However, many other formats (even email messages) can be
 imported as documents by converting incoming file *automatically* to PDF
 format. This is possible due to :ref:`document_pipelines` feature.
 
+.. getting_started_ocr:
+
 Optical Character Recognition (OCR)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OCR is a technique that extract **text** information from **binary image formats**.
+OCR is a technique to extract **text** information from **binary image formats**.
+This technique enables users to:
+    
+* **copy/paste  text** from the document's content
+* **search documents** by document's actual text content
 
+OCR is essential tool (or technique if you will) which helps basically to
+extract textual information and thus derive useful work-flows based with the
+documents. Papermerge relies on external open source specialized tools like 
+`Google's Tesseract OCR <https://github.com/tesseract-ocr/tesseract>`_
+
+An informal more detailed explanation of term OCR is provided in :ref:`glossary <ocr>`.
+
+.. getting_started_tags_and_folder:
 
 Tags and Folders
 ~~~~~~~~~~~~~~~~~~
@@ -66,6 +82,8 @@ Both tags and folders complement each other and provide you with powerful
 means to stay organized. Learn more details about tags :doc:`here
 <tags_and_folders>`.
 
+.. getting_started_page_management:
+
 Page Management
 ~~~~~~~~~~~~~~~~~
 
@@ -80,6 +98,7 @@ importantly you can reorder document pages in case you need to do so.
 There is a separate chapter about :doc:`page_management` where you can learn
 details about this feature.
 
+.. getting_started_metadata:
 
 Metadata
 ~~~~~~~~~~~

@@ -31,4 +31,5 @@ detailed information.
    page_management
    metadata
    document_pipelines
+   glossary
    
