@@ -53,11 +53,12 @@ This technique enables users to:
 * **search documents** by document's actual text content
 
 OCR is essential tool (or technique if you will) which helps basically to
-extract textual information and thus derive useful work-flows based with the
-documents. Papermerge relies on external open source specialized tools like 
+extract textual information and thus derive useful work-flows
+(based on document's actual content) with the documents.
+Papermerge relies on external open source specialized tools like 
 `Google's Tesseract OCR <https://github.com/tesseract-ocr/tesseract>`_
 
-An informal more detailed explanation of term OCR is provided in :ref:`glossary <ocr>`.
+An informal, more detailed, explanation of term OCR is provided in :ref:`glossary <ocr>`.
 
 .. getting_started_tags_and_folder:
 

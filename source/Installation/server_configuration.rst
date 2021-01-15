@@ -348,7 +348,7 @@ By default, configurations for broker and messaging queue are
 following:
 
 .. code-block:: python
-    :caption: Django project's settings file
+    :caption: **Don't use** this options in production
 
     CELERY_BROKER_URL = "filesystem://"
     CELERY_BROKER_TRANSPORT_OPTIONS = {
@@ -370,7 +370,7 @@ in this `ticket <https://github.com/ciur/papermerge/issues/198>`_ on github.
 Following is good configuration for production:
 
 .. code-block:: python
-    :caption: Django project's settings file
+    :caption: **Recommended** options for production
 
     CELERY_BROKER_URL = "redis://"
     CELERY_BROKER_TRANSPORT_OPTIONS = {}
