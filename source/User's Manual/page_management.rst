@@ -71,3 +71,6 @@ You can move document pages around from one document to another. Once you cut
 one or several pages from a document, you can paste them either inside another
 document - pages will become part of new document or you can paste pages in
 file browser, this will create entirely new document from cut pages.
+
+
+.. figure:: ../img/user-manual/page-management/cut-page-from-document-A-v2.png
