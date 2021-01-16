@@ -8,5 +8,6 @@ Setup
    downloading
    installation
    server_configuration
+   settings
    
    
