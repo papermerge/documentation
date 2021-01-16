@@ -100,4 +100,5 @@ Then, open document B and :menuselection:`Right Click--> Paste`
     Result. Document B now contains all its 3 pages: B1, B2, B3
 
 
-After browser refresh you will see that document has all 3 pages B1, B2, B3. Document A on the other contains now only correct pages: A1, A2 and A3.
+After browser refresh you will see that document has all 3 pages B1, B2, B3.
+Document A on the other contains now only correct pages: A1, A2 and A3.
