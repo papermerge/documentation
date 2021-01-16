@@ -72,5 +72,32 @@ one or several pages from a document, you can paste them either inside another
 document - pages will become part of new document or you can paste pages in
 file browser, this will create entirely new document from cut pages.
 
+In example illustrated in pictures below there are two documents:
+
+* document A - with pages marked as A1, A2, B1, A3
+* document B - with pages B2, B3
+
+During scan page B1 wrongly ended up in document A, although it belongs to document B.
+
+In order to fix this scanning issue, you need to cut page from document A as illustrated in figure below.
 
 .. figure:: ../img/user-manual/page-management/cut-page-from-document-A-v2.png
+
+    Cut misplaced page, marked in picture with B1, from document A
+
+Then, open document B and :menuselection:`Right Click--> Paste`
+
+.. figure:: ../img/user-manual/page-management/paste-in-document-B-v2.png
+
+    Paste page B1, from document A to document B
+
+.. note::
+
+    In order to see results you will need to click refresh button of your web browser
+
+.. figure:: ../img/user-manual/page-management/pasted-page.png
+
+    Result. Document B now contains all its 3 pages: B1, B2, B3
+
+
+After browser refresh you will see that document has all 3 pages B1, B2, B3. Document A on the other contains now only correct pages: A1, A2 and A3.
