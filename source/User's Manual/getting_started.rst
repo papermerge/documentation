@@ -1,12 +1,14 @@
 .. _getting_started:
 
+================
 Getting Started
 ================
 
 .. getting_started_documents:
 
+##########
 Documents
-~~~~~~~~~~
+##########
 
 Let's start by clarifying the most important concept first: the document. For
 Papermerge a document is anything which is a good candidate for archiving -
@@ -43,8 +45,9 @@ format. This is possible due to :ref:`document_pipelines` feature.
 
 .. getting_started_ocr:
 
+####################################
 Optical Character Recognition (OCR)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+####################################
 
 OCR is a technique to extract **text** information from **binary image formats**.
 This technique enables users to:
@@ -62,8 +65,9 @@ An informal, more detailed, explanation of term OCR is provided in :ref:`glossar
 
 .. getting_started_tags_and_folder:
 
+###################
 Tags and Folders
-~~~~~~~~~~~~~~~~~~
+###################
 
 Organizing documents in folders is very common. Thus the idea of keeping your
 documents in folders doesn't need further introduction. It may be worth
@@ -85,21 +89,45 @@ means to stay organized. Learn more details about tags :doc:`here
 
 .. getting_started_page_management:
 
+################
 Page Management
-~~~~~~~~~~~~~~~~~
+################
 
 Many times scanning documents in bulk yields documents with blank pages; some
 pages my be out of order or maybe part of totally different document. Even if
 you notices these flaws immediately it is time consuming and frustrating to
-redo scanning process. Papermerge helps your with your scanned documents like
+redo scanning process. Papermerge helps you with your scanned documents like
 no other tool. With Papermerge you can delete blank or erroneous pages, you
 can move pages from one document into another (with cut and paste) and most
 importantly you can reorder document pages in case you need to do so.
+
+.. figure:: ../img/getting-started/blank-pages.png
 
 There is a separate chapter about :doc:`page_management` where you can learn
 details about this feature.
 
 .. getting_started_metadata:
 
+##########
 Metadata
-~~~~~~~~~~~
+##########
+
+Metadata is additional information about your folders, documents and pages. In
+other words - data about your data. Following picture is a (scanned document)
+receipt with highlighted shop name, price and date on it.
+
+.. figure:: ../img/getting-started/macgeiz-receipt-with-metadata.png
+
+   Receipt document with metadata
+
+This additional information - shop name, price and date is so called
+document's **metadata**. It has two parts a label (in picture above ``shop``,
+``date`` and ``price`` are all labels) and a value (in example above values
+are ``Mäc-Geiz``, ``08.06.2020``, ``1.49`` for shop label, date label and
+price label respectively). Many times instead of term *label* term *key* is
+used.
+
+Metadata is extremely useful as search criteria when you need to locate
+specific document among many other very similar documents: for example if you
+need to find specific receipt issued by Mäc-Geiz company on May 27th, 2018
+among other several thousands Mäc-Geiz receipts.
