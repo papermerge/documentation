@@ -1,14 +1,13 @@
 .. _automation:
 
-Automation
+Automates
 ============
 
-Watch following youtube screencast to see automates in action::
+Watch following youtube screencast to see automates in action:
 
 .. raw:: html
   
   <iframe width="560" height="315" src="https://www.youtube.com/embed/5adbHHmNcEw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 
 With Automation feature you can automate repetitive tasks like:
