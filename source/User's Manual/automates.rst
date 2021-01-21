@@ -93,9 +93,23 @@ In UI Log entry you can see document's name, page number and document id on whic
 Automates were applied (remember, automates are applied per Page!). 
 Also, you can see that text which was extracted from that document:
 
+.. note::
+
+  UI Logs are very convient to see the **extracted text** from the document.
+  Depending on the quality of the scan, extracted text may or may not exactly match
+  textual content of the document. For instance in figure below, OCR engine extracted text
+  "SCHNEIL" although the actual text on the receipt was "SCHNELL". Use UI Logs to spot such errors
+  and adjust *MATCH* term.
+
 .. figure:: ../img/user-manual/automates/03-ui-logs-v2.png
 
 In order to check which Automate matched this document/page, you need to **scroll to the
 very bottom of the message**:
 
 .. figure:: ../img/user-manual/automates/04-ui-logs-v2.png
+
+
+Troubleshoot Mismatched Automates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+work in progress...
