@@ -30,6 +30,7 @@ detailed information.
    tags_and_folders
    page_management
    metadata
+   automation
    document_pipelines
    glossary
    
