@@ -16,7 +16,7 @@ With Automation feature you can automate repetitive tasks like:
 2. assigning specific tags to the document
 
 
-.. figure:: ../img/user-manual/automates/01-automates.png
+.. figure:: ../img/user-manual/automates/01-automates-v2.png
 
 
 Each automate instance consists of:
@@ -87,15 +87,15 @@ Automates and UI Logs
 You can check which automate matched specific document by looking at UI Logs:
 
 
-.. figure:: ../img/user-manual/automates/02-ui-logs.png
+.. figure:: ../img/user-manual/automates/02-ui-logs-v2.png
 
 In UI Log entry you can see document's name, page number and document id on which
 Automates were applied (remember, automates are applied per Page!). 
 Also, you can see that text which was extracted from that document:
 
-.. figure:: ../img/user-manual/automates/03-ui-logs.png
+.. figure:: ../img/user-manual/automates/03-ui-logs-v2.png
 
 In order to check which Automate matched this document/page, you need to **scroll to the
 very bottom of the message**:
 
-.. figure:: ../img/user-manual/automates/04-ui-logs.png
+.. figure:: ../img/user-manual/automates/04-ui-logs-v2.png
