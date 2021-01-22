@@ -17,20 +17,26 @@ With Automation feature you can automate repetitive tasks like:
 
 
 .. figure:: ../img/user-manual/automates/01-automates-v2.png
+  :alt: List of document automate instances
 
+  Figure 1 - Example of automate instance
 
 Each automate instance consists of:
 
 * name or a title - give it whatever name you like    
-* match - terms/words to look up in the document to figure out if current automate is applicable for given document
+* keywords - terms or words to look up in the document to figure out if current automate is applicable for given document
+* :ref:`matching algorithm <document_matching_alg>` - method used to decide if document matches the automate 
+* :ref:`case sensitivity attribute <case_sensitivity_attr>` - are keywords specified in match case sensitive?
 * (optional) destination folder - where shall it move the matched document? 
 * (optional) tags - which tags shall it associate to the matched document?
 
 Note that last two attributes of Automates - destination folder and tags - are
 optional. You may indicate one of them, both or neither.
 
-Matching
-~~~~~~~~~
+.. _document_matching_alg:
+
+Document Matching Algorithms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to decide if automate instance applies to current document - it will look for certain
 keywords in the document. For example if document contains capital case REWE, then this document
@@ -46,17 +52,45 @@ ARD ZDF Briefe
    a match - it is considered that document matched automate criteria,
    although technically correct is - page of respective the document matched!
 
-There are 4 different ways to match:
+There are four different ways to perform a match:
 
 1. Any
 2. All
 3. Literal
 4. Regular Expression
 
-With ``Any`` matching algorithm, document matches **if any of mentioned keyword will match**.
-With ``All``, document matches **if all mentioned keywords are found in document**. Keywords order does not matter.
-With ``Literal``, match means that the text you enter must appear in the document exactly as you've entered it.
-You can use ``Regular Expression`` for matching criteria. Regular expressions is a general programming method of text matching. Computer programmers usually know what it means.  
+With ``Any`` matching algorithm, document matches **if any of mentioned
+keyword will match**. With ``All``, document matches **if all mentioned
+keywords are found in document**. Keywords order does not matter.
+With ``Literal`` matching algorithm, text you enter must appear in the
+document exactly as you've entered it.
+You can use ``Regular Expression`` for matching criteria. Regular expressions
+is a general programming method of text matching. Computer programmers usually
+know what it means.
+
+Matching keywords should be separated by one or more spaces.
+
+.. figure:: ../img/user-manual/automates/document-matching-keywords-delimited-by-space-v2.png
+  :alt: Keywords for matching criteria separated by one or more space characters
+
+  Figure 2 - Keywords must be separated by one or more space characters
+
+.. _case_sensitivity_attr:
+
+Case Sensitivity Attribute
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If case sensitivity attribute is checked, the matching algorithms will look up for
+words occurrences with **exact same letter case as matching keywords**
+
+For example if "schnell" is mentioned as keyword and *Is case sensitive* is
+checked then occurrences in the document of terms "SCHNELL", "Schnell",
+"schneLL" will be ignored because of mismatched letter case i.e. document will
+not match automate criteria.
+
+On the other hand, if very same keyword "schnell" is used but *Is case
+sensitive* attributed is unchecked, then any of following terms "SCHNELL",
+"Schnell", "schneLL" will match i.e. document will match automate criteria.
 
 
 Inbox + Automates
