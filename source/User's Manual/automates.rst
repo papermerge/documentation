@@ -22,9 +22,12 @@ With Automation feature you can automate repetitive tasks like:
 Each automate instance consists of:
 
 * name or a title - give it whatever name you like    
-* match - what documents it applies to?
-* destination folder - where shall it move the matched document? 
-* (optionally) tags - which tags shall it associate to the matched document?
+* match - terms/words to look up in the document to figure out if current automate is applicable for given document
+* (optional) destination folder - where shall it move the matched document? 
+* (optional) tags - which tags shall it associate to the matched document?
+
+Note that last two attributes of Automates - destination folder and tags - are
+optional. You may indicate one of them, both or neither.
 
 Matching
 ~~~~~~~~~
