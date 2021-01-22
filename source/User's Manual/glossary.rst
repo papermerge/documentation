@@ -58,3 +58,10 @@ I OCRed           We OCRed
 You OCRed         You OCRed
 He/she/it OCRed   They OCRed
 ===============  ===========
+
+.. _incoming_documents:
+
+Incoming Documents
+~~~~~~~~~~~~~~~~~~~~
+
+Documents which are in user's ``Inbox`` folder are called *Incoming Documents*. 

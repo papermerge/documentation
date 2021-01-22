@@ -135,6 +135,8 @@ You can check which automate matched specific document by looking at UI Logs:
 
 .. figure:: ../img/user-manual/automates/02-ui-logs-v2.png
 
+  Figure 3
+
 In UI Log entry you can see document's name, page number and document id on which
 Automates were applied (remember, automates are applied per Page!). 
 Also, you can see that text which was extracted from that document:
@@ -149,10 +151,14 @@ Also, you can see that text which was extracted from that document:
 
 .. figure:: ../img/user-manual/automates/03-ui-logs-v2.png
 
+  Figure 4
+
 In order to check which Automate matched this document/page, you need to **scroll to the
 very bottom of the message**:
 
 .. figure:: ../img/user-manual/automates/04-ui-logs-v2.png
+
+  Figure 5
 
 
 Troubleshooting Mismatched Automates
@@ -172,4 +178,65 @@ automates. It is very intuitive how re-run automates:
 .. figure:: ../img/user-manual/automates/manually-run-automates-v2.png
   :alt: Manually run selected automates
 
-  Manually run selected automates
+  Figure 6 - Manually run selected automates
+
+Let's consider an example which will illustrate how Automates are
+troubleshooted. The goal is to create an Automate which will automatically
+move Schnell receipts to :menuselection:`Expenses --> Groceries` folder and
+will tag them with ``groceries``, ``receipt``, ``schnell`` tags.
+For this purpose, following Automate was created:
+
+.. figure:: ../img/user-manual/automates/automate-and-two-receipts.png
+
+  Figure 7
+
+Notice that ``Match`` field has as value one single lowercase keyword "schnell". ``Is case sensitive`` field is checked.
+
+For the beginning, two receipts shown in Figure 7 are uploaded to ``Inbox`` folder.
+
+.. note::
+
+  Automates are triggered for all :ref:`incoming documents
+  <incoming_documents>`, even if they are manually uploaded to ``Inbox``
+  folder. However, if you cut/paste document(s) from other folder to ``Inbox``
+  - automates **won't run**.
+
+To make sure that automates ran, check last entries in ``UI Logs``. Also, in
+``UI Logs`` you will see actual extracted text the automates were compared
+with. For Automate and receipts from Figure 7 - uploaded receipts still will
+be in ``Inbox``. The reason of that, is checked ``Is case sensitive``
+attribute: in extracted text for "schnell" all uppercase while our keyword is
+all lowercase.
+
+Let's try again. Use following steps:
+
+1. Uncheck ``Is case sensitive attribute``
+2. Save changes *schnell receipts* automate
+3. Select *schnell receipts* automate
+4. run Automate again using action drop down menu :menuselection:`Action --> Run selected automates --> Apply`
+
+
+You will notice that one of the two receipts moved indeed from ``Inbox`` folder to "Groceries" folder. Also it has applied all three tags as depicted in Figure 8.
+
+.. figure:: ../img/user-manual/automates/troubleshooting-automates-step-2.png
+  :scale: 80%
+
+  Figure 8 - after unchecking `Is case sensitive` attribute and running again Automate one of the two receipts was indeed moved from ``Inbox`` to :menuselection:`Expenses --> Groceries` folder and has all three tags applied.
+
+Why other receipt didn't match ? Let's have a closer look the UI Logs. Open last UI Log entry which starts with *Running automates for document brother_004026.pdf* text:
+
+.. figure:: ../img/user-manual/automates/ocr-engine-made-a-mistake.png
+  
+  Figure 9 - OCR engine got confused and extracted "SCHNEIL" instead of "SCHNELL"
+
+You see in Figure 9 above that OCR engine got confused and extracted slightly wrong text. To take into account this error as well, add to ``Match`` field of Automate "schneil" keyword as well:
+
+.. figure:: ../img/user-manual/automates/automate-with-two-keywords.png
+
+
+Notice that ``Matching Algorithm`` is ``Any``, this means that Automate will
+match if any mentioned keywords will match. After saving automate and
+rerunning automate - second receipt is successfully moved to Groceries folder
+and it has all three tags applied:
+
+.. figure:: ../img/user-manual/automates/correctly-applied-automates.png
