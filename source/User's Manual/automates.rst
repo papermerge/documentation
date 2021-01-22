@@ -240,3 +240,6 @@ rerunning automate - second receipt is successfully moved to Groceries folder
 and it has all three tags applied as you can see in picture below:
 
 .. figure:: ../img/user-manual/automates/correctly-applied-automates.png
+
+  Figure 10 - After two attempts finally Automate matched receipts and they were moved
+  into target folder.
