@@ -155,7 +155,21 @@ very bottom of the message**:
 .. figure:: ../img/user-manual/automates/04-ui-logs-v2.png
 
 
-Troubleshoot Mismatched Automates
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Troubleshooting Mismatched Automates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-work in progress...
+Writing Automates involves little bit of guesswork. Even if you know for sure
+that certain words will occur in the document, it will take couple of trial
+and error cycles until you'll end up with correct ``match`` field.
+
+To support this try-error cycle, with Papermerge you can manually trigger
+automates. It is very intuitive how re-run automates:
+
+1. Select Automate you wish to run
+2. Select ``Run selected automates`` in the action drop down on the right
+3. Click ``Apply`` button
+
+.. figure:: ../img/user-manual/automates/manually-run-automates-v2.png
+  :alt: Manually run selected automates
+
+  Manually run selected automates
