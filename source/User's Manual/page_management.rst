@@ -52,7 +52,7 @@ over page's thumbnail, two green arrows will appear. Click respective arrows to 
 
     Change order of the document pages
 
-For these changes to take effect you need to :menuselection:`Right Click--> Apply Reorder Changes`.
+For these changes to take effect you need to :menuselection:`Right Click --> Apply Reorder Changes`.
 
 .. warning::
 

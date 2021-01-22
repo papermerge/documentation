@@ -3,7 +3,16 @@
 Automates
 ============
 
-Watch following youtube screencast to see automates in action:
+Automates are very handy  if you want to apply automatically certain actions
+on incoming documents. For example, if document contains specific keywords
+(like groceries store name) then automatically add tag "groceries" on it. Even
+better use case would be: if document contains specific keywords apply
+"groceries" tag on the document AND move it from *Inbox* to
+:menuselection:`Expenses --> Groceries` folder. Incoming documents are those
+found in your *Inbox* folder.
+
+If you want to see automates in action watch following screencast. The rest of
+this chapter explains automate feature in detail.
 
 .. raw:: html
   
