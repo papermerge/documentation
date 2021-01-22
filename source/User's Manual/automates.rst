@@ -235,8 +235,8 @@ You see in Figure 9 above that OCR engine got confused and extracted slightly wr
 
 
 Notice that ``Matching Algorithm`` is ``Any``, this means that Automate will
-match if any mentioned keywords will match. After saving automate and
+match if any mentioned keywords will match. After saving and
 rerunning automate - second receipt is successfully moved to Groceries folder
-and it has all three tags applied:
+and it has all three tags applied as you can see in picture below:
 
 .. figure:: ../img/user-manual/automates/correctly-applied-automates.png
