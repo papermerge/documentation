@@ -233,6 +233,8 @@ You see in Figure 9 above that OCR engine got confused and extracted slightly wr
 
 .. figure:: ../img/user-manual/automates/automate-with-two-keywords.png
 
+  Figure 10
+
 
 Notice that ``Matching Algorithm`` is ``Any``, this means that Automate will
 match if any mentioned keywords will match. After saving and
@@ -241,5 +243,11 @@ and it has all three tags applied as you can see in picture below:
 
 .. figure:: ../img/user-manual/automates/correctly-applied-automates.png
 
-  Figure 10 - After two attempts finally Automate matched receipts and they were moved
+  Figure 11 - After two attempts finally Automate matched receipts and they were moved
   into target folder.
+
+Watch following screencast to see this troubleshooting use case in action:
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/825woFE5Cas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
