@@ -29,8 +29,10 @@ image to Papermerge - the 'document' will be processed. However, that jpeg
 format flower image is not a document in Papermerge sense.
 
 .. figure:: ../img/getting-started/pdf-png-jpeg-documents.png
+    :alt: documents created by ingest files of different formats
 
-	png and jpeg formats along with PDF are natively supported
+
+    Figure 1. Png and jpeg formats along with PDF are natively supported
 
 Usually office formats with .docx (Microsoft Word), .odt (Libre Office), .txt
 (plain text) are not good candidates for archiving - as by their nature they
@@ -77,6 +79,8 @@ hierarchical i.e. one folder can contain other folder(s) as well. This nesting
 
 .. figure:: ../img/getting-started/folder-with-tags.png
 
+    Figure 2. Folder with tags on it.
+
 The idea of using tags to organize your documents
 may be new for you though. Tags are kind of labels. You can associate
 (add) tags to a document or to a folder. Tags have a color and a name. Once
@@ -102,6 +106,9 @@ can move pages from one document into another (with cut and paste) and most
 importantly you can reorder document pages in case you need to do so.
 
 .. figure:: ../img/getting-started/blank-pages.png
+    :alt: blank pages in a document
+
+    Figure 3. Blank pages in a document.
 
 There is a separate chapter about :doc:`page_management` where you can learn
 details about this feature.
@@ -112,13 +119,15 @@ details about this feature.
 Metadata
 ##########
 
+Metadata is a very powerful concept and it marks the clear differences between
+an usual file browser and a system dedicated to manage your documents.
 Metadata is additional information about your folders, documents and pages. In
 other words - data about your data. Following picture is a (scanned document)
 receipt with highlighted shop name, price and date on it.
 
 .. figure:: ../img/getting-started/macgeiz-receipt-with-metadata.png
 
-   Receipt document with metadata
+   Figure 4. Receipt document with highlighted metadata.
 
 This additional information - shop name, price and date is so called
 document's **metadata**. It has two parts a label (in picture above ``shop``,
@@ -131,3 +140,17 @@ Metadata is extremely useful as search criteria when you need to locate
 specific document among many other very similar documents: for example if you
 need to find specific receipt issued by Mäc-Geiz company on May 27th, 2018
 among other several thousands Mäc-Geiz receipts.
+
+In Papermerge you can set metadata on folders, on documents and on each
+individual page of the document. Document's metadata can be viewed and edited
+on the right side in widgets panel. Additionally if you are inside folder with
+metadata attributes set, metadata information about each document (of current
+parent folder) is displayed in so called metacolumns as highlighted in Figure
+5.
+
+.. figure:: ../img/getting-started/metadata-metacolumn-and-widget-panel.png
+    :alt: document browser with highlighted metacolumn and highlighted widgets panel
+
+    Figure 5. Different ways to view metadata.
+
+Read more on this topic in chapter dedicated to :doc:`metadata`.
