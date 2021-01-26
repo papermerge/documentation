@@ -11,8 +11,9 @@ other words - data about your data. Following picture is a (scanned document)
 receipt with highlighted shop name, price and date on it.
 
 .. figure:: ../img/user-manual/metadata/01-macgeiz-receipt-with-metadata.png
+   :alt: document with metadata
 
-   Receipt with metadata
+   Figure 1. Receipt with metadata.
 
 This additional information - shop name, price and date is so called document's **metadata**. It has two parts a label (in picture above ``shop``, ``date`` and ``price`` are all labels) and a value (in example above values are ``Mäc-Geiz``, ``08.06.2020``, ``1.49`` for shop label, date label and price label respectively). Many times instead of term *label* term *key* is used.
 Metadata is extremely useful when you need to locate specific document among many other very similar documents.
@@ -32,10 +33,25 @@ add metadata to that folder - let's name it Groceries-2020 - and then just
 copy all groceries related files into that folder.
 
 .. figure:: ../img/user-manual/metadata/02-inherited-metadata.png
+   :alt: document inherits metadata attributes from its parent folder.
 
-   Metadata is inherited from folder to all documents within it
+   Figure 2. Documents inherit their metadata attributes from parent folder.
 
 
+.. note::
+
+    Folder is nothing more than a group of related documents. Thus, folders
+    are convient way to perform group operations on documents. In particular,
+    by assigning metadata attributes to a folder - you automatically create
+    those metadata attributes on all documents in the folder.
+
+Metadata and Nested Folders
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nested folder is a folder stored within another folder. Folders can be nested
+arbitrarely deep. Metadata inheritance from parent folder to containing
+document's makes perfect and it is easy to grasp. 
+A trickier situation is with nested folders.
 
 Add, Edit, Delete Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
