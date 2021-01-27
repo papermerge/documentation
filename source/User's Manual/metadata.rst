@@ -120,6 +120,17 @@ the context of "Groceries" folder:
     label ``amount`` cannot be edited in the context of folder "Groceries",
     because ``amount`` label was defined on parent folder - "Expenses".
 
+If you enter now "Groceries" folder and switch to list mode (and assuming you
+uploaded couple of documents to "Groceries" folder), you will see three
+metacolumns ``amount``, ``shop`` and ``date`` - all of which are empty now as
+neither of the documents has metadata values yet:
+
+
+.. figure:: ../img/user-manual/metadata/empty-metacolumns-v2.png
+
+    Figure 7. Empty metacolumns corresponding to metadata labels defined
+    on "Groceries" folder.
+
 Add, Edit, Delete Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -128,3 +139,13 @@ Depending on the context - adding or editing metadata differs slightly:
 while you are browsing files and documents you will be able to edit only
 metadata keys. However, in document viewer, you will be able to add or edit
 both keys and values for metadata.
+
+Metadata Types
+~~~~~~~~~~~~~~~~~
+
+Papermerge defines four different metadata types:
+
+1. Free form text
+2. Monetary
+3. Numeric
+4. Date
