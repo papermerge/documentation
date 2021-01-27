@@ -91,7 +91,7 @@ described in Figure 3 look in practice.
 
 .. figure:: ../img/user-manual/metadata/metadata-defined-on-expenses-folder-v2.png
 
-    Figure 4. Metadata label "amount" defined on "Expenses" folder.
+    Figure 4. Metadata label ``amount`` defined on "Expenses" folder.
 
 If you open "Expenses" folder and change view to list mode, among Type, Title
 and Created At columns you will see an extra column. That extra column is
@@ -101,7 +101,7 @@ is empty.
 
 .. figure:: ../img/user-manual/metadata/metacolumn-amount-v2.png 
 
-    Figure 5. Empty metacolumn corresponding to metadata label "amount" defined on "Expenses" folder.
+    Figure 5. Empty metacolumn corresponding to metadata label ``amount`` defined on "Expenses" folder.
 
 If you select "Groceries" folder, on the right side, in metadata widgets panel
 you will see three metadata label definitions - one of which is inherited.
@@ -117,8 +117,8 @@ the context of "Groceries" folder:
     Metadata labels can be edited ONLY on the folder on which they were
     defined. Conversely, inherited metadata labels (i.e. defined on parent or
     ancestor folders) cannot be edited. For example, in Figure 6, metadata
-    label "amount" cannot be edited on the context of folder "Groceries",
-    because that label was defined on parent folder - "Expenses".
+    label ``amount`` cannot be edited in the context of folder "Groceries",
+    because ``amount`` label was defined on parent folder - "Expenses".
 
 Add, Edit, Delete Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
