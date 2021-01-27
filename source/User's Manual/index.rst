@@ -27,6 +27,7 @@ detailed information.
    :maxdepth: 4
    
    getting_started
+   user_interface
    tags_and_folders
    page_management
    metadata

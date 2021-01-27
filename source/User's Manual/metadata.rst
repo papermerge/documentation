@@ -131,14 +131,41 @@ neither of the documents has metadata values yet:
     Figure 7. Empty metacolumns corresponding to metadata labels defined
     on "Groceries" folder.
 
-Add, Edit, Delete Metadata
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finally, in Figure 8 you see metacolumns with values. Note how convenient 
+it is to have data visualized this way: documents may be sorted and located by
+metadata values.
 
-Metadata is added/editing via metadata widget located on the right bar.
-Depending on the context - adding or editing metadata differs slightly: 
-while you are browsing files and documents you will be able to edit only
-metadata keys. However, in document viewer, you will be able to add or edit
-both keys and values for metadata.
+.. note::
+
+    At this point you need to fill in metadata values manually. However, in future versions
+    of Papermerge it will be possible to extract metadata (and thus to fill in those metacolumns)
+    automatically.
+
+
+.. figure:: ../img/user-manual/metadata/metacolumns-with-data-v2.png
+
+    Figure 8. Metacolumns with data values.
+
+Add and Edit Metadata
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Metadata is added/editing via metadata widget located on the right bar. For
+folders you can add/edit only metadata labels. For documents you can add/edit
+both labels and values (metadata labels are sometimes called keys). Documents
+metadata (both labels and values) can be edited in document browser as well as
+in document viewer. In document browser you can see metadata corresponding to
+specific document/folder either by selecting document/folder or by switching
+list mode.
+
+Delete Metadata
+~~~~~~~~~~~~~~~~
+
+.. danger::
+
+    When you delete **metadata label on a folder**, all data associated with
+    it i.e. all metadata values of respective label from all documents inside
+    respective folder will be irreversibly lost.
+
 
 Metadata Types
 ~~~~~~~~~~~~~~~~~
