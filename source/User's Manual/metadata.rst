@@ -103,9 +103,10 @@ is empty.
 
     Figure 5. Empty metacolumn corresponding to metadata label "amount" defined on "Expenses" folder.
 
-If you select "Groceries" folder, on the right side, in metadata widgets panel you
-will see three metadata label definitions - one of which is inherited. Notice
-that inherited metadata labels cannot edited while in "Groceries" folder:
+If you select "Groceries" folder, on the right side, in metadata widgets panel
+you will see three metadata label definitions - one of which is inherited.
+Notice that inherited metadata labels cannot edited while it is displayed in
+context of "Groceries" folder:
 
 .. figure:: ../img/user-manual/metadata/metadata-defined-on-groceries-folder-v2.png
 
