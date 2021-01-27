@@ -96,12 +96,20 @@ described in Figure 3 look in practice.
 If you open "Expenses" folder and change view to list mode, among Type, Title
 and Created At columns you will see an extra column. That extra column is
 called :ref:`metacolumn`. Metacolumns are there to display actual metadata values defined
-on the documents. At this moment there still no metadata values to display, thus metacolun
+on the documents. At this moment there still no metadata values to display, thus metacolumn
 is empty.
 
 .. figure:: ../img/user-manual/metadata/metacolumn-amount-v2.png 
 
     Figure 5. Empty metacolumn corresponding to metadata label "amount" defined on "Expenses" folder.
+
+If you select "Groceries" folder, on the right side metadata widgets panel you
+will see three metadata label definitions - one of which is inherited. Notice
+that inherited metadata labels cannot edited while in "Groceries" folder:
+
+.. figure:: ../img/user-manual/metadata/metadata-defined-on-groceries-folder-v2.png
+
+    Figure 6. Metadata label definitions on "Groceries" folder.
 
 Add, Edit, Delete Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
