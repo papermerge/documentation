@@ -105,8 +105,8 @@ is empty.
 
 If you select "Groceries" folder, on the right side, in metadata widgets panel
 you will see three metadata label definitions - one of which is inherited.
-Notice that inherited metadata labels cannot edited while it is displayed in
-context of "Groceries" folder:
+Notice that inherited metadata labels is not editable while it is displayed in
+the context of "Groceries" folder:
 
 .. figure:: ../img/user-manual/metadata/metadata-defined-on-groceries-folder-v2.png
 
@@ -114,10 +114,11 @@ context of "Groceries" folder:
 
 .. important::
     
-    Metadata labels can be edited ONLY on the folder on which they were defined.
-    Conversely, inherited metadata labels (i.e. defined on parent or ancestor folders)
-    cannot be edited. For example, in Figure 6, metadata label "amount" cannot be edited on the folder
-    "Groceries", because that label was defined on parent folder - "Expenses".
+    Metadata labels can be edited ONLY on the folder on which they were
+    defined. Conversely, inherited metadata labels (i.e. defined on parent or
+    ancestor folders) cannot be edited. For example, in Figure 6, metadata
+    label "amount" cannot be edited on the context of folder "Groceries",
+    because that label was defined on parent folder - "Expenses".
 
 Add, Edit, Delete Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
