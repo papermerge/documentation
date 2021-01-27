@@ -86,6 +86,22 @@ Metadata inheritance concept is very convenient because you don't need to
 define all metadata labels on each individual document, instead you define
 metadata only once on the folder containing documents.
 
+Following illustrations show you how folder structure and metadata definition
+described in Figure 3 look in practice.
+
+.. figure:: ../img/user-manual/metadata/metadata-defined-on-expenses-folder-v2.png
+
+    Figure 4. Metadata label "amount" defined on "Expenses" folder.
+
+If you open "Expenses" folder and change view to list mode, among Type, Title
+and Created At columns you will see an extra column. That extra column is
+called :ref:`metacolumn`. Metacolumns are there to display actual metadata values defined
+on the documents. At this moment there still no metadata values to display, thus metacolun
+is empty.
+
+.. figure:: ../img/user-manual/metadata/metacolumn-amount-v2.png 
+
+    Figure 5. Empty metacolumn corresponding to metadata label "amount" defined on "Expenses" folder.
 
 Add, Edit, Delete Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

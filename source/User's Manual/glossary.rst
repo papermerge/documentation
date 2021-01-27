@@ -64,4 +64,11 @@ He/she/it OCRed   They OCRed
 Incoming Documents
 ~~~~~~~~~~~~~~~~~~~~
 
-Documents which are in user's ``Inbox`` folder are called *Incoming Documents*. 
+Documents which are in user's ``Inbox`` folder are called *Incoming Documents*.
+
+.. _metacolumn:
+
+Metacolumn
+~~~~~~~~~~~~~
+
+Metacolumns are the columns displayed for metadata defined on current folder  
