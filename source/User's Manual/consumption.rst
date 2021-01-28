@@ -2,9 +2,14 @@
 Consumption
 =============
 
-Once you’ve got Papermerge up and running, you need to start feeding documents into it. Currently, there are four options: upload directly via web user interface, the importer directory, IMAP (email), and the REST API.
+Once you’ve got Papermerge up and running, you need to start feeding documents
+into it. Currently, there are four options: upload directly via web user
+interface, the importer directory, IMAP (email), and the REST API.
 
-Uploading document via web interface won't be explained here as it is very obvious. Uploading via REST API along with how to register a token is explained in :ref:`REST API <rest_api>`. Here we will focus on importing from a local directory and importing documents from an email account (imap).
+Uploading document via web interface won't be explained here as it is very
+obvious. Uploading via REST API along with how to register a token is
+explained in :ref:`REST API <rest_api>`. Here we will focus on importing from
+a local directory and importing documents from an email account (imap).
 
 
 .. _importer_directory:
