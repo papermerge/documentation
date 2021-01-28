@@ -14,17 +14,21 @@ referenced many times in this manual.
 Document Browser
 ~~~~~~~~~~~~~~~~~~
 
-Document browser (marked with number 1, green rectangle, in Figure 1) is
-designed to have similar look and feel of modern desktop file browsers. This
-is the place where you browse your documents and folders.
+In Figure 1. marked with number 1.
+
+Document browser is designed to have similar look and feel of modern desktop
+file browsers. This is the place where you browse your documents and folders.
 
 .. _ui_right_side_widgets_panel_in_doc_browser:
 
 Right Side Widgets Panel
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Figure 1. marked with number 2. Details of selected folder or document appear in so called Right Side Widgets Panel or simply
-Widgets Panel. There may be many different widgets, but three most important ones are:
+In Figure 1. marked with number 2.
+
+Details of selected folder or document appear in so called Right Side Widgets
+Panel or simply Widgets Panel. There may be many different widgets, but three
+most important ones are:
 
 * OCR Language Selector Widget
 * Basic Info Widget
@@ -42,9 +46,34 @@ Metadata Widget will display metadata of the currently selected folder or docume
 Left Side Navigation Menu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Figure 1 marked with number 3. This is main navigation menu. Immediately
-after sign in you will land in *Documents* menu which will display
-:ref:`ui_document_browser`. Depending on your role and permissions you may or
-may not see some menu items visible on Left Side Navigation Menu illustrated in Figure 1.
-For example if you don't have permissions to view/change other users, roles
-and groups - menu items user, roles and groups won't be displayed.
+In Figure 1 marked with number 3.
+
+This is main navigation menu. Immediately after sign in you will land in
+*Documents* menu which will display :ref:`ui_document_browser`. Depending on
+your role and permissions you may or may not see some menu items visible on
+Left Side Navigation Menu illustrated in Figure 1. For example if you don't
+have permissions to view/change other users, roles and groups - menu items
+user, roles and groups won't be displayed.
+
+.. _ui_user_menu:
+
+User Menu
+~~~~~~~~~~~
+
+In Figure 1 marked with number 4.
+
+It is almost a standard practice in almost any modern web applications to
+place their user sign out, user preferences menus in upper left corner of the
+application. In this regard Papermerge follows this best practice. Besides
+usual ``Sign out`` and ``Preferences`` menu items there will be ``Change
+Password`` menu item and link to (this) online Documentation. Depending on
+your role and permissions you may see additional menu items.
+
+
+Breadcrumb
+~~~~~~~~~~~~~
+
+
+
+Display Mode
+~~~~~~~~~~~~~~~
