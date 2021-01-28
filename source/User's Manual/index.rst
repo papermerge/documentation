@@ -33,6 +33,7 @@ detailed information.
    metadata
    automates
    consumption
+   rest_api
    document_pipelines
    glossary
    
