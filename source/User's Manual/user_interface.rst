@@ -36,16 +36,28 @@ Details of selected folder or document appear in so called Right Side Widgets
 Panel or simply Widgets Panel. There may be many different widgets, but three
 most important ones are:
 
-* OCR Language Selector Widget
-* Basic Info Widget
+* OCR Language Widget
+* Info Widget
 * Metadata Widget
 
-OCR language selector will always be displayed (when in Document Browser). OCR
+.. figure:: ../img/user-manual/user-interface/widgets-panel.png
+
+    Figure 2. Right Side Panel's Widgets display additional information about
+    selected documents or folders.
+
+OCR Language Widget will always be displayed (when in Document Browser). OCR
 language indicates in which language your documents will be :ref:`OCRed <ocr>`.
 
-Basic Info Widget displays basic information about currently selected document or folder. Among basic information like title, owner and creation date, it will display folder or document's associated tags.
+Basic Info Widget displays basic information about currently selected document
+or folder. Among basic information like title, owner and creation date, it
+will display folder or document's associated tags. In Info Widget there is (an
+extra obvious) download button. Note that with download button in Info Widget
+you will download only latest version of selected document (or folder
+content). In order to download older versions of the document you need to open
+document in document viewer.
 
 Metadata Widget will display metadata of the currently selected folder or document.
+
 
 .. _ui_left_side_nav_menu:
 
@@ -82,6 +94,10 @@ Breadcrumb
 
 In Figure 1 marked with number 5.
 
+.. figure:: ../img/user-manual/user-interface/breadcrumb.png
+
+    Figure 3. Breadcrumb example. Indicates full path to currently opened document receipt_5.pdf
+
 Breadcrumb indicates current (document or folder) path. It is usual part of any desktop
 file manager to have one sort of "current path indicator" - it is just called differently.
 For web applications such location indicator is usually called breadcrumb.
@@ -97,10 +113,18 @@ Display Mode
 
 In Figure 1 marked with number 6.
 
-With display mode you can switch between different modes in which folders and documents will be displayed in :ref:`ui_document_browser`:
+With display mode drop down menu you can switch between different modes in
+which folders and documents will be displayed in :ref:`ui_document_browser`.
+Currently two display modes are supported:
 
-* list mode
-* grid mode
+* list
+* grid
 
 Besides obvious visual difference there is one very important distinction
-between two display modes: :ref:`metadata_metacolumns` are displayed only in list mode.
+between two display modes: :ref:`metadata_metacolumns` are displayed only in
+list mode.
+
+
+.. figure:: ../img/user-manual/user-interface/display-mode.png
+
+    Figure 4. Display mode drop down menu.
