@@ -8,6 +8,7 @@ Setup
    downloading
    installation
    server_configuration
+   docker
    settings
    
    
