@@ -93,9 +93,14 @@ described in Figure 3 look in practice.
 
     Figure 4. Metadata label ``amount`` defined on "Expenses" folder.
 
+.. _metadata_metacolumns:
+
+Metacolumns
+~~~~~~~~~~~~~
+
 If you open "Expenses" folder and change view to list mode, among Type, Title
 and Created At columns you will see an extra column. That extra column is
-called :ref:`metacolumn`. Metacolumns are there to display actual metadata values defined
+called :ref:`glossary_metacolumn`. Metacolumns are there to display actual metadata values defined
 on the documents. At this moment there still no metadata values to display, thus metacolumn
 is empty.
 

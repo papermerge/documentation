@@ -66,7 +66,7 @@ Incoming Documents
 
 Documents which are in user's ``Inbox`` folder are called *Incoming Documents*.
 
-.. _metacolumn:
+.. _glossary_metacolumn:
 
 Metacolumn
 ~~~~~~~~~~~~~

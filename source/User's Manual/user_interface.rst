@@ -18,6 +18,12 @@ In Figure 1. marked with number 1.
 
 Document browser is designed to have similar look and feel of modern desktop
 file browsers. This is the place where you browse your documents and folders.
+The huge different between Papermerge's Document Browser  and usual desktop
+environment's file managers (e.g. `Windows File Manager
+<https://en.wikipedia.org/wiki/File_Explorer>`_) is that in Papermerge there
+are only two times of items - folders and documents. Documents are mainly PDF,
+jpeg, png and tiff file formats. There is no such thing as audio files or
+video files.
 
 .. _ui_right_side_widgets_panel_in_doc_browser:
 
@@ -69,11 +75,32 @@ usual ``Sign out`` and ``Preferences`` menu items there will be ``Change
 Password`` menu item and link to (this) online Documentation. Depending on
 your role and permissions you may see additional menu items.
 
+.. _ui_breadcrumb:
 
 Breadcrumb
 ~~~~~~~~~~~~~
 
+In Figure 1 marked with number 5.
 
+Breadcrumb indicates current (document or folder) path. It is usual part of any desktop
+file manager to have one sort of "current path indicator" - it is just called differently.
+For web applications such location indicator is usually called breadcrumb.
+
+.. note::
+
+    The term breadcrumb is a reference to the trail of bread crumbs left by Hansel and Gretel in the German fairy tale of the same name.
+
+.. _ui_display_mode:
 
 Display Mode
 ~~~~~~~~~~~~~~~
+
+In Figure 1 marked with number 6.
+
+With display mode you can switch between different modes in which folders and documents will be displayed in :ref:`ui_document_browser`:
+
+* list mode
+* grid mode
+
+Besides obvious visual difference there is one very important distinction
+between two display modes: :ref:`metadata_metacolumns` are displayed only in list mode.
