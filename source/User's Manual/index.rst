@@ -32,6 +32,7 @@ detailed information.
    page_management
    metadata
    automates
+   consumption
    document_pipelines
    glossary
    
