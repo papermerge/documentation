@@ -455,7 +455,7 @@ Remember to activate python virtual environment first:
 
     $ cd ~/PapermergeDMS
     $ source .venv/bin/activate
-    $ ./manage worker
+    $ ./manage.py worker
 
 Worker is the part which performs :ref:`ocr` process. For correct function of Papermerge you must have both parts
 running:
