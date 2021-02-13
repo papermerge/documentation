@@ -33,6 +33,26 @@ aware of  is the `DJANGO_SETTINGS_MODULE
 environment variable - which is Django specific. Learn more about Django's settings
 from `Django documentation <https://docs.djangoproject.com/en/3.1/topics/settings/#>`_.
 
+######################
+PAPERMERGE_ Prefix
+######################
+
+There is slight difference where you place papermerge settings enumerated below. In short, when placed in papermerge.conf.py file, they don't need ``PAPERMERGE_`` prefix, while if you place very same configuration in django settings file - it needs ``PAPERMERGE_`` prefix.
+
+Papermerge settings can be either in:
+
+1. papermerge.conf.py file
+2. django settings file (the one referenced by DJANGO_SETTINGS_MODULE environment variable)
+
+In ``papermerge.conf.py`` file configuration settings are without
+``PAPERMERGE_`` prefix, because all (well, 90%) of them are papermerge
+specific. In django settings file however, there are all sort of settings -
+for celery (prefixed with ``CELERY_``), for allauth (prefixed with ``ACCOUNT_``).
+Respectively settings for specific for
+papermerge are prefixed as well. Thus, any settings listed below, when added directly
+to django settings file - needs ``PAPERMERGE_`` prefix.
+
+Configuration file ``papermerge.conf.py`` is there for convenience. Most of the time you will need only that file.
 
 ###########################
 Main App, Worker or Both?
@@ -62,6 +82,7 @@ Some of the most used configurations which you might be interest in:
 * :ref:`media_dir` - location where all uploaded/imported documents are stored
 * :ref:`ocr_languages` - user can select one of those languages to perform :ref:`OCR <ocr>`
 * :ref:`ocr_default_language` - default language for :ref:`OCR <ocr>`
+
   
 ##################
 Paths and Folders
