@@ -108,28 +108,28 @@ Example::
 ``MEDIA_DIR``
 ~~~~~~~~~~~~~~
 
-  * ``/path/to/media/``
-  * context: ``main app, worker``
+* ``/path/to/media/``
+* context: ``main app, worker``
 
-  Defines directory where all uploaded documents will be stored.
+Defines directory where all uploaded documents will be stored.
 
-  By default uses a folder named ``media`` in project's local directory.
+By default uses a folder named ``media`` in project's local directory.
 
 .. _static_dir:
 
 ``STATIC_DIR``
 ~~~~~~~~~~~~~~~~
 
- * ``/path/to/collected/static/assets/``
- * context: ``main app``
+* ``/path/to/collected/static/assets/``
+* context: ``main app``
 
-  Location where all static assets of the project Papermerge project (javascript files, css files) will be copied by ``./manage collectstatic`` command.
+Location where all static assets of the project Papermerge project (javascript files, css files) will be copied by ``./manage collectstatic`` command.
 
-  By default uses a folder named `static` in project's local directory.
+By default uses a folder named `static` in project's local directory.
 
-  Example::
-      
-    STATIC_DIR = "/opt/papermerge/static/"
+Example::
+
+  STATIC_DIR = "/opt/papermerge/static/"
 
 
 ##################
@@ -144,13 +144,15 @@ from local directory.
 ``IMPORTER_DIR``
 ~~~~~~~~~~~~~~~~~
 
- * ``/path/where/documents/will/be/imported/from/``
- * context: ``worker``
+* ``/path/where/documents/will/be/imported/from/``
+* context: ``worker``
 
-  Location on local file system where Papermerge 
-  will try to import documents from.
+Location on local file system where Papermerge 
+will try to import documents from.
 
-  IMPORTER_DIR = "/opt/papermerge/import/"
+Example::
+
+IMPORTER_DIR = "/opt/papermerge/import/"
 
 #####
 OCR
@@ -166,16 +168,19 @@ OCR
   Addinational languages for text :ref:`OCR <ocr>`. A dictionary where key is `ISO 639-2/T code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_ and value human
   text name for language
 
-  Example::
+Example::
 
     OCR_LANGUAGES = {
         'heb': 'hebrew',
         'jpn': 'japanese'
     }
 
-Note that both `hebrew` and `japanes` language data for tesseract must be installed. You can check Tesseract's available languages with following command::
+Note that both `hebrew` and `japanes` language data for tesseract must be installed. You can check Tesseract's available languages with following command:
 
-  $ tesseract --list-langs
+.. code-block:: bash
+    :caption: List available languages
+
+    $ tesseract --list-langs
 
 Default value for OCR_LANGUAGES uses following value::
 
@@ -193,7 +198,7 @@ Default value for OCR_LANGUAGES uses following value::
 
 By default Papermerge will use language specified with this option to perform :ref:`OCR <ocr>`. Change this value for language used by majority of your documents.
 
-  Example:
+Example::
 
     OCR_DEFAULT_LANGUAGE = "spa"
 
@@ -271,11 +276,11 @@ For MySQL/MariaDB database (they share same database backend) use one of followi
 * maria
 * mariadb
 
-  Example:
+Example::
 
     DBTYPE = "mysql"
 
- .. _dbuser:
+.. _dbuser:
 
 ``DBUSER``
 ~~~~~~~~~~~
@@ -284,9 +289,9 @@ context: ``main app``
 
 DB user used for database connection.
 
-  Example:
+Example::
 
-    DBUSER = "john"
+  DBUSER = "john"
 
 .. _dbname:
 
@@ -317,9 +322,9 @@ context: ``main app``
    
 Database port. Port must be specified as integer number. No string quotes.
 
-  Example:
+Example::
 
-    DBPORT = 5432
+  DBPORT = 5432
 
 Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.
 
@@ -355,7 +360,7 @@ IMAP Server host.
 
 context: ``worker``
 
-Email account/IMAP user.
+Email account/IMAP user. IMAP user needs read and write access to IMAP "INBOX" folder.
 
 
 ``IMPORT_MAIL_PASS``
@@ -371,7 +376,7 @@ Email account/IMAP password.
 context: ``worker``
 
 IMAP folder to read email from.
-Default value for this settings is INBOX.
+Default value for this settings is "INBOX".
 
 ``IMPORT_MAIL_BY_USER``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
