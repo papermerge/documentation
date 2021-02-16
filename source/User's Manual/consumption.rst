@@ -21,7 +21,7 @@ You can point Papermerge to a specific directory on your local system and
 :ref:`worker <worker_command>` script will import all documents from that
 directory. Getting stuff into this directory is up to you. If you’re running
 Papermerge on your local computer, you might just want to drag and drop files
-there.  Imported documents will land in your Inbox folder.
+there. Imported documents will land in your superuser's Inbox folder.
 
 The configuration setting you are looking for is :ref:`IMPORTER_DIR <importer_dir>`. It points to the directory where all documents will be imported from. Example:
 
@@ -48,17 +48,37 @@ All imported documents will land in superuser's Inbox.
 IMAP (Email)
 ~~~~~~~~~~~~~
 
-Importing documents from an email account is very similar to importing documents from  a local directory. The following rules apply for email importing:
+Papermerge can import documents from an email account. This feature is somehow
+similar to importing documents from a local directory, but instead of a local
+path you need to provide details about an email account (email account = IMAP
+account). At very least you need to provide following :ref:`email importing
+settings <settings_email>`:
 
-1. Email importing settings must be defined on the worker side.
-2. Unless one of the ``IMPORTED_MAIL_BY_*`` is set, imported documents will end up in the first superuser's inbox.
-3. Settings are both global and per-user.
+1. ``IMPORT_MAIL_HOST`` - IMAP server hostname
+2. ``IMPORT_MAIL_USER`` - IMAP username
+3. ``IMPORT_MAIL_PASS`` - IMAP password
 
-The following are :ref:`email importing settings <settings_email>` you need to configure:
+.. note::
 
-* ``IMPORT_MAIL_HOST``
-* ``IMPORT_MAIL_USER``
-* ``IMPORT_MAIL_PASS``
+    Email importing settings must be defined on the worker side.
+
+with those three configurations worker will securely connect every 30 seconds
+to provided IMAP account and check for newly arrived **email messages with
+attachments**. By default email attachment's will end up in your superuser's
+Inbox.
+
+
+One IMAP Account Many Users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Adding all email attachments to your superuser Inbox is absolutely fine when
+superuser is the one and only user in Papermerge. However, if your Papermerge
+instance has multiple users, then assigning documents for specific Papermerge
+user's Inbox is little tricky.
+
+The following are you need to configure:
+
+
 * ``IMPORT_MAIL_BY_USER``
 * ``IMPORT_MAIL_BY_SECRET``
 * ``IMPORT_MAIL_DELETE``
