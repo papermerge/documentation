@@ -67,6 +67,7 @@ to provided IMAP account and check for newly arrived **email messages with
 attachments**. By default email attachment's will end up in your superuser's
 Inbox.
 
+.. _email_routing:
 
 One IMAP Account for Many Papermerge Users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

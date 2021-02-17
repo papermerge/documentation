@@ -344,7 +344,7 @@ Default value is empty string.
 EMail
 #######
 
-You can import documents directly from email/IMAP account. All EMail importer settings must be defined in papermerge.conf.py on worker side.
+You can import documents directly from email/IMAP account. All EMail importer settings must be defined in ``papermerge.conf.py`` on worker side. Read details about ingesting documents via IMAP account in :ref:`document consumption chapter <importer_imap>`.
 
 
 ``IMPORT_MAIL_HOST``
@@ -384,7 +384,8 @@ Default value for this settings is "INBOX".
 context: ``worker``
 
 Whether to allow users to receive in their inbox folder
-emails sent from their own email address.
+emails sent from their own email address. This capability of assigning attached documents to correct user's inbox is called *email routing* and is described at
+length in :ref:`email_routing`.
 
 ``IMPORT_MAIL_BY_SECRET``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -392,7 +393,8 @@ emails sent from their own email address.
 context: ``worker``
 
 Whether to allow users to receive in their inbox folder
-emails containing their own secret.
+emails containing their own secret. This capability of assigning attached documents to correct user's inbox is called *email routing* and is described at
+length in :ref:`email_routing`.
 
 ``IMPORT_MAIL_DELETE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
