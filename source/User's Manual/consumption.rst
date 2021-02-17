@@ -68,8 +68,8 @@ attachments**. By default email attachment's will end up in your superuser's
 Inbox.
 
 
-IMAP Account for Many Users
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+One IMAP Account for Many Papermerge Users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Adding all email attachments to your superuser Inbox is absolutely fine when
 superuser is the one and only user in Papermerge. However, if your Papermerge
@@ -89,7 +89,22 @@ The following configurations enable/disable respective matching features:
 user-configured email address and have them end up in their inbox. With this option enabled, Papermerge
 looks up email's "From" and "To" fields to decide from whom those documents are addressed. Document will end up in Papermerge user with same email address as either email's "From" or email's "To" field.
 
-``IMPORT_MAIL_BY_SECRET`` allows user to insert a per-user secret formatted as ``SECRET{<GENERATED_SECRET>}`` in their emails subject or emails body to have them put in their own inbox.
+Following picture illustrates how matching by user works:
+
+.. figure:: ../img/user-manual/consumption/match_by_user.svg
+    :alt: illustration shows how match by user feature works
+
+    Figure 1 - Decision to which Papermerge inbox assign the document is made based on email's "From" field. In this example all emails are sent to the same email address but **from** different senders.
+
+.. note::
+
+    You configure Papermerge with only one IMAP/email account.  
+
+``IMPORT_MAIL_BY_SECRET`` is yet another way to route email's attachments to correct Papermerge inbox. It this case a per-user secret in email body or email subject is the decision factor. Secret can be any text formatted as ``SECRET{<some-secret>}``. Note that secret should be placed either in emails subject or emails text body - but **NOT in the attachment**!
+
+Following picture illustrates how matching by secret works:
+
+    
 
 Notice that email matching feature must be enabled:
 
