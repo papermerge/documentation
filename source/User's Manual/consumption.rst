@@ -68,26 +68,35 @@ attachments**. By default email attachment's will end up in your superuser's
 Inbox.
 
 
-One IMAP Account Many Users
+IMAP Account for Many Users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Adding all email attachments to your superuser Inbox is absolutely fine when
 superuser is the one and only user in Papermerge. However, if your Papermerge
 instance has multiple users, then assigning documents for specific Papermerge
-user's Inbox is little tricky.
+user's Inbox is little tricky. There are couple ways to match incoming emails to
+specific Papermerge user:
 
-The following are you need to configure:
+1. matching by ""From:" fields (also called matching "by user")
+2. matching by special "secret" in email's subject or email's body 
+
+The following configurations enable/disable respective matching features:
+
+* ``IMPORT_MAIL_BY_USER`` = True | False
+* ``IMPORT_MAIL_BY_SECRET`` = True | False
+
+``IMPORT_MAIL_BY_USER`` allows user to send emails from their
+user-configured email address and have them end up in their inbox. With this option enabled, Papermerge
+looks up email's "From:" fields to decide from whom those documents are addressed. Document will end up in
+Papermerge user with same email address as email's "From:" field.
+
+``IMPORT_MAIL_BY_SECRET`` allows user to insert a per-user secret formatted as ``SECRET{<GENERATED_SECRET>}`` in their emails subject or emails body to have them put in their own inbox.
+
+Notice that email matching feature must be enabled:
+
+1. system wide using ``IMPORT_MAIL_BY_USER`` and/or ``IMPORT_MAIL_BY_SECRET`` in ``papermerge.conf.py`` file
+2. per user - in user preferences menu
 
 
-* ``IMPORT_MAIL_BY_USER``
-* ``IMPORT_MAIL_BY_SECRET``
-* ``IMPORT_MAIL_DELETE``
-
-The admin should set ``HOST``, ``USER``, and ``PASS`` to the credentials of the IMAP server to which users will send
-emails to have them processed by Papermerge. ``IMPORT_MAIL_BY_USER`` allows user to send emails from their
-user-configured email address and have them end up in their inbox if they so choose. ``IMPORT_MAIL_BY_SECRET``
-allows user to insert a per-user secret (formatted as ``SECRET{<GENERATED_SECRET>}``) in their emails to have them
-put in their own inbox. Finally if ``IMPORT_MAIL_DELETE`` is set then a processed email will be deleted from
+Finally if ``IMPORT_MAIL_DELETE`` is set to True then a processed email will be deleted from
 the mail account.
-
-
