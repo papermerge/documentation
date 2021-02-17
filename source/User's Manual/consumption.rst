@@ -97,7 +97,7 @@ Following picture illustrates how matching by user works:
 .. figure:: ../img/user-manual/consumption/match_by_user.svg
     :alt: illustration shows how match by user feature works
 
-    Figure 1 - Decision to which Papermerge inbox assign the document is made based on email's "From" field. In this example all emails are sent to the same email address but **from** different senders.
+    Figure 1.  Decision to which Papermerge inbox assign the document is made based on email's "From" field. In this example all emails are sent to the same email address but **from** different senders.
 
 .. note::
 
@@ -129,14 +129,17 @@ with be assigned to Papermerge user *john*.
 
     There are **no spaces between** keyword ``SECRET`` and ``{``
 
-Matching Must be Enabled per System And per User
-#################################################
-
 Notice that email matching feature must be enabled:
 
 1. system wide using ``IMPORT_MAIL_BY_USER`` and/or ``IMPORT_MAIL_BY_SECRET`` in ``papermerge.conf.py`` file
 2. per user - in user preferences menu
 
+If both configurations options ``IMPORT_MAIL_BY_USER`` and ``IMPORT_MAIL_BY_SECRET`` are set to ``False`` users won't see "Email Routing" configuration their preferences. If at lease one of above mentioned options is enabled users will see "Email Routing" preferences.
+
+.. figure:: ../img/user-manual/consumption/email-routing-in-preferences.svg
+    :alt: user preferences for email routing
+
+    Figure 2. User prefecenes for email routing appear only if one (or both) of ``IMPORT_MAIL_BY_USER``, ``IMPORT_EMAIL_BY_SECRET`` is (are) set to True.
 
 Finally if ``IMPORT_MAIL_DELETE`` is set to True then a processed email will be deleted from
 the mail account.
