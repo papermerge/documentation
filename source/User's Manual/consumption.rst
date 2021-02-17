@@ -139,7 +139,21 @@ If both configurations options ``IMPORT_MAIL_BY_USER`` and ``IMPORT_MAIL_BY_SECR
 .. figure:: ../img/user-manual/consumption/email-routing-in-preferences.svg
     :alt: user preferences for email routing
 
-    Figure 2. User prefecenes for email routing appear only if one (or both) of ``IMPORT_MAIL_BY_USER``, ``IMPORT_EMAIL_BY_SECRET`` is (are) set to True.
+    Figure 2. User preferences for email routing appear only if one (or both) of ``IMPORT_MAIL_BY_USER``, ``IMPORT_EMAIL_BY_SECRET`` is (are) set to True.
+
+.. figure:: ../img/user-manual/consumption/email-routing.svg
+    :alt: email routing preferences per user
+
+    Figure 3. Email routing preferences per user. Here user provides secret text without SECRET keyword
+    and without surrounding curly braces.
+
+.. note::
+
+    Note that secret text is always shown (unlike passwords which are hidden
+    from user's eyes) to users. Also, unlike passwords, secret text for email routing
+    is stored in database as clear text. It is so, because secret text used for email routing
+    is not used as user credential i.e. it doesn't grant you any privilege; you cannot open
+    any account with that "secret text" information so to speak.
 
 Finally if ``IMPORT_MAIL_DELETE`` is set to True then a processed email will be deleted from
 the mail account.
