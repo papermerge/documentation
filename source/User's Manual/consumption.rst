@@ -115,7 +115,7 @@ you need to surround it with ``SECRET{ ... }`` keyword. Note that keyword
 ``SECRET`` must be all capital-case and there are no spaces between opening
 curly brackets and word ``SECRET``, however there may be spaces between secret
 text and surrounding curly brackets. Papermerge looks for ``SECRET{
-<your-secret> }``in emails subject or emails text body - but **NOT in the
+... }`` in emails subject or emails text body - but **NOT in the
 attachment**!
 
 Let's consider an example: Papermerge user *john* in preferences enables *Email routing
