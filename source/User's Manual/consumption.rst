@@ -77,7 +77,7 @@ instance has multiple users, then assigning documents for specific Papermerge
 user's Inbox is little tricky. There are couple ways to match incoming emails to
 specific Papermerge user:
 
-1. matching by ""From:" fields (also called matching "by user")
+1. matching by "From" or "To" fields (also called matching "by user")
 2. matching by special "secret" in email's subject or email's body 
 
 The following configurations enable/disable respective matching features:
@@ -87,8 +87,7 @@ The following configurations enable/disable respective matching features:
 
 ``IMPORT_MAIL_BY_USER`` allows user to send emails from their
 user-configured email address and have them end up in their inbox. With this option enabled, Papermerge
-looks up email's "From:" fields to decide from whom those documents are addressed. Document will end up in
-Papermerge user with same email address as email's "From:" field.
+looks up email's "From" and "To" fields to decide from whom those documents are addressed. Document will end up in Papermerge user with same email address as either email's "From" or email's "To" field.
 
 ``IMPORT_MAIL_BY_SECRET`` allows user to insert a per-user secret formatted as ``SECRET{<GENERATED_SECRET>}`` in their emails subject or emails body to have them put in their own inbox.
 
