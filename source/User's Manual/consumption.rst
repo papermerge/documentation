@@ -150,9 +150,10 @@ If both configurations options ``IMPORT_MAIL_BY_USER`` and ``IMPORT_MAIL_BY_SECR
 .. note::
 
     Note that secret text is always shown (unlike passwords which are hidden
-    from user's eyes) to users. Also, unlike passwords, secret text for email routing
-    is stored in database as clear text. It is so, because secret text used for email routing
-    is not used as user credential i.e. it doesn't grant you any privilege; you cannot open
+    from user's eyes) to users. Also, unlike passwords, secret text for email
+    routing is stored in database as clear text. It is so, because secret text
+    used for email routing and is not used as user credentials of any kind
+    i.e. it doesn't grant you any privilege; in other words you cannot open
     any account with that "secret text" information so to speak.
 
 Finally if ``IMPORT_MAIL_DELETE`` is set to True then a processed email will be deleted from
