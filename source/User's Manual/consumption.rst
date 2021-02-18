@@ -91,7 +91,7 @@ Matching By User
 
 ``IMPORT_MAIL_BY_USER`` allows user to send emails from their
 user-configured email address and have them end up in their inbox. With this option enabled, Papermerge
-looks up email's "From" and "To" fields to decide from whom those documents are addressed. Document will end up in Papermerge user with same email address as either email's "From" or email's "To" field.
+looks up email's "From" and "To" fields to decide for who those documents are addressed. Document will end up in Papermerge user with same email address as either email's "From" or email's "To" field.
 
 Following picture illustrates how matching by user works:
 
