@@ -71,4 +71,11 @@ Documents which are in user's ``Inbox`` folder are called *Incoming Documents*.
 Metacolumn
 ~~~~~~~~~~~~~
 
-Metacolumns are the columns displayed for metadata defined on current folder  
+Metacolumns are the columns displayed for metadata defined on current folder.
+
+.. _dms:
+
+DMS
+~~~~~
+
+DMS = Document Management System

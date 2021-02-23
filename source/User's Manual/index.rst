@@ -31,6 +31,7 @@ detailed information.
    tags_and_folders
    page_management
    metadata
+   versions
    automates
    consumption
    rest_api
