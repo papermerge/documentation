@@ -11,36 +11,41 @@ archives management system.
 
 However, a great number of features requests were subject to debate, or just
 not suitable for majority of users. A very good example of such feature is
-duplicates removal. First of all, what is a duplicate? There are at least three possibilities:
+duplicates removal. First of all, how to define that a specific document is a
+duplicate (of other document)?
+
+There are at least three possibilities:
 
 1. duplicate are documents with same file name
 2. duplicates are documents with same digest value
 3. duplicates are those documents where extracted text is >= 95% similar (i.e. very similar)
 
-Each of points above has pros and cons. By default, Papermerge does not
-implement any of those points. If you upload same files (with same content and
-even same filename) it will gladly accept them. In the end, it is a matter of
-preference.
+Each of points above has pros and cons. Each of them may be right under
+specific circumstances and for specific user or company requirements. By
+default, Papermerge does not implement any of those points. Event more, if you
+upload same files (with same content and even same filename) it will gladly
+accept them. In the end, whole this document duplicates thingy is just a
+matter of preference.
 
 Apps were introduced to address such issues. App (or plugin if you like) is a
 way extend base Papermerge application. Continuing with above example with
 document duplicates, by adding/removing specific Papermerge app you can
-add/remove specific document duplicate removal criteria. This way, Papermerge
-base application, which is called Papermerge Core will contains only essential
+add/remove specific document duplicate detection criteria. This way, Papermerge
+base application, which is called Papermerge Core will contain only essential
 features.
 
 Papermerge Core
 ~~~~~~~~~~~~~~~~~
 
-Papermerge Core contains only features which are crucial for a document
-management system. Organizing documents with tags and
-folders are essential. Document versioning, metadata and OCR are indispensable
-features archives management system - thus they are part of the Core (core features).
 
-On the other hand, not everybody needs LDAP authentication, document
+On the other hand, document management system are complex applications, with
+rich set of requirements such as LDAP authentication, document electronic
+signatures and even such fancy things as data retention policies. Not
+everybody needs LDAP authentication though. Also, not everybody uses document
 electronic signatures and data retention policies. These type of features are
-good candidates for Papermerge apps. All non essential features will be
+very good candidates for Papermerge apps. All non essential features will be
 implemented as apps which can be easily plugged or removed.
+
 
 Meet Papermerge Apps
 ~~~~~~~~~~~~~~~~~~~~~
