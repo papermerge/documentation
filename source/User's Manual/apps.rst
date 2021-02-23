@@ -62,8 +62,14 @@ Notice that Papermerge Core app is part of every Papermerge project.
 Writing Basic App
 ~~~~~~~~~~~~~~~~~~
 
-Let's dive into a specific example and write a very simple app which will
-detect file name based document duplicates.
+The gory details of how to develop apps and include them into papermerge
+project are explained in contributing guide. Here, in user manual, only high
+level concepts are explained.
+
+Let's consider an app which will detect file name duplicates i.e. an app which
+if used, will issue an error when user tries to upload twice documents with same
+file names. Keep in mind that here the goal is to familiarize with general
+concepts.
 
 Inside Papermerge project create a new django app:
 
@@ -92,17 +98,26 @@ Also, change ``name`` and ``label`` app attributes as shown below:
         name = 'papermerge.filebased_unique'
         label = 'filebased_unique'
 
-The heart of papermerge.filebased_unique app is file models.py where core document model is extended
-as following:
+The heart of papermerge.filebased_unique app is file
+papermerge/filebased_unique/models.py where core document model is extended as
+following:
 
 .. code-block:: python
     :caption: extend document model
 
-    from papermerge.core.models import AbstractDocument
+    from django.core.exceptions import ValidationError
+    from papermerge.core.models import Document, AbstractDocument
 
 
     class DocumentPart(AbstractDocument):
-        """
-        Extend papermerge document model with extra features
-        """
-        pass
+
+        def clean(self):
+
+            file_name = self.get_file_name()
+
+            if Document.objects.filter(file_name=file_name).count() > 1:
+                raise ValidationError(
+                    "Document file_name duplicates detected"
+                )
+
+
