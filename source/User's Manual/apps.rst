@@ -61,3 +61,48 @@ Notice that Papermerge Core app is part of every Papermerge project.
 
 Writing Basic App
 ~~~~~~~~~~~~~~~~~~
+
+Let's dive into a specific example and write a very simple app which will
+detect file name based document duplicates.
+
+Inside Papermerge project create a new django app:
+
+.. code-block:: bash
+    :caption: create new app
+    
+    $ ./manage.py startapp filebased_unique
+
+To highlight that filebased_unique app is part of papermerge ecosystem, it will be moved into a namespace papermerge (which is just an extra folder):
+
+.. code-block:: bash
+    :caption: move filebased_unique django app inside papermerge folder
+    
+    $ mkdir papermerge
+    $ mv filebased_unique papermerge/
+
+Also, change ``name`` and ``label`` app attributes as shown below:
+
+.. code-block:: python
+    :caption: change ``name`` and ``label`` attributes
+    
+    from django.apps import AppConfig
+
+
+    class FilebasedUniqueConfig(AppConfig):
+        name = 'papermerge.filebased_unique'
+        label = 'filebased_unique'
+
+The heart of papermerge.filebased_unique app is file models.py where core document model is extended
+as following:
+
+.. code-block:: python
+    :caption: extend document model
+
+    from papermerge.core.models import AbstractDocument
+
+
+    class DocumentPart(AbstractDocument):
+        """
+        Extend papermerge document model with extra features
+        """
+        pass
