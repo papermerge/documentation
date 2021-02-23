@@ -127,3 +127,52 @@ following:
 
 
 Here is link to `app code <https://github.com/papermerge/papermerge-filebased-unique>`_ on GitHub.
+
+
+Document Parts
+~~~~~~~~~~~~~~~~
+
+Apps are there not just for adding extra validations, you can add extra fields
+to the core document as well.
+
+For example, in case you want to add a special UUID field to the document model, you can:
+
+.. code-block:: python
+    :caption: extend core document model with extra fields
+
+    import uuid
+    from django.db import models
+
+    from papermerge.core.models import AbstractDocument
+
+
+    class DocumentPart(AbstractDocument):
+
+        special_uuid = models.UUIDField(
+            default=uuid.uuid4,
+            editable=False
+        )
+
+Those extra fields added by apps to core document model - are called *document
+parts*. Papermerge application treats core document fields and those extra
+fields added by apps as one whole:
+
+
+.. figure:: ../img/user-manual/apps/document-parts.svg
+    :alt: Papermerge treats all document parts augmentet by apps as one whole
+
+    Figure 2. Papermerge treats all document parts augmentet by external apps as one whole.
+
+This way, any user or company, can extend core document model with whatever
+number of custom fields they wish without interfering with core application
+code.
+
+
+Document Widgets
+~~~~~~~~~~~~~~~~~
+
+.. note::
+
+    This feature is experimental.
+
+Each document part (i.e all those extra fields) will be visualized as widgets on the :ref:`ui_right_side_widgets_panel_in_doc_browser` along with metadata widget and basic info widget.
