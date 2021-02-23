@@ -121,3 +121,4 @@ following:
                 )
 
 
+Here is link to `app code <https://github.com/papermerge/papermerge-filebased-unique>`_ on GitHub.
