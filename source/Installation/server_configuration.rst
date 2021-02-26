@@ -146,7 +146,7 @@ Let's say papermerge.site. Here is configuration example for virtual host:
            Require all granted
         </Directory>
 
-        <Directory /var/startic/papermerge>
+        <Directory /var/static/papermerge>
           Require all granted
         </Directory>
 
