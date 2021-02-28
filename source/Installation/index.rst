@@ -8,6 +8,8 @@ Setup
    downloading
    installation
    server_configuration
+   backup
+   upgrading
    docker
    settings
    
