@@ -1,14 +1,14 @@
 Backup
 =======
 
-For peace of mind you always need to backup data. There three aspects of a full backup:
+For peace of mind you always need to backup data. There three aspects of full backup:
 
 * media directory
 * database
 * application version
 
-If all you want is to just to ensure a safe copy of you documents then you need to
-backup only your media directory.
+If all you want is to just to ensure safe copy of you documents then all you need to
+do is to backup media directory.
 If you want to create full snapshot (i.e you want to be able to restore full application state from specific moment in past) then you need media directory backup + database backup + Papermerge version
 of that specific moment in time.
 
