@@ -3,9 +3,13 @@ FROM python:3.7-alpine as build
 LABEL author="Eugen Ciur <eugen@papermerge.com>"
 
 WORKDIR /docs
+
 COPY Makefile requirements/base.txt ./
+COPY docker/dev/entrypoint.sh .
+RUN chmod +x /docs/entrypoint.sh
+
 RUN pip install -r base.txt
 
-VOLUME /docs/source
+VOLUME /docs/src
 
-CMD ["sphinx-autobuild", "--host", "0.0.0.0", "--port", "80", "/docs/source/", "/docs/_build/html"]
+ENTRYPOINT ["/docs/entrypoint.sh"]
