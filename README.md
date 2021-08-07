@@ -17,8 +17,8 @@ docker hub:
 
     $ docker pull papermerge/documentation
 
-``papermerge/documentation`` docker image exposes web service on port 80 i.e. it serves
-documentation in html format using nginx on port 80::
+``papermerge/documentation`` docker image exposes web service on port 80 i.e. it
+serves documentation in html format using nginx on port 80:
 
     $ docker run -d --name docs -p 9010:80 papermerge/documentation
 
@@ -47,4 +47,5 @@ was cloned into and from there run:
 Before making changes to documentations, please make sure that:
 
 1. Your English level is decent
-2. You understand the basics of [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) format
+2. You understand the basics of [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
+format
