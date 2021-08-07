@@ -94,9 +94,6 @@
     {% include "skip.html" %}
     {% include "header.html" %}
     <div class="content-wrapper md:overflow-hidden flex flex-col md:flex-row flex-1">
-      {%- if theme_show_nav|lower == 'true' -%}
-        {%- include "nav.html" %}
-      {%- endif %}
       <div id="main-wrapper" class="overflow-y-auto md:w-full flex flex-col flex-1">
         <main role="main" class="px-5 md:ml-fluid flex-1 {% if theme_show_nav|lower != 'true' -%}mx-auto{%- endif -%}">
           {%- if pagename != master_doc and theme_show_breadcrumbs|lower == 'true' %}
