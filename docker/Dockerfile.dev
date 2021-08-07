@@ -1,0 +1,11 @@
+FROM python:3.8-alpine as build
+
+LABEL author="Eugen Ciur <eugen@papermerge.com>"
+
+WORKDIR /docs
+COPY Makefile requirements/base.txt ./
+RUN pip install -r base.txt
+
+VOLUME /docs/source
+
+CMD ["sphinx-autobuild", "--host", "0.0.0.0", "--port", "80", "/docs/source/", "/manual/_build/html"]
