@@ -10,7 +10,6 @@ Documentation is divided into 4 sections:
 3. User's Manual
 4. Contributing
 
-
 ## Getting Started
 
 In order to browse documentation locally get its latest docker image from
@@ -41,7 +40,7 @@ Then pull ``papermerge/documentation-dev`` image from docker hub:
     $ docker pull papermerge/documentation-dev
 
 Change your current working directory to the folder where code
-was cloned into and from there run::
+was cloned into and from there run:
 
     $ docker run --name docs-dev  -p 9012:80 -v "$(pwd)/src:/docs/src" papermerge/documenation-dev
 
