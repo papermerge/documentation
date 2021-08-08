@@ -11,4 +11,6 @@ RUN pip install -r base.txt
 RUN sphinx-build -b html . build
 
 FROM nginx:1.21.1-alpine
+
+COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /docs/build/ /usr/share/nginx/html
