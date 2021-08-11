@@ -1,2 +1,4 @@
+*.crt
+*.key
 *.sublime-project
 *.sublime-workspace
