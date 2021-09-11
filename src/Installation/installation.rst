@@ -32,7 +32,7 @@ folder PapermergeDMS (located in home folder):
 .. code-block:: bash
     :caption: Clone repository
 
-    $ git clone --branch 1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
+    $ git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
 
 
 1. Install required Ubuntu 20.04 LTS deb packages:
