@@ -25,7 +25,7 @@ detailed information.
 
 .. toctree::
    :maxdepth: 4
-   
+
    getting_started
    user_interface
    tags_and_folders

@@ -86,4 +86,5 @@ designed for.
    Installation/index.rst
    Help/index.rst
    User's Manual/index.rst
+   roadmap.rst
    Contributing/index.rst
