@@ -12,12 +12,17 @@ LABEL author="Eugen Ciur <eugen@papermerge.com>"
 
 WORKDIR /docs
 
-COPY Makefile requirements/base.txt ./
-COPY src ./
+RUN apt-get update;
+RUN apt-get install -y --no-install-recommends \
+    build-essential \
+    git
 
-RUN pip install -r base.txt
-RUN sphinx-build -b html . build
+COPY . /docs/
+
+RUN pip install -r /docs/requirements/base.txt
+RUN sphinx-multiversion /docs/src/ build
 
 FROM nginx:1.21.1-alpine
 
 COPY --from=build /docs/build/ /usr/share/nginx/html
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
