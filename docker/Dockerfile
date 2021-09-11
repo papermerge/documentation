@@ -17,7 +17,9 @@ RUN apt-get install -y --no-install-recommends \
     build-essential \
     git
 
-COPY . /docs/
+RUN git clone --depth 1 https://github.com/papermerge/documentation.git /docs/
+RUN git fetch -t
+
 
 RUN pip install -r /docs/requirements/base.txt
 RUN sphinx-multiversion /docs/src/ build

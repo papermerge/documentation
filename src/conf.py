@@ -31,6 +31,9 @@ extensions = [
     "sphinx_multiversion",
 ]
 
+# Use branches from origin and upstream
+smv_remote_whitelist = r'^(origin|upstream)$'
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
