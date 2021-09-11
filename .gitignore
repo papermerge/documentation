@@ -2,3 +2,5 @@
 *.key
 *.sublime-project
 *.sublime-workspace
+build/
+.venv/
