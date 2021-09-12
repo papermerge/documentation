@@ -36,7 +36,8 @@ extensions = [
 #  origin/2.0.x   # 2.0.x branch
 #  origin/2.1.x   # 2.1.x branch
 #  origin/master  # master branch
-smv_remote_whitelist = r'^(origin/\d+\.\d+\.[\d+x]|origin/master)$'
+smv_remote_whitelist = r'^(origin)$'  # remote ref format
+smv_branch_whitelist = r'^(\d+\.\d+\.[\d+x]|master)$'  # branch format
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
