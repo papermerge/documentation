@@ -7,16 +7,16 @@ Edge, or Safari.
 
 .. note::
 
-    To **use** Papermerge all you need is just a modern web browser. Papermerge can be 
+    To **use** Papermerge all you need is just a modern web browser. Papermerge can be
     accessed and used **from any operating system** (provided a web browser). It can be
-    accessed via web browsers from Desktop computers, tablets or mobile phones. 
+    accessed via web browsers from Desktop computers, tablets or mobile phones.
 
 Like a typical web application it runs on server-side Linux or Unix-like computer. Thus, if you want
 to deploy and run Papermerge on your own, you need a Linux/Unix compatible operating system.
 
 .. note::
 
-    To **deploy** Papermerge you need a Linux or Unix-like operating system. 
+    To **deploy** Papermerge you need a Linux or Unix-like operating system.
 
 Following installation guide explains how to install and configure Papermerge
 on Ubuntu or Debian based Linux computer. With minor adjustments you must be
@@ -49,7 +49,7 @@ minimum required version for Django is 3.1. Generally speaking the fact that
 Papermerge is written in Django is not important for setup. You won't need to
 worry about exact version of Django (or other internal python libraries on
 which Papermerge depends) required as this details are conveniently covered by
-package management tools like ``pip``. 
+package management tools like ``pip``.
 
 Imagemagick
 ###########
