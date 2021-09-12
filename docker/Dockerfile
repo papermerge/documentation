@@ -17,7 +17,7 @@ RUN apt-get install -y --no-install-recommends \
     build-essential \
     git
 
-RUN git clone --depth 1 https://github.com/papermerge/documentation.git /docs/
+RUN git clone https://github.com/papermerge/documentation.git /docs/
 RUN git fetch -t
 
 
