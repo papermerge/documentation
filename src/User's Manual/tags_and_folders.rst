@@ -58,3 +58,27 @@ will be discarded and tag will not be created.
 
 
 .. figure:: ../img/tags/05-remember-the-comma.png
+
+###############
+Folders sharing
+###############
+
+.. warning::
+
+    Only folders under Documents tab can be shared between user.
+    Folders under Inbox tab are not going to be shared even though it's possible to set access.
+    
+.. note::
+
+    If you already set Access on the folder under Inbox tab by moving it into Document tab you can keep settings, and start proper sharing.
+
+Sharing can be done per user or per group.
+To share folder with a group you first have to create group, but it gives an advantage of applying sharing based on the group access rather than single user.
+
+To share the folder file:
+1. Select desired folder/files
+2. Right click on the folder
+3. Select Access submenu option
+4. On the new windows select `+Create`
+5. Select group or a user, choose Type of the permission, and options.
+6. Apply changes.
