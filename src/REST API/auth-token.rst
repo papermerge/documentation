@@ -1,4 +1,4 @@
-.. _auth_token:
+.. _api_auth_token:
 
 auth-token
 ===========
@@ -23,8 +23,8 @@ content-type: **application/json**
   }
 
 
-Response (success) / 200
---------------------------
+Response (success) / 200 OK
+---------------------------
 
 If provided credentials are correct, the response will have following format:
 

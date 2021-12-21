@@ -12,7 +12,7 @@ header with ``Token <token>`` value.
   have ``Authorization: Token <token>`` header.
 
 
-For authentication use :ref:`auth_token` endpoint.
+For authentication use :ref:`api_auth_token` endpoint.
 Example::
 
   curl -X POST \
