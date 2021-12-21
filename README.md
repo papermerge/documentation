@@ -16,7 +16,15 @@ Documentation is divided into four major sections:
 Papermerge documentation is availale at [https://docs.papermerge.io/](https://docs.papermerge.io/).
 
 
-## Docker - Production Image
+## Docker
+
+In order to ease distribution and development two docker images are provided:
+
+1. production
+2. development
+
+
+### Production Image
 
 In order to browse documentation **locally**, get its latest docker production
 image from docker hub:
@@ -29,7 +37,8 @@ it serves static html using nginx on port 80:
     docker run -d --name docs -p 9010:80 papermerge/documentation
 
 
-## Docker - Development Mode
+
+### Development Mode
 
 In development mode docker image ``papermerge/documentation-dev`` mounts
 local sources and:
@@ -51,7 +60,7 @@ was cloned into and from there run:
 
     docker run --name docs-dev  -p 9012:80 -v "$(pwd)/src:/docs/src" papermerge/documenation-dev
 
-In development mode only one    
+In development mode only one
 
 ## Contributors
 
