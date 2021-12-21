@@ -1,8 +1,7 @@
 # Papermerge - Documentation
 
-Papermerge documentation is based on [sphinx-doc]
-(https://www.sphinx-doc.org) which uses [reStructuredText]
-(https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) as
+Papermerge documentation is based on [sphinx-doc](https://www.sphinx-doc.org)
+which uses [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) as
 markup language.
 
 Documentation is divided into 4 sections:
