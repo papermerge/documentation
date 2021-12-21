@@ -34,10 +34,9 @@ detailed information.
    versions
    automates
    consumption
-   rest_api
    ocr_languages
    file_formats
    document_pipelines
    apps
    glossary
-   
+

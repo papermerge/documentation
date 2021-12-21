@@ -22,3 +22,4 @@ a reference (with examples) for each existing endpoint.
    overview
    authentication
    users
+   auth-token
