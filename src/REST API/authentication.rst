@@ -12,10 +12,16 @@ header with ``Token <token>`` value.
   have ``Authorization: Token <token>`` header.
 
 
-For authentication use ``/auth-token/`` endpoint.
+For authentication use :ref:`auth_token` endpoint.
 Example::
 
   curl -X POST \
     <server-url>/auth-token/ \
     -H 'Content-Type: application/json' \
     -d '{"username":"john","password":"<password here>"}'
+
+When credentials are correct, response will have status 200 OK, ``content-type`` will be``application/json`` and response will have following body::
+
+  {
+    "token": <your token here>
+  }
