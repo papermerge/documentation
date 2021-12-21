@@ -13,14 +13,20 @@ header with ``Token <token>`` value.
 
 
 For authentication use :ref:`api_auth_token` endpoint.
-Example::
+Example:
+
+.. code-block:: bash
 
   curl -X POST \
     <server-url>/auth-token/ \
     -H 'Content-Type: application/json' \
     -d '{"username":"john","password":"<password here>"}'
 
-When credentials are correct, response will have status 200 OK, ``content-type`` will be``application/json`` and response will have following body::
+When credentials are correct, response will have status 200 OK,
+``content-type`` will be ``application/json`` and response will have
+following body:
+
+.. code-block:: bash
 
   {
     "token": <your token here>

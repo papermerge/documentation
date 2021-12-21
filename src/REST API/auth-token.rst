@@ -1,6 +1,6 @@
 .. _api_auth_token:
 
-auth-token
+Auth-token
 ===========
 
 
