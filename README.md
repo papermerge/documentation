@@ -60,7 +60,7 @@ was cloned into and from there run:
 
     docker run --name docs-dev  -p 9012:80 -v "$(pwd)/src:/docs/src" papermerge/documenation-dev
 
-In development mode only one
+In development mode only one documentation version (which corresponds to mounted sources) is rendered.
 
 ## Contributors
 
