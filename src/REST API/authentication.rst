@@ -1,6 +1,11 @@
 Authentication
 ================
 
+.. warning::
+
+  REST API described here is work in progress. It changes
+  along with the development of `Papermerge Core <https://github.com/papermerge/papermerge-core>`_ in master branch.
+
 Papermerge REST API backend uses **token based** authentication, this means that you will need to send your
 credentials to the server and it will respond (in case credentials are correct)
 with a token. For all subsequent requests, you will need to append ``Authorization``

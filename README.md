@@ -9,7 +9,7 @@ Documentation is divided into 4 sections:
 1. Installation
 2. Help
 3. User's Manual
-4. Contributing
+4. REST API
 
 
 ## Getting Started
