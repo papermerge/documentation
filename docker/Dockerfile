@@ -18,9 +18,10 @@ RUN apt-get install -y --no-install-recommends \
     build-essential \
     git
 
-# git cloning here is required
-# Sphinx version will look at the repository branches to learn
-# about different version (2.0.x, 2.1.x, 2.2.x etc)
+# Git cloning here is required.
+# Sphinx-multiversion will look at the repository branches to learn
+# about different version (2.0.x, 2.1.x, 2.2.x etc) and generate
+# documentation for each git branch separetly
 RUN git clone https://github.com/papermerge/documentation.git /docs/
 RUN git fetch -t
 
