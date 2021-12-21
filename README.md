@@ -11,9 +11,9 @@ Documentation is divided into four major sections:
 3. User's Manual
 4. REST API
 
-## Online Verion
+## Online Version
 
-Papermerge documentation is availale at [https://docs.papermerge.io/](https://docs.papermerge.io/).
+Papermerge documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/).
 
 
 ## Docker
@@ -70,7 +70,7 @@ Before making changes to documentations, please make sure that:
 2. You understand the basics of [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
 format
 
-## Repository Branches / Multiversions
+## Repository Branches / Multi-versions
 
 For each papermerge major version there is separate repository branch in this
 repository.
