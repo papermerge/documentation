@@ -4,7 +4,7 @@ REST API
 .. warning::
 
   REST API described here is work in progress. It changes
-  along with the development of [Papermerge Core](https://github.com/papermerge/papermerge-core) in master branch.
+  along with the development of `Papermerge Core <https://github.com/papermerge/papermerge-core>`_ in master branch.
 
 REST API is the main interface with Papermege backend server. This basically
 means that whataver capabilities backend features, they can be consumed via
