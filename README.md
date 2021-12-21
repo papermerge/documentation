@@ -17,12 +17,12 @@ Documentation is divided into 4 sections:
 In order to browse documentation locally get its latest docker image from
 docker hub:
 
-    $ docker pull papermerge/documentation
+    docker pull papermerge/documentation
 
 ``papermerge/documentation`` docker image exposes web service on port 80 i.e. it
 serves documentation in html format using nginx on port 80:
 
-    $ docker run -d --name docs -p 9010:80 papermerge/documentation
+    docker run -d --name docs -p 9010:80 papermerge/documentation
 
 
 ## Development Mode
