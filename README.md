@@ -4,7 +4,7 @@ Papermerge documentation is based on [sphinx-doc](https://www.sphinx-doc.org)
 which uses [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) as
 markup language.
 
-Documentation is divided into 4 sections:
+Documentation is divided into four major sections:
 
 1. Installation
 2. Help
@@ -13,18 +13,18 @@ Documentation is divided into 4 sections:
 
 ## Online Verion
 
-Online version of Papermerge documentation is availale [here](https://docs.papermerge.io/)
+Papermerge documentation is availale at [https://docs.papermerge.io/](https://docs.papermerge.io/).
 
 
 ## Docker - Production Image
 
-In order to browse documentation **locally** get its latest docker production image from
-docker hub:
+In order to browse documentation **locally**, get its latest docker production
+image from docker hub:
 
     docker pull papermerge/documentation
 
-``papermerge/documentation`` docker image exposes web service on port 80 i.e. it
-serves documentation in html format using nginx on port 80:
+``papermerge/documentation`` docker image exposes web service on port 80 i.e.
+it serves static html using nginx on port 80:
 
     docker run -d --name docs -p 9010:80 papermerge/documentation
 
@@ -32,7 +32,7 @@ serves documentation in html format using nginx on port 80:
 ## Docker - Development Mode
 
 In development mode docker image ``papermerge/documentation-dev`` mounts
-local documentation source and:
+local sources and:
 
 1. serves it via port 80
 2. automatically rebuilds (regenerates html files) when you change source code
@@ -51,6 +51,8 @@ was cloned into and from there run:
 
     docker run --name docs-dev  -p 9012:80 -v "$(pwd)/src:/docs/src" papermerge/documenation-dev
 
+In development mode only one    
+
 ## Contributors
 
 Before making changes to documentations, please make sure that:
@@ -59,7 +61,7 @@ Before making changes to documentations, please make sure that:
 2. You understand the basics of [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
 format
 
-## Repository Branches
+## Repository Branches / Multiversions
 
 For each papermerge major version there is separate repository branch in this
 repository.
