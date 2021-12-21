@@ -3,7 +3,7 @@ Setup
 
 .. toctree::
    :maxdepth: 4
-   
+
    requirements
    downloading
    installation
@@ -12,5 +12,4 @@ Setup
    upgrading
    docker
    settings
-   
-   
+

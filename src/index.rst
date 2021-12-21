@@ -27,7 +27,7 @@ What It Does
 
 What It Doesn't Do
 ~~~~~~~~~~~~~~~~~~~~
- 
+
 * It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time
 * It does **not** stay in your way when you make decisions about your data
 * It does **not** overwrite your original documents
@@ -62,7 +62,7 @@ Papermerge.
 A picture made with your phone of a A4 paper document is ragarded by papermege
 as full fledged document, even though digitally it is stored as jpeg or png
 format. You can think of a picture made with a phone (of a document) as a bad
-quality scan. 
+quality scan.
 
 What is Not a Document?
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,7 +78,6 @@ and import it in Papermege, but again - this is not what Papermerge was
 designed for.
 
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -86,5 +85,5 @@ designed for.
    Installation/index.rst
    Help/index.rst
    User's Manual/index.rst
+   REST API/index.rst
    roadmap.rst
-   Contributing/index.rst

@@ -22,7 +22,7 @@ you will *sign in* with a token (a fancy name for sequence of numbers and letter
 from practically any software which supports http protocol.
 
 Thus, working with REST API is two step process:
-    
+
 1. get a token
 2. use the token from 3rd party REST API client
 
