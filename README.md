@@ -11,10 +11,14 @@ Documentation is divided into 4 sections:
 3. User's Manual
 4. REST API
 
+## Online Verion
 
-## Getting Started
+Online version of Papermerge documentation is availale [here](https://docs.papermerge.io/)
 
-In order to browse documentation locally get its latest docker image from
+
+## Docker - Production Image
+
+In order to browse documentation **locally** get its latest docker production image from
 docker hub:
 
     docker pull papermerge/documentation
@@ -25,7 +29,7 @@ serves documentation in html format using nginx on port 80:
     docker run -d --name docs -p 9010:80 papermerge/documentation
 
 
-## Development Mode
+## Docker - Development Mode
 
 In development mode docker image ``papermerge/documentation-dev`` mounts
 local documentation source and:
@@ -47,6 +51,8 @@ was cloned into and from there run:
 
     docker run --name docs-dev  -p 9012:80 -v "$(pwd)/src:/docs/src" papermerge/documenation-dev
 
+## Contributors
+
 Before making changes to documentations, please make sure that:
 
 1. Your English level is decent
@@ -57,7 +63,9 @@ format
 
 For each papermerge major version there is separate repository branch in this
 repository.
-For example: Papermerge 2.0.x documentation can be found in branch 2.0.x of this
-repository. Papermerge 2.1.x documentation is found in branch 2.1.x.
+
+Papermerge 2.0.x documentation can be found in branch 2.0.x of this
+repository.
+Papermerge 2.1.x documentation is found in branch 2.1.x.
 Master branch in this repository corresponds to latest (in development) version
 of papermerge.
