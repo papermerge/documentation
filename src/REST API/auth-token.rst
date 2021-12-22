@@ -7,11 +7,11 @@ Auth-token
 .. http:POST:: /auth-token/
   :noindex:
 
-  Authenticates user with given username and password. Response will contain token to be used as part of Authorization header in subsequent (which require authorization).
+  Authenticates user with given username and password. Response will contain token to be used as part of Authorization header in subsequent requests whenever authorization is required.
 
   :reqheader Content-Type: application/json
   :status 200: on successfull authentication
-  :status 400: when json fields like username or password are missing
+  :status 400: when credentials are wrong OR when mandatory json fields (username, password) are missing
 
   **Request Body Schema**
 

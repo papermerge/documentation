@@ -10,7 +10,7 @@ In order to use REST API interface you need an http client. Probably the most
 wide-spread (and free) http client is `cUrl <https://en.wikipedia.org/wiki/CURL>`_.
 
 Another convenient, free to use and with graphical user interface http client is
-`Postman <https://www.postman.com/>`.
+`Postman <https://www.postman.com/>`_.
 
 In following sections cUrl will be used to illustrate examples of usages.
 
