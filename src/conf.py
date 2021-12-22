@@ -29,6 +29,7 @@ author = 'Eugen Ciur'
 # ones.
 extensions = [
     "sphinx_multiversion",
+    "sphinxcontrib.httpdomain"
 ]
 
 # Match as remote branch any git ref of following format.

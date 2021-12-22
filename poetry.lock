@@ -284,6 +284,18 @@ lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest", "html5lib"]
 
 [[package]]
+name = "sphinxcontrib-httpdomain"
+version = "1.8.0"
+description = "Sphinx domain for documenting HTTP APIs"
+category = "main"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+six = "*"
+Sphinx = ">=1.6"
+
+[[package]]
 name = "sphinxcontrib-jsmath"
 version = "1.0.1"
 description = "A sphinx extension which renders display math in HTML via JavaScript"
@@ -342,7 +354,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8"
-content-hash = "251cb16b85773b5483dc0404925a0c76ee15d0a61bf5527dd635d55e125d6dd0"
+content-hash = "139c2621e7c58b638d42d4088fa53f4e19a3580b3bcc9b14aaaa41f9a86ea0e3"
 
 [metadata.files]
 alabaster = [
@@ -510,6 +522,10 @@ sphinxcontrib-devhelp = [
 sphinxcontrib-htmlhelp = [
     {file = "sphinxcontrib-htmlhelp-2.0.0.tar.gz", hash = "sha256:f5f8bb2d0d629f398bf47d0d69c07bc13b65f75a81ad9e2f71a63d4b7a2f6db2"},
     {file = "sphinxcontrib_htmlhelp-2.0.0-py2.py3-none-any.whl", hash = "sha256:d412243dfb797ae3ec2b59eca0e52dac12e75a241bf0e4eb861e450d06c6ed07"},
+]
+sphinxcontrib-httpdomain = [
+    {file = "sphinxcontrib-httpdomain-1.8.0.tar.gz", hash = "sha256:2059cfabd0cca8fcc3455cc8ffad92f0915a7d3bb03bfddba078a6a0f35beec5"},
+    {file = "sphinxcontrib_httpdomain-1.8.0-py2.py3-none-any.whl", hash = "sha256:a3396d6350728d574f52458b400f0ac848f8b6913bd41fed95d391d3ffbbade3"},
 ]
 sphinxcontrib-jsmath = [
     {file = "sphinxcontrib-jsmath-1.0.1.tar.gz", hash = "sha256:a9925e4a4587247ed2191a22df5f6970656cb8ca2bd6284309578f2153e0c4b8"},

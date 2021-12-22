@@ -3,80 +3,86 @@
 Auth-token
 ===========
 
-.. warning::
 
-  REST API described here is work in progress. It changes
-  along with the development of `Papermerge Core <https://github.com/papermerge/papermerge-core>`_ in master branch.
+.. http:POST:: /auth-token/
+  :noindex:
 
+  Authenticates user with given username and password. Response will contain token to be used as part of Authorization header in subsequent (which require authorization).
 
-POST /auth-token/
-******************
+  :reqheader Content-Type: application/json
+  :status 200: on successfull authentication
+  :status 400: when json fields like username or password are missing
 
-Authenticates user with given username and password. Response will contain token to be used
-for subsequent requests. Notice the slash ``/`` at the end of endpoint.
+  **Request Body Schema**
 
-Request
---------
+  .. code-block:: bash
 
-content-type: **application/json**
+    {
+      username*: string
+      password*: string
+    }
 
-.. code-block:: bash
+  **200 - Response Body Schema**
 
-  {
-    username*: string
-    password*: string
-  }
+  .. code-block:: bash
 
+    {
+      token: string
+    }
 
-Response (success) / 200 OK
----------------------------
+  **400 - Response Body Schema**
 
-If provided credentials are correct, the response will have following format:
+  If provided credentials are wrong, the response's body will have following structure:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-  {
-    token: string
-  }
+    {
+      non_field_errors: [
+        "Unable to log in with provided credentials."
+      ]
+    }
 
-Response (error) / 400 Bad Request
-------------------------------------
+  In case request missed (or misspelled) username field, the reponse's body will be:
 
-If provided credentials are wrong, the response will have following:
+  .. code-block:: bash
 
-.. code-block:: bash
-
-  {
-    non_field_errors: [
-      "Unable to log in with provided credentials."
-    ]
-  }
-
-In case request missed (or misspelled) username field, the reponse will be (with status 400 Bad Request):
-
-.. code-block:: bash
-
-  {
-    username: [
-      "This field is required."
-    ]
-  }
+    {
+      username: [
+        "This field is required."
+      ]
+    }
 
 
-Examples
---------
+  **Example Request**
 
-.. code-block:: bash
+  .. sourcecode:: http
 
-  curl -X POST \
-    <server-url>/auth-token/ \
-    -H 'Content-Type: application/json' \
-    -d '{"username":"john","password":"<password here>"}'
+    POST /http-auth/ HTTP/1.1
+    Host: example.com
+    Accept: application/json
+    Content-Type: application/json
 
-When credentials are correct, response will have status 200 OK, ``content-type`` will be``application/json`` and response will have following body:
+    {
+      "username": "john",
+      "password": "password"
+    }
 
-.. code-block:: bash
 
-  {
-    "token": <your token here>
-  }
+  **Example Response**
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "token": "12caf9840aeb6bafa3a218e321c19095c70de298"
+    }
+
+  **Example with cURL**
+
+  .. code-block:: bash
+
+    curl -X POST <server-url>/auth-token/ \
+      -H 'Content-Type: application/json' \
+      -d '{"username":"john","password":"password"}'

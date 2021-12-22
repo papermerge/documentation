@@ -3,4 +3,5 @@
 *.sublime-project
 *.sublime-workspace
 build/
+_build/
 .venv/
