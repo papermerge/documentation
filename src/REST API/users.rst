@@ -275,14 +275,83 @@ PATCH /users/{id}/
 
   Updates user
 
+  :reqheader Content-Type: application/vnd.api+json
+  :reqheader Authorization: Token <token>
+  :status 200: on successful user update
+  :status 404: when user with given ID does not exists
+
+  **Request Body Schema**
+
+  .. code-block:: bash
+
+    {
+      type: "users",
+      id: string,
+      attributes: {
+        username: string,
+        first_name: string,
+        last_name: string,
+        email: string,
+        is_active: boolean,
+        is_staff: boolean,
+        is_superuser: boolean,
+        date_joined: datetime
+      },
+      relationships: {
+        inbox_folder: {
+          data: {
+              type: "folders",
+              id: string
+          }
+        },
+        home_folder: {
+          data: {
+              type: "folders",
+              id: string
+          }
+        }
+      }
+    }
+
 .. _api_post_users_id_change_password:
 
 POST /users/{id}/change-password/
 ----------------------------------
 
+.. note::
+
+  For this endpoint Content-Type header must be **application/json**
+
 .. http:POST:: /users/{id}/change-password/
 
   Change user password
+
+  :reqheader Content-Type: application/json
+  :reqheader Authorization: Token <token>
+  :status 200: on successful password update
+  :status 404: when user with given ID does not exists
+
+
+  **Request Body Schema**
+
+  .. code-block:: bash
+
+    {
+      password: string
+    }
+
+  **Request Example**
+
+  .. sourcecode:: http
+
+    POST /users/2/change-password/ HTTP/1.1
+    Content-Type: application/json
+    Host: example.com
+
+    {
+      "password": "newpassword"
+    }
+
 
 .. _api_get_users_me:
 
