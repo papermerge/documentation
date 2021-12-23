@@ -9,6 +9,11 @@ Users
   along with the development of `Papermerge Core <https://github.com/papermerge/papermerge-core>`_ in master branch.
 
 
+.. _api_get_users:
+
+GET /users/
+-------------
+
 .. http:GET:: /users/
 
   Retrieves information about all users
@@ -16,7 +21,6 @@ Users
   :reqheader Content-Type: application/vnd.api+json
   :reqheader Authorization: Token <token>
   :status 200: on success
-  :status 400: when request does not contain valid schema
 
 
   **200 - Response Body Schema**
@@ -24,6 +28,12 @@ Users
   .. code-block:: bash
 
     {
+      links: {
+        first: string,
+        last: string,
+        next: string,
+        prev: string
+      },
       data: [  # an array of users
         { # user instance BEGIN
           type: "users",
@@ -53,9 +63,20 @@ Users
             }
           }
         }  # user instance END
-      ]
+      ],
+      meta: {
+        pagination: {
+            page: integer,
+            pages: integer,
+            count: integer
+        }
+      }
     }
 
+.. _api_post_users:
+
+POST /users/
+-------------
 
 .. http:POST:: /users/
 
@@ -128,24 +149,145 @@ Users
   two special folders *inbox* and *home*. The IDs of these special folders is included in http the reponse (``relationships`` field). Use can use IDs of those folders to query their content.
 
 
+.. _api_get_users_id:
+
+GET /users/{id}/
+-----------------
+
 .. http:GET:: /users/{id}/
 
   Retrieve information about user
+
+  :reqheader Content-Type: application/vnd.api+json
+  :reqheader Authorization: Token <token>
+  :status 200: on success
+  :status 404: when user with given ID does not exists
+
+  **200 - Response Body Schema**
+
+  .. code-block:: bash
+
+    {
+      type: "users",
+      id: string,
+      attributes: {
+        username: string,
+        first_name: string,
+        last_name: string,
+        email: string,
+        is_active: boolean,
+        is_staff: boolean,
+        is_superuser: boolean,
+        date_joined: datetime
+      },
+      relationships: {
+        inbox_folder: {
+          data: {
+              type: "folders",
+              id: string
+          }
+        },
+        home_folder: {
+          data: {
+              type: "folders",
+              id: string
+          }
+        }
+      }
+    }
+
+
+  **404 - Response**
+
+  .. sourcecode:: http
+
+    HTTP/1.1 404 Not Found
+    Content-Type: application/vnd.api+json
+
+    {
+      "errors": [
+        {
+          "detail": "Not found.",
+          "status": "404",
+          "code": "not_found"
+        }
+      ]
+    }
+
+
+  **Example Response**
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
+
+    {
+      "data": {
+        "type": "users",
+        "id": "2",
+        "attributes": {
+          "username": "john",
+          "first_name": "",
+          "last_name": "",
+          "email": "john@example.com",
+          "is_active": true,
+          "is_staff": false,
+          "is_superuser": false,
+          "date_joined": "2021-12-21T10:55:18.976430Z"
+        },
+        "relationships": {
+          "inbox_folder": {
+            "data": {
+                "type": "folders",
+                "id": "4"
+            }
+          },
+          "home_folder": {
+            "data": {
+              "type": "folders",
+              "id": "5"
+            }
+          }
+        }
+      }
+    }
+
+.. _api_delete_users_id:
+
+DELETE /users/{id}/
+--------------------
 
 .. http:DELETE:: /users/{id}/
 
   Deletes user
 
+  :reqheader Authorization: Token <token>
+  :status 204: on successful user deletion
+  :status 404: when user with given ID does not exists
+
+.. _api_patch_users_id:
+
+PATCH /users/{id}/
+-------------------
 
 .. http:PATCH:: /users/{id}/
 
   Updates user
 
+.. _api_post_users_id_change_password:
+
+POST /users/{id}/change-password/
+----------------------------------
 
 .. http:POST:: /users/{id}/change-password/
 
   Change user password
 
+.. _api_get_users_me:
+
+GET /users/me/
+----------------
 
 .. http:GET:: /users/me/
 
