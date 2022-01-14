@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Papermerge'
-copyright = '2020-2021, Papermerge DMS'
+copyright = '2020-2022, Papermerge DMS'
 author = 'Eugen Ciur'
 
 

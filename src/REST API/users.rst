@@ -62,7 +62,11 @@ GET /users/
               }
             }
           }
-        }  # user instance END
+        }, # user instance END
+        {
+          ... user instance
+        },
+        ...
       ],
       meta: {
         pagination: {

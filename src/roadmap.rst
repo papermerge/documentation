@@ -3,7 +3,7 @@ Roadmap
 
 Features/improvements/changes part of 2.1.x releases:
 
-* Complete REST API
+* RESTful API
 * Automated metadata extraction
 * Search document by metadata
 * Download searchable PDFs (i.e. integration with `OCRmyPDF <https://github.com/jbarlow83/OCRmyPDF>`_)

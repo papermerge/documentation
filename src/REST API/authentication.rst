@@ -32,3 +32,15 @@ following body:
   {
     "token": <your token here>
   }
+
+With authentication token at hand, you can perform any REST API, for
+example:
+
+   curl https://example.com/api/users/me/ \
+    -H 'Content-Type: application/vnd.api+json'
+    -H 'Authorization: Token ababfa840abb6b8aa3a185e631c19095c70de932'
+
+.. note:: When quering for json data types always pay attention to
+   ``Content-Type``. For json data it sometimes may be either
+   ``application/json`` or ``application/vnd.api+json``. Each REST API call
+   reference documents correct value of ``Content-Type`` header.

@@ -26,3 +26,4 @@ a reference (with examples) for each existing endpoint.
    nodes
    folders
    documents
+   search
