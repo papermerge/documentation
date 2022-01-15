@@ -20,12 +20,9 @@ RUN apt-get install -y --no-install-recommends \
     build-essential \
     git
 
-# Git cloning here is required.
-# Sphinx-multiversion will look at the repository branches to learn
-# about different version (2.0.x, 2.1.x, 2.2.x etc) and generate
+# Sphinx-multiversion will look at the repository branches (using git) to
+# learn about different version (2.0.x, 2.1.x, 2.2.x etc) and generate
 # documentation for each git branch separetly
-#RUN git clone https://github.com/papermerge/documentation.git /docs/
-#RUN git fetch -t
 
 RUN pip install --upgrade poetry
 RUN python -m venv /venv
@@ -33,6 +30,8 @@ RUN python -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
 COPY src/ ./src/
+# Notice that .git folder is necessary!
+# It is used by sphinx-multiversion to checkout branches
 COPY .gitignore .git Makefile poetry.lock pyproject.toml ./
 RUN poetry install --no-root --no-dev -vvv
 
