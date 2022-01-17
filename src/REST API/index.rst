@@ -27,3 +27,4 @@ a reference (with examples) for each existing endpoint.
    folders
    documents
    search
+   preferences
