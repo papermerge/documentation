@@ -8,6 +8,10 @@ Preferences
   REST API described here is work in progress. It changes
   along with the development of `Papermerge Core`_ in master branch.
 
+Preferences are grouped in sections. Each section is a set of preferences (options)
+related to the same topic. For example section "ocr" groups all preferences
+related to :ref:`ocr`.
+
 .. _api_get_preferences:
 
 GET /preferences/
@@ -176,7 +180,27 @@ GET /preferences/{section__name}/
   :reqheader Authorization: Token <token>
   :status 200: on success
 
-  Returns details of the user preferences identified with {section__name}.
+  Returns details of the user preference identified with {section__name}. First
+  of all notice that there is always double underscore charater
+  between "section" and "name" as {section__name} refers here to the section
+  and the name of the option, which are two different things. For example let's
+  consider two different sections "ocr" and "localization". To get details of
+  preference "time" from section "localization" use
+  ``GET /preferences/localization__time/`` with double underscore
+  between "time" and "localization". Similarly, to get details of
+  preference "language" from section "ocr" use
+  ``GET /preferences/ocr__language/`` with double underscore character
+  between "language" and "ocr".
+
+  .. note::
+
+      This endpoint returns details of one single user preference. If you intend
+      to filter preferences by section, use :ref:`api_get_preferences` with
+      parameter ``section={section}``. For example
+      ``GET /preferences/?section=ocr`` will return all preferences of
+      section "ocr"; on the other hand ``GET /preferences/ocr__trigger/`` will
+      return details of user preference "ocr__trigger".
+
 
 
   **200 - Response Body Schema**
