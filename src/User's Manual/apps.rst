@@ -23,7 +23,7 @@ There are at least three possibilities:
 Each of points above has pros and cons. Each of them may be right under
 specific circumstances and for specific user or company requirements. By
 default, Papermerge does not implement any of those points. Even more, if you
-upload files with __same content and filename__ Papermerge will gladly
+upload files with **same content and filename** Papermerge will gladly
 accept them. In the end, duplicating documents or preventing them, is just a
 matter of preference.
 
