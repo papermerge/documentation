@@ -5,7 +5,7 @@ Apps
 
 From the very beginning of its existence, Papermerge started to receive
 features requests. Many of those requests made perfect sense and were
-implemented (or will be implemented). It is thanks to the  community's
+implemented (or will be implemented). It is thanks to the community's
 feedback and contributions that Papermerge evolves naturally into a mature
 archives management system.
 
@@ -22,21 +22,20 @@ There are at least three possibilities:
 
 Each of points above has pros and cons. Each of them may be right under
 specific circumstances and for specific user or company requirements. By
-default, Papermerge does not implement any of those points. Event more, if you
-upload same files (with same content and even same filename) it will gladly
-accept them. In the end, whole this document duplicates thingy is just a
+default, Papermerge does not implement any of those points. Even more, if you
+upload files with **same content and filename** Papermerge will gladly
+accept them. In the end, duplicating documents or preventing them, is just a
 matter of preference.
 
-Apps were introduced to address such issues. App (or plugin if you like) is a
-way extend base Papermerge application. Continuing with above example with
-document duplicates, by adding/removing specific Papermerge app you can
-add/remove specific document duplicate detection criteria. This way, Papermerge
+Apps were introduced to address such issues. Apps (or plugins if you like) are a
+way to extend the base of Papermerge. Continuing with the example above,
+duplicating documents, by adding/removing a specific Papermerge app, you can
+add/remove specific document duplicate detection criterias. This way, Papermerge
 base application, which is called Papermerge Core will contain only essential
 features.
 
 Papermerge Core
 ~~~~~~~~~~~~~~~~~
-
 
 On the other hand, document management system are complex applications, with
 rich set of requirements such as LDAP authentication, document electronic
@@ -64,26 +63,27 @@ Django apps plus (project) settings. Figure 1 illustrates this idea.
 
 Notice that Papermerge Core app is part of every Papermerge project. 
 
-Writing Basic App
-~~~~~~~~~~~~~~~~~~
+Writing a Basic App
+~~~~~~~~~~~~~~~~~~~
 
 The gory details of how to develop apps and include them into papermerge
 project are explained in contributing guide. Here, in user manual, only high
 level concepts are explained.
 
-Let's consider an app which will detect file name duplicates i.e. an app which
-if used, will issue an error when user tries to upload twice documents with same
-file names. Keep in mind that here the goal is to familiarize with general
+Let's consider an app which will detect filename duplicates. 
+If used, the app will issue an error when the user tries to upload two documents
+with the same filenames. 
+Keep in mind that here the goal is to familiarize with general
 concepts.
 
-Inside Papermerge project create a new django app:
+Inside Papermerge create a new django app:
 
 .. code-block:: bash
     :caption: create new app
     
     $ ./manage.py startapp filebased_unique
 
-To highlight that filebased_unique app is part of papermerge ecosystem, it will be moved into a namespace papermerge (which is just an extra folder):
+To highlight that filebased_unique app is part of papermerge ecosystem, it will be moved into the papermerge namespace (which is just an extra folder):
 
 .. code-block:: bash
     :caption: move filebased_unique django app inside papermerge folder
@@ -103,8 +103,8 @@ Also, change ``name`` and ``label`` app attributes as shown below:
         name = 'papermerge.filebased_unique'
         label = 'filebased_unique'
 
-The heart of papermerge.filebased_unique app is file
-papermerge/filebased_unique/models.py where core document model is extended as
+The heart of papermerge.filebased_unique app is 
+papermerge/filebased_unique/models.py where the core document model is extended as
 following:
 
 .. code-block:: python
@@ -126,16 +126,16 @@ following:
                 )
 
 
-Here is link to `app code <https://github.com/papermerge/papermerge-filebased-unique>`_ on GitHub.
+Here is a link to `app code <https://github.com/papermerge/papermerge-filebased-unique>`_ on GitHub.
 
 
 Document Parts
 ~~~~~~~~~~~~~~~~
 
-Apps are there not just for adding extra validations, you can add extra fields
+Apps are not just for adding extra validations, you can add extra fields
 to the core document as well.
 
-For example, in case you want to add a special UUID field to the document model, you can:
+For example, in case you want to add a special UUID field to the document model:
 
 .. code-block:: python
     :caption: extend core document model with extra fields
@@ -154,7 +154,7 @@ For example, in case you want to add a special UUID field to the document model,
         )
 
 Those extra fields added by apps to core document model - are called *document
-parts*. Papermerge application treats core document fields and those extra
+parts*. Papermerge Core treats core document fields and those extra
 fields added by apps as one whole:
 
 
@@ -163,8 +163,8 @@ fields added by apps as one whole:
 
     Figure 2. Papermerge treats all document parts augmentet by external apps as one whole.
 
-This way, any user or company, can extend core document model with whatever
-number of custom fields they wish without interfering with core application
+This way, any user or company, can extend the core document model with whatever
+number of custom fields they wish without interfering with the core application
 code.
 
 
