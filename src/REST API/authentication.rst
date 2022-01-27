@@ -36,7 +36,9 @@ following body:
 With authentication token at hand, you can perform any REST API, for
 example:
 
-   curl https://example.com/api/users/me/ \
+.. code-block:: bash
+
+  curl https://example.com/api/users/me/ \
     -H 'Content-Type: application/vnd.api+json'
     -H 'Authorization: Token ababfa840abb6b8aa3a185e631c19095c70de932'
 

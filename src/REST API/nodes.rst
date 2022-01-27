@@ -73,6 +73,7 @@ GET  /nodes/{id}/
       }
     }
 
+.. _api_post_nodes:
 
 POST /nodes/
 --------------
@@ -165,6 +166,12 @@ POST /nodes/
 
   With example above, an empty document structure will be created. At this step you need to specify only document's ``lang`` attribute (i.e. in what language is the document) and its ``title`` attribute.
   Similarly to creating a folder, you need to specify its parent folder ID. Use  :ref:`api_get_users_me` endpoint to learn ID of user's ".home" folder.
+
+  .. note::
+
+    Each document in Papermerge can have multiple versions associated.
+    When creating document model as described above (step 1), besides
+    document model, also the first version of the document will be created. No associated files so far though.
 
   At this point, only document's structure (a node) was created. The actual file was not uploaded yet.
   In order to upload a file, use :ref:`api_put_documents_upload`

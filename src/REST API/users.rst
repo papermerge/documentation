@@ -172,29 +172,31 @@ GET /users/{id}/
   .. code-block:: bash
 
     {
-      type: "users",
-      id: string,
-      attributes: {
-        username: string,
-        first_name: string,
-        last_name: string,
-        email: string,
-        is_active: boolean,
-        is_staff: boolean,
-        is_superuser: boolean,
-        date_joined: datetime
-      },
-      relationships: {
-        inbox_folder: {
-          data: {
-              type: "folders",
-              id: string
-          }
+      data: {
+        type: "users",
+        id: string,
+        attributes: {
+          username: string,
+          first_name: string,
+          last_name: string,
+          email: string,
+          is_active: boolean,
+          is_staff: boolean,
+          is_superuser: boolean,
+          date_joined: datetime
         },
-        home_folder: {
-          data: {
-              type: "folders",
-              id: string
+        relationships: {
+          inbox_folder: {
+            data: {
+                type: "folders",
+                id: string
+            }
+          },
+          home_folder: {
+            data: {
+                type: "folders",
+                id: string
+            }
           }
         }
       }
