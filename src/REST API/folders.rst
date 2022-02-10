@@ -67,7 +67,7 @@ GET /folders/
 .. _api_post_users:
 
 POST /folders/
--------------
+----------------
 
 .. http:POST:: /folders/
 
@@ -143,7 +143,7 @@ GET /folders/{id}/
 .. _api_delete_folders_id:
 
 DELETE /folders/{id}/
---------------------
+----------------------
 
 .. http:DELETE:: /folders/{id}/
 
@@ -157,7 +157,7 @@ DELETE /folders/{id}/
 .. _api_patch_folders_id:
 
 PATCH /folders/{id}/
--------------------
+----------------------
 
 .. http:PATCH:: /folders/{id}/
 

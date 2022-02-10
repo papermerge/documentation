@@ -1,3 +1,5 @@
+.. _api_authentication:
+
 Authentication
 ================
 
@@ -13,13 +15,13 @@ header with ``Token <token>`` value.
   include ``Authorization: Token <token>`` header.
 
 
-For authentication use :ref:`api_auth_token` endpoint.
+For authentication use :ref:`api_auth` endpoint.
 Example:
 
 .. code-block:: bash
 
   curl -X POST \
-    <server-url>/auth-token/ \
+    <server-url>/auth/login/ \
     -H 'Content-Type: application/json' \
     -d '{"username":"john","password":"<password here>"}'
 
@@ -30,7 +32,8 @@ following body:
 .. code-block:: bash
 
   {
-    "token": <your token here>
+    "token": <your token here>,
+    "expiry": null
   }
 
 With authentication token at hand, you can perform any REST API, for

@@ -1,10 +1,13 @@
-.. _api_auth_token:
+.. _api_auth:
 
-Auth-token
-===========
+Auth
+=====
 
 
-.. http:POST:: /auth-token/
+POST /auth/login/
+--------------------
+
+.. http:POST:: /auth/login/
   :noindex:
 
   Authenticates user with given username and password. Response will contain token to be used as part of Authorization header in subsequent requests whenever authorization is required.
@@ -27,8 +30,13 @@ Auth-token
   .. code-block:: bash
 
     {
+      expiry: null,
       token: string
     }
+
+  .. note::
+
+      `expiry` field will alway have value "null"
 
   **400 - Response Body Schema**
 
@@ -57,7 +65,7 @@ Auth-token
 
   .. sourcecode:: http
 
-    POST /http-auth/ HTTP/1.1
+    POST /auth/login/ HTTP/1.1
     Host: example.com
     Accept: application/json
     Content-Type: application/json
@@ -76,13 +84,44 @@ Auth-token
     Content-Type: application/json
 
     {
-      "token": "12caf9840aeb6bafa3a218e321c19095c70de298"
+      "token": "12caf9840aeb6bafa3a218e321c19095c70de298",
+      "expiry": null
     }
 
   **Example with cURL**
 
   .. code-block:: bash
 
-    curl -X POST <server-url>/auth-token/ \
+    curl -X POST <server-url>/auth/login/ \
       -H 'Content-Type: application/json' \
       -d '{"username":"john","password":"password"}'
+
+
+POST /auth/logout/
+-------------------
+
+.. http:POST:: /auth/logout/
+
+  :reqheader Content-Type: application/json
+  :reqheader Authorization: Token <token>
+  :status 200: on success
+
+  On a successful request, the token used to authenticate is deleted from the
+  system and can no longer be used to authenticate.
+
+  **Request body must be empty.**
+
+POST /auth/logoutall/
+----------------------
+
+.. http:POST:: /auth/logoutall/
+
+  :reqheader Content-Type: application/json
+  :reqheader Authorization: Token <token>
+  :status 200: on success
+
+  On a successful request, the token used to authenticate, and all other
+  tokens registered to the same user account, are deleted from the system and
+  can no longer be used to authenticate.
+
+  **Request body must be empty.**

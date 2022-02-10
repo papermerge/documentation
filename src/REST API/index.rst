@@ -21,11 +21,11 @@ a reference (with examples) for each existing endpoint.
 
    overview
    authentication
-   auth-token
+   auth
    users
    nodes
    folders
    documents
    search
-   download
    preferences
+   tokens

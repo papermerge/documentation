@@ -18,21 +18,24 @@ Server URL + Prefix
 --------------------
 
 Throughout this REST API documentation you will notice reference to
-``<server-url>`` - this is be base http (or https) url of your Papermerge instance and
-it is totally dependent on where your instance was deployed.
+``<server-url>`` - this is base http (or https) url of your Papermerge instance. Base url depends on where your instance was deployed.
 
-Please note that ``<server-url>`` always includes the ``/api/`` prefix. Examples of
+Please note that ``<server-url>`` always includes the ``/api/`` prefix.
+In subsequent parts this reference the ``/api/`` prefix is omitted, however
+you always need to keep a mental note to include it.
+
+Examples of
 ``<server-url>`` with prefix:
 
 * http://localhost:8000/api/
 * https://example.com/api/
 * https://my-papermerge-instance.secure.com/api/
 
-Let's take an example for specific API, say :ref:`api_auth_token`. If your ``<server-url>``
+Let's take an example for specific API, say :ref:`api_auth`. If your ``<server-url>``
 is https://example.com/api/ then, in order to authenticate and get a token you'll need to run
 following curl command::
 
-  curl -XPOST https://example.com/api/auth-token/ \
+  curl -XPOST https://example.com/api/auth/login/ \
   -H 'Content-Type: application/json' \
   -d '{"username":"john","password":"password"}'
 
