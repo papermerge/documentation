@@ -83,11 +83,11 @@ You can click on ``Log in`` located in upper right corder and enter credentials 
     Login view where you can authenticate using credentials from
     environment file
 
-Once authenticated you will be able to experiment, play and explore with any REST API as described in `REST API documentation`_.
+Once authenticated you will be able to experiment, play and explore with any REST API as described in :ref:`REST API documentation <rest_api>`.
 
 .. figure:: ../img/setup/installation/docker/browsable-rest-api-example.png
 
-    Example of using browsable REST API to see the output of GET /users/me/ endpoint.
+    Example of using browsable REST API to see the output of GET /users/me/ endpoint
 
 
 
@@ -95,4 +95,3 @@ Once authenticated you will be able to experiment, play and explore with any RES
 .. _docker compose: https://docs.docker.com/compose/
 .. _environment file: https://docs.docker.com/compose/env-file/
 .. _cUrl: https://en.wikipedia.org/wiki/CURL
-.. _REST API documentation: https://docs.papermerge.io/REST%20API/index.html

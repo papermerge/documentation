@@ -1,4 +1,4 @@
-.. bare_metal_installation:
+.. _bare_metal_installation:
 
 Bare Metal Installation
 *************************
