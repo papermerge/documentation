@@ -59,19 +59,22 @@ depends on the number of incoming documents and how quick you want to OCR all of
 Frontend
 ----------
 
+.. figure:: ../img/setup/overview/01-frontend.png
+
 Generally speaking you don't need graphical user interface to successfully
 use Papermerge. However, it is always awesome to have a nice UI
 (user interface). This is what *frontend* part is all about - it is the
 official user interface of Papermerge. In order to accomplish its job,
-frontend uses backend's REST API - in this regard, almost any feature of the
+frontend uses backend's REST API - in this regard, frontend is
+an http client which consumes backend's REST API. Almost any feature of the
 frontend can be replicated with any http client via REST API.
 
 .. note:: Some of the features of the frontend are tricky to do with REST API
    only, this is because some parts of the frontend, like for example
    reporting in real time the status of OCR processing, use websockets.
 
-Frontend is a standalone (means separate) part and as such it has
-separate `Frontend GitHub repository`_.
+.. note:: Frontend is a standalone (means separate) part and as such it has
+   separate `Frontend GitHub repository`_.
 
 .. _RESTful Backend GitHub repository: https://github.com/papermerge/papermerge-core
 .. _Celery: https://docs.celeryproject.org/en/stable/index.html
@@ -83,5 +86,5 @@ Websockets Server
 ------------------
 
 This component is used to get real time status of OCR processing and it
-strongly coupled with frontend part. In general if you don't frontend, you don't need
-to deploy websockets server neither.
+strongly coupled with frontend part. In general if you don't plan to use
+frontend, you don't need to deploy websockets server neither.
