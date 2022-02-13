@@ -67,9 +67,32 @@ The above command will start following services:
 For REST API backend and the worker docker-compose will use
 ``papermerge/papermerge:2.1.0-alpha2`` docker image.
 
-Now base url for REST API is ``http://localhost:8000/api/``. You can open your browser and point it to ``http://localhost:8000/api/`` or maybe use another http client like for example `cUrl`_.
+Now base url for REST API is ``http://localhost:8000/api/``. You can open your
+browser and point it to ``http://localhost:8000/api/`` or maybe use another
+http client like for example `cUrl`_.
+
+.. figure:: ../img/setup/installation/docker/browsable-rest-api.png
+
+    Convinient browsable REST API
+
+You can click on ``Log in`` located in upper right corder and enter credentials configured with ``SUPERUSER_USERNAME`` and ``SUPERUSER_PASSWORD`` options in ``.env`` file:
+
+
+.. figure:: ../img/setup/installation/docker/browsable-rest-api-login.png
+
+    Login view where you can authenticate using credentials from
+    environment file
+
+Once authenticated you will be able to experiment, play and explore with any REST API as described in `REST API documentation`_.
+
+.. figure:: ../img/setup/installation/docker/browsable-rest-api-example.png
+
+    Example of using browsable REST API to see the output of GET /users/me/ endpoint.
+
+
 
 .. _docker: https://www.docker.com/
 .. _docker compose: https://docs.docker.com/compose/
 .. _environment file: https://docs.docker.com/compose/env-file/
 .. _cUrl: https://en.wikipedia.org/wiki/CURL
+.. _REST API documentation: https://docs.papermerge.io/REST%20API/index.html
