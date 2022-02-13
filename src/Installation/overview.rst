@@ -116,7 +116,7 @@ docker-compose which helps you to easily configure and start all services
 (like database, redis and elastic search for example) required to operate
 Papermerge.
 
-For more details read :ref:`installation_with_docker` section.
+For more details read :ref:`docker_compose` section.
 
 Kubernetes
 -----------
@@ -127,4 +127,13 @@ Bare Metal Installation
 ------------------------
 
 This method is suitable if you plan to learn all ins and outs of Papermerge.
-In particular it is for developers.
+In particular it is for developers. There are two major parts of Papermerge development:
+
+* backend development
+* frontend development
+
+For the backend part is you need to be familiar with Python/Django/Celery
+ecosystem. For the frontend part familiarity with JavaScript/Nodejs/EmberJS is
+necessary.
+
+For more details read :ref:`bare_metal_installation` section.

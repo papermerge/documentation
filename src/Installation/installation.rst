@@ -1,6 +1,7 @@
-****************
-Installation
-****************
+.. bare_metal_installation:
+
+Bare Metal Installation
+*************************
 
 If you follow this document and still have troubles, please open an
 `issue on GitHub: <https://github.com/ciur/papermerge/issues>`_ so I can fill in
