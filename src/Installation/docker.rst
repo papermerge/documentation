@@ -1,6 +1,7 @@
-**********
-Docker
-**********
+.. _installation_with_docker:
+
+Installation with Docker
+*************************
 
 Docker is a widespread containerization technology. With docker you can start in almost no time pretty complex configuration setups. There two popular docker images for Papermerge:
 
