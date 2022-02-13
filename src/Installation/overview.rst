@@ -110,8 +110,21 @@ You can go multiple routes to setup and run Papermerge:
 Docker Compose
 ---------------
 
+Docker is a widespread containerization technology. With docker you can start
+in almost no time pretty complex configuration setups. Docker ships with
+docker-compose which helps you to easily configure and start all services
+(like database, redis and elastic search for example) required to operate
+Papermerge.
+
+For more details read :ref:`installation_with_docker` section.
+
 Kubernetes
 -----------
 
+TODO...
+
 Bare Metal Installation
 ------------------------
+
+This method is suitable if you plan to learn all ins and outs of Papermerge.
+In particular it is for developers.

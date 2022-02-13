@@ -3,28 +3,6 @@
 Installation with Docker
 *************************
 
-Docker is a widespread containerization technology. With docker you can start in almost no time pretty complex configuration setups. There two popular docker images for Papermerge:
-
-1. Official docker image shipped within Papermerge repository
-2. Docker image provided by `linuxserver.io <https://hub.docker.com/r/linuxserver/papermerge>`_
-
-
-LinuxServer.io Image
-~~~~~~~~~~~~~~~~~~~~~~
-
-LinuxServer.io provides a high quality docker image for Papermerge.
-
-.. figure:: ../img/setup/linuxserver.io.png
-
-    Figure 1. Download statistics of Papermerge docker image downloads provided by linuxserver.io team.
-
-For how to install Docker image provided by `linuxserver.io
-<https://fleet.linuxserver.io/image?name=linuxserver/papermerge>`_ please
-refer to their documentation. For docker image specific issues please use
-Papermerge docker image `repository
-<https://github.com/linuxserver/docker-papermerge/issues>`_ provided by Linux
-Server team.
-
 Official Image
 ~~~~~~~~~~~~~~~~
 
