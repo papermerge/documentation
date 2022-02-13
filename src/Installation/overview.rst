@@ -103,11 +103,15 @@ Installation Options
 You can go multiple routes to setup and run Papermerge:
 
 * Use the docker compose
+* Kubernetes
 * Bare metal installation
 
 
 Docker Compose
 ---------------
+
+Kubernetes
+-----------
 
 Bare Metal Installation
 ------------------------
