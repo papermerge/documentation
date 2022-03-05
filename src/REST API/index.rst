@@ -26,6 +26,7 @@ a reference (with examples) for each existing endpoint.
    nodes
    folders
    documents
+   pages
    search
    preferences
    tokens
