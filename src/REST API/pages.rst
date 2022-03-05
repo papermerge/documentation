@@ -18,16 +18,21 @@ GET  /pages/{id}/
 
   Retrieves page resource.
 
-  :reqheader Accept: image/svg+xml | image/jpeg | text/plain | application/vnd.api+json
+  :reqheader Accept: ``image/svg+xml`` | ``image/jpeg`` | ``text/plain`` | ``application/vnd.api+json``
   :reqheader Authorization: Token <token>
   :status 200: on success
 
   Depending on ``Accept`` of the request header - response's body can be:
 
-    1. an image in svg format (image/svg+xml)
-    2. an image in jpeg format (image/jpeg)
-    3. plain text i.e extracted (with OCR) page's text (text/plain)
-    4. json formated page details (application/vnd.api+json)
+    1. an image in svg format (for ``image/svg+xml``)
+    2. an image in jpeg format (for ``image/jpeg``)
+    3. plain text i.e extracted (with OCR) page's text (for ``text/plain``)
+    4. json formated page details (for ``application/vnd.api+json``)
+
+  .. note:: Returned SVG image embedds extracted JPEG image and the layer of OCRed text mapped over (so called text overlay)
+
+  .. note:: When ``text/plain`` response has empty body, it means that page was not OCRed yet
+
 
 
 .. _api_delete_pages_id:
