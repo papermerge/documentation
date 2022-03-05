@@ -8,7 +8,6 @@ Pages
   REST API described here is work in progress. It changes
   along with the development of `Papermerge Core <https://github.com/papermerge/papermerge-core>`_ in master branch.
 
-
 .. _api_get_pages_id:
 
 GET  /pages/{id}/
@@ -32,7 +31,6 @@ GET  /pages/{id}/
   .. note:: Returned SVG image embedds extracted JPEG image and the layer of OCRed text mapped over (so called text overlay)
 
   .. note:: When ``text/plain`` response has empty body, it means that page was not OCRed yet
-
 
 
 .. _api_delete_pages_id:
