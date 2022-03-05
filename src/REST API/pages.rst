@@ -18,16 +18,16 @@ GET  /pages/{id}/
 
   Retrieves page resource.
 
-  :reqheader Content-Type: image/svg+xml | image/jpeg | text/plain | application/vnd.api+json
+  :reqheader Accept: image/svg+xml | image/jpeg | text/plain | application/vnd.api+json
   :reqheader Authorization: Token <token>
   :status 200: on success
 
-  .. note:: Depending on ``Content-Type`` of the request header  - response's body can be:
+  Depending on ``Accept`` of the request header - response's body can be:
 
-     1. an image in svg format (image/svg+xml)
-     2. an image in jpeg format (image/jpeg)
-     3. plain text i.e extracted (with OCR) page's text (text/plain)
-     4. json formated page details (application/vnd.api+json)
+    1. an image in svg format (image/svg+xml)
+    2. an image in jpeg format (image/jpeg)
+    3. plain text i.e extracted (with OCR) page's text (text/plain)
+    4. json formated page details (application/vnd.api+json)
 
 
 .. _api_delete_pages_id:
