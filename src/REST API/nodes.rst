@@ -248,6 +248,30 @@ GET  /nodes/download/
       --output invoice_115_original.pdf
 
 
+.. _api_get_nodes_inboxcount:
+
+GET  /nodes/inboxcount/
+-----------------------
+
+
+.. http:GET:: /nodes/inboxcount/
+
+  Returns number of items in user's inbox folder
+
+  :reqheader Authorization: Token <token>
+  :reqheader Content-Type: ``application/vnd.api+json``
+  :status 200: on success
+
+
+  **200 - Response Body Schema**
+
+  .. code-block:: bash
+
+    {
+      data: {
+        count: number
+      }
+    }
 
 POST /nodes/move/
 -------------------

@@ -17,7 +17,7 @@ GET  /pages/{id}/
 
   Retrieves page resource.
 
-  :reqheader Accept: ``image/svg+xml`` | ``image/jpeg`` | ``text/plain`` | ``application/vnd.api+json``
+  :reqheader Content-Type: ``image/svg+xml`` | ``image/jpeg`` | ``text/plain`` | ``application/vnd.api+json``
   :reqheader Authorization: Token <token>
   :status 200: on success
 
@@ -34,7 +34,7 @@ GET  /pages/{id}/
 
   **200 - Response Body Schema**
 
-  When ``Accept`` header is ``application/vnd.api+json``, response body
+  When client supplied ``Accept`` header with ``application/vnd.api+json`` value, server's response body
   will contain following schema:
 
   .. code-block:: bash
