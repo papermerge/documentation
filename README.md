@@ -7,9 +7,8 @@ markup language.
 Documentation is divided into four major sections:
 
 1. Installation
-2. Help
-3. User's Manual
-4. REST API
+2. User's Manual
+3. REST API
 
 ## Online Version
 

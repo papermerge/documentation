@@ -83,7 +83,6 @@ designed for.
    :caption: Contents:
 
    Installation/index.rst
-   Help/index.rst
    User's Manual/index.rst
    REST API/index.rst
    roadmap.rst
