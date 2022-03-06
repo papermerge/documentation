@@ -23,7 +23,7 @@ folder run following commands::
 
     $ poetry install
     $ poetry shell
-    $ sphinx-autobuild --host 0.0.0.0 --port 80 9600 src/ _build/html
+    $ sphinx-autobuild --port 9600 src/ _build/html/
 
 Above commands will install all dependencies, switch into environment variable
 and run documentation in auto build mode. Any change in documentation
