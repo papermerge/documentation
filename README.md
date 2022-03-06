@@ -15,6 +15,19 @@ Documentation is divided into four major sections:
 
 Papermerge documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/).
 
+## How to Use
+
+Make sure you have installed [python](https://www.python.org/)
+and [poetry](https://python-poetry.org/docs/), then in root repository
+folder run following commands::
+
+    $ poetry install
+    $ poetry shell
+    $ sphinx-autobuild --host 0.0.0.0 --port 80 9600 src/ _build/html
+
+Above commands will install all dependencies, switch into environment variable
+and run documentation in auto build mode. Any change in documentation
+repository will be automatically rebuild.
 
 ## Docker
 
