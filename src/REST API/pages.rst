@@ -32,6 +32,32 @@ GET  /pages/{id}/
 
   .. note:: When ``text/plain`` response has empty body, it means that page was not OCRed yet
 
+  **200 - Response Body Schema**
+
+  When ``Accept`` header is ``application/vnd.api+json``, response body
+  will contain following schema:
+
+  .. code-block:: bash
+
+    {
+      data: {
+        type: "pages",
+        id: string,
+        attributes: {
+          number: number,
+          text: string,
+          lang: string
+        },
+        relationships: {
+          document_version: {
+            data: {
+              type: "DocumentVersion",
+              id: string
+            }
+          }
+        }
+      }
+    }
 
 .. _api_delete_pages_id:
 
