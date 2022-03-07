@@ -110,7 +110,7 @@ DELETE  /pages/
       <server-url>/pages/
 
 
-.. _api_delete_pages:
+.. _api_pages_reorder:
 
 POST  /pages/reorder/
 ---------------------
@@ -160,3 +160,48 @@ POST  /pages/reorder/
         -d '{"pages": [{"id": 389, "old_number": 1, "new_number": 4}, {"id": 392, "old_number": 4, "new_number": 1}]}' \
         <server-url>/pages/reorder/
 
+
+
+.. _api_pages_rotate:
+
+POST  /pages/rotate/
+---------------------
+
+.. http:POST:: /pages/rotate/
+
+  Rotate pages.
+
+  :reqheader Content-Type: ``application/json``
+  :reqheader Authorization: Token <token>
+  :status 204: on successful page(s) rotation
+  :status 404: when page with given ID does not exists
+
+
+  **204 - Request Body Schema**
+
+  .. code-block:: bash
+
+    {
+      pages: [
+        {id: page_id1, angle: integer},
+        {id: page_id2, angle: integer},
+        {id: page_id3, angle: integer},
+        ...
+      ]
+    }
+
+
+  .. note:: All specified pages must belong to same document version.
+
+  Each object in the list has following fields::
+
+    - id: ID of the page
+    - angle: rotation angle
+
+  .. code-block:: bash
+
+    curl -H "Authorization: Token <token>"  \
+        -H 'Content-Type: application/json' \
+        -XPOST \
+        -d '{"pages": [{"id": 389, "angle": 180}, {"id": 392, "angle": 90}]}' \
+        <server-url>/pages/rotate/
