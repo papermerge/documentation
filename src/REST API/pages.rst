@@ -80,7 +80,7 @@ DELETE  /pages/
 
 .. http:DELETE:: /pages/
 
-  Deletes the page with specified IDs
+  Deletes one or multiple pages. Pages are specified by their IDs.
 
   :reqheader Content-Type: ``application/json``
   :reqheader Authorization: Token <token>
@@ -98,3 +98,13 @@ DELETE  /pages/
 
 
   .. note:: All specified pages must belong to same document version.
+
+  Example:
+
+  .. code-block:: bash
+
+    curl -H "Authorization: Token <token>"  \
+      -H 'Content-Type: application/json' \
+      -XDELETE \
+      -d '{"pages": [350, 348]}' \
+      <server-url>/pages/
