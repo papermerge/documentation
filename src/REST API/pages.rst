@@ -71,3 +71,30 @@ DELETE  /pages/{id}/
   :reqheader Authorization: Token <token>
   :status 204: on successful folder deletion
   :status 404: when page with given ID does not exists
+
+
+.. _api_delete_pages:
+
+DELETE  /pages/
+---------------------
+
+.. http:DELETE:: /pages/
+
+  Deletes the page with specified IDs
+
+  :reqheader Content-Type: ``application/json``
+  :reqheader Authorization: Token <token>
+  :status 204: on successful folder deletion
+  :status 404: when page with given ID does not exists
+
+
+  **200 - Request Body Schema**
+
+  .. code-block:: bash
+
+    {
+      pages: [ page_id1, page_id2, ... ]
+    }
+
+
+  .. note:: All specified pages must belong to same document version.
