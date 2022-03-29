@@ -1,14 +1,9 @@
 REST API
 =========
 
-.. warning::
 
-  REST API described here is work in progress. It changes
-  along with the development of `Papermerge Core <https://github.com/papermerge/papermerge-core>`_ in master branch.
-
-REST API is the main interface with Papermege backend server. This basically
-means that whataver capabilities backend features, they can be consumed via
-REST API.
+REST API is the main interface with Papermege backend server. In other words
+all Papermerge features can be consumed via REST API.
 
 REST API first approach gives you power to automate your documents workflows
 in unlimited ways.
@@ -21,12 +16,7 @@ a reference (with examples) for each existing endpoint.
 
    overview
    authentication
-   auth
-   users
-   nodes
-   folders
-   documents
-   pages
-   search
-   preferences
-   tokens
+   redoc
+   swagger
+
+
