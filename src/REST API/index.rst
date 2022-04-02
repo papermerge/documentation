@@ -2,14 +2,15 @@ REST API
 =========
 
 
-REST API is the main interface with Papermege backend server. In other words
-all Papermerge features can be consumed via REST API.
+REST API is the main interface with Papermege backend server. This means that
+all Papermerge features can be consumed (i.e. used) with help of any http
+client REST API.
 
-REST API first approach gives you power to automate your documents workflows
-in unlimited ways.
+Following pages provide of description of general concepts and workflows you need to know when working with REST API interface.
 
-Following sections describe in detail how to use REST API and provide
-a reference (with examples) for each existing endpoint.
+For REST API reference see :ref:`redoc` and :ref:`swagger`
+
+
 
 .. toctree::
    :maxdepth: 4
