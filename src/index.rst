@@ -20,7 +20,7 @@ archives <digital_archive>` workflows.
 What It Does
 ~~~~~~~~~~~~~
 
-* It extracts (using OCR) and indexes text (using elasticsearch) from your documents
+* It extracts (using OCR) and indexes text from your documents
 * Provides modern, desktop like user interface to easily find your documents
 * Augments your documents with tags and :doc:`User's Manual/metadata`
 * Helps you instantly find your documents:
