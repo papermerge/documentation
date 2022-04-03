@@ -38,5 +38,3 @@ detailed information.
    file_formats
    document_pipelines
    apps
-   glossary
-

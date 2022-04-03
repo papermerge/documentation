@@ -93,3 +93,4 @@ designed for.
    User's Manual/index.rst
    REST API/index.rst
    roadmap.rst
+   glossary.rst
