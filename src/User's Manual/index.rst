@@ -36,5 +36,3 @@ detailed information.
    consumption
    ocr_languages
    file_formats
-   document_pipelines
-   apps
