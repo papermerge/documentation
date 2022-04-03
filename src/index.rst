@@ -1,15 +1,17 @@
 Papermerge DMS
 ==============
 
-Papermerge is open source document management system (DMS) designed to work
+Papermerge is open source **document management system (DMS)** designed to work
 with **scanned documents**. Papermerge uses **OCR (optical character
 recognition)** technology to extract meaningful data from ingested documents.
-Data extracted with OCR is then used to index documents in order to find them
-quickly based on their content.
+Data extracted with OCR is then used to index documents and prepares them for
+full text search.
 
-Papermerge provides the look and feel of modern desktop file browsers. It has
-features like dual panel browser, tags, hierarchical folders and automations
-so that you can efficiently organize your documents.
+Papermerge is **web based** software and it provides look and feel of
+modern desktop application. It has features like dual panel document browser,
+organizing documents in folders, drag and drop, tagging documents and
+folders so that you can efficiently store, organize and automate your :ref:`digital
+archives <digital_archive>` workflows.
 
 .. figure:: img/document-management-system-screenshot.png
 

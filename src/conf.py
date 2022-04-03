@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Papermerge'
+project = 'Papermerge DMS'
 copyright = '2020-2022, Papermerge DMS'
 author = 'Eugen Ciur'
 
@@ -29,7 +29,6 @@ author = 'Eugen Ciur'
 # ones.
 extensions = [
     "sphinx_multiversion",
-    "sphinxcontrib.httpdomain"
 ]
 
 # Match as remote branch any git ref of following format.

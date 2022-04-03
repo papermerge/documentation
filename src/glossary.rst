@@ -19,9 +19,10 @@ Digital Archive
 ~~~~~~~~~~~~~~~
 
 Digital archive is a fancy name for a document whose content won't change
-anymore. Think of PDF documents - they don't change in time unless you have specialized
-software. PDF documents are a good example of digital archives.
-Any scanned document is a digital archive.
+anymore. Think of PDF documents - you can't modifgy content of PDF file
+unless you have specialized software. PDF documents are a good example of
+digital archives. Any scanned document is automatically a digital archive as
+well.
 
 .. note::
 
