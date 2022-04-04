@@ -12,5 +12,6 @@ Setup
    backup
    upgrading
    docker
+   portainer
    settings
 

@@ -8,7 +8,7 @@ As mentioned in :ref:`what_is_a_doc` - scanned documents play a central role in 
 Technically, scanned document can be stored in a plethora of file formats.
 Papermerge supports following, the most common ones:
 
-* PDF - Portable Document Format 
+* PDF - Portable Document Format
 * TIFF - a convenient file container. TIFF files can contain inside several images
 * JPEG - popular image format
 * PNG  - popular image format
