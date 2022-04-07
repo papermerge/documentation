@@ -1,3 +1,5 @@
+.. _install_with_portainer:
+
 Portainer
 =========
 

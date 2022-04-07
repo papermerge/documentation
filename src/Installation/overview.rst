@@ -118,6 +118,13 @@ Papermerge.
 
 For more details read :ref:`docker_compose` section.
 
+Portainer
+---------
+
+Portainer is popular application for managing docker container via convenient
+user interface. Section :ref:`install_with_portainer` explains in details how to
+quickly start Papermerge instance using Portainer.
+
 Kubernetes
 -----------
 
