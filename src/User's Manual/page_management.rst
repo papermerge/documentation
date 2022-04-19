@@ -13,6 +13,12 @@ Page management is set of features which helps to fix scanning process errors.
 In other words you can delete, reorder, rotate, and extract pages within
 document(s).
 
+Every time one of the operations described in this section is applied - a new
+document version with that specific change in effect is created. Because of
+this document versioning system changes you apply on the document i.e rotate,
+delete, extract, reorder do not destroy the document in any shape of form in other
+words **page management is non-destructive for the document**.
+
 .. note::
 
     In order perform any of operations described below (delete, reorder,
@@ -39,44 +45,72 @@ Every time you delete one or several pages, document version is incremented by
 one. For instance if document Invoice-X56.pdf currently has four pages and
 the document latest version is version 1, then, after deleting one page -
 document latest version will be 2. Thus document's version 1 has all four
-pages and document version 2 has three pages.
+pages and document version 2 has three pages:
+
+.. figure:: ../img/user-manual/page-management/delete-page-versioning.svg
+
+    Delete operation creates new document version. Actual deleted page (marked with red in illustration) remains intact in version 1. Document version 2 does not contain
+    page marked with red.
 
 Reorder
 -------
 
-Out of order pages occur very often during scanning process. Papermerge allows users
-to change pages order within the document.
+Out of order pages occur very often during scanning process. Papermerge
+empowers users to change pages order within the document.
 
-For instance, in figure below you can see that pages 2 and 4 are out of order. When you hover
-over page's thumbnail, two green arrows will appear. Click respective arrows to move page up or down.
+For instance, in figure below you can see that pages 2 and 4 are out of place.
+To correct pages' order use drag 'n drop. For example grab page 2 and drop it
+in correct position, and then do same thing with page 3:
 
-.. figure:: ../img/user-manual/page-management/reorder-document-pages-v2.png
+.. figure:: ../img/user-manual/page-management/page-ordering-demo.gif
 
     Change order of the document pages
 
-For these changes to take effect you need to :menuselection:`Right Click --> Apply Reorder Changes`.
+For these changes to take effect you need to click 'Apply Changes' button.
 
 .. warning::
 
-    Document pages reorder will only be saved when you :menuselection:`Right Click--> Apply Reorder Changes`. You can reorder pages all day around, but if you close the document (by browsing away to a different view for example) without ``Apply Reorder Changes`` - your hard work progress will be lost.
+    Document pages reorder will only be saved when you click 'Apply Changes'
 
-.. figure:: ../img/user-manual/page-management/click-apply-reorder-changes-v2.png
+.. figure:: ../img/user-manual/page-management/apply-changes-button.svg
 
     Save new pages order
 
-Similarly to deleting pages, every time you save new pages order document version will be incremented (i.e. advanced by one).
+Similarly to deleting pages, every time you save new pages order, document
+version will be incremented (i.e. advanced by one).
+
+.. figure:: ../img/user-manual/page-management/order-page-versioning.svg
+
+    Re-order pages operation creates new document version. Old page order
+    stays preserved in version 1. Document version 2 has new page order in effect.
 
 Rotate
 ------
+
+Often scanned pages are upside down or maybe rotated 90° (degrees). In order to
+quickly fix that, select one or multiple pages you want to rotate and then
+:menuselection:`Right Click --> Rotate --> 180° CCW` (or 90°
+CW, 90° CCW depending on your specific case):
+
+.. figure:: ../img/user-manual/page-management/rotate-page.png
+
+    Rotate page 180° CCW (180 degrees counter-clockwise)
+
+.. note::
+
+    CW stand for *clockwise*. CCW stands for *counter-clockwise*.
+
+
+Similarly to page deletion and page ordering, every time you rotate a page,
+document version will be incremented (i.e. advanced by one).
 
 
 Extract
 -------
 
-You can move document pages around from one document to another. Once you cut
-one or several pages from a document, you can paste them either inside another
-document - pages will become part of new document or you can paste pages in
-file browser, this will create entirely new document from cut pages.
+You can move document pages from one document to another. Also you can
+extract pages into completely new document.
+
 
 In example illustrated in pictures below there are two documents:
 
