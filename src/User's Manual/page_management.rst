@@ -4,7 +4,7 @@ Page Management
 ===============
 
 Many times scanning documents in bulk results in documents with blank pages;
-some pages maybe out of order or maybe part of totally different document.
+some pages maybe out of order or maybe part of totally different document (:ref:`strayed pages <strayed_page>`).
 Even if you notice these flaws immediately it is time consuming and
 frustrating to redo scanning process.
 Wouldn't it be nice to fix out of order pages withing rescanning?
@@ -104,13 +104,19 @@ CW, 90° CCW depending on your specific case):
 Similarly to page deletion and page ordering, every time you rotate a page,
 document version will be incremented (i.e. advanced by one).
 
+.. warning:: **After page rotation you have to re-run OCR for the document**. It
+   is because if page was upside down when ingested in Papermerge, the OCR
+   operation won't make sense of it and thus won't be able to extract text
+   (and then index) from that page. After you have manually fixed the page
+   (by correctly rotating it) - OCR will be able to extract and index page's
+   contented.
 
-Extract
--------
 
-You can move document pages from one document to another. Also you can
-extract pages into completely new document.
+Move (Document to Document)
+---------------------------
 
+You can move :ref:`strayed pages <strayed_page>` from one document (source) to another (target).
+Notice here that target document exists before move operation.
 
 In example illustrated in pictures below there are two documents:
 
@@ -119,26 +125,120 @@ In example illustrated in pictures below there are two documents:
 
 During scan page B1 wrongly ended up in document A, although it belongs to document B.
 
-In order to fix this scanning issue, you need to cut page from document A as illustrated in figure below.
+.. note:: A page that during the scan ended up in wrong document is called *strayed page*.
+    In example above, page B1 is strayed page.
 
-.. figure:: ../img/user-manual/page-management/cut-page-from-document-A-v2.png
+In order to fix this scanning issue, you need open documents in two panels and
+then drag 'n drop page B1 from document A (source) to document B (target):
 
-    Cut misplaced page, marked in picture with B1, from document A
+.. figure:: ../img/user-manual/page-management/move-pages-demo.gif
 
-Then, open document B and :menuselection:`Right Click--> Paste`
+    Move strayed page B1 from document A to document B
 
-.. figure:: ../img/user-manual/page-management/paste-in-document-B-v2.png
 
-    Paste page B1, from document A to document B
+.. note:: Pages are moved immediately after 'mouse drop' i.e. there
+    is no need to 'click apply button' as in re-order operation
+
+.. note:: Both documents' (source and target) version will be incremented
+    by one
+
+
+Extract (Document to Folder)
+----------------------------
+
+Statement *page is extracted from the document* means that page is moved out
+the document as completely new document i.e. completely new document is
+created from that page. You can think of page extraction as moving of the
+page from document into folder (as new document).
+
+Let's show how page extraction works by example. Say we have one document -
+document A - with following pages: A1, A2, B1, B2, A3. What we want to do is
+to extract pages B1 and B2 into a new document. Actually there are two
+possibilities here:
+
+1. Both pages B1 and B2 are extracted into one single new document (two page document)
+2. Both pages B1 and B2 are extracted into multiple (new) single page documents.
+
+.. figure:: ../img/user-manual/page-management/extract-pages-as-multi-doc-demo.gif
+
+    Extract pages B1 and B2 as multiple new documents (each new document has one page)
+
+In order to extract pages B1 and B2 into one single new document you need to uncheck
+'Extract each page into separate document' checkbox in modal dialog:
+
+.. figure:: ../img/user-manual/page-management/extract-pages-as-single-doc-demo.gif
+
+    Extract pages B1 and B2 as (one single) new document
+
+
+Similarly to other operations document A's (source document) version is
+incremented by one.
+
+OCR Data
+--------
+
+Do you need re-run OCR after document's page was moved/rotated/extracted/deleted ?
+
+In short - no, you don't need to re-run OCR. The only exception is page
+rotation. Every time you rotate a page in the document, you need to re-run
+OCR for that document. It actually makes sense, because if page was upside
+down when document was ingested, the OCR operation won't make much sense of
+it and thus won't be able to extract any text data from the page. Once you
+correct that part manually (rotate page), you re-run OCR so that correct text
+will be extracted and then indexed.
 
 .. note::
 
-    In order to see results you will need to click refresh button of your web browser
+    Generally speaking you don't need to re-run OCR after performing
+    page management operations. The only exception from this rule
+    is page rotation.
 
-.. figure:: ../img/user-manual/page-management/pasted-page.png
+For longer answer, let's clarify first what *OCR data* is. OCR data is: text
+information extracted from the document by OCR and associated with that
+document. That text information is stored in both database and on
+filesystem.
 
-    Result. Document B now contains all its 3 pages: B1, B2, B3
+When one page is moved from one document into another (or when page is
+deleted), the text associated with source (or target) document changes as
+well. For example, say document fruits.pdf has three pages: apples, oranges
+and bananas, i.e each page has only one word page 1 has work apples etc. You
+can find document fruits.pdf by searching 'apples' (will match first
+page), 'orages' (will match second page) or bananas (will match last page).
+
+After you extract first page (apples) from document fruits.pdf into another
+document, searching by term 'apples' should not reveal
+document 'fruits.pdf' - because term/page 'apples' is not part of it anymore.
+
+In order to keep text information associated with document fruits.pdf up to
+date, there are at least two possibilities:
+
+1. re-run OCR after each extract/delete/move/rotate operation
+2. re-use existing OCR and move it/delete it according to the operation
+
+From technical point of view 1. is very easy to implement but very inefficient
+in terms of computing power. Think that you have 100 pages document and you
+delete one blank page - what a waste of CPU resources to re-OCR entire
+document when OCR data is already available!
+
+The second possibility (point 2.) is very challenging to implement, but
+extremely efficient - you need to run OCR on the document only once
+(maybe twice, in case you decide to fix couple of pages by rotating them).
+
+Papermerge decided on 2. in other words, Papermerge reuses already extracted
+OCR data and updates it accordingly every time you re-order/move/extract/delete pages.
+
+The result is that whatever page management operation you perform the search
+results are always up-to-date without the need to re-OCR the document!
+As mentioned above the only exception are page rotations.
+
+Below is illustrated the case of three page fruits.pdf document with
+apples/oranges/bananas content. Initially search term 'apples' will reveal
+fruits.pdf document (from Inbox). After 'apples' page was extracted into
+separate document (found in Home/My Documents folder) search term 'apples'
+correctly reveals new document! Notice here that search index is updated
+instantaneously:
 
 
-After browser refresh you will see that document has all 3 pages B1, B2, B3.
-Document A on the other contains now only correct pages: A1, A2 and A3.
+.. figure:: ../img/user-manual/page-management/ocr-data-up-to-date.gif
+
+    Behind the scene, Papermerge reuses OCR data of the document. This approach results in instantaneous search index updates.
