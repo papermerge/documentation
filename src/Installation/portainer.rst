@@ -42,13 +42,25 @@ In environment variables section can either:
 1. insert variables one by one (simple mode)
 2. paste all variables as one single text file (advanced mode)
 
+.. warning::
+
+  Currently docker tag ``latest`` points to latest 2.1.0-alphaXYZ version
+  which is not yet production ready.
+
+.. note::
+
+  See all available docker tags in `GitHub packages <https://github.com/orgs/papermerge/packages>`_
+
+
 For this guide we use option 2.
 Paste following text in environment variables section::
 
   APP_IMAGE=ghcr.io/papermerge/papermerge
-  APP_TAG=2.1.0-alpha-latest
+  APP_TAG=latest
   PAPERMERGE_JS_IMAGE=ghcr.io/papermerge/papermerge.js
-  PAPERMERGE_JS_TAG=2.1.0-alpha-latest
+  PAPERMERGE_JS_TAG=latest
+
+  HOSTNAME=papermerge.local
 
   DB_USER=postgres
   DB_NAME=postgres

@@ -30,18 +30,29 @@ Save `this docker-compose.yml
 <https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml>`_
 file on your local computer.
 
+.. warning::
+
+  Currently docker tag ``latest`` points to latest 2.1.0-alphaXYZ version
+  which is not yet production ready.
+
+.. note::
+
+  See all available docker tags in `GitHub packages <https://github.com/orgs/papermerge/packages>`_
+
 Next, create ``.env`` file with following content::
 
     APP_IMAGE=ghcr.io/papermerge/papermerge
-    APP_TAG=2.1.0-alpha-latest
+    APP_TAG=latest
     PAPERMERGE_JS_IMAGE=ghcr.io/papermerge/papermerge.js
-    PAPERMERGE_JS_TAG=2.1.0-alpha-latest
+    PAPERMERGE_JS_TAG=latest
 
     DB_USER=postgres
     DB_NAME=postgres
     DB_PASSWORD=postgres
     DB_HOST=db
     DB_PORT=5432
+
+    HOSTNAME=papermerge.local
 
     REDIS_HOST=redis
     REDIS_PORT=6379
@@ -60,9 +71,19 @@ Add to your ``/etc/hosts`` following content::
 
     127.0.0.1       papermerge.local
 
+.. note::
+
+  You can add whatever hostname you want e.g. papermerge.myhost
+  just keep in mind that whatever you add in ``/etc/hosts`` should
+  match ``HOSTNAME`` value from ``.env`` file
+
 Start Papermerge using following docker compose command::
 
     docker-compose -f docker-compose.yml --env-file .env up
+
+In case you use more recent version for docker::
+
+    docker compose -f docker-compose.yml --env-file .env up
 
 You can access Papermerge user interface using a web browser like Firefox.
 Open your web browser and point it to http://papermerge.local address:
@@ -107,7 +128,7 @@ Next, create ``.env`` file with following content:
 .. code-block::
 
     APP_IMAGE=ghcr.io/papermerge/papermerge
-    APP_TAG=2.1.0-alpha-latest
+    APP_TAG=latest
 
     DB_USER=postgres
     DB_NAME=postgres
