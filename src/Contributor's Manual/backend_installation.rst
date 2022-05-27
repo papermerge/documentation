@@ -1,53 +1,32 @@
-.. _bare_metal_installation:
+Backend Installation
+====================
 
-Bare Metal Installation
-*************************
+This guide is intended for those who want play with backend code for Papermerge.
+It order to follow it you need to be confortoble with linux commandline and python
+programming language.
+
+In this guide Ubuntu 20.04 LTS is used as Linux distribution.
 
 If you follow this document and still have troubles, please open an
-`issue on GitHub: <https://github.com/ciur/papermerge/issues>`_ so I can fill in
-the gaps.
+`issue on GitHub <https://github.com/ciur/papermerge/issues>`_.
 
-This guide is split into two parts: short one and very detailed one. 
-:ref:`manual_way_short_version` is meant for people who are confortable with development tools
-like Python, Django, pip, git or even gcc. In this case I will skip most of details
-as they will sound boring for such persons.
 
-:ref:`manual_way_detailed_version` is for people who probably heard of Python - as programming
-language - but do not have any experience working with it. Any form of prior
-programming (in ruby, perl, java, C/C++) experience will help you to grasp the
-concepts quicker.
-
-In both versions of this guide you need to know what is a command line
-terminal and how to work with it. In general Papermerge is a Linux/Unix based
-software. In this guide I will use Ubuntu 20.04 as example, but this
-instructions can be adopted easily for any Linux distribution.
-
-.. _manual_way_short_version:
+.. _backend_installation_short_version:
 
 Short Version
 ~~~~~~~~~~~~~~~
 
-First :ref:`download` the sorce code. In this guide we clone latest stable version 1.5.5 into
-folder PapermergeDMS (located in home folder):
+Clone repository::
 
-.. code-block:: bash
-    :caption: Clone repository
+    $ git clone git@github.com:papermerge/papermerge-core.git
 
-    $ git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
+Install required Ubuntu 20.04 LTS deb packages::
 
-
-1. Install required Ubuntu 20.04 LTS deb packages:
-
-.. code-block:: bash
-    :caption: Install required dependencies
 
     $ sudo apt install build-essential \
         python3-pip \
         python3-venv \
-        git \
         imagemagick \
-        poppler-utils \
-        pdftk \
         tesseract-ocr \
         tesseract-ocr-eng \
         tesseract-ocr-deu \
@@ -55,65 +34,33 @@ folder PapermergeDMS (located in home folder):
         tesseract-ocr-spa
 
 
-2. Create python virutal environment and activate it:
+Create python virtual environment and activate it::
 
-.. code-block:: bash
-    :caption: Create and activate python virtual environment
+    $ cd ~/papermerge-core
+    $ poetry install
+    $ poetry shell
 
-    $ cd ~/PapermergeDMS
-    $ python3 -m venv .venv --system-site-packages
-    $ source .venv/bin/activate
-
-Alternativelly you can create python virtual environment with command:
-
-.. code-block:: bash
-    :caption: Create python virtual environment
-
-    $ virtualenv .venv -p python3.7
-
-Advantage of last command is that you can specify exact python version.
-Papermerge requires python version >= 3.7
-
-3. Install necessary dependencies:
-
-.. code-block:: bash
-    :caption: Install python dependencies, like Django for example
-
-    $ pip3 install -r requirements/base.txt
-
-4. Initialize SQLite database with:
-
-.. code-block:: bash
-    :caption: Run migrations
+Run migrations::
 
     $ ./manage.py migrate
 
-5. Create a user for Papermerge instance:
-
-.. code-block:: bash
-    :caption: Create superuser/administrative account for web user
+Create a user for Papermerge instance::
 
     $ ./manage.py createsuperuser
 
-6. Start webserver with::
+Start REST API webserver with::
 
-.. code-block:: bash
-    :caption: Run built-in web server
+    $ ./manage.py runserver
 
-    $ ./manage.py runserver <IP>:<PORT>
+Last command will start backend REST API server on localhost port 8000.
+You can access REST API backend via `http://localhost:8000/api/` url.
 
-If no specific IP or PORT is given, the default is 127.0.0.1:8000 also known
-as http://localhost:8000/. 
-
-7. In a separate window, change to the project's root directory again, but
-this time, you should start the worker script with:
-
-.. code-block:: bash
-    :caption: Run papermerge worker instance
+In a separate window, change to the project's root directory again, but
+this time, you should start the worker script with::
 
     $ ./manage.py worker
 
-.. _manual_way_detailed_version:
+.. _backend_installation_detailed_version:
 
 Detailed Version
 ~~~~~~~~~~~~~~~~~~

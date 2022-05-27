@@ -94,5 +94,6 @@ designed for.
    Installation/index.rst
    User's Manual/index.rst
    REST API/index.rst
+   Contributor's Manual/index.rst
    roadmap.rst
    glossary.rst
