@@ -6,7 +6,6 @@ Setup
 
    overview
    requirements
-   downloading
    server_configuration
    backup
    upgrading
