@@ -21,7 +21,7 @@ Above commands will install all dependencies, switch into environment variable
 and run documentation in auto build mode. Any change in documentation
 repository will be automatically rebuild.
 
-Also, use can use provided bash script as shortcut::
+Also, instead of `poetry run ...` command you can  use provided bash script as shortcut::
 
     $ ./run.dev.sh
 
