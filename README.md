@@ -15,12 +15,15 @@ and [poetry](https://python-poetry.org/docs/), then in root repository
 folder run following commands::
 
     $ poetry install
-    $ poetry shell
-    $ sphinx-autobuild --port 9600 src/ _build/html/
+    $ poetry run sphinx-autobuild --port 9600 src/ _build/html/
 
 Above commands will install all dependencies, switch into environment variable
 and run documentation in auto build mode. Any change in documentation
 repository will be automatically rebuild.
+
+Also, use can use provided bash script as shortcut::
+
+    $ ./run.dev.sh
 
 ## Docker
 
