@@ -30,9 +30,7 @@ detailed information.
    user_interface
    tags_and_folders
    page_management
-   metadata
    versions
-   automates
    consumption
    ocr_languages
    file_formats

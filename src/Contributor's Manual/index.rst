@@ -7,7 +7,6 @@ translators and system administrators.
 .. toctree::
    :maxdepth: 4
 
-   overview
    backend_dev_setup 
    frontend_dev_setup
 
