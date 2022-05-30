@@ -8,5 +8,6 @@ translators and system administrators.
    :maxdepth: 4
 
    overview
-   backend_installation 
+   backend_dev_setup 
+   frontend_dev_setup
 
