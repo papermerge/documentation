@@ -52,7 +52,7 @@ Next, create ``.env`` file with following content::
     DB_HOST=db
     DB_PORT=5432
 
-    HOSTNAME=papermerge.local
+    USE_HOSTNAME=papermerge.local
 
     REDIS_HOST=redis
     REDIS_PORT=6379
@@ -75,7 +75,15 @@ Add to your ``/etc/hosts`` following content::
 
   You can add whatever hostname you want e.g. papermerge.myhost
   just keep in mind that whatever you add in ``/etc/hosts`` should
-  match ``HOSTNAME`` value from ``.env`` file
+  match ``USE_HOSTNAME`` value from ``.env`` file
+
+.. note::
+
+  Variable name to pass hostname is ``USE_HOSTNAME``. This variable
+  used to be named "HOSTNAME" - which caused some problems when 
+  accessing Papermerge from remote host. See this 
+  `comment in github <https://github.com/papermerge/papermerge-core/issues/17#issuecomment-1145878439>`_
+  for detailed explanation.
 
 Start Papermerge using following docker compose command::
 

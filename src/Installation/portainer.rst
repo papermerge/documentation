@@ -60,7 +60,7 @@ Paste following text in environment variables section::
   PAPERMERGE_JS_IMAGE=ghcr.io/papermerge/papermerge.js
   PAPERMERGE_JS_TAG=latest
 
-  HOSTNAME=papermerge.local
+  USE_HOSTNAME=papermerge.local
 
   DB_USER=postgres
   DB_NAME=postgres
@@ -82,6 +82,7 @@ Paste following text in environment variables section::
 
 
 .. figure:: ../img/setup/installation/portainer/step-4.svg
+
 
 ``APP_IMAGE``
 is docker image for Papermerge REST API backend
@@ -105,6 +106,7 @@ are hosts and port for elasticsearch service
 ``SECRET_KEY`` A secret text for a particular Papermerge installation. This is
 used to provide cryptographic signing, and should be set to a unique,
 unpredictable value
+
 
 .. note:: Papermerge docker images are published on `Github's Package section
    for Papermerge <https://github.com/orgs/papermerge/packages>`_
