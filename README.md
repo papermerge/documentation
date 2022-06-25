@@ -15,26 +15,13 @@ and [poetry](https://python-poetry.org/docs/), then in root repository
 folder run following commands::
 
     $ poetry install
-    $ poetry run sphinx-autobuild --port 9600 src/ _build/html/
+    $ poetry run task autobuild
 
 Above commands will install all dependencies, switch into environment variable
 and run documentation in auto build mode. Any change in documentation
-repository will be automatically rebuild.
+repository will be automatically rebuild. You can access
+documentation on ``http://localhost:9600``.
 
-Also, instead of `poetry run ...` command you can  use provided bash script as shortcut::
-
-    $ ./run.dev.sh
-
-## Docker
-
-In order to browse documentation **locally**, get its latest docker image from docker hub:
-
-    docker pull papermerge/documentation
-
-``papermerge/documentation`` docker image exposes web service on port 80 i.e.
-it serves static html using nginx on port 80:
-
-    docker run -d --name docs -p 9010:80 papermerge/documentation
 
 ## Contributors
 
