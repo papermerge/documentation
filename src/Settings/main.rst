@@ -22,6 +22,21 @@ Example as toml configuration file::
   secret_key = "asjrijfpHHJH00huge00secret00QMNB344GHOOooaq"
 
 
+``MAIN__MEDIA_ROOT``
+~~~~~~~~~~~~~~~~~~~~~
+
+Absolute filesystem path to the directory that will hold user-uploaded documents.
+
+Example as environment variable::
+
+  PAPERMERGE__MAIN__MEDIA_ROOT=/var/www/example.com/media/
+
+Example as toml config::
+
+  [main]
+  media_root="/var/www/example.com/media/"
+
+
 ``MAIN__TZ``
 ~~~~~~~~~~~~
 
