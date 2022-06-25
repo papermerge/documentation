@@ -14,6 +14,11 @@ sphinx-multiversion = "^0.2.4"
 sphinxcontrib-httpdomain = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
+taskipy = "^1.10.2"
+
+[tool.taskipy.tasks]
+autobuild = "sphinx-autobuild --port 9600 src/ _build/html/"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

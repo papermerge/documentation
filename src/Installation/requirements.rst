@@ -21,14 +21,14 @@ read :ref:`installation_with_docker` section.
 
 In order to successfully deploy Papermerge you need following software:
 
-* `Python`_ >= 3.7
+* `Python`_ >= 3.8
 * `Tesseract`_ - because of :ref:`OCR <ocr>`
 * Database (`PostgreSQL`_/MySQL/MariaDB/SQLite)
 * `Redis`_
 * `Elasticsearch`_
 
 Python
-#######
+******
 
 Papermerge (server side) is written in Python programming language. The
 minimum Python version required is 3.7.
@@ -36,7 +36,7 @@ minimum Python version required is 3.7.
 Papermerge uses `Django`_ Web Framework as backend technology.
 
 Tesseract
-#########
+**********
 
 If you never heard of `Tesseract software`_ - it is google's open source
 `Optical Character Recognition`_ software.  It extracts text from images. It

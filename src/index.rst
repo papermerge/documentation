@@ -22,17 +22,14 @@ What It Does
 
 * It extracts (using OCR) and indexes text from your documents
 * Provides modern, desktop like user interface to easily find your documents
-* Augments your documents with tags and :doc:`User's Manual/metadata`
 * Helps you instantly find your documents:
     * based on extracted text
-    * based on :doc:`User's Manual/metadata`
     * based on :doc:`/User's Manual/tags_and_folders`
 * Helps you fix scanned documents issues like:
    * delete blank, semi-blank or just irrelevant pages
    * rotate pages
    * move strayed pages between documents
    * change page order within the document
-
 
 What It Doesn't Do
 ~~~~~~~~~~~~~~~~~~~~
@@ -93,6 +90,7 @@ designed for.
 
    Installation/index.rst
    User's Manual/index.rst
+   Settings/index.rst
    REST API/index.rst
    Contributor's Manual/index.rst
    roadmap.rst

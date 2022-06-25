@@ -1,26 +1,26 @@
 Overview
-==========
+=========
 
-Papermerge is a distributed system with many moving parts. "Distributed
+|project| is a distributed system with many moving parts. "Distributed
 system" - means that different components (parts) may run on different
 computers. While this increases the complexity of the system, it also brings
 many benefits like scalability, flexibility and ease of maintenance.
 
 
 Components
-************
+***********
 
-Papermerge consists of the following components:
+|project| consists of the following components:
 
 * RESTful backend server
 * Worker (there may be one or multiple workers)
 * Frontend (optional)
 * Websockets server (optional).
 
-The essential parts of Papermerge deployment are RESTful backend server and
+The essential parts of |project| deployment are RESTful backend server and
 one or multiple workers. The frontend and websockets server are optional.
-They provide so called *official graphical user interface of Papermerge*. If
-you don't plan to use Papermerge via web GUI, you can safely skip frontend
+They provide so called official graphical user interface of |project|. If
+you don't plan to use |project| via web GUI, you can safely skip frontend
 and websockets parts.
 
 
@@ -31,7 +31,8 @@ or REST API backend server (backend server for short) this is the main
 piece, the heart of the system so to speak. It is the web application
 which serves REST API. A typical deployment will have one backend server.
 
-.. note:: REST API Backend has its own, separate  `RESTful Backend GitHub repository`_.
+.. note:: REST API Backend has its own, separate  `RESTful Backend GitHub
+   repository`_.
 
 
 Worker
@@ -39,26 +40,27 @@ Worker
 
 This part performs "laborious tasks" like for example OCR of the documents.
 
-In order to understand why worker is required at all, a little more background
-is necessary: the typical web server consists of a series of requests and
-responses. A well behaved web server for each request it will send a response
-in less than 100 milliseconds. However, the OCR processing of a single page
-of the document can easily take several seconds, maybe minutes or even hours
-(!). This is why OCR processing, relative to typical request/response cycle
-of the web server, is considered a "laborious task". And this is why OCR
-processing must run in a separate component, outside of web server's
-request/response cycles.
 
-In a typical Papermerge deployment **there can be many workers**. Number of
-workers depends on the number of incoming documents and how quick you want to
-process all of them.
+.. note:: In order to understand why worker is required at all, a little more
+   background is necessary: the typical web server consists of a series of
+   requests and responses. A well behaved web server for each request it will
+   send a response in less than 100 milliseconds. However, the OCR processing
+   of a single page of the document can easily take several seconds, maybe
+   minutes or even hours(!). This is why OCR processing, relative to typical
+   request/response cycle of the web server, is considered a "laborious task".
+   And this is why OCR processing must run in a separate component, outside of
+   web server's request/response cycles.
 
-.. note:: For best results each worker should run on a separate computer. In
-   case of docker based deployment - each worker should run in separate
-   docker container.
+In a typical |project| deployment **there can be as many as possible workers**.
+Number of workers depends on the number of incoming documents and how quick you
+want to process all of them.
+
+For best results each worker should run on a separate computer. In case of
+docker based deployment - each worker should run in separate docker container.
 
 .. note:: From source code point of view, worker and REST API web server use
-  same codebase. REST API backend server communicates with workers via `Celery`_/`Redis`_.
+   same codebase. REST API backend server communicates with workers via
+   `Celery`_/`Redis`_.
 
 
 Frontend
@@ -67,9 +69,9 @@ Frontend
 .. figure:: ../img/setup/overview/01-frontend.png
 
 Generally speaking you don't need graphical user interface to successfully use
-Papermerge. However, it is always awesome to have a nice UI (user interface).
+|project|. However, it is always awesome to have a nice UI (user interface).
 This is what *frontend* part is all about - it is the official user interface
-of Papermerge.
+of |project|.
 
 In order to accomplish its job, frontend uses backend's REST API - in this
 regard, frontend is an http client which consumes backend's REST API. Almost
@@ -100,7 +102,7 @@ frontend, you don't need to deploy websockets server neither.
 Installation Options
 **********************
 
-You can go multiple routes to setup and run Papermerge:
+You can go multiple routes to setup and run |project|:
 
 * Use the docker compose
 * Kubernetes
@@ -110,11 +112,11 @@ You can go multiple routes to setup and run Papermerge:
 Docker Compose
 ---------------
 
-Docker is a widespread containerization technology. With docker you can start
-in almost no time pretty complex configuration setups. Docker ships with
+Docker a de factor standard containerization technology. With docker you can
+start in almost no time pretty complex configuration setups. Docker ships with
 docker-compose which helps you to easily configure and start all services
 (like database, redis and elastic search for example) required to operate
-Papermerge.
+|project|.
 
 For more details read :ref:`docker_compose` section.
 
@@ -123,7 +125,7 @@ Portainer
 
 Portainer is popular application for managing docker container via convenient
 user interface. Section :ref:`install_with_portainer` explains in details how to
-quickly start Papermerge instance using Portainer.
+quickly start |project| instance using Portainer.
 
 Kubernetes
 -----------
@@ -133,8 +135,9 @@ TODO...
 Bare Metal Installation
 ------------------------
 
-This method is suitable if you plan to learn all ins and outs of Papermerge.
-In particular it is for developers. There are two major parts of Papermerge development:
+This method is suitable if you plan to play around with |project| internals. In
+particular it is for developers. There are two major parts of |project|
+development:
 
 * backend development
 * frontend development
@@ -143,4 +146,5 @@ For the backend part is you need to be familiar with Python/Django/Celery
 ecosystem. For the frontend part familiarity with JavaScript/Nodejs/EmberJS is
 necessary.
 
-For more details read :ref:`bare_metal_installation` section.
+For more details read :ref:`backend_dev_setup` section
+and :ref:`frontend_dev_setup`.
