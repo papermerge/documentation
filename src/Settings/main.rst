@@ -20,3 +20,18 @@ Example as toml configuration file::
 
   [main]
   secret_key = "asjrijfpHHJH00huge00secret00QMNB344GHOOooaq"
+
+
+``MAIN__TZ``
+~~~~~~~~~~~~
+
+Which timezone to use.
+
+Example as environment variable::
+
+  PAPERMERGE__MAIN__TZ=Europe/Berlin
+
+Example as toml configuration file::
+
+  [main]
+  tz = "Europe/Berlin"
