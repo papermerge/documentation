@@ -8,3 +8,7 @@ Settings
    main
    ocr
    database
+   superuser
+   redis
+   elasticsearch
+   django_settings_module

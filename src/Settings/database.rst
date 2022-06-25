@@ -56,6 +56,16 @@ Example as toml config::
 Database name.
 Default value is papermerge.
 
+Example as environment variable::
+
+  PAPERMERGE__DATABASE__NAME=db
+
+Example as toml config::
+
+  [database]
+  name="db"
+
+
 .. _settings__database__host:
 
 ``DATABASE__HOST``
@@ -64,6 +74,15 @@ Default value is papermerge.
 Database host.
 Default value is localhost.
 
+Example as environment variable::
+
+  PAPERMERGE__DATABASE__HOST=mydbhost
+
+Example as toml config::
+
+  [database]
+  host="mydbhost"
+
 .. _settings__database__port:
 
 ``DATABASE__PORT``
@@ -71,9 +90,14 @@ Default value is localhost.
    
 Database port. Port must be specified as integer number. No string quotes.
 
-Example::
+Example as environment variable::
 
-  DBPORT = 5432
+  PAPERMERGE__DATABASE__PORT=5432
+
+Example as toml config::
+
+  [database]
+  port=5432
 
 Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.
 
@@ -83,4 +107,14 @@ Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.
 ~~~~~~~~~~~~~~~~~~~~~~
  
 Password for connecting to database
+
+Example as environment variable::
+
+  PAPERMERGE__DATABASE__PASSWORD=somesecurepassword
+
+Example as toml config::
+
+  [database]
+  password=somesecurepassword
+
 Default value is empty string.
