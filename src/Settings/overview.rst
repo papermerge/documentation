@@ -29,7 +29,8 @@ and as environment variable - the one from environment variable will apply.
 For example, say there is a toml configuration file with following content::
 
   [main]
-  tz = 'Europe/Berlin'
+  timezone = 'Europe/Berlin'
+  secret_key = 'abc123'
 
   [ocr]
   default_language = 'deu'
@@ -37,19 +38,21 @@ For example, say there is a toml configuration file with following content::
   [database]
   host = 'localhost'
 
-and there are defined two environment variables as follows::
+and there are defined three environment variables as follows::
 
-  PAPERMERGE__DATABASE__HOST='postgres.svc'
-  PAPERMERGE__OCR__DEFAULT_LANGUAGE='fra'
+  PAPERMERGE__MAIN__SECRET_KEY=11ABGlqKQ29x
+  PAPERMERGE__OCR__DEFAULT_LANGUAGE=fra
+  PAPERMERGE__DATABASE__HOST=postgres.svc
 
 
 In such case, |project| will use following values:
 
 - "Europe/Berlin" for the time zone
+- 11ABGlqKQ29x for the secret key
 - "fra" for default ocr language
 - "postgres.svc" for database host
 
-first value is used from toml configuration file while last two values
+first value is used from toml configuration file while last three values
 are used from environment variable, because **environment variables have
 priority over toml configurations**.
 

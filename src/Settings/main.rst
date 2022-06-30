@@ -54,16 +54,16 @@ Example as toml config::
   logging_cfg="/etc/papermerge/logging.yaml"
 
 
-``MAIN__TZ``
-~~~~~~~~~~~~
+``MAIN__TIMEZONE``
+~~~~~~~~~~~~~~~~~~
 
 Which timezone to use.
 
 Example as environment variable::
 
-  PAPERMERGE__MAIN__TZ=Europe/Berlin
+  PAPERMERGE__MAIN__TIMEZONE=Europe/Berlin
 
 Example as toml configuration file::
 
   [main]
-  tz = "Europe/Berlin"
+  timezone = "Europe/Berlin"

@@ -2,22 +2,20 @@ REST API
 =========
 
 
-REST API is the main interface with Papermege backend server. This means that
-all Papermerge features can be consumed (i.e. used) with help of any http
-client REST API.
+|project| backend server interacts with outside world using HTTP based REST API.
+This means that all |project| features can be consumed with any
+REST API client.
 
-Following pages provide of description of general concepts and workflows you need to know when working with REST API interface.
+Following pages provide the description, general concepts and workflows you
+need to understand in order to successfully use Papermerge REST API.
 
-For REST API reference see :ref:`redoc` and :ref:`swagger`
-
+Once you familiarized yourself with general concepts,
+use REST API :ref:`rest_api_reference` for detailed description on each
+REST API endpoint.
 
 
 .. toctree::
    :maxdepth: 4
 
    overview
-   authentication
-   redoc
-   swagger
-
-
+   reference
