@@ -15,7 +15,7 @@ of these "visualizers" read from same openapi schema file and thus convey same
 information - just formatted differently.
 
 Online vs Own Instance Reference
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 As you will see, there are two ways of accessing REST API reference - one is
 from your own instance and another from online documentation website.
@@ -32,7 +32,7 @@ Online REST API reference is there only for convenience.
 
 
 Redoc
-~~~~~
+-----
 
 Papermerge REST API online reference is available via `redoc ui`_.
 
@@ -55,7 +55,7 @@ redoc based REST API reference from user menu:
 
 
 Swagger UI
-~~~~~~~~~~
+----------
 
 Papermerge REST API online reference is available via `swagger ui`_.
 
