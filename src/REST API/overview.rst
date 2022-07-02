@@ -6,7 +6,7 @@ Overview
 In order to use REST API interface you need an http client. The most
 wide-spread http client is `curl`_.
 
-In following sections `curl`_ will be used to illustrate examples of usages.
+In following sections `curl`_ will be used if all examples.
 
 Server URL
 ----------
@@ -101,7 +101,7 @@ Nodes, Folders and Documents
 ----------------------------
 
 This section explains by example how to use nodes, folders and documents
-endpoints as these endpoints feature some peculiarities.
+endpoints because they feature some peculiarities.
 
 In |project| one folder can contain other folders and documents. It is de
 factor standard nowadays for a typical `file manager`_ to organize files and
@@ -130,10 +130,11 @@ Folder Vegetables contains just one document titled broccoli.pdf.
 Let's first create folder "My Documents".
 
 Each folder belongs to a specific user and has one parent folder - which means
-that in order to create folder "My Documents" we need to know the user id and
-parent folder id. Notice that folder "My Documents", which we are about to
-create, looks like it will be top level folder - which may lead you
-to wrong conclusion that "My Documents" folder does not need parent id.
+that in order to create folder "My Documents" we need to know parent folder
+id (user id is deduced from the token). Notice that folder "My Documents",
+which we are about to create, looks like it will be top level folder - which
+may lead you to wrong conclusion that "My Documents" folder does not need
+parent id.
 
 .. important:: Each and every folder and document you create in
    |project| **requires** non empty folder parent id field.
@@ -150,15 +151,15 @@ Every user in |project| has two special folders:
 These folders are special because they are created during user's account
 creation and are always there as long user's account exists. You cannot
 delete ``.home``, ``.inbox`` folders and you cannot alter their title
-(which starts with dot character). Folder "My Documents" can be direct
+(which starts with dot character). Folder "My Documents" must be direct
 child of either ``.home`` or ``.inbox`` folder.
 
 
-.. note:: yes, you can create "My Documents" folder directly in user's ``.inbox``. However
+.. note:: You can create "My Documents" folder directly in user's ``.inbox``. However
   ``.inbox`` folder is intended for received document (e.g. via email attachments)
 
 
-In order to get user id and user's ``.home`` folder id use ``api/users/me/`` endpoint::
+In order to get user's ``.home`` folder id use ``api/users/me/`` endpoint::
 
 
   curl <server-url>/api/users/me/ \
@@ -169,7 +170,7 @@ Example of response::
   {
     "data": {
       "type": "users",
-      "id": "169d8",  // <-- user id
+      "id": "169d8",
       "attributes": {
         "username": "admin",
         ...
@@ -191,14 +192,244 @@ Example of response::
     }
   }
 
-In response above user id is "169d8" and home folder id is "18381e". Actually
-both user and folder ids are `uuid`_ numbers. For sake of simplicity in
-examples used here we abbreviate ids and remove all irrelevant fields.
+In response above home folder id is "18381e".
+folder id is actually an `uuid`_ number, however for sake of simplicity,
+we abbreviate it and remove all irrelevant fields.
 
-.. important:: For creating folder and documents you always need user
-   (the owner) id and parent folder id. User has two special folders: ``.inbox`` and
-   ``.home``. In order to get user id and special folder's ids use
-   ``api/users/me/`` REST API endpoint
+.. important:: For creating folder and documents you always need parent folder
+   id. User has two special folders: ``.inbox`` and ``.home`` and all other
+   documents and folders are under one of these two folders. In order to
+   get special folder's ids use ``api/users/me/`` REST API endpoint
+
+
+Create Folder
+~~~~~~~~~~~~~
+
+Now, once we have folder's parent id, we can create "My Documents" folder::
+
+
+  curl -XPOST <server-url>/api/folders/ \
+    -H 'Authorization: Token beb...' \
+    -H 'Content-Type: application/vnd.api+json' \
+    -d '{
+      "data": {
+        "type": "folders",
+        "attributes": {
+          "title": "My Documents"
+        },
+        "relationships": {
+          "parent": {
+            "data": {
+                "type": "folders",
+                "id": "18381e"  // <- .home folder id
+            }
+          }
+        }
+      }
+    }'
+
+Similarly you can create folder with help of ``POST /api/nodes/`` endpoint::
+
+
+  curl -XPOST <server-url>/api/nodes/ \
+    -H 'Authorization: Token beb...' \
+    -H 'Content-Type: application/vnd.api+json' \
+    -d '{
+      "data": {
+        "type": "folders",
+        "attributes": {
+          "title": "My Documents"
+        },
+        "relationships": {
+          "parent": {
+            "data": {
+                "type": "folders",
+                "id": "18381e"  // <- .home folder id
+            }
+          }
+        }
+      }
+    }'
+
+In both cases, the response status code will be "201 Created" and body of the
+response will contain following json data
+(content-type: application/vnd.api+json)::
+
+  {
+    "data": {
+      "type": "folders",
+      "id": "06b28",
+      "attributes": {
+        "title": "My Documents",
+        "tags": [],
+        "created_at": "2022-07-02T06:24:10.357679+02:00",
+        "updated_at": "2022-07-02T06:24:10.357694+02:00"
+      },
+      "relationships": {
+        "parent": {
+          "data": {
+            "type": "folders",
+            "id": "18381e"
+          }
+        }
+      }
+    }
+  }
+
+
+Notice that we can create as many folders with same title as we want.
+|project| does not impose folder title uniqueness.
+
+Also it is important to note that when creating folder,
+``Content-Type: application/vnd.api+json``
+header must be used. If you forget to include ``application/vnd.api+json``
+value for content-type you will get "400 Bad Request" response from REST API
+server.
+
+.. important:: When content-type  is ``application/vnd.api+json``, always
+  wrap all fields inside "data" field::
+
+    {
+      "data": {...}
+    }
+
+.. note:: Even though you can use both endpoints i.e. ``POST /api/nodes/``
+  and ``POST /api/folders/`` for creating folders, we recommend
+  to use ``POST /api/nodes``. The point is, as you will see later,
+  it make creating of folder and document consistent.
+
+
+View Folder's Content
+~~~~~~~~~~~~~~~~~~~~~
+
+Once we've created folder "My Documents" under user's ``.home``, we want to
+see what's inside ``.home`` folder, this way we can confirm that indeed
+folder "My Documents" was created and it is direct descendant of ``.home``
+folder.
+
+Correct endpoint for listing the content of specific folder is ``GET /api/nodes/{folder-id}/``.
+For our case, we want to list user's ``.home``::
+
+   curl <server-url>/api/nodes/18381e/ \
+    -H 'Authorization: Token beb...'
+
+And response json body will look something like::
+
+  {
+    "links": {
+      ...
+    },
+    "data": [
+      {
+        "type": "folders",
+        "id": "949baf",
+        "attributes": {
+          "title": "My Documents",
+          ...
+        },
+        "relationships": {
+          "parent": {
+            "data": {
+              "type": "folders",
+              "id": "18381e"
+            }
+          }
+        }
+      },
+      ...
+    ],
+    "meta": {
+      "pagination": {
+        ...
+      }
+    }
+  }
+
+Node - is an abstraction of both folder and document, thus
+when we use ``GET /api/nodes/{node-id}/`` REST API endpoint we
+basically request to list all **documents and folders** under specific node-id.
+
+To be exact the correct signature of the endpoint is ``GET /api/nodes/
+{folder-id}/``, because it does not make any sense to list "folders and
+documents under a document".
+
+There two other endpoints which you may think of as a way to list all
+folder's content:
+
+- ``GET /api/folders/``
+- ``GET /api/folders/{folder-id}/``
+
+
+First one, ``GET /api/folders/``, indeed will return all folders of specific
+user. However, it will return **only folders** and all folders will be listed
+as flat structure. In our case this means that folder "My Documents", ``.home``,
+``.inbox`` will be in the same flat list.
+
+Second one, ``GET /api/folders/{folder-id}/``, will return folder's properties
+details i.e. id, title, tags, created_at etc
+
+.. important:: Correct endpoint for listing the content of specific folder is
+   ``GET /api/nodes/{folder-id}/``
+
+
+Create Document
+~~~~~~~~~~~~~~~
+
+At this point, creating "Fruits" and "Vegetables" folders should be
+straightforward and we leave it as exercise.
+
+Creating documents, on the other hand, needs clarification.
+First of all, from user point of view - documents are "uploaded", not "created".
+But from REST API point of view, uploading a document is performed in two steps:
+
+1. create document entry
+2. upload associated file
+
+In first step we create document entry::
+
+  curl -XPOST <server-url>/api/nodes/ \
+    -H 'Authorization: Token beb...' \
+    -H 'Content-Type: application/vnd.api+json' \
+    -d '{
+      "data": {
+        "type": "documents",
+        "attributes": {
+          "title": "mydoc_1.pdf",
+          "lang": "deu"
+        },
+        "relationships": {
+          "parent": {
+            "data": {
+                "type": "folders",
+                "id": "18381e1"
+            }
+          }
+        }
+      }
+    }'
+
+Notice, creating document entry in this way is very similar to creating a
+folder. The difference is that for documents you specify type "documents", plus
+you need to include mandatory field ``lang``, which is the language in which
+the document will be OCRed.
+
+At this point, if you list all documents and folders under "My Document", you will
+see folders "Vegetables", "Fruits" and document "mydoc_1.pdf".
+However, document "mydoc_1.pdf" does not have a file associated yet, in other words,
+we still need to upload file and associated it with "mydoc_1.pdf" document.
+
+This is second step. In order to perform second step we need to have a file and we need
+to know the id of the document entry we've just created. Document id can be retrieved
+either from response of ``POST /api/nodes/`` endpoint, or by listing all children nodes
+of "My Documents" folder with ``GET /api/nodes/{my-documentsn-node-id}/``.
+
+The REST API endpoint to upload file and associate with given document entry id is::
+
+  curl <server-url>/api/documents/{document-id}/upload/mydoc_1.pdf \
+    -H 'Authorization: Token beb...' \
+    -T /path/to/file.pdf
+
+
 
 
 .. _curl: https://en.wikipedia.org/wiki/CURL
