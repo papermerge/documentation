@@ -9,8 +9,8 @@ This sections is for database configurations.
 
 .. _settings__database__type:
 
-``DATABASE__TYPE``
-~~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__DATABASE__TYPE``
+------------------------------
 
 Database type.
 For PostgreSQL database use one of following values:
@@ -34,8 +34,8 @@ Example as environment variable::
 
 .. _settings__database__user:
 
-``DATABASE__USER``
-~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__DATABASE__USER``
+------------------------------
 
 Database user.
 
@@ -50,8 +50,8 @@ Example as toml config::
 
 .. _settings__database__name:
 
-``DATABASE__NAME``
-~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__DATABASE__NAME``
+------------------------------
 
 Database name.
 Default value is papermerge.
@@ -68,8 +68,8 @@ Example as toml config::
 
 .. _settings__database__host:
 
-``DATABASE__HOST``
-~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__DATABASE__HOST``
+------------------------------
  
 Database host.
 Default value is localhost.
@@ -85,8 +85,8 @@ Example as toml config::
 
 .. _settings__database__port:
 
-``DATABASE__PORT``
-~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__DATABASE__PORT``
+------------------------------
    
 Database port. Port must be specified as integer number. No string quotes.
 
@@ -103,8 +103,8 @@ Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.
 
 .. _settings__database__password:
 
-``DATABASE__PASSWORD``
-~~~~~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__DATABASE__PASSWORD``
+----------------------------------
  
 Password for connecting to database
 

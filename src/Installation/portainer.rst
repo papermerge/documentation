@@ -44,7 +44,7 @@ In environment variables section can either:
 
 .. warning::
 
-  Currently docker tag ``latest`` points to latest 2.1.0-alphaXYZ version
+  Currently docker tag ``latest`` points to latest 2.1.0a<N> version
   which is not yet production ready.
 
 .. note::
@@ -89,7 +89,7 @@ is docker image for Papermerge REST API backend
 
 ``APP_TAG``
 is Papermerge REST API backend docker image version. As of writing this documentation Papermerge latest version 2.1 is in early alpha version. To
-see if there are newer version `check papermerge package on github <https://github.com/papermerge/papermerge-core/pkgs/container/papermerge>`_.
+see if there are newer version check `papermerge package`_ on github.
 
 ``PAPERMERGE_JS``
 is docker image for Papermerge frontend i.e. fancy user
@@ -97,7 +97,7 @@ interface (written in javascript)
 
 ``PAPERMERGE_JS_TAG``
 is Papermerge frontend docker image version. As of writing this documentation Papermerge latest version 2.1 is in early alpha version. To
-see if there are newer version `check papermerge package on github <https://github.com/orgs/papermerge/packages/container/package/papermerge.js>`_.
+see if there are newer version check `papermerge js package`_ on github.
 
 
 ``ES_HOSTS`` and ``ES_PORT``
@@ -147,3 +147,7 @@ Sign in using following credentials:
 
 
 Enjoy!
+
+
+.. _papermerge package: https://github.com/orgs/papermerge/packages/container/package/papermerge
+.. _papermerge js package: https://github.com/orgs/papermerge/packages/container/package/papermerge.js

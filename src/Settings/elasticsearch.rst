@@ -9,8 +9,8 @@ indexing and searching.
 
 .. _settings__elasticsearch__hosts:
 
-``ELASTICSEARCH__HOSTS``
-~~~~~~~~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__ELASTICSEARCH__HOSTS``
+------------------------------------
 
 Elastic search hosts (notice plural).
 
@@ -26,8 +26,8 @@ Example as toml config::
 
 .. _settings__elasticsearch__port:
 
-``ELASTICSEARCH__PORT``
-~~~~~~~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__ELASTICSEARCH__PORT``
+-----------------------------------
 
 Elastic search port.
 

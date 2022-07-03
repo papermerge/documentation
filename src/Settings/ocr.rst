@@ -7,8 +7,8 @@ This section groups all OCR specific configurations.
 
 .. _settings__ocr__default_language:
 
-``OCR__DEFAULT_LANGUAGE``
-~~~~~~~~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__OCR__DEFAULT_LANGUAGE``
+-------------------------------------
 
 By default |project| will use language specified with this option to
 perform :ref:`OCR <ocr>`. Change this value for language used by majority of your documents. For detailed list of three letter
@@ -27,8 +27,8 @@ Default value is "deu" (German language).
 
 .. _settings__ocr__languages:
 
-``OCR__LANGUAGES``
-~~~~~~~~~~~~~~~~~~
+``PAPERMERGE__OCR__LANGUAGES``
+------------------------------
 
 .. note::
   

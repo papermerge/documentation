@@ -8,8 +8,8 @@ Redis
 
 .. _settings__redis__host:
 
-``REDIS__HOST``
-~~~~~~~~~~~~~~~~
+``PAPERMERGE__REDIS__HOST``
+---------------------------
 
 Redis host.
 
@@ -25,8 +25,8 @@ Example as toml config::
 
 .. _settings__redis__port:
 
-``REDIS__PORT``
-~~~~~~~~~~~~~~~~
+``PAPERMERGE__REDIS__PORT``
+---------------------------
 
 Redis port.
 

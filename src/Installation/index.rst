@@ -10,6 +10,7 @@ configuration and maintenance of |project|.
    overview
    requirements
    docker
+   docker-compose
    backup
    upgrading
    portainer
