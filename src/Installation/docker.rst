@@ -38,7 +38,7 @@ The recommended way to get the |project| Docker Image is to pull the prebuilt im
 
 To use a specific version, you can pull a versioned tag. You can view the list of available versions in the `github repository packages`_::
 
-    docker pull ghcr.io/papermerge/papermerge:2.1.0a33
+    docker pull ghcr.io/papermerge/papermerge:2.1.0a32
 
 
 Use PostgreSQL as Database
@@ -73,8 +73,8 @@ By default |project| uses sqlite3 database. In order to use PostgreSQL use follo
         postgres_data:
 
 
-With above mentioned docker compose file can be used to start |project| REST
-API backend server which will use PostgreSQL database.
+Above mentioned docker compose file can be used to start |project| REST
+API backend server which will use PostgreSQL database to store data.
 
 
 .. _docker hub: https://hub.docker.com/u/papermerge
