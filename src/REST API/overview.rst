@@ -251,33 +251,8 @@ Similarly you can create folder with help of ``POST /api/nodes/`` endpoint::
       }
     }'
 
-In both cases, the response status code will be "201 Created" and body of the
-response will contain following json data
-(content-type: application/vnd.api+json)::
 
-  {
-    "data": {
-      "type": "folders",
-      "id": "06b28",
-      "attributes": {
-        "title": "My Documents",
-        "tags": [],
-        "created_at": "2022-07-02T06:24:10.357679+02:00",
-        "updated_at": "2022-07-02T06:24:10.357694+02:00"
-      },
-      "relationships": {
-        "parent": {
-          "data": {
-            "type": "folders",
-            "id": "18381e"
-          }
-        }
-      }
-    }
-  }
-
-
-Notice that we can create as many folders with same title as we want.
+We can create as many folders with same title as we want.
 |project| does not impose folder title uniqueness.
 
 Also it is important to note that when creating folder,
@@ -423,13 +398,30 @@ to know the id of the document entry we've just created. Document id can be retr
 either from response of ``POST /api/nodes/`` endpoint, or by listing all children nodes
 of "My Documents" folder with ``GET /api/nodes/{my-documentsn-node-id}/``.
 
-The REST API endpoint to upload file and associate with given document entry id is::
+Here is curl command to upload pdf file and associate it with given document id::
 
-  curl <server-url>/api/documents/{document-id}/upload/mydoc_1.pdf \
-    -H 'Authorization: Token beb...' \
-    -T /path/to/file.pdf
+  curl -H 'Authorization: Token beb...' \
+       -H 'Content-Disposition: attachment; filename=mydoc_1.pdf' \
+       -H 'Content-Type: application/pdf' \
+       -T /path/to/my_doc_1.pdf \
+       http://<server-url>/api/documents/{document-id}/upload/mydoc_1.pdf
 
 
+``-T`` parameter in ``curl`` implies usage of ``PUT``.
+Also, notice that ``Content-Disposition: attachment; filename=<file-name>`` is mandatory header.
+
+
+Summary
+~~~~~~~
+
+* Retrieve special folder ids with ``GET /api/users/me/`` endpoint
+* Creating a node (document or folder) requires non-empty parent id
+* Create a folder with ``POST /api/nodes/`` endpoint (type "folders")
+* List content of the folder with ``GET /api/nodes/`` endpoint
+* Uploading document is two steps process:
+
+  1. create document entry with ``POST /api/nodes/`` (type "documents")
+  2. upload file to document node created in first step using ``PUT /api/documents/{document-id}/upload/file-name``
 
 
 .. _curl: https://en.wikipedia.org/wiki/CURL
