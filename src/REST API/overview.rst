@@ -369,8 +369,7 @@ In first step we create document entry::
       "data": {
         "type": "documents",
         "attributes": {
-          "title": "mydoc_1.pdf",
-          "lang": "deu"
+          "title": "mydoc_1.pdf"
         },
         "relationships": {
           "parent": {
@@ -383,10 +382,8 @@ In first step we create document entry::
       }
     }'
 
-Notice, creating document entry in this way is very similar to creating a
-folder. The difference is that for documents you specify type "documents", plus
-you need to include mandatory field ``lang``, which is the language in which
-the document will be OCRed.
+Creating document entry in this way is very similar to creating a
+folder. The difference is that for documents you specify type "documents".
 
 At this point, if you list all documents and folders under "My Document", you will
 see folders "Vegetables", "Fruits" and document "mydoc_1.pdf".
