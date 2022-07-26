@@ -31,6 +31,6 @@ detailed information.
    tags_and_folders
    page_management
    versions
-   consumption
+   upload_documents
    ocr_languages
    file_formats
