@@ -96,6 +96,7 @@ example:
    ``application/json`` or ``application/vnd.api+json``. Each REST API call
    reference documents correct value of ``Content-Type`` header.
 
+.. _rest_api_overview_nodes_folders_documents:
 
 Nodes, Folders and Documents
 ----------------------------
