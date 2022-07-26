@@ -10,7 +10,7 @@ is devided into four areas:
 4. Document Browser Panel - main area for browsing documents and folders
 
 
-.. figure:: ../img/user-manual/user-interface/user-interface-layout.svg
+.. figure:: ./user_interface/user-interface-layout.svg
 
     Figure 1. User interface layout
 
@@ -30,10 +30,23 @@ as folders and pages) can be moved with one simple drag'n drop. Figure
 below shows document browser toggled in dual panel mode:
 
 
-.. figure:: ../img/user-manual/user-interface/ui-dual-panel-mode.svg
+.. figure:: ./user_interface/ui-dual-panel-mode.svg
 
     Figure 2. Document browser toggled in dual panel mode
 
 In order to switch to dual panel mode, use document browser's upper right button:
 
-.. figure:: ../img/user-manual/user-interface/switch-to-dual-panel-mode.svg
+.. figure:: ./user_interface/switch-to-dual-panel-mode.svg
+
+
+To switch back to single panel mode, use close button - which is in the upper right
+corner of one of the panels:
+
+
+.. figure:: ./user_interface/close-right-panel.svg
+
+.. note:: Close button will be displayed only on one of the panels.
+   Although both panels look and feel exactly the same, internally
+   application still distinguishes them as main and secondary one. Main panel
+   is the one which is always visible and secondary panel is the on which
+   opens and closes i.e. the one with "close button" in upper right corner.
