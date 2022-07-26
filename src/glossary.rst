@@ -88,7 +88,7 @@ Ingesting Documents
 Same as saying uploading documents i.e. take documents from any external
 source (e.g. S3 objects, storage, email account, local file system) and
 tranfer them into |project|. All successfully ingested documets appear in
-inbox folder folder of the user - the user whom documents were assigned to.
+``Inbox`` folder of the user - the user whom documents were assigned to.
 
 .. _glossary_metacolumn:
 
