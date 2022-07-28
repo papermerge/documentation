@@ -20,8 +20,8 @@ when you consider necessary.
 
 .. important:: Documents for which OCR was skipped - are not searchable!
 
-In order to disable automatic OCR, go to preferences -> OCR -> disable
-OCR.
+In order to disable automatic OCR, go to User Menu -> Preferences -> OCR -> Trigger -> Manual
+
 
 Default OCR Language
 ~~~~~~~~~~~~~~~~~~~~
@@ -30,6 +30,8 @@ In order to perform OCR on the document you need to indicate be forehands the
 language of respective document. Choosing ocr language for each and every
 document uploaded is tedious - instead, in preferences a default OCR Language
 is set - and that language is applied for each uploaded document.
+
+In order to set default OCR language, go to User Menu -> Preferences -> OCR -> Language
 
 
 Status Indicator
@@ -40,28 +42,52 @@ see document's OCR status updates as they happen (i.e. in real time).
 The OCR status is displayed by a small circle next to the document's title.
 The status indicates has following meanings:
 
-* gray circle - status is unknown
-* orange still circle - document was scheduled for OCR
-* orange rotating circle - document's OCR process is in progress
-* green check - document's OCR process completed successfully and document is now searchable
+* gray circle - status is unknown (figure 1)
+* orange still circle - document was scheduled for OCR (figure 2)
+* orange rotating circle - document's OCR process is in progress (figure 3)
+* green check - document's OCR process completed successfully and document is now searchable (figure 4)
 * red cross - document's OCR process failed.
+
+.. figure:: ./ocr/unknown.png
+
+   Figure 1. OCR status - unknown
+
+.. figure:: ./ocr/pending.png
+
+   Figure 2. OCR status - pending - document was scheduled for OCR, but process did not start yet
+
+.. figure:: ./ocr/in-progress.png
+
+   Figure 3. OCR status - in progress
+
+.. figure:: ./ocr/complete.png
+
+   Figure 4. OCR status - complete
 
 OCRed Text Layer
 ~~~~~~~~~~~~~~~~
 
 Once OCR process completed successfully a new document version is created -
 version with OCRed text layer. This version is available for download from
-the "versions" dropdown in document view.
+the ``Download`` dropdown in document view.
 
-.. note:: Under the hood |project| uses awesome OCRmyPDF utility to create
+
+.. figure:: ./ocr/download-dropdown.svg
+
+
+.. note:: Under the hood |project| uses awesome `OCRmyPDF`_ utility to create
    OCRed text layer. Thus, in respect of OCRed text layer, |project| acts
-   like a graphical user interface for OCRmyPDF.
+   like a graphical user interface for `OCRmyPDF`_.
 
 .. _ocr_languages:
 
 OCR Languages Support
 ~~~~~~~~~~~~~~~~~~~~~
 
-|project| uses `Tesseract <https://github.com/tesseract-ocr/tesseract>`_ to
+|project| uses `Tesseract`_ to
 extract text from scanned documents. Tesseract supports over 130 languages -
 thus with |project| you can have documents in any of those languages.
+
+
+.. _OCRmyPDF: https://ocrmypdf.readthedocs.io/en/latest/
+.. _Tesseract: https://github.com/tesseract-ocr/tesseract

@@ -10,7 +10,7 @@ With each extra transformation you apply - a new document
 version is created.
 
 
-Version 0 (zero) of the uploaded document - **is the original file** i.e. document
+Version 1 (one) of the uploaded document - **is the original file** i.e. document
 without any changes applied. Original document version is always available,
 regardless what operation(s) you apply to the document (except deletion of
 the document itself).

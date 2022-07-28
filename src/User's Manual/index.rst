@@ -33,3 +33,4 @@ detailed information.
    versions
    ocr
    file_formats
+   user_management
