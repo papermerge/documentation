@@ -111,6 +111,7 @@ document version will be incremented (i.e. advanced by one).
    (by correctly rotating it) - OCR will be able to extract and index page's
    contented.
 
+.. _page_move:
 
 Move (Document to Document)
 ---------------------------
@@ -142,19 +143,25 @@ then drag 'n drop page B1 from document A (source) to document B (target):
 .. note:: Both documents' (source and target) version will be incremented
     by one
 
+.. _page_extract:
 
 Extract (Document to Folder)
 ----------------------------
 
-Statement *page is extracted from the document* means that page is moved out
-the document as completely new document i.e. completely new document is
-created from that page. You can think of page extraction as moving of the
-page from document into folder (as new document).
+Page extraction is moving page out of the document as completely new document.
+It differs from :ref:`page moving <page_move>` because the destination is a
+folder, not another document.
+
+You can extract one or multiple pages at once. Pages can be
+extracted:
+
+1. as one document; in this case one document will be created in the target folder, new document will contain all extracted pages
+2. as multiple documents; in this case multiple documents will be created in the target folder, each new document will have one page
 
 Let's show how page extraction works by example. Say we have one document -
 document A - with following pages: A1, A2, B1, B2, A3. What we want to do is
-to extract pages B1 and B2 into a new document. Actually there are two
-possibilities here:
+to extract pages B1 and B2 into a new document. As mentioned above there are two
+cases:
 
 1. Both pages B1 and B2 are extracted into one single new document (two page document)
 2. Both pages B1 and B2 are extracted into multiple (new) single page documents.
