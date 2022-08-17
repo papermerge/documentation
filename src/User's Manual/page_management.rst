@@ -116,8 +116,56 @@ document version will be incremented (i.e. advanced by one).
 Move (Document to Document)
 ---------------------------
 
-You can move :ref:`strayed pages <strayed_page>` from one document (source) to another (target).
-Notice here that target document exists before move operation.
+You can move one, multiple or even all :ref:`strayed pages <strayed_page>` from one document (source) to another (target). If you choose to move all documents from
+the source - the source will be deleted, because it does not make sense
+to have "document with zero pages".
+
+When moving pages between documents you will be prompted to choose between two different
+move strategies:
+
+1. Replace target
+2. Append to target
+
+The outcome between replace vs append strategies is illustrated below:
+
+.. figure:: ./page_management/move_replace.svg
+
+    Moving pages between documents with "replace target" strategy
+
+.. figure:: ./page_management/move_append.svg
+
+    Moving pages between documents with "append target" strategy
+
+The difference is outcome of the B.pdf (target). With replace strategy, the
+document B.pdf ended up having two pages (which replaced previous ones),
+while with append strategy the document B.pdf ended up with four pages as
+source pages were appened to the existing ones.
+
+
+.. note:: What happens if you select **all source pages**, i.e. when you
+   select A1, B1, B2, A2? In such case - source document (A.pdf) will be
+   deleted, because it does not make any sense to have a document with zero
+   pages. For the target document (B.pdf) this case does not make any
+   difference, as the outcome is always the same.
+
+.. note:: Use case when you select all pages and chose "replace strategy"
+    has same outcome as :ref:`Merging Documents <document_merge_figure_1>`.
+
+
+Now, that theory is clear, let's move on to the practical part and see |project| in action.
+First of all, note that in |project| you can move pages between documents either
+using context menu or by using drag 'n drop.
+
+.. tip:: You can also move pages between documents by using :ref:`REST API<rest_api>`
+
+
+Context Menu
+~~~~~~~~~~~~
+
+
+Drag 'n Drop
+~~~~~~~~~~~~
+
 
 In example illustrated in pictures below there are two documents:
 
@@ -158,6 +206,13 @@ extracted:
 1. as one document; in this case one document will be created in the target folder, new document will contain all extracted pages
 2. as multiple documents; in this case multiple documents will be created in the target folder, each new document will have one page
 
+Context Menu
+~~~~~~~~~~~~
+
+
+Drag 'n Drop
+~~~~~~~~~~~~
+
 Let's show how page extraction works by example. Say we have one document -
 document A - with following pages: A1, A2, B1, B2, A3. What we want to do is
 to extract pages B1 and B2 into a new document. As mentioned above there are two
@@ -180,6 +235,7 @@ In order to extract pages B1 and B2 into one single new document you need to unc
 
 Similarly to other operations document A's (source document) version is
 incremented by one.
+
 
 OCR Data
 --------
