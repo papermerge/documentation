@@ -31,6 +31,7 @@ detailed information.
    tags_and_folders
    page_management
    versions
+   merge_documents
    ocr
    file_formats
    user_management

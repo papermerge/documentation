@@ -17,8 +17,27 @@ archives <digital_archive>` workflows.
 
    Papermerge screenshot
 
+
+Features Highlights
+-------------------
+
+* Works with PDFs
+* Desktop like user interface
+* Dual panel mode
+* OCR - used to extract text for documents indexing
+* OCRed text overlay (you can download document with OCRed text overlay)
+* Full text search
+* Document Versioning
+* Tags - assign colored tags to documents or folders
+* Folders - users can organize documents in folders
+* Multi-User
+* User permissions management
+* Fully REST API (all features can be consumed via REST API)
+* Page Management - delete, reorder, rotate, merge, move, extract
+
+
 What It Does
-~~~~~~~~~~~~~
+------------
 
 * It extracts (using OCR) and indexes text from your documents
 * Provides modern, desktop like user interface to easily find your documents
@@ -31,8 +50,9 @@ What It Does
    * move strayed pages between documents
    * change page order within the document
 
+
 What It Doesn't Do
-~~~~~~~~~~~~~~~~~~~~
+------------------
 
 * It does **not** take control of your documents. Documents are **stored on filesystem** in a simple and intuitive manner so that you can take snapshot of your data at any time
 * It does **not** stay in your way when you make decisions about your data
@@ -40,7 +60,7 @@ What It Doesn't Do
 
 
 Right Tool for You?
-~~~~~~~~~~~~~~~~~~~~~~
+-------------------
 
 To be efficient you always need to choose right tool for the problem. Because
 Document Management is too generic - I think that a definition of what is a
@@ -49,7 +69,7 @@ Document in context of this software is needed.
 .. _what_is_a_doc:
 
 What is a Document?
-~~~~~~~~~~~~~~~~~~~~
+-------------------
 
 For Papermerge a document is anything which is a good candidate for archiving
 - some piece of information which is not editable but you need to store it for
@@ -71,7 +91,7 @@ format. You can think of a picture made with a phone (of a document) as a bad
 quality scan.
 
 What is Not a Document?
-~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 Out of scope are Office documents (ODT, DOCX, spreadsheets, presentations
 etc), text files (notes); these files are usually editable i.e. user can alter
@@ -82,6 +102,9 @@ for Papermerge project.
 Papermerge is simply **not designed to store books**. Yes, you can scan a book
 and import it in Papermege, but again - this is not what Papermerge was
 designed for.
+
+
+
 
 
 .. toctree::
