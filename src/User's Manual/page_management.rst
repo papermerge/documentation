@@ -162,6 +162,25 @@ using context menu or by using drag 'n drop.
 Context Menu
 ~~~~~~~~~~~~
 
+In order to move pages between documents, using context menu:
+
+1. Make sure both documents are open in left and right panels
+2. Select pages you want to move in :ref:`thumbnails panel <Thumbnails_Panel>` of the source document viewer
+3. Use right click to open context menu in source document viewer
+4. Choose "Move" context menu item
+
+
+Context menu is dynamic - which means it renders only relevant menu items. If
+for example you have in one panel opened :ref:`document viewer <Viewer>` while other panel is
+in :ref:`commander mode <Commander>`, then "there will be "extract" menu item instead of "move".
+In other words, "move" menu item will be visible only if:
+
+1. both panels are in :ref:`viewer mode <Viewer>`
+2. there are pages selected
+
+
+.. figure:: ./page_management/move_pages_context_menu.svg
+
 
 Drag 'n Drop
 ~~~~~~~~~~~~
