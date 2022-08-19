@@ -159,8 +159,8 @@ using context menu or by using drag 'n drop.
 .. tip:: You can also move pages between documents by using :ref:`REST API<rest_api>`
 
 
-Context Menu
-~~~~~~~~~~~~
+Use Context Menu
+~~~~~~~~~~~~~~~~
 
 In order to move pages between documents, using context menu:
 
@@ -176,14 +176,23 @@ in :ref:`commander mode <Commander>`, then "there will be "extract" menu item in
 In other words, "move" menu item will be visible only if:
 
 1. both panels are in :ref:`viewer mode <Viewer>`
-2. there are pages selected
+2. there is at least one page selected
 
 
 .. figure:: ./page_management/move_pages_context_menu.svg
 
+    Use context menu to move pages. Note that context menu is invoked in source panel.
 
-Drag 'n Drop
-~~~~~~~~~~~~
+
+.. important:: The arrow next to the "Move" menu item changes direction depending in which
+    panel you invoke context menu - it hints direction of the pages transfer.
+    Arrow icon of the "Move" item always **points from source to target**.
+
+    .. figure:: ./page_management/arrow-in-context-menu.svg
+
+
+Use Drag 'n Drop
+~~~~~~~~~~~~~~~~
 
 
 In example illustrated in pictures below there are two documents:
@@ -217,7 +226,7 @@ Extract (Document to Folder)
 
 Page extraction is moving page out of the document as completely new document.
 It differs from :ref:`page moving <page_move>` because the destination is a
-folder, not another document.
+folder, not a document.
 
 You can extract one or multiple pages at once. Pages can be
 extracted:
@@ -225,12 +234,56 @@ extracted:
 1. as one document; in this case one document will be created in the target folder, new document will contain all extracted pages
 2. as multiple documents; in this case multiple documents will be created in the target folder, each new document will have one page
 
-Context Menu
-~~~~~~~~~~~~
+Note that in |project| you can extract pages either
+using context menu or by using drag 'n drop.
+
+.. tip:: You can also extract pages by using :ref:`REST API<rest_api>`
 
 
-Drag 'n Drop
-~~~~~~~~~~~~
+Using Context Menu
+~~~~~~~~~~~~~~~~~~
+
+In order to extract pages from the document, using context menu:
+
+1. Open document in one panel and open target folder in another panel
+2. Select pages you want to extract in :ref:`thumbnails panel <Thumbnails_Panel>` of the source document viewer
+3. Use right click to open context menu in source document viewer
+4. Choose "Extract" context menu item
+
+
+Because of the dynamic nature of the context menu, "Extract" menu item will be visible only if
+all of the following conditions are true:
+
+1. Two panels are opened
+2. One of the panels is in :ref:`viewer mode <Viewer>` while another is in :ref:`commander mode <Commander>`
+3. There is at least one page selected
+
+
+.. figure:: ./page_management/extract-pages-context-menu.svg
+
+After you've clicked "Extract", the "Extract Pages" modal dialog will prompt you
+for additional details like title of the newly created document(s) and if you want
+to extract all pages as you or multiple documents:
+
+.. figure:: ./page_management/extract-pages-modal.svg
+
+
+A couple of notes here. First, newly created document will have
+extention ".pdf", you cannot change that. Second, if "Extract each page into
+separate document" is checked, each pages will be, obviously enough,
+extracted as separate one page documents, otherwise all extracted pages
+will be placed into a single document in the target folder.
+
+.. note:: |project| will try to make sure that newly created documents feature
+    unique name. Thus if you choose to extract, say, two pages as separate
+    documents, |project| will append to the title an UUID number. In case
+    you choose to extract two pages into a single document - no UUID number
+    will be appened. In case you leave "Title format" field empty, |project|
+    will generate an unique title for you.
+
+
+Using Drag 'n Drop
+~~~~~~~~~~~~~~~~~~
 
 Let's show how page extraction works by example. Say we have one document -
 document A - with following pages: A1, A2, B1, B2, A3. What we want to do is
