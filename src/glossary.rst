@@ -28,6 +28,15 @@ well.
 
   Throughout Papermerge documentation terms **document**, **scanned document**, **pdf document**, **digital archive** are used interchangeble and mean the same thing.
 
+
+.. _glossary_gui:
+
+GUI
+~~~
+
+Abbreviation from graphical user interface.
+
+
 .. _ocr:
 
 OCR

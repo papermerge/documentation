@@ -77,7 +77,7 @@ you will.
 .. note:: The name "Commander" is in line with naming scheme of very popular dual panel
     mode applications like `Norton Commander`_, `Total Commander`_ and `Double Commander`_.
     Obvisouly in |project| context, "Commander" is not a separate application, it is
-    the name "file browser" panel.
+    name of the "file browser" panel.
 
 
 .. _Viewer:
@@ -108,27 +108,53 @@ Thumbnails Panel
 ~~~~~~~~~~~~~~~~
 
 Document viewer features a thumbnails panel which can be toggles on and off.
-Pages can be selected only inside thumbnails panel.
+Pages can be selected only inside thumbnails panel; also pages can be
+dragged/dropped only from thumbnails panel.
 
 .. figure:: ./user_interface/thumbnails_panel.svg
 
     Figure 9. Thumbnails panel of the Document Viewer.
 
 
-Context Menu and its Peculiarity
---------------------------------
+Context Menu and its Peculiarities
+----------------------------------
 
-First of all, |project| features a context menu, which may be invoked
-only when your mouse pointer hovers over Commander or Viewer.
+Context menu - is a :ref:`gui <glossary_gui>` menu which appears when you
+perform a right-click operation with your mouse. Context menu appears in same
+position where your mouse pointer is when you perform right-click.
+
+|project| features its own context menu,
+which may be invoked only when your mouse pointer hovers over Commander or
+Viewer. Web browser feature their own context menu - in this sense, browsers'
+context menu will appear whenever you perform right-click operation outside
+of Commander or Viewer.
 
 Pay attention to the animated image below, the |project| specific context menu
-will appear only when you click over Commander or Viewer, otherwise the
-default browser's built in context menu will be displayed::
+will appear only when you right-click over Commander or Viewer, otherwise the
+default browser's built in context menu will be displayed:
 
 
+.. figure:: ./user_interface/context-menu-only-over-view-or-commander.gif
 
 
+Context menu is dynamic - which means that it will display different menu items
+depending on what makes sense in current situation. For example, if you did not
+select any document or folder then it does not make sense to display menu items such
+as "Rename", "Download", "Move" - and context menu won't show those items.
 
+A less obvious, but extremely important to understand, is the fact that
+context menu is bound to its panel, in other words if there are two panels
+(e.g. two Commander panels) opened side by side, then each panel has its own
+instance of context menu. This fact can be illustrated when in one Commander
+panel you select one (or multiple) folder(s) - while in other you don't
+select anything; in this case, each panel's context menu items will differ:
+
+.. figure:: ./user_interface/context-menu-bound-to-panel.gif
+
+.. important:: Context menu is bound to its panel! If there are two panels
+   e.g. two Commander panels, then there are two different instances of the
+   context menus, and each instance is bound to, in other words is specific
+   to, its own Commander.
 
 
 .. _Norton Commander: https://en.wikipedia.org/wiki/Norton_Commander
