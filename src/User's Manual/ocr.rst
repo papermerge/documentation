@@ -12,7 +12,7 @@ title. When OCR process is completed new document version is created and
 document becomes searchable.
 
 Automatic OCR
-~~~~~~~~~~~~~
+-------------
 
 By default OCR is triggered automatically when document is uploaded. However,
 you can disable automatic OCR triggering, in such case you can start OCR only
@@ -24,7 +24,7 @@ In order to disable automatic OCR, go to User Menu -> Preferences -> OCR -> Trig
 
 
 Default OCR Language
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 In order to perform OCR on the document you need to indicate be forehands the
 language of respective document. Choosing ocr language for each and every
@@ -35,7 +35,7 @@ In order to set default OCR language, go to User Menu -> Preferences -> OCR -> L
 
 
 Status Indicator
-~~~~~~~~~~~~~~~~
+----------------
 
 |project| features real time OCR status indicator - this means that you can
 see document's OCR status updates as they happen (i.e. in real time).
@@ -65,7 +65,7 @@ The status indicates has following meanings:
    Figure 4. OCR status - complete
 
 OCRed Text Layer
-~~~~~~~~~~~~~~~~
+----------------
 
 Once OCR process completed successfully a new document version is created -
 version with OCRed text layer. This version is available for download from
@@ -79,10 +79,23 @@ the ``Download`` dropdown in document view.
    OCRed text layer. Thus, in respect of OCRed text layer, |project| acts
    like a graphical user interface for `OCRmyPDF`_.
 
+
+Document OCRed Text
+-------------------
+
+to do
+
+Selected Pages OCRed Text
+-------------------------
+
+to do
+
+
+
 .. _ocr_languages:
 
 OCR Languages Support
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 |project| uses `Tesseract`_ to
 extract text from scanned documents. Tesseract supports over 130 languages -
