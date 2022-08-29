@@ -11,6 +11,7 @@ configuration and maintenance of |project|.
    requirements
    docker
    docker-compose
+   kubernetes
    backup
    upgrading
    portainer
