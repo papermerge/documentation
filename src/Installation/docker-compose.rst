@@ -21,22 +21,49 @@ This guide was tested with docker version 20.10.6 and
 docker-compose version 1.29.2.
 
 
+Docker Compose is NOT for Production!
+-------------------------------------
+
+.. danger:: Docker compose setup is **NOT meant for production**! Docker compose
+  is **NOT meant to be deployed on remote host** even if that
+  remote host is within your home network!
+
+Sure, you can ride on a bicycle from Berlin to Seoul - however bicycles were
+not invented for those distances. For 8000 km range it is strongly advised
+to take an airplane. In any case, if you decide to use bicycle to cross
+Eurasian continent - please don't insist on getting help!
+
+The same way the airplane is a better choice for long distance
+travel - the :doc:`kubernetes` is better choice when it comes to
+production environments.
+
+The same way bicycle is an excellent option for moving within the city -
+docker compose is an excellent choice for quickly trying, playing, testing
+|project| **on your local computer**.
+
+
+.. note:: Docker compose is meant to quickly setup |project| on your local computer.
+
+If you are an advanced user considering |project|, docker compose
+is a great way to instantly start it locally and play bit with it.
+For developer standpoint, docker compose is a priceless tool for quick setup
+of relatively complex scenarios on development machine - for example to
+reproduce a bug for a specific application version.
+
+
 Complete Stack
 --------------
 
-This setup installs complete Papermerge stack with all required services. It uses `traefik`_ as edge router.
+This setup installs complete |project| stack with all required services. It uses `traefik`_ as edge router.
 
 Save `this docker-compose.yml
 <https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml>`_
 file on your local computer.
 
-.. warning::
-
-  Currently docker tag ``latest`` points to latest 2.1.0-alphaXYZ version
-  which is not yet production ready.
-
 .. note::
 
+  Currently docker tag ``latest`` points to latest 2.1.0bX (2.1.0b1, 2.1.0b2, 2.1.0b3, ...) version
+  which means that application is feature complete, but not yet production ready.
   See all available docker tags in `GitHub packages <https://github.com/orgs/papermerge/packages>`_
 
 Next, create ``.env`` file with following content::

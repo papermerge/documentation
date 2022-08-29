@@ -26,7 +26,7 @@ In order to disable automatic OCR, go to User Menu -> Preferences -> OCR -> Trig
 Default OCR Language
 --------------------
 
-In order to perform OCR on the document you need to indicate be forehands the
+In order to perform OCR on the document you need to indicate beforehand the
 language of respective document. Choosing ocr language for each and every
 document uploaded is tedious - instead, in preferences a default OCR Language
 is set - and that language is applied for each uploaded document.
@@ -83,13 +83,40 @@ the ``Download`` dropdown in document view.
 Document OCRed Text
 -------------------
 
-to do
+You can view OCRed text of the entire document either from :ref:`commander` or from :ref:`viewer`,
+in both cases choose "OCRed Text" from context menu:
+
+.. figure:: ./ocr/commander-ocred-text-entire-document.svg
+
+   See OCRed text of the document from commander
+
+If you want to see OCRed text of entire document (to be exact - all pages of the last document version) from
+the :ref:`viewer` - just make sure that no pages are selected:
+
+.. figure:: ./ocr/viewer-ocred-text-entire-document.svg
+
+   See OCRed text of the document from viewer
+
 
 Selected Pages OCRed Text
 -------------------------
 
-to do
+In case document has many pages and you are interested in OCRed text of one
+(or multiple) very specific pages, then select pages first and then from
+context menu choose "OCRed Text" item:
 
+
+.. figure:: ./ocr/viewer-ocred-text-selected-page.svg
+
+   See OCRed text ONLY of the selected pages
+
+.. note:: In case there are selected pages, OCRed Text menu item will show you OCRed
+   text ONLY of the selected pages.
+
+
+.. figure:: ./ocr/viewer-ocred-text-one-page-modal.png
+
+   OCRed text modal dialog. Modal dialog shows OCRed text ONLY of the selected page.
 
 
 .. _ocr_languages:
