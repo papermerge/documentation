@@ -113,6 +113,13 @@
      style="display:inline"
      transform="translate(0.42578623,0.49996504)">
     <rect
+       style="display:inline;fill:none;stroke:#4a4b6d;stroke-width:0.265;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.12, 1.06;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect934"
+       width="216.3087"
+       height="201.7851"
+       x="78.495277"
+       y="2.2784431" />
+    <rect
        style="fill:#ffffff;stroke:#030000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
        id="rect866"
        width="35.077553"

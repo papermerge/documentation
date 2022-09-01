@@ -122,14 +122,14 @@ Open your web browser and point it to http://papermerge.local address:
 
 .. figure:: ../img/papermerge-login.png
 
-    Sign in screen available at http://papermerge.local
+    Figure 1. Sign in screen available at http://papermerge.local
 
 Sign in using credentials configured with ``SUPERUSER_USERNAME`` and
 ``SUPERUSER_PASSWORD`` options in ``.env`` file.
 
 .. figure:: ../img/setup/installation/docker/papermerge-example.png
 
-    Papermerge frontend example
+    Figure 2. Papermerge frontend example
 
 
 Backend Only
@@ -251,7 +251,7 @@ Frontend is the graphical user interface of the application. A less intuitive th
 is that frontend is a separate application. Frontend interacts with backend
 via REST API.
 
-.. note:: Frontend is written in JavaScript, CSS and HTML. Frontend is executed
+.. note:: Frontend is written in JavaScript, CSS and HTML. Frontend runs
   in web browser. Here is `frontend repository`_.
 
 
@@ -291,8 +291,98 @@ We use `traefik`_ to route http requests between microservices
 
 .. figure:: ./docker-compose/backend-frontend.svg
 
-  Routing HTTP requests between frontend and backend
+  Figure 3. Routing HTTP requests between frontend and backend
   microservices
+
+
+In illustration above, |project| services are isolated from outside access. In
+other words, if you try to access backend service directly (via HTTP request)
+you won't be able to. Instead, the only way to access services is via Traefik
+which acts as a door that lets all http requests enter "the box".
+
+.. note:: Traefik is referred as "the edge router" - from illustration above
+  you probably understand why
+
+
+Now, we arrived to one  extremely important point, where most of the people
+get confused: both Frontend and Backend microservices have same base URL!
+
+.. important:: Both Frontend and Backend **MUST have same base URL**! In other
+  words if REST API Backend URL is http://mydocs:7070/api/, then Frontend
+  application must be accessible from http://mydocs:7070/ - note that
+  port number is same.
+
+.. important:: **Base URL** is the part of the HTTP address between protocol name (``http://`` or ``https://``)
+  and first slash ``/``. Note that is also includes port number.
+
+Let me explain this in detail. Let's say that you run setup with Traefik (in front
+of Backend and Frontend microservices) locally on port 6080 and you map in your
+``/etc/hosts`` 127.0.0.1 to mydms.local. In other words you plan to access
+|project| via http://mydms.local:6080. When you open your browser and point
+it to http://mydms.local:6080/ address, Traefik receives the requests, see
+that there is no ``/api/`` prefix and routes the request to Frontend
+microservice. Frontend microservice will respond by returning couple of
+javascript, css, and html files; JS, CSS, and HTML files will be loaded in
+your browser Frontend application starts - in your browser!
+
+You will see some fancy UI (login screen). Now, (Frontend) application running
+in your browser, in order to perform authentication, show your documents,
+folders, tags etc etc it needs to access the Backend server.
+
+And here is the crucial moment: how does application running in your browser
+know what is the URL for REST API server ?
+
+
+.. figure:: ./docker-compose/thinking-frontend.svg
+
+Well, because (Frontend) application is running in your browser, it has access
+to ``window.location`` object. From ``window.location`` it learns that the
+URL by which you accessed |project| is http://mydms.local:6080/. Frontend
+application then concludes following: "OK, if I was accessed by
+http://mydms.local:6080/, then REST API backend server which I need to work
+with MUST be http://mydms.local:6080/api/"
+
+.. important:: In |project| if Frontend application is accessed with base URL
+  ``<base_url>``, then Backend REST API service is ``<base_url>/api/``
+
+
+Because frontend application does not have any configuration whatsoever,
+the only way to know about REST API Backend URL is by deducing it from
+its own URL - it just appends ``/api/`` prefix!
+
+Here is docker compose file::
+
+  version: '3.7'
+  services:
+    backend:
+      image: ghcr.io/papermerge/papermerge
+      volumes:
+        - media_root:/app/media
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+        - "8080:8080"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+  volumes:
+    media_root:
 
 
 Websockets
@@ -300,7 +390,7 @@ Websockets
 
 .. figure:: ./docker-compose/backend-frontend-websockets.svg
 
-  Routing HTTP requests between frontend, backend
+  Figure 4. Routing HTTP requests between frontend, backend
   and websockets microservices
 
 
@@ -309,7 +399,7 @@ Message Broker and Workers
 
 .. figure:: ./docker-compose/backend-frontend-websockets-workers.svg
 
-  HTTP Routing, Workers and Redis (as message broker)
+  Figure 5. HTTP Routing, Workers and Redis (as message broker)
 
 Complete Setup
 ~~~~~~~~~~~~~~
@@ -317,7 +407,7 @@ Complete Setup
 
 .. figure:: ./docker-compose/all-services.svg
 
-  All microservices
+  Figure 6. All microservices
 
 
 
@@ -341,3 +431,4 @@ Complete Setup
 .. _services.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/services.yml
 .. _backend repository: https://github.com/papermerge/papermerge-core
 .. _frontend repository: https://github.com/papermerge/papermerge.js
+.. _host header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
