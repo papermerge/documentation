@@ -51,14 +51,15 @@ of relatively complex scenarios on development machine - for example to
 reproduce a bug for a specific application version.
 
 
-Complete Stack
---------------
+Complete Stack in 5 minutes
+---------------------------
+
+If you are in hurry and/or you don't feel like diving into all details, just follow instructions
+in this section. It shouldn't take more than 5 minutes to bootstrap |project|.
 
 This setup installs complete |project| stack with all required services. It uses `traefik`_ as edge router.
 
-Save `this docker-compose.yml
-<https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml>`_
-file on your local computer.
+Save following `docker-compose.yml`_ file on your local computer.
 
 .. note::
 
@@ -107,45 +108,28 @@ Add to your ``/etc/hosts`` following content::
 .. note::
 
   Variable name to pass hostname is ``USE_HOSTNAME``. This variable
-  used to be named "HOSTNAME" - which caused some problems when 
-  accessing Papermerge from remote host. See this 
+  used to be named "HOSTNAME" - which caused some problems when
+  accessing Papermerge from remote host. See this
   `comment in github <https://github.com/papermerge/papermerge-core/issues/17#issuecomment-1145878439>`_
   for detailed explanation.
 
-Start Papermerge using following docker compose command::
-
-    docker-compose -f docker-compose.yml --env-file .env up
-
-In case you use more recent version for docker::
+Start |project| using following docker compose command::
 
     docker compose -f docker-compose.yml --env-file .env up
 
-You can access Papermerge user interface using a web browser like Firefox.
+You can access |project| user interface using a web browser like Firefox.
 Open your web browser and point it to http://papermerge.local address:
 
 .. figure:: ../img/papermerge-login.png
 
-    Sign in screen available at http://papermerge.local
+    Figure 1. Sign in screen available at http://papermerge.local
 
 Sign in using credentials configured with ``SUPERUSER_USERNAME`` and
 ``SUPERUSER_PASSWORD`` options in ``.env`` file.
 
 .. figure:: ../img/setup/installation/docker/papermerge-example.png
 
-    Papermerge frontend example
-
-
-Docker compose started following services:
-
-* REST API backend (available at http://papermege.local/api/)
-* Worker
-* Redis
-* PostgreSQL database
-* Elastic search
-* Frontend (available at http://papermege.local/)
-* Websocket server
-* Traefik (available at http://localhost:8080)
-
+    Figure 2. Papermerge frontend example
 
 
 Backend Only
@@ -154,8 +138,7 @@ Backend Only
 This stack installs only Papermerge REST API backend (without fancy user interface). This setup is suitable mostly to play, experiment and explore
 Papermerge REST API.
 
-Save `following docker-compose.yml
-<https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/backend-only.yml>`_
+Save `backend.yml`_
 file on your local computer.
 
 Next, create ``.env`` file with following content:
@@ -183,9 +166,9 @@ Next, create ``.env`` file with following content:
     SUPERUSER_EMAIL=admin@example.com
     SUPERUSER_PASSWORD=password
 
-Start Papermerge using following docker compose command::
+Start |project| using following docker compose command::
 
-    docker-compose -f docker-compose.yml --env-file .env up
+    docker compose -f docker-compose.yml --env-file .env up
 
 The above command will start following services:
 
@@ -196,7 +179,7 @@ The above command will start following services:
 * Elastic search
 
 For REST API backend and the worker docker-compose will use
-``ghcr.io/papermerge/papermerge:2.1.0-alpha-latest`` docker image.
+``ghcr.io/papermerge/papermerge`` docker image.
 
 Now base url for REST API is ``http://localhost:8000/api/``.
 
@@ -204,50 +187,15 @@ Now base url for REST API is ``http://localhost:8000/api/``.
 External Services
 ------------------
 
-Papermerge requires three external services:
+|project| requires three external services:
 
 * database
 * redis
 * elasticsearch
 
-If you want to play with Papermerge outside of docker compose and you don't
+If you want to play with |project| outside of docker compose and you don't
 want bother about database/redis/elasticsearch services - you can use
-following compose file to quickly setup these external services::
-
-
-    version: '3.7'
-    services:
-      db:
-        image: postgres:13
-        volumes:
-          - postgres_data2:/var/lib/postgresql/data/
-        environment:
-          - POSTGRES_USER=${DB_USER}
-          - POSTGRES_DB=${DB_NAME}
-          - POSTGRES_PASSWORD=${DB_PASSWORD}
-        ports:
-          - 5432:5432
-      redis:
-        image: redis:6
-        ports:
-          - 6379:6379
-        volumes:
-          - redisdata:/data
-      es:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
-        environment:
-          - discovery.type=single-node
-          - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-        ports:
-          - 9200:9200
-          - 9300:9300
-    volumes:
-      postgres_data2:
-      redisdata:
-
-    networks:
-      my_local:
-        driver: host
+following `services.yml`_ file to quickly setup these external services.
 
 Note ``networks`` uses ``driver: host``, this will start services in same host
 as you local computer.
@@ -261,7 +209,7 @@ as you local computer.
 
 Following command will start docker services in same network as host::
 
-    docker-compose -f services.yml --env-file .env up
+    docker compose -f services.yml --env-file .env up
 
 Docker compose file will start following services in same host as you computer:
 
@@ -269,12 +217,332 @@ Docker compose file will start following services in same host as you computer:
 * Redis
 * Elasticsearch
 
-At this point if you start let's say a development version of Papermerge, you
+At this point if you start let's say a development version of |project|, you
 can use ``localhost:6379`` to connect to redis or ``localhost:9300`` use
 elasticsearch.
+
+
+Detailed Explanation
+---------------------
+
+This section dives into detailed explanation of microservice architecture of
+|project|. We focus here on just enough details so that above mentioned docker
+compose setups will make sense for you, and in case something goes wrong you
+will be able to understand the problem and troubleshoot it.
+
+
+Backend and Frontend
+~~~~~~~~~~~~~~~~~~~~
+
+First important point to understand is that |project| has two loosely coupled
+parts:
+
+- backend
+- frontend
+
+Backend is the REST API server, in other words HTTP REST API requests are
+processed by backend component. Important characteristic of the backend is
+that is does not have graphical user interface.
+
+.. note:: Backend is entirely written in Python. Here is `backend repository`_.
+
+
+Frontend is the graphical user interface of the application. A less intuitive thing
+is that frontend is a separate application. Frontend interacts with backend
+via REST API.
+
+.. note:: Frontend is written in JavaScript, CSS and HTML. Frontend runs
+  in web browser. Here is `frontend repository`_.
+
+
+Both backend and frontend receive an HTTP request, do something with it, and then
+answer that HTTP request with an HTTP response.
+
+Because both, backend and frontend, operate with HTTP requests, we need a way to
+separate incoming (for |project|) requests: requests designated for backend (REST API calls)
+should go to backend service and requests designated for frontend should go to
+frontend application. How do we do that? Enter http routing!
+
+
+HTTP Routing
+~~~~~~~~~~~~
+
+We use HTTP PATH in order to decide which requests is designated to which
+service. If HTTP request's PATH contains ``/api/`` prefix, we route that HTTP
+request to backend service, otherwise we route it the frontend.
+
+If, say, there an incoming request of following path::
+
+  GET /api/users/me/
+
+The PATH contains ``/api/`` prefix - thus it is for backend.
+
+If, say, incoming requests looks like::
+
+  GET /assets/js/app.js
+
+There is no ``/api/`` prefix - thus it is for frontend.
+
+This simple logic, where we decide to what microservice http request goes, is
+often called as "HTTP Routing".
+
+We use `traefik`_ to route http requests between microservices
+
+
+.. figure:: ./docker-compose/backend-frontend.svg
+
+  Figure 3. Routing HTTP requests between frontend and backend
+  microservices
+
+
+In illustration above, |project| services are isolated from outside access. In
+other words, if you try to access backend service directly (via HTTP request)
+you won't be able to. Instead, the only way to access services is via Traefik
+which acts as a door that lets all http requests enter "the box".
+
+.. note:: Traefik is referred as "the edge router" - from illustration above
+  you probably understand why
+
+
+Now, we arrived to one  extremely important point, where most of the people
+get confused: both Frontend and Backend microservices have same base URL!
+
+.. important:: Both Frontend and Backend **MUST have same base URL**! In other
+  words if REST API Backend URL is http://mydocs:7070/api/, then Frontend
+  application must be accessible from http://mydocs:7070/ - note that
+  port number is same.
+
+.. important:: **Base URL** is the part of the HTTP address between protocol name (``http://`` or ``https://``)
+  and first slash ``/``. Note that is also includes port number. Base URLs
+  where port number differs - are different! E.g. http://mydocs:7070 != http://mydocs:7060
+
+Let me explain this in detail. Let's say that you run setup with Traefik (in front
+of Backend and Frontend microservices) locally on port 6080 and you map in your
+``/etc/hosts`` 127.0.0.1 to mydms.local. In other words you plan to access
+|project| via http://mydms.local:6080. When you open your browser and point
+it to http://mydms.local:6080/ address, Traefik receives the requests, see
+that there is no ``/api/`` prefix and routes the request to Frontend
+microservice. Frontend microservice will respond by returning couple of
+javascript, css, and html files; JS, CSS, and HTML files will be loaded in
+your browser Frontend application starts - in your browser!
+
+You will see some fancy UI (login screen). Now, (Frontend) application running
+in your browser, in order to perform authentication, show your documents,
+folders, tags etc etc it needs to access the Backend server.
+
+And here is the crucial moment: how does application running in your browser
+know what is the URL for REST API server ?
+
+
+.. figure:: ./docker-compose/thinking-frontend.svg
+
+Well, because (Frontend) application is running in your browser, it knows
+its own URL (via browsers own ``window.location`` object). Frontend
+application then concludes following: "OK, if I was accessed with
+http://mydms.local:6080/, then REST API server URL which I need to work
+with MUST be my own URL + /api/ i.e. http://mydms.local:6080/api/"
+
+.. figure:: ./docker-compose/idea.svg
+
+.. important:: In |project| if Frontend application is accessed with base URL
+  ``<base_url>``, then REST API server URL is ``<base_url>/api/``.
+
+
+Because frontend application does not have any configuration whatsoever,
+the only way to know about REST API server URL is by deducing it from
+its own URL - it just appends ``/api/`` prefix!
+
+
+OK, now that we (hopefully) clarified the theory behind it, let's adjust
+Figure 3 to specific values:
+
+.. figure:: ./docker-compose/backend-frontend-specific.svg
+
+  Figure 4
+
+
+Here is docker equivalent compose file::
+
+  version: '3.7'
+  services:
+    backend:
+      image: ghcr.io/papermerge/papermerge
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+
+
+  Figure 5 - content of docker-compose.yml
+
+
+First couple of remarks regarding traefik configurations. When used with
+docker compose traefik uses "labels" to configure routes for services it is
+used in of. Note that neither Backend nor Frontend microservice do not map
+any ports. Instead ports mapping is done only for traefik - external port
+6080 is mapped to traefik's internal port 80 and traefik's internal port 80 is
+configured as web entry point (line --entrypoints.web.address=:80). In other words
+we expose to "outside world" only traefik on (external port) 6080.
+
+Another important remark is that ``mydms.local`` should be mapped to ``127.0.0.1``;
+you do that by adding an entry in your ``/etc/hosts`` file::
+
+  $ cat /etc/hosts
+
+  127.0.0.1  mydms.local
+
+Notice that by default |project| create :ref:`superuser <glossary_superuser>` with username ``admin`` and with
+password as per environment variable ``DJANGO_SUPERUSER_PASSWORD``, which in our
+case is 1234.
+
+Finally, if you save text from Figure 5 in file docker-compose.yml, then you can
+start all (three) services with::
+
+  $ docker compose -f docker-compose.yml up
+
+Or simply, if you are in same folder as docker-compose.yml file::
+
+  $ docker compose up
+
+Now, open your browser and point it to address ``http://mydms.local:6080``.
+Sign in using username admin (default) and password 1234 (provided in docker
+compose file).
+At this point you can sign in, create folders, create users, tags, groups,
+upload documents, change preferences.
+However, uploaded documents won't either be OCRed nor indexed. Even
+the document status will not change. Why? well, we are not
+ready with our setup. Read on.
+
+Websockets
+~~~~~~~~~~
+
+What is this websockets thingy anyway and why |project| needs it? Websockets
+service listens for background OCR events ( like OCR started for document X,
+OCR complete for document Y) and sends notifications to your browsers, and it
+does it via a technology called `WebSockets`_.
+
+At this stage, even if you add websockes service, you won't be able to see it
+in action - simply because we didn't add workers yet (thus no OCR is
+performed -> thus no OCR events yet). Still, let's go on and add it now,
+because, by this point, it should be trivial - we need just one more PATH
+route, which will route all HTTP requests with ``/ws/`` prefix to websockets
+microservice:
+
+
+.. figure:: ./docker-compose/backend-frontend-websockets.svg
+
+  Figure 6. Routing HTTP requests between frontend, backend
+  and websockets microservices
+
+
+And here is updated content for docker-compose.yml file::
+
+  version: '3.7'
+  services:
+    backend:
+      image: ghcr.io/papermerge/papermerge
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+    websockets:
+      image: ghcr.io/papermerge/papermerge
+      command: ws_server
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+
+
+Notice that ``websockets`` microservice uses same docker image as the ``backend`` i.e.
+``ghcr.io/papermerge/papermerge`` and same environment variables as the ``backend``.
+
+What differs between ``websockets`` and ``backend`` microservices::
+
+1. PathPrefix - for ``websockets`` microservice path prefix is ``/ws/``
+2. docker command - for ``websockets`` microservice docker command is ``ws_server``
+
+Go on and run docker compose command to start all services::
+
+  $ docker compose -f docker-compose.yml up
+
+By now, if you run ``docker ps`` command, you will see four microservices running:
+
+* traefik
+* backend
+* frontend
+* websockets
+
+As mentioned before, by now you won't be able to see added value of
+``websockets`` service. Once we include workers into the picture, I will show
+you the effect of ``websockets`` microservice as well. Workers
+is the topic of the next section.
+
+
+Message Broker and Workers
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ./docker-compose/backend-frontend-websockets-workers.svg
+
+  Figure 7. HTTP Routing, Workers and Redis (as message broker)
+
+Complete Setup
+~~~~~~~~~~~~~~
+
+
+.. figure:: ./docker-compose/all-services.svg
+
+  Figure 8. All microservices
+
+
 
 .. _docker: https://www.docker.com/
 .. _docker compose: https://docs.docker.com/compose/
 .. _environment file: https://docs.docker.com/compose/env-file/
 .. _cUrl: https://en.wikipedia.org/wiki/CURL
 .. _traefik: https://doc.traefik.io/traefik/
+.. _backend.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/backend.yml
+.. _docker-compose.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml
+.. _services.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/services.yml
+.. _backend repository: https://github.com/papermerge/papermerge-core
+.. _frontend repository: https://github.com/papermerge/papermerge.js
+.. _host header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
+.. _WebSockets: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
