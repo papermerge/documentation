@@ -8,7 +8,7 @@ domain.
 .. _dms:
 
 DMS
-~~~
+---
 
 DMS = Document Management System
 
@@ -16,7 +16,7 @@ DMS = Document Management System
 
 
 Digital Archive
-~~~~~~~~~~~~~~~
+---------------
 
 Digital archive is a fancy name for a document whose content won't change
 anymore. Think of PDF documents - you can't modifgy content of PDF file
@@ -32,7 +32,7 @@ well.
 .. _glossary_gui:
 
 GUI
-~~~
+---
 
 Abbreviation from graphical user interface.
 
@@ -40,7 +40,7 @@ Abbreviation from graphical user interface.
 .. _ocr:
 
 OCR
-~~~
+---
 
 Abbreviation from **optical character recognition**. OCR is the process of
 extracting plain text (and associated information) from file, document or image.
@@ -67,7 +67,7 @@ terms scanners are specialized devices for taking photos of the documents.
 .. _strayed_page:
 
 Strayed Page
-~~~~~~~~~~~~
+------------
 
 A page that during the scan ended up in wrong document is called *strayed page*.
 
@@ -85,14 +85,14 @@ In such case we say that page B2 is strayed page.
 .. _incoming_documents:
 
 Incoming Documents
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Documents which are in user's ``Inbox`` folder are called *Incoming Documents*.
 
 .. _ingesting_documents:
 
 Ingesting Documents
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Same as saying uploading documents i.e. take documents from any external
 source (e.g. S3 objects, storage, email account, local file system) and
@@ -102,6 +102,15 @@ tranfer them into |project|. All successfully ingested documets appear in
 .. _glossary_metacolumn:
 
 Metacolumn
-~~~~~~~~~~~
+----------
 
 Metacolumns are the columns displayed for metadata defined on current folder.
+
+.. _glossary_superuser:
+
+Superuser
+---------
+
+Superuser is the most privileged user in the system. Superuser has all
+permissions and thus can perform any action in the system.
+|project| is starts with one superuser.
