@@ -495,7 +495,7 @@ And here is updated content for docker-compose.yml file::
 Notice that ``websockets`` microservice uses same docker image as the ``backend`` i.e.
 ``ghcr.io/papermerge/papermerge`` and same environment variables as the ``backend``.
 
-What differs between ``websockets`` and ``backend`` microservices::
+What differs between ``websockets`` and ``backend`` microservices:
 
 1. PathPrefix - for ``websockets`` microservice path prefix is ``/ws/``
 2. docker command - for ``websockets`` microservice docker command is ``ws_server``
@@ -520,18 +520,468 @@ is the topic of the next section.
 Message Broker and Workers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Web applications are build around HTTP request respond cycle. Application
+receives an HTTP request, performs some computation like pull data from
+database and then responds with HTTP response. Each request/respond cycle
+take no more then 500 ms (milliseconds). If request/respond cycle take more
+then 500 ms, we tend to say that web application is slow (or specifically
+that request which take more then, say 500ms is slow).
+
+The thing is, relatively speaking to request/response cycle - the OCR
+processing is infinitely slow - OCR processing of one single A4 page can take
+more then a minute! Thus processing of six A4 pages document can easily take
+6 minutes - and that's normal.
+In other words, OCR processing does not fit the web application request/response
+paradigm.
+That's why, OCR processing is "offloaded" to so called *worker* or *worker processes*.
+Worker is just another instance of the same application, with two important twists:
+
+1. worker runs in background
+2. worker receives tasks, and no matter now long it will take - it executes them
+
+From whom do workers receive tasks and most importantly how ?
+In |project| workers receive tasks from Backend microservice.
+But how?
+
+Workers receive orders (tasks) via so called *messaging queue*.
+
+
+.. figure:: ./docker-compose/messaging-queue.svg
+
+  Figure 7.
+
+It is more complex then just "workers receive" tasks - workers can
+also notify master (via messaging queue) when task is ready, in case
+task some workers are busy, there is an option to dispatch tasks
+only to the workers which are idle. The point, is that there
+is an entity who checks which workers are busy, how many workers are online,
+who is willing to take more tasks etc etc. The entity who take care
+of all this is called - *message broker*.
+
+Long story short - |project| uses `Redis`_ as messaging broker and messaging queue.
+
+Terms "message transport", "message queue", "message broker" are loosely
+used in many documents to mean different things. It is very easy to get confused.
+To avoid any confusion, think that `Redis`_ sort of connects all workers with Backend
+and serves as communication channel for communication between workers and Backend
+
+.. note:: `Redis`_ is used as channel of communication between Backend and workers
+
+
+And finally, the most important part for |project|. Remember workers are used to OCR
+documents. So, if ``Worker N`` receives a task to OCR document with given UUID how does
+the workers "receives" the document ? And how does worker "sends" the results of its task?
+Does worker receive document via messaging queue ?
+Does worker sends resulted data via messaging queue ?
+
+No, workers neither receive nor send documents/results via messaging queue.
+Instead they read documents/write results from the same shared storage as the Backend.
+
+.. important:: Workers "receive" documents to be OCRed and "send" their result
+  via shared storage. In other words, Backend and all workers share
+  the same document storage.
+
+
+.. figure:: ./docker-compose/shared-storage.svg
+
+  Figure 8. Shared storage between Backend and Workers
+
+
+Finally by this point you understood the theory behind. Here is
+the diagram with the services included in docker compose:
+
 .. figure:: ./docker-compose/backend-frontend-websockets-workers.svg
 
-  Figure 7. HTTP Routing, Workers and Redis (as message broker)
+  Figure 9. HTTP Routing, Workers and Redis (as message broker)
+
+And finally, where is docker compose file::
+
+  version: '3.7'
+  services:
+    backend:
+      image: ghcr.io/papermerge/papermerge
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+      volumes:
+        - media_root:/app/media
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+        - PAPERMERGE__REDIS__HOST=redis
+        - PAPERMERGE__REDIS__PORT=6379
+    worker:
+      image: ghcr.io/papermerge/papermerge
+      command: worker
+      volumes:
+        - media_root:/app/media
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+        - PAPERMERGE__REDIS__HOST=redis
+        - PAPERMERGE__REDIS__PORT=6379
+    ws_server:
+      image: ghcr.io/papermerge/papermerge
+      command: ws_server
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+        - PAPERMERGE__REDIS__HOST=redis
+        - PAPERMERGE__REDIS__PORT=6379
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+    redis:
+      image: redis:6
+      ports:
+        - '6379:6379'
+
+  volumes:
+    media_root:
+
+You can start docker services with::
+
+  $ docker compose up
+
+However, if you will try to OCR a document, you will get **following error on the worker**::
+
+  worker-1     | Traceback (most recent call last):
+  worker-1     |   File "/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+  worker-1     |     R = retval = fun(*args, **kwargs)
+  worker-1     |   File "/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+  worker-1     |     return self.run(*args, **kwargs)
+  worker-1     |   File "/app/papermerge/core/tasks.py", line 39, in ocr_document_task
+  worker-1     |     doc = Document.objects.get(pk=document_id)
+  worker-1     |   File "/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+  worker-1     |     return getattr(self.get_queryset(), name)(*args, **kwargs)
+  worker-1     |   File "/venv/lib/python3.8/site-packages/django/db/models/query.py", line 496, in get
+  worker-1     |     raise self.model.DoesNotExist(
+  worker-1     | papermerge.core.models.document.Document.DoesNotExist: Document matching query does not exist.
+
+
+Try to answer - why?
+Why worker cannot find document when looking up in database?
+
+.. figure:: ./docker-compose/thinking-why.svg
+
+
+.. tip:: Answer is in following section :P
+
+
+Almost Complete Setup
+~~~~~~~~~~~~~~~~~~~~~~
+
+Keyword is *database*. Do you remember any database configuration in docker
+compose ?
+I also don't remember configuring any database. Probably it is because we didn't configure
+any database!
+
+Because there is no database configuration, |project| uses SQLite as default
+database. SQLite is basically "a database in one single file". That "single database file"
+is created - as is different - for each docker container separately; in other words -
+workers and backend use different databases!
+
+  .. important:: When no database configurations are present, |project| uses
+    SQLite as default database.
+
+That's easy to fix, we add one more service.
+Enter PostgreSQL.
+
+
+.. figure:: ./docker-compose/almost-all-services.svg
+
+  Figure 10. Almost all services.
+
+
+Here is our almost final docker-compose.yml file::
+
+  version: '3.7'
+  services:
+    backend:
+      image: ghcr.io/papermerge/papermerge
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+      volumes:
+        - media_root:/app/media
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+        - PAPERMERGE__REDIS__HOST=redis
+        - PAPERMERGE__REDIS__PORT=6379
+        - PAPERMERGE__DATABASE__TYPE=postgres
+        - PAPERMERGE__DATABASE__USER=postgres
+        - PAPERMERGE__DATABASE__NAME=postgres
+        - PAPERMERGE__DATABASE__PASSWORD=postgres
+        - PAPERMERGE__DATABASE__HOST=db
+        - PAPERMERGE__DATABASE__PORT=5432
+    worker:
+      image: ghcr.io/papermerge/papermerge
+      command: worker
+      volumes:
+        - media_root:/app/media
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+        - PAPERMERGE__REDIS__HOST=redis
+        - PAPERMERGE__REDIS__PORT=6379
+        - PAPERMERGE__DATABASE__TYPE=postgres
+        - PAPERMERGE__DATABASE__USER=postgres
+        - PAPERMERGE__DATABASE__NAME=postgres
+        - PAPERMERGE__DATABASE__PASSWORD=postgres
+        - PAPERMERGE__DATABASE__HOST=db
+        - PAPERMERGE__DATABASE__PORT=5432
+    ws_server:
+      image: ghcr.io/papermerge/papermerge
+      command: ws_server
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
+      environment:
+        - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+        - DJANGO_SUPERUSER_PASSWORD=1234
+        - PAPERMERGE__REDIS__HOST=redis
+        - PAPERMERGE__REDIS__PORT=6379
+        - PAPERMERGE__DATABASE__TYPE=postgres
+        - PAPERMERGE__DATABASE__USER=postgres
+        - PAPERMERGE__DATABASE__NAME=postgres
+        - PAPERMERGE__DATABASE__PASSWORD=postgres
+        - PAPERMERGE__DATABASE__HOST=db
+        - PAPERMERGE__DATABASE__PORT=5432
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+    redis:
+      image: redis:6
+      ports:
+        - '6379:6379'
+    db:
+      image: postgres:14.4
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+        - POSTGRES_PASSWORD=postgres
+  volumes:
+    media_root:
+    postgres_data:
+
+As you can see, there is a lots of repetitions: backend, worker and websockets service,
+use same environment variables, docker image and mount same volume.
+
+Here is an improved version of docker compose file which re-uses common parts::
+
+  version: '3.7'
+  # Any top-level key starting with x- in a Docker Compose file will be
+  # ignored
+  x-backend: &common  # yaml anchor definition
+    image: ghcr.io/papermerge/papermerge
+    volumes:
+      - media_root:/app/media
+    environment:
+      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+      - DJANGO_SUPERUSER_PASSWORD=1234
+      - PAPERMERGE__REDIS__HOST=redis
+      - PAPERMERGE__REDIS__PORT=6379
+      - PAPERMERGE__DATABASE__TYPE=postgres
+      - PAPERMERGE__DATABASE__USER=postgres
+      - PAPERMERGE__DATABASE__NAME=postgres
+      - PAPERMERGE__DATABASE__PASSWORD=postgres
+      - PAPERMERGE__DATABASE__HOST=db
+      - PAPERMERGE__DATABASE__PORT=5432
+  services:
+    backend:
+      <<: *common
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+    ws_server:
+      <<: *common
+      command: ws_server
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
+    worker:
+      <<: *common
+      command: worker
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+    redis:
+      image: redis:6
+      ports:
+        - '6379:6379'
+    db:
+      image: postgres:14.4
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+        - POSTGRES_PASSWORD=postgres
+  volumes:
+    media_root:
+    postgres_data:
+
+
+The above docker compose file uses so called "yaml achors" in order to avoid repetitive
+patterns in yaml file.
+
+Now you can start all services with::
+
+  $ docker compose up
+
+If you want to start multiple workers::
+
+  $ docker compose up --scale worker=3
+
+above command will start all services as usual, but instead of one worker instance it will start 3.
+
 
 Complete Setup
 ~~~~~~~~~~~~~~
 
+Are we done?
+
+It depends. If you care only about storing documents, OCRing documents and eventually
+downloading document with OCR text layer - yes we are done.
+
+But in case you want to also search and find document based on extracted text
+from OCR process, then no - we are not done yet.
+
+The search part is performed by external service - elasticsearch service.
+Here is the diagram which includes elasticsearch service.
 
 .. figure:: ./docker-compose/all-services.svg
 
-  Figure 8. All microservices
+  Figure 11. All microservices
 
+
+And here is the final docker compose file::
+
+  version: '3.7'
+  # Any top-level key starting with x- in a Docker Compose file will be
+  # ignored
+  x-backend: &common  # yaml anchor definition
+    image: ghcr.io/papermerge/papermerge:2.1.0b1
+    volumes:
+      - media_root:/app/media
+    environment:
+      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+      - DJANGO_SUPERUSER_PASSWORD=1234
+      - PAPERMERGE__REDIS__HOST=redis
+      - PAPERMERGE__REDIS__PORT=6379
+      - PAPERMERGE__DATABASE__TYPE=postgres
+      - PAPERMERGE__DATABASE__USER=postgres
+      - PAPERMERGE__DATABASE__NAME=postgres
+      - PAPERMERGE__DATABASE__PASSWORD=postgres
+      - PAPERMERGE__DATABASE__HOST=db
+      - PAPERMERGE__DATABASE__PORT=5432
+      - PAPERMERGE__ELASTICSEARCH__HOSTS=es
+      - PAPERMERGE__ELASTICSEARCH__PORT=9200
+  services:
+    backend:
+      <<: *common
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+    ws_server:
+      <<: *common
+      command: ws_server
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
+    worker:
+      <<: *common
+      command: worker
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js:2.1.0b1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+    redis:
+      image: redis:6
+      ports:
+        - '6379:6379'
+    db:
+      image: postgres:14.4
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+        - POSTGRES_PASSWORD=postgres
+    es:
+      image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+      environment:
+        - discovery.type=single-node
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      ports:
+        - 9200:9200
+        - 9300:9300
+  volumes:
+    media_root:
+    postgres_data:
+
+
+Troubleshooting
+---------------
+
+To be added...
 
 
 .. _docker: https://www.docker.com/
@@ -546,3 +996,4 @@ Complete Setup
 .. _frontend repository: https://github.com/papermerge/papermerge.js
 .. _host header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
 .. _WebSockets: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+.. _Redis: https://redis.io/
