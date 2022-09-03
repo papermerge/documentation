@@ -495,7 +495,7 @@ And here is updated content for docker-compose.yml file::
 Notice that ``websockets`` microservice uses same docker image as the ``backend`` i.e.
 ``ghcr.io/papermerge/papermerge`` and same environment variables as the ``backend``.
 
-What differs between ``websockets`` and ``backend`` microservices::
+What differs between ``websockets`` and ``backend`` microservices:
 
 1. PathPrefix - for ``websockets`` microservice path prefix is ``/ws/``
 2. docker command - for ``websockets`` microservice docker command is ``ws_server``
@@ -520,9 +520,83 @@ is the topic of the next section.
 Message Broker and Workers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Web applications are build around HTTP request respond cycle. Application
+receives an HTTP request, performs some computation like pull data from
+database and then responds with HTTP response. Each request/respond cycle
+take no more then 500 ms (milliseconds). If request/respond cycle take more
+then 500 ms, we tend to say that web application is slow (or specifically
+that request which take more then, say 500ms is slow).
+
+The thing is, relatively speaking to request/response cycle - the OCR
+processing is infinitely slow - OCR processing of one single A4 page can take
+more then a minute! Thus processing of six A4 pages document can easily take
+6 minutes - and that's normal.
+In other words, OCR processing does not fit the web application request/response
+paradigm.
+That's why, OCR processing is "offloaded" to so called *worker* or *worker processes*.
+Worker is just another instance of the same application, with two important twists:
+
+1. worker runs in background
+2. worker receives tasks, and no matter now long it will take - it executes them
+
+From whom do workers receive tasks and most importantly how ?
+In |project| workers receive tasks from Backend microservice.
+But how?
+
+Workers receive orders (tasks) via so called *messaging queue*.
+
+
+.. figure:: ./docker-compose/messaging-queue.svg
+
+  Figure 7.
+
+It is more complex then just "workers receive" tasks - workers can
+also notify master (via messaging queue) when task is ready, in case
+task some workers are busy, there is an option to dispatch tasks
+only to the workers which are idle. The point, is that there
+is an entity who checks which workers are busy, how many workers are online,
+who is willing to take more tasks etc etc. The entity who take care
+of all this is called - *message broker*.
+
+Long story short - |project| uses `Redis`_ as messaging broker and messaging queue.
+
+Terms "message transport", "message queue", "message broker" are loosely
+used in many documents to mean different things. It is very easy to get confused.
+To avoid any confusion, think that `Redis`_ sort of connects all workers with Backend
+and serves as communication channel for communication between workers and Backend
+
+.. note:: `Redis`_ is used as channel of communication between Backend and workers
+
+
+And finally, the most important part for |project|. Remember workers are used to OCR
+documents. So, if ``Worker N`` receives a task to OCR document with given UUID how does
+the workers "receives" the document ? And how does worker "sends" the results of its task?
+Does worker receive document via messaging queue ?
+Does worker sends resulted data via messaging queue ?
+
+No, workers neither receive nor send documents/results via messaging queue.
+Instead they read documents/write results from the same shared storage as the Backend.
+
+.. important:: Workers "receive" documents to be OCRed and "send" their result
+  via shared storage. In other words, Backend and all workers share
+  the same document storage.
+
+
+.. figure:: ./docker-compose/shared-storage.svg
+
+  Figure 8. Shared storage between Backend and Workers
+
+
+Finally by this point you understood the theory behind. Here is
+the diagram the services included in docker compose:
+
 .. figure:: ./docker-compose/backend-frontend-websockets-workers.svg
 
-  Figure 7. HTTP Routing, Workers and Redis (as message broker)
+  Figure 9. HTTP Routing, Workers and Redis (as message broker)
+
+And finally, where is docker compose file:
+
+
 
 Complete Setup
 ~~~~~~~~~~~~~~
@@ -530,7 +604,7 @@ Complete Setup
 
 .. figure:: ./docker-compose/all-services.svg
 
-  Figure 8. All microservices
+  Figure 9. All microservices
 
 
 
@@ -546,3 +620,4 @@ Complete Setup
 .. _frontend repository: https://github.com/papermerge/papermerge.js
 .. _host header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
 .. _WebSockets: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+.. _Redis: https://redis.io/
