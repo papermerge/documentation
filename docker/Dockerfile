@@ -1,4 +1,4 @@
-FROM python:3.8 as build
+FROM python:3.10 as build
 
 LABEL author="Eugen Ciur <eugen@papermerge.com>"
 ENV VIRTUAL_ENV=/venv
