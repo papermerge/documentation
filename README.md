@@ -23,6 +23,15 @@ repository will be automatically rebuild. You can access
 documentation on ``http://localhost:9600``.
 
 
+## Start with Docker
+
+You can start documentation as docker container as follows::
+
+    $ docker run -p 10169:80 ghcr.io/papermerge/documentation
+
+And access it via ``http://localost:10169``
+
+
 ## Contributors
 
 Before making changes to documentations, please make sure that:
