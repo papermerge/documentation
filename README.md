@@ -1,18 +1,18 @@
-# Papermerge - Documentation
+# Papermerge DMS- Documentation
 
-Papermerge documentation is based on [sphinx-doc](https://www.sphinx-doc.org)
+Papermerge DMS documentation is based on [sphinx-doc](https://www.sphinx-doc.org)
 which uses [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) as
 markup language.
 
 ## Online Version
 
-Papermerge documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/).
+Papermerge DMS documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/)
 
 ## How to Use
 
 Make sure you have installed [python](https://www.python.org/)
 and [poetry](https://python-poetry.org/docs/), then in root repository
-folder run following commands::
+folder run following commands:
 
     $ poetry install
     $ poetry run task autobuild
@@ -22,15 +22,13 @@ and run documentation in auto build mode. Any change in documentation
 repository will be automatically rebuild. You can access
 documentation on ``http://localhost:9600``.
 
-
 ## Start with Docker
 
-You can start documentation as docker container as follows::
+You can start documentation as docker container as follows:
 
     $ docker run -p 10169:80 ghcr.io/papermerge/documentation
 
-And access it via ``http://localost:10169``
-
+And access it via ``http://localhost:10169``
 
 ## Contributors
 
