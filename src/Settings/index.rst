@@ -10,5 +10,5 @@ Settings
    database
    superuser
    redis
-   elasticsearch
+   search
    django_settings_module

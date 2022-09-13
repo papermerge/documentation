@@ -1,34 +1,34 @@
 Requirements
 ============
 
-Papermerge is web based application. As with any web based application it can be
+|project| is web based application. As with any web based application it can be
 accessed and used from any modern web browser, like Mozilla Firefox, Chrome,
 Edge, or Safari.
 
 .. note::
 
-    To **use** Papermerge all you need is just a modern web browser. Papermerge can be
+    To **use** |project| all you need is just a modern web browser. |project| can be
     accessed and used **from any operating system** (provided a web browser). It can be
     accessed via web browsers from Desktop computers, tablets or mobile phones.
 
 Like a typical web application it runs on server-side Linux or Unix-like
-computer. Thus, if you want to deploy and run Papermerge on your own, you
+computer. Thus, if you want to deploy and run |project| on your own, you
 need a Linux/Unix compatible operating system.
 
 
-If you are interested in how to install Papermerge using docker -
+If you are interested in how to install |project| using docker -
 read :ref:`installation_with_docker` section.
 
-In order to successfully deploy Papermerge you need following software:
+In order to successfully deploy |project| you need following software:
 
-* `Python`_ >= 3.8
+* `Python`_ >= 3.9
 * `Tesseract`_ - because of :ref:`OCR <ocr>`
 * Database (`PostgreSQL`_/MySQL/MariaDB/SQLite)
 * `Redis`_
-* `Elasticsearch`_
+
 
 Python
-******
+------
 
 Papermerge (server side) is written in Python programming language. The
 minimum Python version required is 3.7.
@@ -36,7 +36,7 @@ minimum Python version required is 3.7.
 Papermerge uses `Django`_ Web Framework as backend technology.
 
 Tesseract
-**********
+---------
 
 If you never heard of `Tesseract software`_ - it is google's open source
 `Optical Character Recognition`_ software.  It extracts text from images. It
