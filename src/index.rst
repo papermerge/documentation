@@ -21,12 +21,12 @@ archives <digital_archive>` workflows.
 Features Highlights
 -------------------
 
-* Works with PDFs
+* Works well with PDFs
 * Desktop like user interface
 * Dual panel mode
 * OCR - used to extract text for documents indexing
 * OCRed text overlay (you can download document with OCRed text overlay)
-* Full text search
+* Full text search (supports multiple search engines)
 * Document Versioning
 * Tags - assign colored tags to documents or folders
 * Folders - users can organize documents in folders
@@ -102,9 +102,6 @@ for Papermerge project.
 Papermerge is simply **not designed to store books**. Yes, you can scan a book
 and import it in Papermege, but again - this is not what Papermerge was
 designed for.
-
-
-
 
 
 .. toctree::

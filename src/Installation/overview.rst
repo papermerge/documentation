@@ -15,10 +15,12 @@ Components
 * RESTful backend server
 * Worker (there may be one or multiple workers)
 * Frontend (optional)
-* Websockets server (optional).
+* Websockets server (optional)
+* Database
+* Search Engine
 
 The essential parts of |project| deployment are RESTful backend server and
-one or multiple workers. The frontend and websockets server are optional.
+one or multiple workers. The frontend and websockets servers are optional.
 They provide so called official graphical user interface of |project|. If
 you don't plan to use |project| via web GUI, you can safely skip frontend
 and websockets parts.
@@ -99,6 +101,30 @@ strongly coupled with frontend part. In general if you don't plan to use
 frontend, you don't need to deploy websockets server neither.
 
 
+Database
+--------
+
+In order to operate sucessfully |project| needs a database to store data to.
+It case use one of several databases:
+
+* SQLite
+* PostgreSQL
+* MySQL (MariaDB)
+
+
+Search Engine
+-------------
+
+|project| supports multiple search engine backends:
+
+* `Xapian`_
+* Whoosh
+* Elasticsearch
+* Apache Solr
+
+Xapian is used by default.
+
+
 Installation Options
 **********************
 
@@ -148,3 +174,6 @@ necessary.
 
 For more details read :ref:`backend_dev_setup` section
 and :ref:`frontend_dev_setup`.
+
+
+.. _Xapian: https://getting-started-with-xapian.readthedocs.io/en/latest/)

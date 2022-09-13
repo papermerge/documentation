@@ -63,7 +63,7 @@ Save following `docker-compose.yml`_ file on your local computer.
 
 .. note::
 
-  Currently docker tag ``latest`` points to latest 2.1.0bX (2.1.0b1, 2.1.0b2, 2.1.0b3, ...) version
+  Currently docker tag ``latest`` points to latest 2.1.0bX (2.1.0b3, 2.1.0b4, 2.1.0b5, ...) version
   which means that application is feature complete, but not yet production ready.
   See all available docker tags in `GitHub packages <https://github.com/orgs/papermerge/packages>`_
 
@@ -84,9 +84,6 @@ Next, create ``.env`` file with following content::
 
     REDIS_HOST=redis
     REDIS_PORT=6379
-
-    ES_HOSTS=es
-    ES_PORT=9200
 
     SECRET_KEY=12345abcdxyz
 
@@ -138,8 +135,8 @@ Backend Only
 This stack installs only Papermerge REST API backend (without fancy user interface). This setup is suitable mostly to play, experiment and explore
 Papermerge REST API.
 
-Save `backend.yml`_
-file on your local computer.
+Save `backend.yml`_, `db.yml`_ and `redis.yml`_
+files on your local computer.
 
 Next, create ``.env`` file with following content:
 
@@ -157,9 +154,6 @@ Next, create ``.env`` file with following content:
     REDIS_HOST=redis
     REDIS_PORT=6379
 
-    ES_HOSTS=es
-    ES_PORT=9200
-
     SECRET_KEY=12345abcdxyz
 
     SUPERUSER_USERNAME=admin
@@ -168,7 +162,7 @@ Next, create ``.env`` file with following content:
 
 Start |project| using following docker compose command::
 
-    docker compose -f docker-compose.yml --env-file .env up
+    docker compose -f backend.yml -f db.yml -f redis.yml --env-file .env up
 
 The above command will start following services:
 
@@ -176,7 +170,6 @@ The above command will start following services:
 * Worker
 * Redis
 * PostgreSQL database
-* Elastic search
 
 For REST API backend and the worker docker-compose will use
 ``ghcr.io/papermerge/papermerge`` docker image.
@@ -191,10 +184,9 @@ External Services
 
 * database
 * redis
-* elasticsearch
 
 If you want to play with |project| outside of docker compose and you don't
-want bother about database/redis/elasticsearch services - you can use
+want bother about database/redis services - you can use
 following `services.yml`_ file to quickly setup these external services.
 
 Note ``networks`` uses ``driver: host``, this will start services in same host
@@ -215,7 +207,6 @@ Docker compose file will start following services in same host as you computer:
 
 * PostgreSQL
 * Redis
-* Elasticsearch
 
 At this point if you start let's say a development version of |project|, you
 can use ``localhost:6379`` to connect to redis or ``localhost:9300`` use
@@ -884,29 +875,101 @@ above command will start all services as usual, but instead of one worker instan
 Complete Setup
 ~~~~~~~~~~~~~~
 
-Are we done?
+There is one detail left - search engine.
 
-It depends. If you care only about storing documents, OCRing documents and eventually
-downloading document with OCR text layer - yes we are done.
+|project| supports multiple search engine backends.
+By default it uses Xapian search engine - which is a full text search library
+integrated into |project| backend. This means that you don't need to
+explicitely configure Xapian search engine. What we'll do however - we'll
+specify the path where Xapian index is stored and we'll make sure
+Workers and |project| Backend will use same index path for Xapian.
 
-But in case you want to also search and find document based on extracted text
-from OCR process, then no - we are not done yet.
-
-The search part is performed by external service - elasticsearch service.
-Here is the diagram which includes elasticsearch service.
 
 .. figure:: ./docker-compose/all-services.svg
 
-  Figure 11. All microservices
+  Figure 11. All microservices. Xapian search engine is part of "Backend" microservices and thus not visible in the illustration.
 
-
-And here is the final docker compose file::
+Basically we will just add ``PAPERMERGE__SEARCH__PATH`` environment variable
+and ``xapian_path`` volume::
 
   version: '3.7'
   # Any top-level key starting with x- in a Docker Compose file will be
   # ignored
   x-backend: &common  # yaml anchor definition
-    image: ghcr.io/papermerge/papermerge:2.1.0b1
+    image: ghcr.io/papermerge/papermerge:latest
+    volumes:
+      - media_root:/app/media
+      - xapian_index: /app/xapian_index  # <- NEW
+    environment:
+      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+      - DJANGO_SUPERUSER_PASSWORD=1234
+      - PAPERMERGE__REDIS__HOST=redis
+      - PAPERMERGE__REDIS__PORT=6379
+      - PAPERMERGE__DATABASE__TYPE=postgres
+      - PAPERMERGE__DATABASE__USER=postgres
+      - PAPERMERGE__DATABASE__NAME=postgres
+      - PAPERMERGE__DATABASE__PASSWORD=postgres
+      - PAPERMERGE__DATABASE__HOST=db
+      - PAPERMERGE__DATABASE__PORT=5432
+      - PAPERMERGE__SEARCH__ENGINE=xapian  # this is default value anyway
+      - PAPERMERGE__SEARCH__PATH=/app/xapian_index  # <- NEW
+  services:
+    backend:
+      <<: *common
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
+    ws_server:
+      <<: *common
+      command: ws_server
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
+    worker:
+      <<: *common
+      command: worker
+    traefik:
+      image: "traefik:v2.6"
+      command:
+        - "--api.insecure=true"
+        - "--providers.docker=true"
+        - "--providers.docker.exposedbydefault=false"
+        - "--entrypoints.web.address=:80"
+      ports:
+        - "6080:80"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    frontend:
+      image: ghcr.io/papermerge/papermerge.js:latest
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
+    redis:
+      image: redis:6
+      ports:
+        - '6379:6379'
+    db:
+      image: postgres:14.4
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+        - POSTGRES_PASSWORD=postgres
+  volumes:
+    media_root:
+    postgres_data:
+    xapian_index:  # <- NEW
+
+
+Finally, for sake of completeness, here is setup which uses Elasticsearch
+instead of Xapian::
+
+  version: '3.7'
+  # Any top-level key starting with x- in a Docker Compose file will be
+  # ignored
+  x-backend: &common  # yaml anchor definition
+    image: ghcr.io/papermerge/papermerge:latest
     volumes:
       - media_root:/app/media
     environment:
@@ -920,8 +983,8 @@ And here is the final docker compose file::
       - PAPERMERGE__DATABASE__PASSWORD=postgres
       - PAPERMERGE__DATABASE__HOST=db
       - PAPERMERGE__DATABASE__PORT=5432
-      - PAPERMERGE__ELASTICSEARCH__HOSTS=es
-      - PAPERMERGE__ELASTICSEARCH__PORT=9200
+      - PAPERMERGE__SEARCH__ENGINE=elastic7
+      - PAPERMERGE__SEARCH__URL=http://es:9200
   services:
     backend:
       <<: *common
@@ -978,6 +1041,11 @@ And here is the final docker compose file::
     postgres_data:
 
 
+.. figure:: ./docker-compose/all-services-with-es.svg
+
+  Figure 12. All microservices. Elasticsearch (version 7) is used as search engine backend.
+
+
 Troubleshooting
 ---------------
 
@@ -990,6 +1058,8 @@ To be added...
 .. _cUrl: https://en.wikipedia.org/wiki/CURL
 .. _traefik: https://doc.traefik.io/traefik/
 .. _backend.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/backend.yml
+.. _db.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/db.yml
+.. _redis.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/redis.yml
 .. _docker-compose.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml
 .. _services.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/services.yml
 .. _backend repository: https://github.com/papermerge/papermerge-core
