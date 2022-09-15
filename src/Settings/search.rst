@@ -55,6 +55,29 @@ Example as toml config::
     url=http://my-elastic7-host:9200
 
 
+.. _settings__search__index_name:
+
+``PAPERMERGE__SEARCH__INDEX_NAME``
+---------------------------
+
+Index name.
+This setting is **applicable only for Elastic** backends.
+
+Example as environment variable::
+
+    PAPERMERGE__SEARCH__ENGINE=elastic7
+    PAPERMERGE__SEARCH__INDEX_NAME=my_index
+
+Example as toml config::
+
+    [search]
+    engine=elastic7
+    index_name=my_index
+
+
+Default value is ``papermerge``.
+
+
 .. _settings__search__path:
 
 ``PAPERMERGE__SEARCH__PATH``
