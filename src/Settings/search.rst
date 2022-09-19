@@ -58,7 +58,7 @@ Example as toml config::
 .. _settings__search__index_name:
 
 ``PAPERMERGE__SEARCH__INDEX_NAME``
----------------------------
+----------------------------------
 
 Index name.
 This setting is **applicable only for Elastic** backends.
