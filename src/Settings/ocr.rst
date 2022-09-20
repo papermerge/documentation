@@ -31,24 +31,26 @@ Default value is "deu" (German language).
 ------------------------------
 
 .. note::
-  
+
   This option may be defined only in toml configuration file
 
-Defines all languages available for OCR. This option is defined as dictionary
-(a.k.a. map) where key is `ISO 639 2`_ code and value is human text name for
+Defines all languages available for OCR. This option is defined as `inline table`_
+where key is `ISO 639 2`_ code and value is human text name for
 language.
 
 Example::
 
     [ocr]
-    languages = {
-        heb = "hebrew",
-        jpn = "japanese"
-    }
+    languages = { heb = "hebrew", jpn = "japanese"}
 
 Note that both `hebrew` and `japanes` language data for tesseract must be
 installed. You can check Tesseract's available languages with following
 command:
+
+.. important::
+
+    ``languages`` value must be written in one line! This is requirement
+    of the toml `inline table`_ format.
 
 .. code-block:: bash
     :caption: List available languages
@@ -58,10 +60,11 @@ command:
 Default value ::
 
     [ocr]
-    languages = {
-        deu = "Deutsch",
-        eng = "English",
-      }
+    languages = { deu = "Deutsch", eng = "English" }
+
+
+See :ref:`docker_adding_ocr_languages` for detailed example of using this option.
 
 
 .. _ISO 639 2: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
+.. _inline table: https://toml.io/en/v1.0.0#inline-table

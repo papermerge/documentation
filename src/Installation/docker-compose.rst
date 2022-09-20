@@ -212,6 +212,7 @@ At this point if you start let's say a development version of |project|, you
 can use ``localhost:6379`` to connect to redis or ``localhost:9300`` use
 elasticsearch.
 
+.. _docker_compose_detailed_explanation:
 
 Detailed Explanation
 ---------------------
@@ -899,7 +900,7 @@ and ``xapian_path`` volume::
     image: ghcr.io/papermerge/papermerge:latest
     volumes:
       - media_root:/app/media
-      - xapian_index: /app/xapian_index  # <- NEW
+      - xapian_index:/app/xapian_index  # <- NEW
     environment:
       - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
       - DJANGO_SUPERUSER_PASSWORD=1234
