@@ -10,7 +10,7 @@ python = "^3.10"
 Sphinx = "^4.3.2"
 sphinx-rtd-theme = "^1.0.0"
 sphinx-autobuild = "^2021.3.14"
-sphinx-multiversion = "1.4.12"
+sphinx-multiversion = "^0.2.4"
 sphinxcontrib-httpdomain = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
