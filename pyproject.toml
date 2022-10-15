@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "documentation"
-version = "1.4.11"
+version = "1.4.12"
 description = "Papermerge Documentation"
 authors = ["Eugen Ciur <eugen@papermerge.com>"]
 license = "Apache 2.0"
@@ -10,7 +10,7 @@ python = "^3.10"
 Sphinx = "^4.3.2"
 sphinx-rtd-theme = "^1.0.0"
 sphinx-autobuild = "^2021.3.14"
-sphinx-multiversion = "^0.2.4"
+sphinx-multiversion = "1.4.12"
 sphinxcontrib-httpdomain = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
