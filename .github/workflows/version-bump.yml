@@ -1,0 +1,31 @@
+name: Version Bump
+
+on:
+  workflow_dispatch:
+
+jobs:
+  version-bump:
+    runs-on: ubuntu-latest
+    outputs:
+      old-version: ${{ steps.step-version-bump.outputs.OLD_VERSION }}
+      new-version: ${{ steps.step-version-bump.outputs.NEW_VERSION }}
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Version bump
+        id: step-version-bump
+        uses: papermerge/banger@master
+        with:
+          files_list: "pyproject.toml"
+
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "version bump ${{steps.step-version-bump.outputs.OLD_VERSION}} -> ${{steps.step-version-bump.outputs.NEW_VERSION}}" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
