@@ -65,31 +65,34 @@ Save following `docker-compose.yml`_ file on your local computer.
 
   Currently docker tag ``latest`` points to latest 2.1.0bX (2.1.0b3, 2.1.0b4, 2.1.0b5, ...) version
   which means that application is feature complete, but not yet production ready.
-  See all available docker tags in `GitHub packages <https://github.com/orgs/papermerge/packages>`_
+  See all available docker tags for `Papermerge on DockerHub <https://hub.docker.com/r/papermerge/papermerge/tags>`_.
+  Similarly, you can check latest `Papermerge_JS <https://hub.docker.com/r/papermerge/papermerge.js/tags>`_ tags.
 
 Next, create ``.env`` file with following content::
 
-    APP_IMAGE=ghcr.io/papermerge/papermerge
-    APP_TAG=latest
-    PAPERMERGE_JS_IMAGE=ghcr.io/papermerge/papermerge.js
-    PAPERMERGE_JS_TAG=latest
+  APP_IMAGE=papermerge/papermerge
+  APP_TAG=2.1.0b23
+  PAPERMERGE_JS_IMAGE=papermerge/papermerge.js
+  PAPERMERGE_JS_TAG=2.1.0b10
 
-    DB_USER=postgres
-    DB_NAME=postgres
-    DB_PASSWORD=postgres
-    DB_HOST=db
-    DB_PORT=5432
+  TIMEZONE=Europe/Berlin
 
-    USE_HOSTNAME=papermerge.local
+  DB_USER=postgres
+  DB_NAME=postgres
+  DB_PASSWORD=postgres
+  DB_HOST=db
+  DB_PORT=5432
 
-    REDIS_HOST=redis
-    REDIS_PORT=6379
+  USE_HOSTNAME=papermerge.local
 
-    SECRET_KEY=12345abcdxyz
+  REDIS_HOST=redis
+  REDIS_PORT=6379
 
-    SUPERUSER_USERNAME=admin
-    SUPERUSER_EMAIL=admin@example.com
-    SUPERUSER_PASSWORD=admin
+  SECRET_KEY=12345abcdxyz
+
+  SUPERUSER_USERNAME=admin
+  SUPERUSER_EMAIL=admin@example.com
+  SUPERUSER_PASSWORD=admin
 
 
 Add to your ``/etc/hosts`` following content::
@@ -142,7 +145,7 @@ Next, create ``.env`` file with following content:
 
 .. code-block::
 
-    APP_IMAGE=ghcr.io/papermerge/papermerge
+    APP_IMAGE=papermerge/papermerge
     APP_TAG=latest
 
     DB_USER=postgres
@@ -172,7 +175,7 @@ The above command will start following services:
 * PostgreSQL database
 
 For REST API backend and the worker docker-compose will use
-``ghcr.io/papermerge/papermerge`` docker image.
+``papermerge/papermerge`` docker image.
 
 Now base url for REST API is ``http://localhost:8000/api/``.
 
@@ -358,7 +361,7 @@ Here is docker equivalent compose file::
   version: '3.7'
   services:
     backend:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
@@ -377,7 +380,7 @@ Here is docker equivalent compose file::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js
+      image: papermerge/papermerge.js
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
@@ -450,7 +453,7 @@ And here is updated content for docker-compose.yml file::
   version: '3.7'
   services:
     backend:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
@@ -458,7 +461,7 @@ And here is updated content for docker-compose.yml file::
         - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
         - DJANGO_SUPERUSER_PASSWORD=1234
     websockets:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       command: ws_server
       labels:
         - "traefik.enable=true"
@@ -478,14 +481,14 @@ And here is updated content for docker-compose.yml file::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js
+      image: papermerge/papermerge.js
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
 
 
 Notice that ``websockets`` microservice uses same docker image as the ``backend`` i.e.
-``ghcr.io/papermerge/papermerge`` and same environment variables as the ``backend``.
+``papermerge/papermerge`` and same environment variables as the ``backend``.
 
 What differs between ``websockets`` and ``backend`` microservices:
 
@@ -591,7 +594,7 @@ And finally, where is docker compose file::
   version: '3.7'
   services:
     backend:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
@@ -603,7 +606,7 @@ And finally, where is docker compose file::
         - PAPERMERGE__REDIS__HOST=redis
         - PAPERMERGE__REDIS__PORT=6379
     worker:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       command: worker
       volumes:
         - media_root:/app/media
@@ -613,7 +616,7 @@ And finally, where is docker compose file::
         - PAPERMERGE__REDIS__HOST=redis
         - PAPERMERGE__REDIS__PORT=6379
     ws_server:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       command: ws_server
       labels:
         - "traefik.enable=true"
@@ -635,7 +638,7 @@ And finally, where is docker compose file::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js
+      image: papermerge/papermerge.js
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
@@ -706,7 +709,7 @@ Here is our almost final docker-compose.yml file::
   version: '3.7'
   services:
     backend:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
@@ -724,7 +727,7 @@ Here is our almost final docker-compose.yml file::
         - PAPERMERGE__DATABASE__HOST=db
         - PAPERMERGE__DATABASE__PORT=5432
     worker:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       command: worker
       volumes:
         - media_root:/app/media
@@ -740,7 +743,7 @@ Here is our almost final docker-compose.yml file::
         - PAPERMERGE__DATABASE__HOST=db
         - PAPERMERGE__DATABASE__PORT=5432
     ws_server:
-      image: ghcr.io/papermerge/papermerge
+      image: papermerge/papermerge
       command: ws_server
       labels:
         - "traefik.enable=true"
@@ -768,7 +771,7 @@ Here is our almost final docker-compose.yml file::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js
+      image: papermerge/papermerge.js
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
@@ -797,7 +800,7 @@ Here is an improved version of docker compose file which re-uses common parts::
   # Any top-level key starting with x- in a Docker Compose file will be
   # ignored
   x-backend: &common  # yaml anchor definition
-    image: ghcr.io/papermerge/papermerge
+    image: papermerge/papermerge
     volumes:
       - media_root:/app/media
     environment:
@@ -838,7 +841,7 @@ Here is an improved version of docker compose file which re-uses common parts::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js
+      image: papermerge/papermerge.js
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
@@ -897,7 +900,7 @@ and ``xapian_path`` volume::
   # Any top-level key starting with x- in a Docker Compose file will be
   # ignored
   x-backend: &common  # yaml anchor definition
-    image: ghcr.io/papermerge/papermerge:latest
+    image: papermerge/papermerge:latest
     volumes:
       - media_root:/app/media
       - xapian_index:/app/xapian_index  # <- NEW
@@ -941,7 +944,7 @@ and ``xapian_path`` volume::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js:latest
+      image: papermerge/papermerge.js:latest
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
@@ -970,7 +973,7 @@ instead of Xapian::
   # Any top-level key starting with x- in a Docker Compose file will be
   # ignored
   x-backend: &common  # yaml anchor definition
-    image: ghcr.io/papermerge/papermerge:latest
+    image: papermerge/papermerge:latest
     volumes:
       - media_root:/app/media
     environment:
@@ -1013,7 +1016,7 @@ instead of Xapian::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js:2.1.0b1
+      image: papermerge/papermerge.js:2.1.0b1
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
