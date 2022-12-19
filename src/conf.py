@@ -57,6 +57,8 @@ html_theme = "sphinx_rtd_theme"
 
 rst_prolog = """
 .. |project| replace:: Papermerge DMS
+.. |frontend_version| replace:: 2.1.0
+.. |backend_version| replace:: 2.1.1
 """
 
 # Add any paths that contain custom static files (such as style sheets) here,

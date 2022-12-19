@@ -63,17 +63,16 @@ Save following `docker-compose.yml`_ file on your local computer.
 
 .. note::
 
-  Currently docker tag ``latest`` points to latest 2.1.0bX (2.1.0b3, 2.1.0b4, 2.1.0b5, ...) version
-  which means that application is feature complete, but not yet production ready.
+  Currently docker tag ``latest`` points to latest |backend_version| version.
   See all available docker tags for `Papermerge on DockerHub <https://hub.docker.com/r/papermerge/papermerge/tags>`_.
   Similarly, you can check latest `Papermerge_JS <https://hub.docker.com/r/papermerge/papermerge.js/tags>`_ tags.
 
 Next, create ``.env`` file with following content::
 
   APP_IMAGE=papermerge/papermerge
-  APP_TAG=2.1.0b23
+  APP_TAG=latest
   PAPERMERGE_JS_IMAGE=papermerge/papermerge.js
-  PAPERMERGE_JS_TAG=2.1.0b10
+  PAPERMERGE_JS_TAG=latest
 
   TIMEZONE=Europe/Berlin
 
@@ -1016,7 +1015,7 @@ instead of Xapian::
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: papermerge/papermerge.js:2.1.0b1
+      image: papermerge/papermerge.js
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"

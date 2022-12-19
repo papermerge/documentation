@@ -13,7 +13,7 @@ The only two required environment variables are :ref:`settings__main__secret_key
     docker run -p 8000:8000 \
         -e PAPERMERGE__MAIN__SECRET_KEY=abc \
         -e DJANGO_SUPERUSER_PASSWORD=123 \
-        ghcr.io/papermerge/papermerge:latest
+        papermerge/papermerge:latest
 
 Use ``POST http://localhost:8000/api/auth/login/`` endpoint to authenticate.
 
@@ -34,11 +34,11 @@ Get Docker Image
 
 The recommended way to get the |project| Docker Image is to pull the prebuilt image from the `github repository packages`_::
 
-    docker pull ghcr.io/papermerge/papermerge:latest
+    docker pull papermerge/papermerge:latest
 
 To use a specific version, you can pull a versioned tag. You can view the list of available versions in the `github repository packages`_::
 
-    docker pull ghcr.io/papermerge/papermerge:2.1.0b4
+    docker pull papermerge/papermerge:2.1.1
 
 
 .. _docker_adding_ocr_languages:
@@ -56,19 +56,19 @@ You may want to add other OCR languages. You add extra OCR languages in three st
 
 
 You install extra languages in docker image by creating a new Dockerfile
-from ``ghcr.io/papermerge/papermerge`` docker image.
+from ``papermerge/papermerge`` docker image.
 Create new docker file with following content::
 
-  FROM ghcr.io/papermerge/papermerge
+  FROM papermerge/papermerge
 
   # add Italian, Spanish and French
   RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
 
 
 .. note::
-  ``FROM ghcr.io/papermerge/papermerge`` pull docker image from GitHub container
-  registry. If you write ``FROM papermerge/papermerge`` it pulls docker image
-  from Dockerhub.
+  ``FROM papermerge/papermerge`` pull docker image from DockerHub.
+  If you write ``FROM ghcr.io/papermerge/papermerge`` it pulls docker image
+  from GitHub container registry.
 
 All languages are specified in three letters code as per `ISO 639-2T`_ standard -
 second column in the table.
@@ -140,7 +140,7 @@ Here is an example of docker compose file which mounts ``papermerge.toml`` file:
       volumes:
         - "/var/run/docker.sock:/var/run/docker.sock:ro"
     frontend:
-      image: ghcr.io/papermerge/papermerge.js:latest
+      image: papermerge/papermerge.js:latest
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
@@ -174,7 +174,7 @@ By default |project| uses sqlite3 database. In order to use PostgreSQL use follo
 
     services:
       app:
-        image: ghcr.io/papermerge/papermerge
+        image: papermerge/papermerge
         environment:
           - PAPERMERGE__MAIN__SECRET_KEY=abc
           - DJANGO_SUPERUSER_PASSWORD=12345

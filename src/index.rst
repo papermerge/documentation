@@ -112,6 +112,7 @@ designed for.
    User's Manual/index.rst
    Settings/index.rst
    REST API/index.rst
+   Command Line Utilities/index.rst
    Contributor's Manual/index.rst
    roadmap.rst
    glossary.rst

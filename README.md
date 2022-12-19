@@ -26,7 +26,7 @@ documentation on ``http://localhost:9600``.
 
 You can start documentation as docker container as follows:
 
-    $ docker run -p 10169:80 ghcr.io/papermerge/documentation
+    $ docker run -p 10169:80 papermerge/documentation
 
 And access it via ``http://localhost:10169``
 

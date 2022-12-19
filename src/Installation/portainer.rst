@@ -55,9 +55,9 @@ In environment variables section can either:
 For this guide we use option 2.
 Paste following text in environment variables section::
 
-  APP_IMAGE=ghcr.io/papermerge/papermerge
+  APP_IMAGE=papermerge/papermerge
   APP_TAG=latest
-  PAPERMERGE_JS_IMAGE=ghcr.io/papermerge/papermerge.js
+  PAPERMERGE_JS_IMAGE=papermerge/papermerge.js
   PAPERMERGE_JS_TAG=latest
 
   USE_HOSTNAME=papermerge.local
