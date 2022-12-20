@@ -53,6 +53,18 @@ this token for all subsequent authentications.
     REST API host can be provided by command line option ``--host``
 
 
+Help
+----
+
+In order to get general help about the command use::
+
+    $ papermerge-cli --help
+
+In order to get help for individual commands, place ``--help`` flag after the command::
+
+    $ papermerge-cli import --help
+
+
 List - Browse Nodes
 -------------------
 
@@ -108,12 +120,18 @@ You can also import one single document::
     $ papermerge-cli import /path/to/some/document.pdf
 
 If you want the local copy the uploaded documents **to be deleted** after
-successful import - add `--delete` flag::
+successful import - use ``--delete`` flag::
 
     $ papermerge-cli import --delete /path/to/folder/
 
-PLEASE BE CAREFUL WITH `--delete` FLAG AS IT WILL IRREVERSIBLE DELETE THE LOCAL
-COPY OF THE UPLOADED DOCUMENT!
+
+.. danger:: Be extremely careful with ``--delete`` flag! When present,
+   ``papermerge-cli`` will irreversible **delete the local copy** of all
+   documents and folders in the ``/path/to/folder/``!
+
+.. note:: ``--delete`` flag deletes the local copy of the documents/path to import
+    **after successful upload** - this means that even if though you local copy
+    of the documents vanished - the originals are still available in |project|!
 
 Search
 ------
