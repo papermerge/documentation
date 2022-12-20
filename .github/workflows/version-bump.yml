@@ -10,16 +10,16 @@ on:
         - major
         - minor
         - micro
-  publish-to-dockerhub:
-      description: 'Publish to Dockerhub?'
+    publish-to-dockerhub:
+        description: 'Publish to Dockerhub?'
+        type: boolean
+        required: true
+        default: true
+    publish-to-ghcr:
+      description: 'Publish to ghcr?'
       type: boolean
       required: true
       default: true
-  publish-to-ghcr:
-    description: 'Publish to ghcr?'
-    type: boolean
-    required: true
-    default: true
 
 jobs:
   version-bump:
