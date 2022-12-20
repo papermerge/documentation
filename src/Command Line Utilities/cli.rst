@@ -21,23 +21,36 @@ Install ``papermerge-cli`` with following command::
 Configuration
 -------------
 
-Get you REST API authentication token from your instance::
+Papermerge Cli is configured via environment tow variables:
 
-    $ papermerge-cli --host=https://mydms.some-vps.com auth
+* ``PAPERMERGE_CLI__HOST``
+* ``PAPERMERGE_CLI__TOKEN``
 
-Or you can provide host as environment variable::
+as the name suggests, the first one is the host of the REST API server
+and second value is the REST API token.
+
+REST API server should be specified with ``http://`` or ``https://``
+prefix, but without the ``/api`` suffix. Valid values examples: http://papermege.local,
+https://my-dms.papermerge.de.
+
+.. note:: The host may or may not contain the ``/``. E.g. http://papermege.local and
+    http://papermerge.local/ are both valid values and point to the same host
+
+
+REST API token can be obtained either from |project| :ref:`user menu -> API Tokens <rest_api_token>`
+or directly from command line by using ``auth`` subcommand::
 
     $ export PAPERMERGE_CLI__HOST=https://mydms.some-vps.com
     $ papermerge-cli auth
+
 
 Papermerge Cli will prompt you for username and password. On successfull
 authentication your REST API token will be displayed - now you can use
 this token for all subsequent authentications.
 
-Use token for authentication by exporting token as ``PAPERMERGE_CLI__TOKEN``
-environment variable::
 
-    $ export PAPERMERGE_CLI__TOKEN=mytoken
+.. note::
+    REST API host can be provided by command line option ``--host``
 
 
 List - Browse Nodes
