@@ -2,6 +2,24 @@ name: Version Bump
 
 on:
   workflow_dispatch:
+    incremented_part:
+      type: choice
+      description: Incremented Part
+      default: 'micro'
+      options:
+        - major
+        - minor
+        - micro
+  publish-to-dockerhub:
+      description: 'Publish to Dockerhub?'
+      type: boolean
+      required: true
+      default: true
+  publish-to-ghcr:
+    description: 'Publish to ghcr?'
+    type: boolean
+    required: true
+    default: true
 
 jobs:
   version-bump:
@@ -29,3 +47,25 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+
+
+  publish-to-dockerhub:
+    name: Publish to Dockerhub
+    needs: ["version-bump"]
+    uses: ./.github/workflows/publish-to-dockerhub.yml
+    if: ${{ inputs.publish-to-dockerhub }}
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    with:
+      VERSION: ${{ needs.version-bump.outputs.new-version }}
+
+  publish-to-ghcr:
+    name: Publish to Ghcr.io
+    needs: ["version-bump"]
+    uses: ./.github/workflows/publish-to-ghcr.yml
+    if: ${{ inputs.publish-to-ghcr }}
+    secrets:
+      MY_GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      VERSION: ${{ needs.version-bump.outputs.new-version }}

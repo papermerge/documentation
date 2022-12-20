@@ -35,3 +35,4 @@ detailed information.
    ocr
    file_formats
    user_management
+   rest_api_token
