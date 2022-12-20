@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "documentation"
-version = "1.4.16"
+version = "1.4.17"
 description = "Papermerge Documentation"
 authors = ["Eugen Ciur <eugen@papermerge.com>"]
 license = "Apache 2.0"
