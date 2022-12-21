@@ -8,7 +8,7 @@ Requirements
 ------------
 
 In order to use ``papermerge-cli`` you need to have python installed.
-You need python version >= 3.8.
+You need python version >= 3.10.
 
 Install
 -------
@@ -16,6 +16,11 @@ Install
 Install ``papermerge-cli`` with following command::
 
     $ pip install papermerge-cli
+
+pip is package installer for python - it usually comes with python
+interpreter. In order to install pip on Ubuntu use following command::
+
+    $ sudo apt install python3-pip
 
 
 Configuration
