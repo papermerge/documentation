@@ -82,7 +82,9 @@ You can upload one single document by providing path to the document::
 
     $ papermerge-cli import /path/to/document.pdf
 
-By default all uploaded documents and folders will end up inside user's Inbox folder.
+
+.. note::
+    By default all imported documents and folders will end up inside user's Inbox folder.
 
 For more information about ``papermerge-cli`` check :ref:`papermerge_cli` section.
 

@@ -33,7 +33,7 @@ interpreter. In order to install pip on Ubuntu use following command::
 Configuration
 -------------
 
-Papermerge Cli is configured via environment tow variables:
+Papermerge Cli is configured via environment variables:
 
 * ``PAPERMERGE_CLI__HOST``
 * ``PAPERMERGE_CLI__TOKEN``
