@@ -1,8 +1,15 @@
+.. _papermerge_cli:
+
 Papermerge Cli
 ==============
 
-Command line utility which uses REST API to interact with your Papermerge DMS
-instance
+Command line utility which uses REST API to interact with your |project|
+instance. It can be used to:
+
+* upload/import documents from local filesystem
+* download documents and folder
+* search through documents
+
 
 Requirements
 ------------

@@ -50,28 +50,45 @@ or Inbox.
     Uploading documents into deeply nested folder inside Home
 
 
+Again, using upload button, you can upload documents into randomly
+deeply nested folder inside Inbox as well:
+
+
+.. figure:: ./upload_documents/deeply-nested-inside-inbox.svg
+
+    Uploading documents into deeply nested folder inside Inbox
+
+
 Drag'n Drop
 -----------
+
+This method is very similar to the above described method, the only difference
+is that instead of clicking upload button - you drag'n drop documents, using
+mouse, from your desktop to |project| web ui in your browser.
 
 
 Command Line
 ------------
 
+You can upload documents from your any local folder using :ref:`papermerge_cli` command
+line utility::
+
+    $ papermerge-cli import /path/to/local/folder/
+
+Note that ``papermerge-cli`` will import all content of /path/to/local/folder/ directory
+recursively i.e. it will preserve the structure of local folder in |project| as well.
+
+You can upload one single document by providing path to the document::
+
+    $ papermerge-cli import /path/to/document.pdf
+
+By default all uploaded documents and folders will end up inside user's Inbox folder.
+
+For more information about ``papermerge-cli`` check :ref:`papermerge_cli` section.
 
 
 REST API
 --------
 
-|project| exposes a well defined HTTP interface with HTTP body (payload) being in
-json format. This means that you can use any http client (e.g. `curl`_) to interact with
-|project| e.g. upload documents, create folders, assign tags, move documents to specific
-folder, trigger OCR.
-
-For detailed REST API overview see :ref:`REST API <rest_api>`.
-For detailed reference see :ref:`REST API Reference <rest_api_reference>`.  
-
-In particular :ref:`rest_api_overview_nodes_folders_documents`
-section explains how to use REST API to upload documents (also it goes into details of all necessary concepts like nodes, special folders etc).
-
-.. _papermerge.js: https://github.com/papermerge/papermerge.js
-.. _curl: https://en.wikipedia.org/wiki/CURL
+For more information on how to use |project| via generic REST API clients e.g. curl
+see :ref:`REST API <rest_api>`_ section.
