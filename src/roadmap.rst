@@ -1,7 +1,11 @@
 Roadmap
-=========
+=======
 
-Currently the latest stable version of Papermerge DMS is |backend_version|.
+The latest stable version of Papermerge DMS is:
+
+- |backend_version| - for the backend
+- |frontend_version| - for the frontend
+
 
 Important features planned for next major releases:
 
@@ -11,3 +15,4 @@ Important features planned for next major releases:
 * Automates
 * LDAP authentication
 * OAuth 2.0 authentication
+
