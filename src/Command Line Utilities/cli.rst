@@ -1,8 +1,20 @@
+.. _papermerge_cli:
+
 Papermerge Cli
 ==============
 
-Command line utility which uses REST API to interact with your Papermerge DMS
-instance
+Command line utility which uses REST API to interact with your |project|
+instance. It can be used to:
+
+* upload/import documents from local filesystem
+* download documents and folder
+* search through documents
+
+
+.. figure:: ./cli/upload-documents-from-local-folder.gif
+
+    Upload documents with papermerge-cli command line utility
+
 
 Requirements
 ------------
@@ -26,7 +38,7 @@ interpreter. In order to install pip on Ubuntu use following command::
 Configuration
 -------------
 
-Papermerge Cli is configured via environment tow variables:
+Papermerge Cli is configured via environment variables:
 
 * ``PAPERMERGE_CLI__HOST``
 * ``PAPERMERGE_CLI__TOKEN``

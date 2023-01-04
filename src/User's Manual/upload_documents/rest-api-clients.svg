@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="296.33881mm"
+   height="196.99876mm"
+   viewBox="0 0 296.3388 196.99876"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="rest-api-clients.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:snap-global="false"
+     inkscape:zoom="0.69664703"
+     inkscape:cx="713.41724"
+     inkscape:cy="353.83773"
+     inkscape:window-width="1856"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path46570" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path46570-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-1-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path46570-2-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-1-0-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path46570-2-9-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-1-0-6-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path46570-2-9-0-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path46570-9" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(84.065741,6.2423468)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.564999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4.52001, 4.52001;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="rect63660"
+       width="296.95547"
+       height="197.44614"
+       x="-83.657761"
+       y="-6.9974866" />
+    <g
+       id="g46524"
+       transform="translate(-3.9121893)">
+      <rect
+         style="fill:#0099ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.36501;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         id="rect846"
+         width="91.352234"
+         height="30.49342"
+         x="115.77422"
+         y="79.466255" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;fill:#ffffff;stroke-width:0.264583"
+         x="120.77789"
+         y="97.7528"
+         id="text5225"><tspan
+           sodipodi:role="line"
+           id="tspan5223"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;stroke-width:0.264583"
+           x="120.77789"
+           y="97.7528">Papermerge DMS</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;stroke-width:0.264583"
+           x="120.77789"
+           y="108.33614"
+           id="tspan5227" /></text>
+    </g>
+    <g
+       id="g46503"
+       transform="translate(-77.971013,-1.9405171)">
+      <rect
+         style="fill:#aa4400;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.36501;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         id="rect23197"
+         width="43.109318"
+         height="16.083605"
+         x="8.0295334"
+         y="23.599085" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;fill:#ffffff;stroke-width:0.264583"
+         x="13.883845"
+         y="34.746357"
+         id="text25555"><tspan
+           sodipodi:role="line"
+           id="tspan25553"
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583"
+           x="13.883845"
+           y="34.746357">Web UI</tspan></text>
+    </g>
+    <g
+       id="g46508"
+       transform="translate(-80.074723,-5.0317854)">
+      <rect
+         style="fill:#782121;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.36501;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         id="rect29987"
+         width="70.282486"
+         height="18.693058"
+         x="10.133244"
+         y="58.32233" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;fill:#ffffff;stroke-width:0.264583"
+         x="13.196575"
+         y="70.65316"
+         id="text25555-6"><tspan
+           sodipodi:role="line"
+           id="tspan25553-7"
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583"
+           x="13.196575"
+           y="70.65316">papermerge-cli</tspan></text>
+    </g>
+    <g
+       id="g46513"
+       transform="translate(-79.396523,-2.7175613)">
+      <rect
+         style="fill:#005544;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.36501;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         id="rect29987-5"
+         width="25.884998"
+         height="18.693058"
+         x="9.4550438"
+         y="90.830437" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;fill:#ffffff;stroke-width:0.264583"
+         x="13.742326"
+         y="102.78741"
+         id="text25555-6-3"><tspan
+           sodipodi:role="line"
+           id="tspan25553-7-5"
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583"
+           x="13.742326"
+           y="102.78741">curl</tspan></text>
+    </g>
+    <g
+       id="g46518"
+       transform="translate(-76.378932,-4.4002857)">
+      <rect
+         style="fill:#672178;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.36501;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         id="rect29987-5-6"
+         width="85.799202"
+         height="18.693058"
+         x="4.8885989"
+         y="161.58366" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;fill:#ffffff;stroke-width:0.264583"
+         x="9.1758804"
+         y="173.54063"
+         id="text25555-6-3-2"><tspan
+           sodipodi:role="line"
+           id="tspan25553-7-5-9"
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583"
+           x="9.1758804"
+           y="173.54063">papermerge-email</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="-64.013329"
+       y="133.15678"
+       id="text41357"><tspan
+         sodipodi:role="line"
+         id="tspan41355"
+         style="stroke-width:0.264583"
+         x="-64.013329"
+         y="133.15678">...</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="M -24.650879,30.310782 108.95995,93.723259"
+       id="path46559" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-1)"
+       d="M 3.2321622,64.428362 108.49185,97.354842"
+       id="path46559-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-1-0)"
+       d="M -38.430008,99.29201 108.7674,98.870677"
+       id="path46559-7-3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-1-0-6)"
+       d="M 17.713993,166.58531 108.99543,101.1522"
+       id="path46559-7-3-6"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="7.3213906"
+       y="45.713856"
+       id="text49929-8"><tspan
+         sodipodi:role="line"
+         id="tspan49927-7"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="7.3213906"
+         y="45.713856">REST API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="4.9402499"
+       y="80.821198"
+       id="text49929-8-6"><tspan
+         sodipodi:role="line"
+         id="tspan49927-7-1"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="4.9402499"
+         y="80.821198">REST API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="6.4431114"
+       y="97.236961"
+       id="text49929-8-6-2"><tspan
+         sodipodi:role="line"
+         id="tspan49927-7-1-9"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="6.4431114"
+         y="97.236961">REST API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="16.308889"
+       y="141.59143"
+       id="text49929-8-6-2-3-9"><tspan
+         sodipodi:role="line"
+         id="tspan49927-7-1-9-1-4"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="16.308889"
+         y="141.59143">REST API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="-51.480141"
+       y="3.2094147"
+       id="text49929-8-5"><tspan
+         sodipodi:role="line"
+         id="tspan49927-7-9"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="-51.480141"
+         y="3.2094147">REST API Clients</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="131.11208"
+       y="4.9009304"
+       id="text49929-8-5-2"><tspan
+         sodipodi:role="line"
+         id="tspan49927-7-9-2"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="131.11208"
+         y="4.9009304">REST API Server</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4.52, 4.52;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="rect59759"
+       width="138.31081"
+       height="174.39583"
+       x="-79.194534"
+       y="13.466262" />
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4.52, 4.52;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="rect59759-7"
+       width="99.694809"
+       height="174.0294"
+       x="109.88496"
+       y="14.320056" />
+  </g>
+</svg>
