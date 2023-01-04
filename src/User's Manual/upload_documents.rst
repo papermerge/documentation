@@ -66,11 +66,20 @@ This method is very similar to the above described method, the only difference
 is that instead of clicking upload button - you drag'n drop documents, using
 mouse, from your desktop to |project| web ui in your browser.
 
+.. figure:: ./upload_documents/upload-documents-with-drag-n-drop.gif
+
+    Upload documents with drag 'n drop
+
+
+.. warning:: Currently drag 'n drop feature does not work for folders, in other words
+    you can drag 'n drop only documents. If you want to import an folders with entire content
+    preserved - use ``papermerge-cli`` described in next paragraph.
+
 
 Command Line
 ------------
 
-You can upload documents from your any local folder using :ref:`papermerge_cli` command
+You can upload documents and folders from your local filesystem using :ref:`papermerge_cli` command
 line utility::
 
     $ papermerge-cli import /path/to/local/folder/
@@ -88,9 +97,12 @@ You can upload one single document by providing path to the document::
 
 For more information about ``papermerge-cli`` check :ref:`papermerge_cli` section.
 
+.. figure:: ./upload_documents/upload-documents-from-local-folder.gif
+
+    Upload documents with papermerge-cli command line utility
+
 
 REST API
 --------
 
-For more information on how to use |project| via generic REST API clients e.g. curl
-see :ref:`REST API <rest_api>`_ section.
+For detailed information on how to use |project| with REST API see :ref:`REST API <rest_api>` section.

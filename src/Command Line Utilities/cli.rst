@@ -11,6 +11,11 @@ instance. It can be used to:
 * search through documents
 
 
+.. figure:: ./cli/upload-documents-from-local-folder.gif
+
+    Upload documents with papermerge-cli command line utility
+
+
 Requirements
 ------------
 
