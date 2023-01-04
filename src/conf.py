@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Papermerge DMS'
-copyright = '2020-2022, Papermerge DMS'
+copyright = '2020-2023, Papermerge DMS'
 author = 'Eugen Ciur'
 
 
@@ -57,8 +57,8 @@ html_theme = "sphinx_rtd_theme"
 
 rst_prolog = """
 .. |project| replace:: Papermerge DMS
-.. |frontend_version| replace:: 2.1.0
-.. |backend_version| replace:: 2.1.1
+.. |frontend_version| replace:: 2.1.2
+.. |backend_version| replace:: 2.1.4
 """
 
 # Add any paths that contain custom static files (such as style sheets) here,
