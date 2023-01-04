@@ -1,6 +1,13 @@
 Upload Documents
 ================
 
+.. note::
+
+    For uploading documents in bulk from **local filesystem** we highly recommend
+    ``papermerge-cli`` command line utility which is briefly described in
+    paragraph below and explained in details in :ref:`papermerge_cli` section.
+
+
 There are different ways to upload documents to |project|: via web
 user interface, like upload button, drag'n drop, or via command line
 utilities like papermerge-cli. All methods have one thing in common: they use
@@ -29,7 +36,6 @@ are automatically created for him/her.
 
 .. note:: Internally the two special folders are named ``.home`` and ``.inbox`` -
     title starts with a dot and has only lowercase characters.
-
 
 
 Upload Button
