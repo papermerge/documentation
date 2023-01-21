@@ -111,6 +111,7 @@ designed for.
    Installation/index.rst
    User's Manual/index.rst
    Settings/index.rst
+   backup_restore.rst
    REST API/index.rst
    Command Line Utilities/index.rst
    Contributor's Manual/index.rst
