@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backup/Restore &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="REST API" href="REST%20API/index.html" />
+    <link rel="prev" title="Django Settings Module" href="Settings/django_settings_module.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Settings/index.html">Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Backup/Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restore">Restore</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Backup/Restore</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/backup_restore.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backup-restore">
+<h1>Backup/Restore<a class="headerlink" href="#backup-restore" title="Permalink to this headline"></a></h1>
+<p>Papermerge DMS is shipped with two Django managements commands for performing backup/restore operations.</p>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this headline"></a></h2>
+<p>Invoke backup command using Django’s manage.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py backup &lt;optinal-location&gt;
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;optional-location&gt;</span></code> is the path to where to save backup file. If location
+is not provided, backup file will be saved in current folder.</p>
+<p>Backup command can be invoked via docker container as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run papermerge/papermerge backup /place/backup/file/here/
+</pre></div>
+</div>
+<p>The result of backup operation is a (zipped) tar archive which
+contains following:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">backup.json</span></code> file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sidecars/</span></code> folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/</span></code>  folder</p></li>
+<li><p>&lt;username1&gt;/, &lt;username2&gt;, … i.e. one folder per user with folder title being user’s username</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">backup.json</span></code> file contains all necessary info to restore the database.
+(all users, their nodes, tags etc).
+<code class="docutils literal notranslate"><span class="pre">sidecars/</span></code> contains the exact content of &lt;media_root&gt;/sidecars/ folder
+<code class="docutils literal notranslate"><span class="pre">docs/</span></code> contains the exact content of &lt;media_root&gt;/docs/ folder</p>
+<p><code class="docutils literal notranslate"><span class="pre">backup.json</span></code> is used to backup/restore database content.
+<code class="docutils literal notranslate"><span class="pre">sidecars/</span></code> and <code class="docutils literal notranslate"><span class="pre">docs/</span></code> are used to backup/restore associated files.</p>
+<p>Folder mentioned in point 4. contain same folder structure as users see in web
+frontend, grouped by username. Instead of documents, in folder structure
+symbolic links are used. Symbolic links point to the last version
+(i.e. associated file) of the document. Whatever is in these folders
+(in &lt;username1&gt;, &lt;username2&gt;, …) is NOT used to restore the data (i.e. it
+is redundant) instead they are human-readable i.e. make backup archive easier
+to use by human to quickly assert the content of the archive.</p>
+</section>
+<section id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Permalink to this headline"></a></h2>
+<p>Invoke restore command using Django’s manage.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py restore &lt;path/to/backup-archive&gt;
+</pre></div>
+</div>
+<p>Restore command can be invoked via docker container as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run papermerge/papermerge restore backup-archive.tar.gz
+</pre></div>
+</div>
+<p>Note that before restoring the backup archive, the DB schema should exist i.e.
+all required tables with correct schema should be already in database.
+You create schema by running <code class="docutils literal notranslate"><span class="pre">migrate</span></code> command (this is Django native management command):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py migrate
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Settings/django_settings_module.html" class="btn btn-neutral float-left" title="Django Settings Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="REST%20API/index.html" class="btn btn-neutral float-right" title="REST API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="backup_restore.html">master</a></dd>
+      <dd><a href="../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

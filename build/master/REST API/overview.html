@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference" href="reference.html" />
+    <link rel="prev" title="REST API" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">REST API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server-url">Server URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nodes-folders-and-documents">Nodes, Folders and Documents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#special-folders">Special Folders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-folder">Create Folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-folder-s-content">View Folder’s Content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-document">Create Document</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">REST API</a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/REST API/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<span id="rest-api"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<p>In order to use REST API interface you need an http client. The most
+wide-spread http client is <a class="reference external" href="https://en.wikipedia.org/wiki/CURL">curl</a>.</p>
+<p>In following sections <a class="reference external" href="https://en.wikipedia.org/wiki/CURL">curl</a> will be used if all examples.</p>
+<section id="server-url">
+<h2>Server URL<a class="headerlink" href="#server-url" title="Permalink to this headline"></a></h2>
+<p>Throughout this REST API documentation you will notice reference to
+<code class="docutils literal notranslate"><span class="pre">&lt;server-url&gt;</span></code> - this is base http address of your Papermerge DMS
+instance. Base url/address is where your instance was deployed.
+Depending where your Papermerge DMS instance was deployed you may use
+<code class="docutils literal notranslate"><span class="pre">https</span></code> instead of <code class="docutils literal notranslate"><span class="pre">http</span></code> and use correct port number.</p>
+<p>Examples of <code class="docutils literal notranslate"><span class="pre">&lt;server-url&gt;</span></code>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a></p></li>
+<li><p><a class="reference external" href="https://example.com/">https://example.com/</a></p></li>
+<li><p><a class="reference external" href="https://my-app.papermerge.io/">https://my-app.papermerge.io/</a></p></li>
+</ul>
+<p>Let’s take an example for authentication REST API. If your <code class="docutils literal notranslate"><span class="pre">&lt;server-url&gt;</span></code>
+is <a class="reference external" href="https://example-app.papermerge.io/">https://example-app.papermerge.io/</a> then, in order to authenticate and get a token you’ll need to run
+following curl command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">XPOST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">papermerge</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">login</span><span class="o">/</span> \
+<span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> \
+<span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;username&quot;:&quot;john&quot;,&quot;password&quot;:&quot;password&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>Another example, this time with users endpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">papermerge</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">users</span><span class="o">/</span> \
+ <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/vnd.api+json&#39;</span>
+ <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token ababfa840abb6b8aa3a185e631c19095c70de932&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When quering <strong>for json data types always pay attention to
+Content-Type header</strong>. For json data it sometimes may be either
+<code class="docutils literal notranslate"><span class="pre">application/json</span></code> or <code class="docutils literal notranslate"><span class="pre">application/vnd.api+json</span></code>. Each REST API call
+reference documents correct value of <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header.</p>
+</div>
+</section>
+<section id="authentication">
+<span id="rest-api-overview-authentication"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline"></a></h2>
+<p>Papermerge REST API backend uses <strong>token based</strong> authentication, this means
+that you will need to send your credentials to the backend API server and if
+credentials are correct, then server’s response will contain a valid token in
+response’s body. For all subsequent requests, which require authorization,
+you will need to append <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header with <code class="docutils literal notranslate"><span class="pre">Token</span> <span class="pre">&lt;token&gt;</span></code>
+value.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>After you’ve retrieved token for your account, <strong>all subsequent requests</strong> need to
+include <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Token</span> <span class="pre">&lt;token&gt;</span></code> header.</p>
+</div>
+<p>For authentication use authentication endpoint.
+Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -X POST <span class="se">\</span>
+  &lt;server-url&gt;/api/auth/login/ <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  -d <span class="s1">&#39;{&quot;username&quot;:&quot;john&quot;,&quot;password&quot;:&quot;&lt;password here&gt;&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>When credentials are correct, response will have status 200 OK,
+<code class="docutils literal notranslate"><span class="pre">content-type</span></code> will be <code class="docutils literal notranslate"><span class="pre">application/json</span></code> and response will have
+following body:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;token&quot;</span>: &lt;your token here&gt;,
+  <span class="s2">&quot;expiry&quot;</span>: null
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>With authentication token at hand, you can perform any REST API, for
+example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://example.com/api/users/me/ <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/vnd.api+json&#39;</span>
+  -H <span class="s1">&#39;Authorization: Token ababfa840abb6b8aa3a185e631c19095c70de932&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When quering for json data types always pay attention to
+<code class="docutils literal notranslate"><span class="pre">Content-Type</span></code>. For json data it sometimes may be either
+<code class="docutils literal notranslate"><span class="pre">application/json</span></code> or <code class="docutils literal notranslate"><span class="pre">application/vnd.api+json</span></code>. Each REST API call
+reference documents correct value of <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header.</p>
+</div>
+</section>
+<section id="nodes-folders-and-documents">
+<span id="rest-api-overview-nodes-folders-documents"></span><h2>Nodes, Folders and Documents<a class="headerlink" href="#nodes-folders-and-documents" title="Permalink to this headline"></a></h2>
+<p>This section explains by example how to use nodes, folders and documents
+endpoints because they feature some peculiarities.</p>
+<p>In Papermerge DMS one folder can contain other folders and documents. It is de
+factor standard nowadays for a typical <a class="reference external" href="https://en.wikipedia.org/wiki/File_manager">file manager</a> to organize files and
+folders in hierarchical structure (i.e folder can contains other folders and
+files). In this regard Papermerge DMS behaves like a common <a class="reference external" href="https://en.wikipedia.org/wiki/File_manager">file manager</a>.</p>
+<p>Our goal of this short tutorial like section is to create, with help of REST API,
+following structure of folders and documents:</p>
+<figure class="align-default">
+<img alt="../_images/example.svg" src="../_images/example.svg" /></figure>
+<p>In illustration above folder <em>My Documents</em> contains two folders and two
+documents:</p>
+<ul class="simple">
+<li><p>Fruits (folder)</p></li>
+<li><p>Vegetables (folder)</p></li>
+<li><p>mydoc_1.pdf</p></li>
+<li><p>mydoc_2.pdf</p></li>
+</ul>
+<p>Folder Fruits contains two documents: apples.pdf and lemons.pdf.
+Folder Vegetables contains just one document titled broccoli.pdf.</p>
+<p>Let’s first create folder “My Documents”.</p>
+<p>Each folder belongs to a specific user and has one parent folder - which means
+that in order to create folder “My Documents” we need to know parent folder
+id (user id is deduced from the token). Notice that folder “My Documents”,
+which we are about to create, looks like it will be top level folder - which
+may lead you to wrong conclusion that “My Documents” folder does not need
+parent id.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each and every folder and document you create in
+Papermerge DMS <strong>requires</strong> non empty folder parent id field.</p>
+</div>
+<section id="special-folders">
+<h3>Special Folders<a class="headerlink" href="#special-folders" title="Permalink to this headline"></a></h3>
+<p>Every user in Papermerge DMS has two special folders:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.home</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.inbox</span></code></p></li>
+</ul>
+<p>These folders are special because they are created during user’s account
+creation and are always there as long user’s account exists. You cannot
+delete <code class="docutils literal notranslate"><span class="pre">.home</span></code>, <code class="docutils literal notranslate"><span class="pre">.inbox</span></code> folders and you cannot alter their title
+(which starts with dot character). Folder “My Documents” must be direct
+child of either <code class="docutils literal notranslate"><span class="pre">.home</span></code> or <code class="docutils literal notranslate"><span class="pre">.inbox</span></code> folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can create “My Documents” folder directly in user’s <code class="docutils literal notranslate"><span class="pre">.inbox</span></code>. However
+<code class="docutils literal notranslate"><span class="pre">.inbox</span></code> folder is intended for received document (e.g. via email attachments)</p>
+</div>
+<p>In order to get user’s <code class="docutils literal notranslate"><span class="pre">.home</span></code> folder id use <code class="docutils literal notranslate"><span class="pre">api/users/me/</span></code> endpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">me</span><span class="o">/</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token beb...&#39;</span>
+</pre></div>
+</div>
+<p>Example of response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;169d8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+      <span class="o">...</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;inbox_folder&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8d6ee1&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;home_folder&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18381e&quot;</span>  <span class="o">//</span> <span class="o">&lt;--</span> <span class="o">.</span><span class="n">home</span> <span class="n">folder</span> <span class="nb">id</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In response above home folder id is “18381e”.
+folder id is actually an <a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">uuid</a> number, however for sake of simplicity,
+we abbreviate it and remove all irrelevant fields.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For creating folder and documents you always need parent folder
+id. User has two special folders: <code class="docutils literal notranslate"><span class="pre">.inbox</span></code> and <code class="docutils literal notranslate"><span class="pre">.home</span></code> and all other
+documents and folders are under one of these two folders. In order to
+get special folder’s ids use <code class="docutils literal notranslate"><span class="pre">api/users/me/</span></code> REST API endpoint</p>
+</div>
+</section>
+<section id="create-folder">
+<h3>Create Folder<a class="headerlink" href="#create-folder" title="Permalink to this headline"></a></h3>
+<p>Now, once we have folder’s parent id, we can create “My Documents” folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">XPOST</span> <span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token beb...&#39;</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/vnd.api+json&#39;</span> \
+  <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;My Documents&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;parent&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18381e&quot;</span>  <span class="o">//</span> <span class="o">&lt;-</span> <span class="o">.</span><span class="n">home</span> <span class="n">folder</span> <span class="nb">id</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>Similarly you can create folder with help of <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/nodes/</span></code> endpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">XPOST</span> <span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">nodes</span><span class="o">/</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token beb...&#39;</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/vnd.api+json&#39;</span> \
+  <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;My Documents&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;parent&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18381e&quot;</span>  <span class="o">//</span> <span class="o">&lt;-</span> <span class="o">.</span><span class="n">home</span> <span class="n">folder</span> <span class="nb">id</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>We can create as many folders with same title as we want.
+Papermerge DMS does not impose folder title uniqueness.</p>
+<p>Also it is important to note that when creating folder,
+<code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/vnd.api+json</span></code>
+header must be used. If you forget to include <code class="docutils literal notranslate"><span class="pre">application/vnd.api+json</span></code>
+value for content-type you will get “400 Bad Request” response from REST API
+server.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When content-type  is <code class="docutils literal notranslate"><span class="pre">application/vnd.api+json</span></code>, always
+wrap all fields inside “data” field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even though you can use both endpoints i.e. <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/nodes/</span></code>
+and <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/folders/</span></code> for creating folders, we recommend
+to use <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/nodes</span></code>. The point is, as you will see later,
+it make creating of folder and document consistent.</p>
+</div>
+</section>
+<section id="view-folder-s-content">
+<h3>View Folder’s Content<a class="headerlink" href="#view-folder-s-content" title="Permalink to this headline"></a></h3>
+<p>Once we’ve created folder “My Documents” under user’s <code class="docutils literal notranslate"><span class="pre">.home</span></code>, we want to
+see what’s inside <code class="docutils literal notranslate"><span class="pre">.home</span></code> folder, this way we can confirm that indeed
+folder “My Documents” was created and it is direct descendant of <code class="docutils literal notranslate"><span class="pre">.home</span></code>
+folder.</p>
+<p>Correct endpoint for listing the content of specific folder is <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/nodes/{folder-id}/</span></code>.
+For our case, we want to list user’s <code class="docutils literal notranslate"><span class="pre">.home</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">nodes</span><span class="o">/</span><span class="mi">18381</span><span class="n">e</span><span class="o">/</span> \
+ <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token beb...&#39;</span>
+</pre></div>
+</div>
+<p>And response json body will look something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="o">...</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;949baf&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;My Documents&quot;</span><span class="p">,</span>
+        <span class="o">...</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;parent&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18381e&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;pagination&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="o">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Node - is an abstraction of both folder and document, thus
+when we use <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/nodes/{node-id}/</span></code> REST API endpoint we
+basically request to list all <strong>documents and folders</strong> under specific node-id.</p>
+<p>To be exact the correct signature of the endpoint is <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/nodes/</span>
+<span class="pre">{folder-id}/</span></code>, because it does not make any sense to list “folders and
+documents under a document”.</p>
+<p>There two other endpoints which you may think of as a way to list all
+folder’s content:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/folders/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/folders/{folder-id}/</span></code></p></li>
+</ul>
+<p>First one, <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/folders/</span></code>, indeed will return all folders of specific
+user. However, it will return <strong>only folders</strong> and all folders will be listed
+as flat structure. In our case this means that folder “My Documents”, <code class="docutils literal notranslate"><span class="pre">.home</span></code>,
+<code class="docutils literal notranslate"><span class="pre">.inbox</span></code> will be in the same flat list.</p>
+<p>Second one, <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/folders/{folder-id}/</span></code>, will return folder’s properties
+details i.e. id, title, tags, created_at etc</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Correct endpoint for listing the content of specific folder is
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/nodes/{folder-id}/</span></code></p>
+</div>
+</section>
+<section id="create-document">
+<h3>Create Document<a class="headerlink" href="#create-document" title="Permalink to this headline"></a></h3>
+<p>At this point, creating “Fruits” and “Vegetables” folders should be
+straightforward and we leave it as exercise.</p>
+<p>Creating documents, on the other hand, needs clarification.
+First of all, from user point of view - documents are “uploaded”, not “created”.
+But from REST API point of view, uploading a document is performed in two steps:</p>
+<ol class="arabic simple">
+<li><p>create document entry</p></li>
+<li><p>upload associated file</p></li>
+</ol>
+<p>In first step we create document entry:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">XPOST</span> <span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">nodes</span><span class="o">/</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token beb...&#39;</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/vnd.api+json&#39;</span> \
+  <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;documents&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;mydoc_1.pdf&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;parent&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;folders&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18381e1&quot;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>Creating document entry in this way is very similar to creating a
+folder. The difference is that for documents you specify type “documents”.</p>
+<p>At this point, if you list all documents and folders under “My Document”, you will
+see folders “Vegetables”, “Fruits” and document “mydoc_1.pdf”.
+However, document “mydoc_1.pdf” does not have a file associated yet, in other words,
+we still need to upload file and associated it with “mydoc_1.pdf” document.</p>
+<p>This is second step. In order to perform second step we need to have a file and we need
+to know the id of the document entry we’ve just created. Document id can be retrieved
+either from response of <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/nodes/</span></code> endpoint, or by listing all children nodes
+of “My Documents” folder with <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/nodes/{my-documentsn-node-id}/</span></code>.</p>
+<p>Here is curl command to upload pdf file and associate it with given document id:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Token beb...&#39;</span> \
+     <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Disposition: attachment; filename=mydoc_1.pdf&#39;</span> \
+     <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/pdf&#39;</span> \
+     <span class="o">-</span><span class="n">T</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my_doc_1</span><span class="o">.</span><span class="n">pdf</span> \
+     <span class="n">http</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">documents</span><span class="o">/</span><span class="p">{</span><span class="n">document</span><span class="o">-</span><span class="nb">id</span><span class="p">}</span><span class="o">/</span><span class="n">upload</span><span class="o">/</span><span class="n">mydoc_1</span><span class="o">.</span><span class="n">pdf</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-T</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">curl</span></code> implies usage of <code class="docutils literal notranslate"><span class="pre">PUT</span></code>.
+Also, notice that <code class="docutils literal notranslate"><span class="pre">Content-Disposition:</span> <span class="pre">attachment;</span> <span class="pre">filename=&lt;file-name&gt;</span></code> is mandatory header.</p>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Retrieve special folder ids with <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/users/me/</span></code> endpoint</p></li>
+<li><p>Creating a node (document or folder) requires non-empty parent id</p></li>
+<li><p>Create a folder with <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/nodes/</span></code> endpoint (type “folders”)</p></li>
+<li><p>List content of the folder with <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/nodes/</span></code> endpoint</p></li>
+<li><p>Uploading document is two steps process:</p>
+<ol class="arabic simple">
+<li><p>create document entry with <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/nodes/</span></code> (type “documents”)</p></li>
+<li><p>upload file to document node created in first step using <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/api/documents/{document-id}/upload/file-name</span></code></p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="REST API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="overview.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

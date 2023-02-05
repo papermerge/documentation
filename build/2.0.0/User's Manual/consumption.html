@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumption &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="REST API" href="rest_api.html" />
+    <link rel="prev" title="Automates" href="automates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Help/index.html">Help</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags_and_folders.html">Tags and Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_management.html">Page Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="automates.html">Automates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Consumption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-importer-directory">The Importer Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imap-email">IMAP (Email)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#one-imap-account-for-many-papermerge-users">One IMAP Account for Many Papermerge Users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#matching-by-user">Matching By User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matching-by-secret">Matching By Secret</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api.html">REST API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr_languages.html">OCR Languages Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document_pipelines.html">Document Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">User’s Manual</a> &raquo;</li>
+      <li>Consumption</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/User&#39;s Manual/consumption.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="consumption">
+<h1>Consumption<a class="headerlink" href="#consumption" title="Permalink to this headline"></a></h1>
+<p>Once you’ve got Papermerge up and running, you need to start feeding documents
+into it. Currently, there are four options: upload directly via web user
+interface, the importer directory, IMAP (email), and the REST API.</p>
+<p>Uploading document via web interface won’t be explained here as it is very
+obvious. Uploading via REST API along with how to register a token is
+explained in <a class="reference internal" href="rest_api.html#rest-api"><span class="std std-ref">REST API</span></a>. Here we will focus on importing from
+a local directory and importing documents from an email account (imap).</p>
+<section id="the-importer-directory">
+<span id="importer-directory"></span><h2>The Importer Directory<a class="headerlink" href="#the-importer-directory" title="Permalink to this headline"></a></h2>
+<p>You can point Papermerge to a specific directory on your local system and
+<span class="xref std std-ref">worker</span> script will import all documents from that
+directory. Getting stuff into this directory is up to you. If you’re running
+Papermerge on your local computer, you might just want to drag and drop files
+there. Imported documents will land in your superuser’s Inbox folder.</p>
+<p>The configuration setting you are looking for is <a class="reference internal" href="../Installation/settings.html#importer-dir"><span class="std std-ref">IMPORTER_DIR</span></a>. It points to the directory where all documents will be imported from. Example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">papermerge.conf.py file</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">IMPORTER_DIR</span> <span class="o">=</span> <span class="s2">&quot;/mnt/media/importer_dir&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>The IMPORTER_DIR directory pointed must be readable by the Papermerge application.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">IMPORTER_DIR</span></code> must be defined on the worker side. For single deployments worker and main app will share the same <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> configuration file, thus all configurations will be in same configuration file. In case of distributed deployment - or even in case when the main app and worker run within different docker images - this distinction becomes important. <code class="docutils literal notranslate"><span class="pre">IMPORTER_DIR</span></code> should be defined in <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> of the host (or docker image) where the worker runs.</p>
+</div>
+<p>All imported documents will land in superuser’s Inbox.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Papermerge is a multi-user system. The very first system user is called superuser. Papermerge must have at least one superuser.
+Regardless of how many users there are in Papermerge DMS, imported documents will always end up in first superuser’s inbox.</p>
+</div>
+</section>
+<section id="imap-email">
+<span id="importer-imap"></span><h2>IMAP (Email)<a class="headerlink" href="#imap-email" title="Permalink to this headline"></a></h2>
+<p>Papermerge can import documents from an email account. This feature is somehow
+similar to importing documents from a local directory, but instead of a local
+path you need to provide details about an email account (email account = IMAP
+account). At very least you need to provide following <a class="reference internal" href="../Installation/settings.html#settings-email"><span class="std std-ref">email importing
+settings</span></a>:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_HOST</span></code> - IMAP server hostname</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_USER</span></code> - IMAP username</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_PASS</span></code> - IMAP password</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Email importing settings must be defined on the worker side.</p>
+</div>
+<p>with those three configurations worker will securely connect every 30 seconds
+to provided IMAP account and check for newly arrived <strong>email messages with
+attachments</strong>. By default email attachment’s will end up in your superuser’s
+Inbox.</p>
+</section>
+<section id="one-imap-account-for-many-papermerge-users">
+<span id="email-routing"></span><h2>One IMAP Account for Many Papermerge Users<a class="headerlink" href="#one-imap-account-for-many-papermerge-users" title="Permalink to this headline"></a></h2>
+<p>Adding all email attachments to your superuser Inbox is absolutely fine when
+superuser is the one and only user in Papermerge. However, if your Papermerge
+instance has multiple users, then assigning documents for specific Papermerge
+user’s Inbox is little tricky. There are couple ways to match incoming emails to
+specific Papermerge user:</p>
+<ol class="arabic simple">
+<li><p>matching by “From” or “To” fields (also called matching “by user”)</p></li>
+<li><p>matching by special “secret” in email’s subject or email’s body</p></li>
+</ol>
+<p>The following configurations enable/disable respective matching features:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code> = True | False</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code> = True | False</p></li>
+</ul>
+<section id="matching-by-user">
+<h3>Matching By User<a class="headerlink" href="#matching-by-user" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code> allows user to send emails from their
+user-configured email address and have them end up in their inbox. With this option enabled, Papermerge
+looks up email’s “From” and “To” fields to decide for who those documents are addressed. Document will end up in Papermerge user with same email address as either email’s “From” or email’s “To” field.</p>
+<p>Following picture illustrates how matching by user works:</p>
+<figure class="align-default" id="id2">
+<img alt="illustration shows how match by user feature works" src="../_images/match_by_user.svg" /><figcaption>
+<p><span class="caption-text">Figure 1.  Decision to which Papermerge inbox assign the document is made based on email’s “From” field. In this example all emails are sent to the same email address but <strong>from</strong> different senders.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You configure Papermerge with only one IMAP/email account.</p>
+</div>
+</section>
+<section id="matching-by-secret">
+<h3>Matching By Secret<a class="headerlink" href="#matching-by-secret" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code> is yet another way to route email’s attachments to
+correct Papermerge inbox. It this case a per-user secret in email body or
+email subject is the decision factor. Secret can be any text. In your email
+you need to surround it with <code class="docutils literal notranslate"><span class="pre">SECRET{</span> <span class="pre">...</span> <span class="pre">}</span></code> keyword. Note that keyword
+<code class="docutils literal notranslate"><span class="pre">SECRET</span></code> must be all capital-case and there are no spaces between opening
+curly brackets and word <code class="docutils literal notranslate"><span class="pre">SECRET</span></code>, however there may be spaces between secret
+text and surrounding curly brackets. Papermerge looks for <code class="docutils literal notranslate"><span class="pre">SECRET{</span>
+<span class="pre">...</span> <span class="pre">}</span></code> in emails subject or emails text body - but <strong>NOT in the
+attachment</strong>!</p>
+<p>Let’s consider an example: Papermerge user <em>john</em> in preferences enables <em>Email routing
+by secret</em> option and chooses as secret <em>the one who loves cats and documents</em>. Then any incoming
+email (in configured IMAP account) with following text (either in subject or in its body):</p>
+<blockquote>
+<div><p>SECRET{ the one who loves cats and documents }</p>
+</div></blockquote>
+<p>with be assigned to Papermerge user <em>john</em>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>There are <strong>no spaces between</strong> keyword <code class="docutils literal notranslate"><span class="pre">SECRET</span></code> and <code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+</div>
+<p>Notice that email matching feature must be enabled:</p>
+<ol class="arabic simple">
+<li><p>system wide using <code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code> and/or <code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code> in <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> file</p></li>
+<li><p>per user - in user preferences menu</p></li>
+</ol>
+<p>If both configurations options <code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code> and <code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code> are set to <code class="docutils literal notranslate"><span class="pre">False</span></code> users won’t see “Email Routing” configuration their preferences. If at lease one of above mentioned options is enabled users will see “Email Routing” preferences.</p>
+<figure class="align-default" id="id3">
+<img alt="user preferences for email routing" src="../_images/email-routing-in-preferences.svg" /><figcaption>
+<p><span class="caption-text">Figure 2. User preferences for email routing appear only if one (or both) of <code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code>, <code class="docutils literal notranslate"><span class="pre">IMPORT_EMAIL_BY_SECRET</span></code> is (are) set to True.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<img alt="email routing preferences per user" src="../_images/email-routing.svg" /><figcaption>
+<p><span class="caption-text">Figure 3. Email routing preferences per user. Here user provides secret text without SECRET keyword
+and without surrounding curly braces.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that secret text is always shown (unlike passwords which are hidden
+from user’s eyes) to users. Also, unlike passwords, secret text for email
+routing is stored in database as clear text. It is so, because secret text
+used for email routing and is not used as user credentials of any kind
+i.e. it doesn’t grant you any privilege; in other words you cannot open
+any account with that “secret text” information so to speak.</p>
+</div>
+<p>Finally if <code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_DELETE</span></code> is set to True then a processed email will be deleted from
+the mail account.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="automates.html" class="btn btn-neutral float-left" title="Automates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rest_api.html" class="btn btn-neutral float-right" title="REST API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="consumption.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/User's Manual/consumption.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/index.html">master</a></dd>
+      <dd><a href="../../2.0.x/User's Manual/consumption.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

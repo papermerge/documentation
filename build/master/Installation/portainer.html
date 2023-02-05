@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portainer &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User’s Manual" href="../User%27s%20Manual/index.html" />
+    <link rel="prev" title="Upgrading" href="upgrading.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html">Upgrading</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Portainer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-update-etc-hosts-file">Step 1 - Update /etc/hosts file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-add-stack">Step 2 - Add Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-fill-in-repository-details">Step 3 - Fill in repository details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-add-environment-variables">Step 4 - Add environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-deploy-the-stack">Step 5 - Deploy the stack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Setup</a> &raquo;</li>
+      <li>Portainer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Installation/portainer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="portainer">
+<span id="install-with-portainer"></span><h1>Portainer<a class="headerlink" href="#portainer" title="Permalink to this headline"></a></h1>
+<p>This section describes how to setup Papermerge using <a class="reference external" href="https://portainer.io">Portainer</a>.</p>
+<section id="step-1-update-etc-hosts-file">
+<h2>Step 1 - Update /etc/hosts file<a class="headerlink" href="#step-1-update-etc-hosts-file" title="Permalink to this headline"></a></h2>
+<p>Add to your <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">127.0.0.1</span>       <span class="n">papermerge</span><span class="o">.</span><span class="n">local</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-add-stack">
+<h2>Step 2 - Add Stack<a class="headerlink" href="#step-2-add-stack" title="Permalink to this headline"></a></h2>
+<p>Click on ‘Add stack’ as illustrated in picture below:</p>
+<figure class="align-default">
+<img alt="../_images/step-2.svg" src="../_images/step-2.svg" /></figure>
+</section>
+<section id="step-3-fill-in-repository-details">
+<h2>Step 3 - Fill in repository details<a class="headerlink" href="#step-3-fill-in-repository-details" title="Permalink to this headline"></a></h2>
+<p>Fill in <em>Name</em> field (e.g. papermerge), select <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">Repository</span></code> for <em>Build method</em>. Set following values for <em>Repository URL</em> and <em>Compose path</em>:</p>
+<ol class="arabic simple">
+<li><p>Repository URL with <code class="docutils literal notranslate"><span class="pre">https://github.com/papermerge/papermerge-core</span></code></p></li>
+<li><p>Compose path: <code class="docutils literal notranslate"><span class="pre">docker/docker-compose.yml</span></code></p></li>
+</ol>
+<figure class="align-default">
+<img alt="../_images/step-3.svg" src="../_images/step-3.svg" /></figure>
+</section>
+<section id="step-4-add-environment-variables">
+<h2>Step 4 - Add environment variables<a class="headerlink" href="#step-4-add-environment-variables" title="Permalink to this headline"></a></h2>
+<p>In environment variables section can either:</p>
+<ol class="arabic simple">
+<li><p>insert variables one by one (simple mode)</p></li>
+<li><p>paste all variables as one single text file (advanced mode)</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently docker tag <code class="docutils literal notranslate"><span class="pre">latest</span></code> points to latest 2.1.0a&lt;N&gt; version
+which is not yet production ready.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See all available docker tags in <a class="reference external" href="https://github.com/orgs/papermerge/packages">GitHub packages</a></p>
+</div>
+<p>For this guide we use option 2.
+Paste following text in environment variables section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>APP_IMAGE=papermerge/papermerge
+APP_TAG=latest
+PAPERMERGE_JS_IMAGE=papermerge/papermerge.js
+PAPERMERGE_JS_TAG=latest
+
+USE_HOSTNAME=papermerge.local
+
+DB_USER=postgres
+DB_NAME=postgres
+DB_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+ES_HOSTS=es
+ES_PORT=9200
+
+SECRET_KEY=alsdkalsdjlaksdj90823423!KLKJLkjkjlkjlKLPOgrwqna
+
+SUPERUSER_USERNAME=admin
+SUPERUSER_EMAIL=admin@mail.com
+SUPERUSER_PASSWORD=admin
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/step-4.svg" src="../_images/step-4.svg" /></figure>
+<p><code class="docutils literal notranslate"><span class="pre">APP_IMAGE</span></code>
+is docker image for Papermerge REST API backend</p>
+<p><code class="docutils literal notranslate"><span class="pre">APP_TAG</span></code>
+is Papermerge REST API backend docker image version. As of writing this documentation Papermerge latest version 2.1 is in early alpha version. To
+see if there are newer version check <a class="reference external" href="https://github.com/orgs/papermerge/packages/container/package/papermerge">papermerge package</a> on github.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PAPERMERGE_JS</span></code>
+is docker image for Papermerge frontend i.e. fancy user
+interface (written in javascript)</p>
+<p><code class="docutils literal notranslate"><span class="pre">PAPERMERGE_JS_TAG</span></code>
+is Papermerge frontend docker image version. As of writing this documentation Papermerge latest version 2.1 is in early alpha version. To
+see if there are newer version check <a class="reference external" href="https://github.com/orgs/papermerge/packages/container/package/papermerge.js">papermerge js package</a> on github.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ES_HOSTS</span></code> and <code class="docutils literal notranslate"><span class="pre">ES_PORT</span></code>
+are hosts and port for elasticsearch service</p>
+<p><code class="docutils literal notranslate"><span class="pre">SECRET_KEY</span></code> A secret text for a particular Papermerge installation. This is
+used to provide cryptographic signing, and should be set to a unique,
+unpredictable value</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Papermerge docker images are published on <a class="reference external" href="https://github.com/orgs/papermerge/packages">Github’s Package section
+for Papermerge</a></p>
+</div>
+</section>
+<section id="step-5-deploy-the-stack">
+<h2>Step 5 - Deploy the stack<a class="headerlink" href="#step-5-deploy-the-stack" title="Permalink to this headline"></a></h2>
+<p>Click on ‘Deploy the stack’ button at the very bottom of the screen:</p>
+<figure class="align-default">
+<img alt="../_images/step-5.svg" src="../_images/step-5.svg" /></figure>
+<p>Now you can see Papermerge stack in the list and if you click you will see all Papermerge services running:</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/result-1.svg" src="../_images/result-1.svg" /><figcaption>
+<p><span class="caption-text">Papermerge stack as seen in stack list</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<img alt="../_images/result-2.svg" src="../_images/result-2.svg" /><figcaption>
+<p><span class="caption-text">Papermerge services up and running</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Now you can access your Papermerge instance by opening your web browser and
+pointing it to address <code class="docutils literal notranslate"><span class="pre">http://papermerge.local</span></code>:</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/papermerge-login.png" src="../_images/papermerge-login.png" />
+<figcaption>
+<p><span class="caption-text">Sign in screen available at <a class="reference external" href="http://papermerge.local">http://papermerge.local</a></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Sign in using following credentials:</p>
+<ul class="simple">
+<li><p>username: admin</p></li>
+<li><p>password: admin</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>username/password were provided by variables <code class="docutils literal notranslate"><span class="pre">SUPERUSER_USERNAME</span></code>
+and <code class="docutils literal notranslate"><span class="pre">SUPERUSER_PASSWORD</span></code> respectively.</p>
+</div>
+<p>Enjoy!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="upgrading.html" class="btn btn-neutral float-left" title="Upgrading" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../User%27s%20Manual/index.html" class="btn btn-neutral float-right" title="User’s Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="portainer.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

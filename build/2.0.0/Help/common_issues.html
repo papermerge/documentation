@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Issues &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User’s Manual" href="../User%27s%20Manual/index.html" />
+    <link rel="prev" title="Help" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Help</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Common Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#case-sensitive-search-for-unicode-text-with-sqlite">Case sensitive search for unicode text with SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warning-about-missing-tesseract-in-papermerge-app-docker-container">Warning about missing Tesseract in papermerge_app docker container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slow-increase-in-cpu-usage-over-time">Slow Increase in CPU Usage Over Time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Help</a> &raquo;</li>
+      <li>Common Issues</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Help/common_issues.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-issues">
+<h1>Common Issues<a class="headerlink" href="#common-issues" title="Permalink to this headline"></a></h1>
+<p>This document is a compilation of common problems which you may encounter
+during installation, deployment and general usage of Papermerge. Some of the
+issues are caused by technological liminations, practicality trade-offs or are
+just misconfigurations.</p>
+<section id="case-sensitive-search-for-unicode-text-with-sqlite">
+<h2>Case sensitive search for unicode text with SQLite<a class="headerlink" href="#case-sensitive-search-for-unicode-text-with-sqlite" title="Permalink to this headline"></a></h2>
+<p>When using SQLite database <a class="reference external" href="https://docs.djangoproject.com/en/3.1/ref/databases/#substring-matching-and-case-sensitivity">unicode strings lookup is always case sensive.</a>
+See <a class="reference external" href="https://github.com/ciur/papermerge/issues/149">an example of lookup using russian language.</a> Problem was initially
+reported for Bulgarian language.</p>
+</section>
+<section id="warning-about-missing-tesseract-in-papermerge-app-docker-container">
+<h2>Warning about missing Tesseract in papermerge_app docker container<a class="headerlink" href="#warning-about-missing-tesseract-in-papermerge-app-docker-container" title="Permalink to this headline"></a></h2>
+<p>If you use docker-compose file provided by papermerge repository, you will notice
+following error in <strong>papermerge_app docker container</strong>:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Warning you may get on worker side</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>WARNINGS:
+|papermerge_app|: Papermerge can&#39;t find tesseract. Without it, OCR of the documents is impossible.
+|papermerge_app|:  HINT: Either it&#39;s not in your PATH or it&#39;s not installed.
+</pre></div>
+</div>
+</div>
+<p>This is very misleading, but it is correct <strong>and has no any impact on papermerge</strong>
+operation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Above mentioned error is safe to ignore only (and only) when it runs in
+main app container i.e. in <code class="docutils literal notranslate"><span class="pre">papermerge_app</span></code>). Exactly same warning inside
+<code class="docutils literal notranslate"><span class="pre">papermerge_worker</span></code> will be an error an application won’t function as
+expected.</p>
+</div>
+<p>Explanation:</p>
+<p>the OCR is performed by the worker (papermerge_worker docker container) and
+thus is installed only on the worker. However, for simplicity sake both worker
+and app (papermerge_app and papermerge_worker) use same code. From application
+code point of view they are 95% identical and use exactly same methods for
+reading configurations.</p>
+<p>However:</p>
+<ul class="simple">
+<li><p>for worker - tesseract is mandatory</p></li>
+<li><p>for main app - tesseract is optional</p></li>
+</ul>
+<p>as long as that “missing tesseract” comes from papermerge_app docker container
+- you can just ignore it.</p>
+<p>Current setup (even though little confusing) is very practical. The
+practicality of it is that worker and app many times run on same machine, from
+same folder and use same configuration file - e.g. in development mode - in
+such cases, issuing that warning reminds developers to install
+tesseract.</p>
+</section>
+<section id="slow-increase-in-cpu-usage-over-time">
+<h2>Slow Increase in CPU Usage Over Time<a class="headerlink" href="#slow-increase-in-cpu-usage-over-time" title="Permalink to this headline"></a></h2>
+<figure class="align-default" id="id2">
+<img alt="../_images/slow-increase-cpu-usage-over-time.png" src="../_images/slow-increase-cpu-usage-over-time.png" />
+<figcaption>
+<p><span class="caption-text">Slow increase in CPU usage over time due to CELERY_BROKER_URL=”filesystem://” option</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In case you use default broker and message queue (which is filesystem based) over time
+your CPU usage will increase. Filesystem based message queue is not suitable for production environments. Django/Papermerge configuration options which might cause this issue are <code class="docutils literal notranslate"><span class="pre">CELERY_BROKER_URL</span></code> and <code class="docutils literal notranslate"><span class="pre">CELERY_BROKER_TRANSPORT_OPTIONS</span></code>. Use redis to avoid this issue. Learn in <a class="reference internal" href="../Installation/server_configuration.html#broker-config"><span class="std std-ref">broker configuration</span></a> part how to configure redis.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Help" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../User%27s%20Manual/index.html" class="btn btn-neutral float-right" title="User’s Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="common_issues.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/Help/common_issues.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/index.html">master</a></dd>
+      <dd><a href="../../2.0.x/Help/common_issues.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

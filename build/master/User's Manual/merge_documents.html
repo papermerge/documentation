@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merge Documents &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OCR" href="ocr.html" />
+    <link rel="prev" title="Versions" href="versions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upload_documents.html">Upload Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags_and_folders.html">Tags and Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_management.html">Page Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Merge Documents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source-pages-replace-target-pages">1. Source pages replace target pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-pages-are-appended-to-the-target-pages">2. Source pages are appended to the target pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dual-panel">Dual Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api_token.html">REST API Token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">User’s Manual</a> &raquo;</li>
+      <li>Merge Documents</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/User&#39;s Manual/merge_documents.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="merge-documents">
+<h1>Merge Documents<a class="headerlink" href="#merge-documents" title="Permalink to this headline"></a></h1>
+<p>Let’s first clarify what is meant by <em>documents merging</em>.
+<em>Merging</em> is the process of combining two documents into one: all pages
+from the source document are transferred into destination document and then
+source document is deleted.</p>
+<p>On the target document, transferred pages can:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>entirely replace target pages</p></li>
+<li><p>be appended to the target pages</p></li>
+</ol>
+</div></blockquote>
+<p>The rest of this documentation chapter describes how to use Papermerge DMS in case 1.
+For how to use Papermerge DMS in case 2, see <a class="reference internal" href="page_management.html#page-move"><span class="std std-ref">Page Moving</span></a>.</p>
+<section id="source-pages-replace-target-pages">
+<h2>1. Source pages replace target pages<a class="headerlink" href="#source-pages-replace-target-pages" title="Permalink to this headline"></a></h2>
+<p>Figure 1 illustrate this case. Both source (better_scan.pdf) and target
+(scan_d.pdf) documents have only one version (v1). Both source and
+target have two pages.</p>
+<p>In this case merge result is that in scan_d.pdf document there is a new
+version created (v2) and <strong>new version contains only source pages</strong> (BS1 and
+BS2). Previous pages of scan_d.pdf document (D1, D2) are still available in
+version 1 (v1 in figure) of the document.</p>
+<figure class="align-default" id="id1">
+<span id="document-merge-figure-1"></span><img alt="../_images/total_merge_I.svg" src="../_images/total_merge_I.svg" /><figcaption>
+<p><span class="caption-text">Figure 1. Merging, case 1 - source pages entirely replace target pages</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This use case is useful when you scan same document twice and for some reason
+you want to keep both copies around. Because both copies contain slightly
+different versions of the same document, it is more practical to keep them as
+two document versions in one single file. In such case you will avoid
+duplicate results in search results.</p>
+</section>
+<section id="source-pages-are-appended-to-the-target-pages">
+<h2>2. Source pages are appended to the target pages<a class="headerlink" href="#source-pages-are-appended-to-the-target-pages" title="Permalink to this headline"></a></h2>
+<p>Figure 2 illustrate this case. Both source (better_scan.pdf) and target
+(scan_d.pdf) documents have only one version (v1). Also, both source and
+target have two pages.</p>
+<p>In this case result is that in scan_d.pdf document there is a new
+version created (v2) and new version contains now four pages: BS1, BS2, D1,
+D2. Previous version of scan_d.pdf document (v1) has contains two pages: D1
+and D2.</p>
+<figure class="align-default" id="id2">
+<span id="document-merge-figure-2"></span><img alt="../_images/total_merge_II.svg" src="../_images/total_merge_II.svg" /><figcaption>
+<p><span class="caption-text">Figure 2. Case 2 - source pages are added next to
+the target pages</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This scenario is particular case of ‘moving pages’ between documents with all pages
+selected on the source. How to use Papermerge DMS in this scenario is
+described in detail in <a class="reference internal" href="page_management.html#page-move"><span class="std std-ref">Moving Pages</span></a> section.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When merging two documents, one of them (source) is deleted.
+That’s why, it is very important that when you merge two documents, you
+correctly choose which one is the source and which one is the target.</p>
+</div>
+<p>Now, that you understand what is meant exactly by “document merging”, let’s see
+how you can merge document with Papermerge DMS.</p>
+</section>
+<section id="dual-panel">
+<h2>Dual Panel<a class="headerlink" href="#dual-panel" title="Permalink to this headline"></a></h2>
+<p>In order to merge two documents in Papermerge DMS you need to open each of them in two
+panels:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/dual_panel.gif" src="../_images/dual_panel.gif" />
+<figcaption>
+<p><span class="caption-text">Open source and target in two separate panels</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In one of the panels, the one which you want to be the source, right click the
+mouse button to open the context menu.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><em>Merge Documents</em> context menu item will be displayed only if
+there are no selected pages.</p>
+</div>
+<figure class="align-default" id="id4">
+<img alt="../_images/context-menu.svg" src="../_images/context-menu.svg" /><figcaption>
+<p><span class="caption-text">Figure 3. Context menu item for merging documents</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In Figure 3, notice the direction of the arrow icon just before “Merge
+Document”. The arrow icon points from source to the target. In Figure 3,
+context menu was opened in left panel, this means that document opened in
+left panel (better_scan.pdf) is the source. On the other hand if we would
+open context menu in right panel, then the arrow will point from right to
+left - which also implies that in such case document opened in the right
+panel would be the source.</p>
+<p>Click the “Merge Document” context menu item. After you confirm the operation,
+the source document (better_scan.pdf) will be merged with scan_d.pdf.
+The result will be same as show in <a class="reference internal" href="#document-merge-figure-1"><span class="std std-ref">Figure 1</span></a>.</p>
+<figure class="align-default" id="id5">
+<img alt="../_images/merge_demo.gif" src="../_images/merge_demo.gif" />
+<figcaption>
+<p><span class="caption-text">Figure 4. Merge demo when target pages are entirely replaced</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="versions.html" class="btn btn-neutral float-left" title="Versions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ocr.html" class="btn btn-neutral float-right" title="OCR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="merge_documents.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

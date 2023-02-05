@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Requirements" href="requirements.html" />
+    <link rel="prev" title="Documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="downloading.html">Downloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_configuration.html">Server Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Help/index.html">Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Installation/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#software-requirements">Software Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#id1">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#id2">Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#id3">Imagemagick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#id4">Poppler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#id5">Tesseract</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#hardware-requirements">Hardware Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#single-host">Single Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="requirements.html#multiple-hosts">Multiple Hosts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downloading.html">Downloading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="downloading.html#papermerge-core">Papermerge-Core</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#short-version">Short Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#detailed-version">Detailed Version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#step-1-python-and-friends">Step 1 - Python and Friends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#step-2-python-virtual-environment">Step 2 - Python Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#step-3-manage-command">Step 3 - Manage Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#step-4-superuser">Step 4 - Superuser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#step-5-worker">Step 5 - Worker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#step-6-configurations">Step 6 - Configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="server_configuration.html">Server Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server_configuration.html#apache">Apache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-1-install-apache-web-server">Step 1 - Install Apache Web Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-2-get-mod-wsgi">Step 2 - Get mod_wsgi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-3-build-install-mod-wsgi">Step 3 - Build &amp; Install mod_wsgi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-4-configure-virtual-host">Step 4 - Configure Virtual Host</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="server_configuration.html#nginx-gunicorn">Nginx + Gunicorn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-1-install-gunicorn">Step 1 - Install Gunicorn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-2-systemd-service-for-gunicorn">Step 2 - Systemd Service for Gunicorn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_configuration.html#step-3-nginx">Step 3 - Nginx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="server_configuration.html#worker">Worker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_configuration.html#broker-messaging-queue-and-their-configuration">Broker, Messaging Queue and their Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#media-directory">Media Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#application-version">Application Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#backup-utility">Backup Utility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html#general-instructions">General Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html#upgrade-via-docker">Upgrade via Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html#from-1-5-x-to-2-x">From 1.5.x to 2.x</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#linuxserver-io-image">LinuxServer.io Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#official-image">Official Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#main-app-worker-or-both">Main App, Worker or Both?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#configuration-changes-in-docker-container">Configuration Changes in Docker Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#django-settings">Django Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#papermerge-prefix">PAPERMERGE_ Prefix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#main-app-worker-or-both">Main App, Worker or Both?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#paths-and-folders">Paths and Folders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbdir"><code class="docutils literal notranslate"><span class="pre">DBDIR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#media-dir"><code class="docutils literal notranslate"><span class="pre">MEDIA_DIR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#static-dir"><code class="docutils literal notranslate"><span class="pre">STATIC_DIR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#document-importer">Document Importer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#importer-dir"><code class="docutils literal notranslate"><span class="pre">IMPORTER_DIR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#ocr">OCR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#ocr-languages"><code class="docutils literal notranslate"><span class="pre">OCR_LANGUAGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#ocr-default-language"><code class="docutils literal notranslate"><span class="pre">OCR_DEFAULT_LANGUAGE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#i18n-and-localization">I18n and Localization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#language-code"><code class="docutils literal notranslate"><span class="pre">LANGUAGE_CODE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#language-from-agent"><code class="docutils literal notranslate"><span class="pre">LANGUAGE_FROM_AGENT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#database">Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbtype"><code class="docutils literal notranslate"><span class="pre">DBTYPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbuser"><code class="docutils literal notranslate"><span class="pre">DBUSER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbname"><code class="docutils literal notranslate"><span class="pre">DBNAME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbhost"><code class="docutils literal notranslate"><span class="pre">DBHOST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbport"><code class="docutils literal notranslate"><span class="pre">DBPORT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#dbpass"><code class="docutils literal notranslate"><span class="pre">DBPASS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#email">EMail</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-host"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_HOST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-user"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_USER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-pass"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_PASS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-inbox"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_INBOX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-by-user"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-by-secret"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#import-mail-delete"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_DELETE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#binary-dependencies">Binary Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#binary-ocr"><code class="docutils literal notranslate"><span class="pre">BINARY_OCR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#binary-file"><code class="docutils literal notranslate"><span class="pre">BINARY_FILE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#binary-convert"><code class="docutils literal notranslate"><span class="pre">BINARY_CONVERT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#binary-pdftoppm"><code class="docutils literal notranslate"><span class="pre">BINARY_PDFTOPPM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#binary-pdfinfo"><code class="docutils literal notranslate"><span class="pre">BINARY_PDFINFO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#binary-stapler"><code class="docutils literal notranslate"><span class="pre">BINARY_STAPLER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="requirements.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/Installation/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/Installation/index.html">master</a></dd>
+      <dd><a href="../../2.0.x/Installation/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

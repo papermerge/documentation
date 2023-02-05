@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Development Setup &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelog" href="../changelog.html" />
+    <link rel="prev" title="Backend Development Setup" href="backend_dev_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributor’s Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backend_dev_setup.html">Backend Development Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Frontend Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Contributor’s Manual</a> &raquo;</li>
+      <li>Frontend Development Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Contributor&#39;s Manual/frontend_dev_setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="frontend-development-setup">
+<span id="frontend-dev-setup"></span><h1>Frontend Development Setup<a class="headerlink" href="#frontend-development-setup" title="Permalink to this headline"></a></h1>
+<p>This guide is intended for those who want play with <strong>frontend</strong> code for Papermerge.
+It order to follow it you need to be comfortoble with linux command line and JavaScript
+programming language.</p>
+<p>In this guide Ubuntu 20.04 LTS is used as Linux distribution.</p>
+<p>If you follow this document and still have troubles, please open an
+<a class="reference external" href="https://github.com/ciur/papermerge/issues">issue on GitHub</a>.</p>
+<p>First install <a class="reference external" href="https://nodejs.org/en/">NodeJs</a> version 16.x and make sure it is available on your system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ node -v
+
+v16.15.0
+</pre></div>
+</div>
+<p>Also, make sure you have <a class="reference external" href="https://www.npmjs.com/">npm</a>  (node package manager) as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm --version
+
+8.5.5
+</pre></div>
+</div>
+<p>Install <a class="reference external" href="https://emberjs.com/">EmberJs</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo npm install -g ember-cli
+</pre></div>
+</div>
+<p>Clone <a class="reference external" href="https://github.com/papermerge/papermerge.js">PapermergeJs</a> repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:papermerge/papermerge.js.git
+</pre></div>
+</div>
+<p>Install javascript dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd papermerge.js
+$ npm install
+</pre></div>
+</div>
+<p>Run local development server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ember serve
+</pre></div>
+</div>
+<p>If you wish to bind local server to different IP:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ember serve --host 0.0.0.0 --port 4200
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default ember application assumes that REST API backend server
+is available on <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/api/</span></code></p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="backend_dev_setup.html" class="btn btn-neutral float-left" title="Backend Development Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="frontend_dev_setup.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Requirements" href="requirements.html" />
+    <link rel="prev" title="Setup" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Setup</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#components">Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restful-backend-server">RESTful Backend Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#worker">Worker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frontend">Frontend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#websockets-server">Websockets Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database">Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-engine">Search Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-options">Installation Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#docker-compose">Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#portainer">Portainer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bare-metal-installation">Bare Metal Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html">Portainer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Setup</a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Installation/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<p>Papermerge DMS is a distributed system with many moving parts. “Distributed
+system” - means that different components (parts) may run on different
+computers. While this increases the complexity of the system, it also brings
+many benefits like scalability, flexibility and ease of maintenance.</p>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline"></a></h2>
+<p>Papermerge DMS consists of the following components:</p>
+<ul class="simple">
+<li><p>RESTful backend server</p></li>
+<li><p>Worker (there may be one or multiple workers)</p></li>
+<li><p>Frontend (optional)</p></li>
+<li><p>Websockets server (optional)</p></li>
+<li><p>Database</p></li>
+<li><p>Search Engine</p></li>
+</ul>
+<p>The essential parts of Papermerge DMS deployment are RESTful backend server and
+one or multiple workers. The frontend and websockets servers are optional.
+They provide so called official graphical user interface of Papermerge DMS. If
+you don’t plan to use Papermerge DMS via web GUI, you can safely skip frontend
+and websockets parts.</p>
+<section id="restful-backend-server">
+<h3>RESTful Backend Server<a class="headerlink" href="#restful-backend-server" title="Permalink to this headline"></a></h3>
+<p>or REST API backend server (backend server for short) this is the main
+piece, the heart of the system so to speak. It is the web application
+which serves REST API. A typical deployment will have one backend server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>REST API Backend has its own, separate  <a class="reference external" href="https://github.com/papermerge/papermerge-core">RESTful Backend GitHub
+repository</a>.</p>
+</div>
+</section>
+<section id="worker">
+<h3>Worker<a class="headerlink" href="#worker" title="Permalink to this headline"></a></h3>
+<p>This part performs “laborious tasks” like for example OCR of the documents.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to understand why worker is required at all, a little more
+background is necessary: the typical web server consists of a series of
+requests and responses. A well behaved web server for each request it will
+send a response in less than 100 milliseconds. However, the OCR processing
+of a single page of the document can easily take several seconds, maybe
+minutes or even hours(!). This is why OCR processing, relative to typical
+request/response cycle of the web server, is considered a “laborious task”.
+And this is why OCR processing must run in a separate component, outside of
+web server’s request/response cycles.</p>
+</div>
+<p>In a typical Papermerge DMS deployment <strong>there can be as many as possible workers</strong>.
+Number of workers depends on the number of incoming documents and how quick you
+want to process all of them.</p>
+<p>For best results each worker should run on a separate computer. In case of
+docker based deployment - each worker should run in separate docker container.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From source code point of view, worker and REST API web server use
+same codebase. REST API backend server communicates with workers via
+<a class="reference external" href="https://docs.celeryproject.org/en/stable/index.html">Celery</a>/<a class="reference external" href="https://redis.io">Redis</a>.</p>
+</div>
+</section>
+<section id="frontend">
+<h3>Frontend<a class="headerlink" href="#frontend" title="Permalink to this headline"></a></h3>
+<figure class="align-default">
+<img alt="../_images/01-frontend.png" src="../_images/01-frontend.png" />
+</figure>
+<p>Generally speaking you don’t need graphical user interface to successfully use
+Papermerge DMS. However, it is always awesome to have a nice UI (user interface).
+This is what <em>frontend</em> part is all about - it is the official user interface
+of Papermerge DMS.</p>
+<p>In order to accomplish its job, frontend uses backend’s REST API - in this
+regard, frontend is an http client which consumes backend’s REST API. Almost
+any feature of the frontend can be replicated with any http client via REST
+API.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of the features of the frontend are tricky to do with REST API
+only, this is because some parts of the frontend, like for example
+reporting in real time the status of OCR processing, use websockets.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Frontend is a standalone (means separate) part and as such it has
+separate <a class="reference external" href="https://github.com/papermerge/papermerge.js">Frontend GitHub repository</a>.</p>
+</div>
+</section>
+<section id="websockets-server">
+<h3>Websockets Server<a class="headerlink" href="#websockets-server" title="Permalink to this headline"></a></h3>
+<p>This component is used to get real time status of OCR processing and it
+strongly coupled with frontend part. In general if you don’t plan to use
+frontend, you don’t need to deploy websockets server neither.</p>
+</section>
+<section id="database">
+<h3>Database<a class="headerlink" href="#database" title="Permalink to this headline"></a></h3>
+<p>In order to operate sucessfully Papermerge DMS needs a database to store data to.
+It case use one of several databases:</p>
+<ul class="simple">
+<li><p>SQLite</p></li>
+<li><p>PostgreSQL</p></li>
+<li><p>MySQL (MariaDB)</p></li>
+</ul>
+</section>
+<section id="search-engine">
+<h3>Search Engine<a class="headerlink" href="#search-engine" title="Permalink to this headline"></a></h3>
+<p>Papermerge DMS supports multiple search engine backends:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://getting-started-with-xapian.readthedocs.io/en/latest/)">Xapian</a></p></li>
+<li><p>Whoosh</p></li>
+<li><p>Elasticsearch</p></li>
+<li><p>Apache Solr</p></li>
+</ul>
+<p>Xapian is used by default.</p>
+</section>
+</section>
+<section id="installation-options">
+<h2>Installation Options<a class="headerlink" href="#installation-options" title="Permalink to this headline"></a></h2>
+<p>You can go multiple routes to setup and run Papermerge DMS:</p>
+<ul class="simple">
+<li><p>Use the docker compose</p></li>
+<li><p>Kubernetes</p></li>
+<li><p>Bare metal installation</p></li>
+</ul>
+<section id="docker-compose">
+<h3>Docker Compose<a class="headerlink" href="#docker-compose" title="Permalink to this headline"></a></h3>
+<p>Docker a de factor standard containerization technology. With docker you can
+start in almost no time pretty complex configuration setups. Docker ships with
+docker-compose which helps you to easily configure and start all services
+(like database, redis and elastic search for example) required to operate
+Papermerge DMS.</p>
+<p>For more details read <a class="reference internal" href="docker-compose.html#docker-compose"><span class="std std-ref">Docker Compose</span></a> section.</p>
+</section>
+<section id="portainer">
+<h3>Portainer<a class="headerlink" href="#portainer" title="Permalink to this headline"></a></h3>
+<p>Portainer is popular application for managing docker container via convenient
+user interface. Section <a class="reference internal" href="portainer.html#install-with-portainer"><span class="std std-ref">Portainer</span></a> explains in details how to
+quickly start Papermerge DMS instance using Portainer.</p>
+</section>
+<section id="kubernetes">
+<h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline"></a></h3>
+<p>TODO…</p>
+</section>
+<section id="bare-metal-installation">
+<h3>Bare Metal Installation<a class="headerlink" href="#bare-metal-installation" title="Permalink to this headline"></a></h3>
+<p>This method is suitable if you plan to play around with Papermerge DMS internals. In
+particular it is for developers. There are two major parts of Papermerge DMS
+development:</p>
+<ul class="simple">
+<li><p>backend development</p></li>
+<li><p>frontend development</p></li>
+</ul>
+<p>For the backend part is you need to be familiar with Python/Django/Celery
+ecosystem. For the frontend part familiarity with JavaScript/Nodejs/EmberJS is
+necessary.</p>
+<p>For more details read <a class="reference internal" href="../Contributor%27s%20Manual/backend_dev_setup.html#backend-dev-setup"><span class="std std-ref">Backend Development Setup</span></a> section
+and <a class="reference internal" href="../Contributor%27s%20Manual/frontend_dev_setup.html#frontend-dev-setup"><span class="std std-ref">Frontend Development Setup</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="requirements.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="overview.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

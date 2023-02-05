@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Main" href="main.html" />
+    <link rel="prev" title="Settings" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Settings</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="superuser.html">Superuser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html">Search Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_settings_module.html">Django Settings Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Settings</a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Settings/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<span id="settings-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<p>Papermerge DMS loads its settings from a configurations file and environment
+variables. Configuration file must be in <a class="reference external" href="https://toml.io/en/">toml format</a>.</p>
+<p>At first it tries to read following files:</p>
+<ul class="simple">
+<li><p>/etc/papermerge/papermerge.toml</p></li>
+<li><p>/etc/papermerge.toml</p></li>
+<li><p>papermerge.toml - from current project directory</p></li>
+</ul>
+<p>If neither of above files exists it will check environment variable
+<code class="docutils literal notranslate"><span class="pre">PAPERMERGE__CONFIG</span></code> (notice two underscores). In case environment variable
+<code class="docutils literal notranslate"><span class="pre">PAPERMERGE__CONFIG</span></code> points to an existing (toml) file - it will try to read
+its configurations from there.</p>
+<p>Notice that configuration file is optional i.e. if configuration file is not
+found Papermerge DMS will not complain.</p>
+<p>Environment variables can be used to configure Papermerge DMS. <strong>Environment
+variables have priority</strong> over configurations found in toml configuration file.</p>
+<p>In other words, if same configuration is present toml configuration file
+and as environment variable - the one from environment variable will apply.</p>
+<p>For example, say there is a toml configuration file with following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">main</span><span class="p">]</span>
+<span class="n">timezone</span> <span class="o">=</span> <span class="s1">&#39;Europe/Berlin&#39;</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s1">&#39;abc123&#39;</span>
+
+<span class="p">[</span><span class="n">ocr</span><span class="p">]</span>
+<span class="n">default_language</span> <span class="o">=</span> <span class="s1">&#39;deu&#39;</span>
+
+<span class="p">[</span><span class="n">database</span><span class="p">]</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+</pre></div>
+</div>
+<p>and there are defined three environment variables as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PAPERMERGE__MAIN__SECRET_KEY</span><span class="o">=</span><span class="mi">11</span><span class="n">ABGlqKQ29x</span>
+<span class="n">PAPERMERGE__OCR__DEFAULT_LANGUAGE</span><span class="o">=</span><span class="n">fra</span>
+<span class="n">PAPERMERGE__DATABASE__HOST</span><span class="o">=</span><span class="n">postgres</span><span class="o">.</span><span class="n">svc</span>
+</pre></div>
+</div>
+<p>In such case, Papermerge DMS will use following values:</p>
+<ul class="simple">
+<li><p>“Europe/Berlin” for the time zone</p></li>
+<li><p>11ABGlqKQ29x for the secret key</p></li>
+<li><p>“fra” for default ocr language</p></li>
+<li><p>“postgres.svc” for database host</p></li>
+</ul>
+<p>first value is used from toml configuration file while last three values
+are used from environment variable, because <strong>environment variables have
+priority over toml configurations</strong>.</p>
+<p>Environment variables have following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PAPERMERGE__</span><span class="o">&lt;</span><span class="n">section</span><span class="o">&gt;</span><span class="n">__</span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>double underscores (__) are used as delimiter and all letters are in upper case.</p>
+<p>All configurations are groups by sections ocr, database, main etc.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="main.html" class="btn btn-neutral float-right" title="Main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="overview.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

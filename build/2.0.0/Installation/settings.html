@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Help" href="../Help/index.html" />
+    <link rel="prev" title="Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="downloading.html">Downloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_configuration.html">Server Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#django-settings">Django Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#papermerge-prefix">PAPERMERGE_ Prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-app-worker-or-both">Main App, Worker or Both?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paths-and-folders">Paths and Folders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dbdir"><code class="docutils literal notranslate"><span class="pre">DBDIR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#media-dir"><code class="docutils literal notranslate"><span class="pre">MEDIA_DIR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#static-dir"><code class="docutils literal notranslate"><span class="pre">STATIC_DIR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#document-importer">Document Importer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#importer-dir"><code class="docutils literal notranslate"><span class="pre">IMPORTER_DIR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ocr">OCR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ocr-languages"><code class="docutils literal notranslate"><span class="pre">OCR_LANGUAGES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ocr-default-language"><code class="docutils literal notranslate"><span class="pre">OCR_DEFAULT_LANGUAGE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#i18n-and-localization">I18n and Localization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#language-code"><code class="docutils literal notranslate"><span class="pre">LANGUAGE_CODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#language-from-agent"><code class="docutils literal notranslate"><span class="pre">LANGUAGE_FROM_AGENT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#database">Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dbtype"><code class="docutils literal notranslate"><span class="pre">DBTYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dbuser"><code class="docutils literal notranslate"><span class="pre">DBUSER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dbname"><code class="docutils literal notranslate"><span class="pre">DBNAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dbhost"><code class="docutils literal notranslate"><span class="pre">DBHOST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dbport"><code class="docutils literal notranslate"><span class="pre">DBPORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dbpass"><code class="docutils literal notranslate"><span class="pre">DBPASS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#email">EMail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-host"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_HOST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-user"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_USER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-pass"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_PASS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-inbox"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_INBOX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-by-user"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-by-secret"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mail-delete"><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_DELETE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-dependencies">Binary Dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#binary-ocr"><code class="docutils literal notranslate"><span class="pre">BINARY_OCR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-file"><code class="docutils literal notranslate"><span class="pre">BINARY_FILE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-convert"><code class="docutils literal notranslate"><span class="pre">BINARY_CONVERT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-pdftoppm"><code class="docutils literal notranslate"><span class="pre">BINARY_PDFTOPPM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-pdfinfo"><code class="docutils literal notranslate"><span class="pre">BINARY_PDFINFO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-stapler"><code class="docutils literal notranslate"><span class="pre">BINARY_STAPLER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Help/index.html">Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Setup</a> &raquo;</li>
+      <li>Settings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Installation/settings.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Settings<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<p>Papermerge loads its settings from a configurations file. At first it tries to
+read following files:</p>
+<ol class="arabic simple">
+<li><p>/etc/papermerge.conf.py</p></li>
+<li><p>papermerge.conf.py - from current project directory</p></li>
+</ol>
+<p>If neither of above files exists it will check environment variable
+<code class="docutils literal notranslate"><span class="pre">PAPERMERGE_CONFIG_FILE</span></code>. In case environment variable
+<code class="docutils literal notranslate"><span class="pre">PAPERMERGE_CONFIG_FILE</span></code> points to an existing file - it will try to read
+its configurations from there.</p>
+<p>If all above attempts fail, Papermerge will use default configurations values
+and issue you a warning. If you want to get rid of warning message, just create an
+empty configuration file papermerge.conf.py in project root directory (right next to papermerge.conf.py.example) or in location /etc/papermerge.conf.py.</p>
+<p>Configuration file uses python syntax.</p>
+<section id="django-settings">
+<h2>Django Settings<a class="headerlink" href="#django-settings" title="Permalink to this headline"></a></h2>
+<p>Papermerge is based on <a class="reference external" href="https://www.djangoproject.com/">Django Web Development Framework</a>. This means basically that if you’ll know
+how Django projects are configured  - you’ll be more familiar with how
+papermerge’s configuration internals. One particularly important thing to be
+aware of  is the <a class="reference external" href="https://docs.djangoproject.com/en/3.1/topics/settings/#designating-the-settings">DJANGO_SETTINGS_MODULE</a>
+environment variable - which is Django specific. Learn more about Django’s settings
+from <a class="reference external" href="https://docs.djangoproject.com/en/3.1/topics/settings/#">Django documentation</a>.</p>
+</section>
+<section id="papermerge-prefix">
+<h2><a href="#id16"><span class="problematic" id="id17">PAPERMERGE_</span></a> Prefix<a class="headerlink" href="#papermerge-prefix" title="Permalink to this headline"></a></h2>
+<p>There is slight difference where you place papermerge settings enumerated below. In short, when placed in papermerge.conf.py file, they don’t need <code class="docutils literal notranslate"><span class="pre">PAPERMERGE_</span></code> prefix, while if you place very same configuration in django settings file - it needs <code class="docutils literal notranslate"><span class="pre">PAPERMERGE_</span></code> prefix.</p>
+<p>Papermerge settings can be either in:</p>
+<ol class="arabic simple">
+<li><p>papermerge.conf.py file</p></li>
+<li><p>django settings file (the one referenced by DJANGO_SETTINGS_MODULE environment variable)</p></li>
+</ol>
+<p>In <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> file configuration settings are without
+<code class="docutils literal notranslate"><span class="pre">PAPERMERGE_</span></code> prefix, because all (well, 90%) of them are papermerge
+specific. In django settings file however, there are all sort of settings -
+for celery (prefixed with <code class="docutils literal notranslate"><span class="pre">CELERY_</span></code>), for allauth (prefixed with <code class="docutils literal notranslate"><span class="pre">ACCOUNT_</span></code>).
+Respectively settings for specific for
+papermerge are prefixed as well. Thus, any settings listed below, when added directly
+to django settings file - needs <code class="docutils literal notranslate"><span class="pre">PAPERMERGE_</span></code> prefix.</p>
+<p>Configuration file <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> is there for convenience. Most of the time you will need only that file.</p>
+</section>
+<section id="main-app-worker-or-both">
+<h2>Main App, Worker or Both?<a class="headerlink" href="#main-app-worker-or-both" title="Permalink to this headline"></a></h2>
+<p>Some configuration variables are for worker only (the part which <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCRs</span></a> the
+documents, imports documents form local directory or fetches them from
+imap/email account), some configuration variables are for main app only and
+some are for both. This distinction becomes aparent in case you deploy
+main app and worker on separate hosts; another scenario when this distinction
+<strong>is important in case of containerized deployment via docker</strong> - it so,
+because usually main app and worker will run in different containers - and
+thus will have different copies of papermerge.conf.py file.</p>
+<p>The settings below specify for whom configuration settings is addressed. When
+it says: “context: <code class="docutils literal notranslate"><span class="pre">worker</span></code>” - it means variable applies only in context
+of worker i.e. it needs to be changed in <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> on worker
+instance/host/container.</p>
+<p>When settings description states “context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code>” - it means
+configuration needs to be changed <strong>on both - main app and worker</strong> in order to
+function properly.</p>
+<p>Some of the most used configurations which you might be interest in:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#media-dir"><span class="std std-ref">MEDIA_DIR</span></a> - location where all uploaded/imported documents are stored</p></li>
+<li><p><a class="reference internal" href="../User%27s%20Manual/ocr_languages.html#ocr-languages"><span class="std std-ref">OCR Languages Support</span></a> - user can select one of those languages to perform <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCR</span></a></p></li>
+<li><p><a class="reference internal" href="#ocr-default-language"><span class="std std-ref">OCR_DEFAULT_LANGUAGE</span></a> - default language for <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCR</span></a></p></li>
+</ul>
+</section>
+<section id="paths-and-folders">
+<h2>Paths and Folders<a class="headerlink" href="#paths-and-folders" title="Permalink to this headline"></a></h2>
+<section id="dbdir">
+<span id="db-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">DBDIR</span></code><a class="headerlink" href="#dbdir" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/path/to/papermerge/sqlite/db/</span></code></p></li>
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p></li>
+</ul>
+<p>Defines location where db.sqlite3 will be saved.
+By default uses project’s local directory.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DBDIR</span> <span class="o">=</span> <span class="s2">&quot;/opt/papermerge/db/&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="media-dir">
+<span id="id2"></span><h3><code class="docutils literal notranslate"><span class="pre">MEDIA_DIR</span></code><a class="headerlink" href="#media-dir" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/path/to/media/</span></code></p></li>
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p></li>
+</ul>
+<p>Defines directory where all uploaded documents will be stored.</p>
+<p>By default uses a folder named <code class="docutils literal notranslate"><span class="pre">media</span></code> in project’s local directory.</p>
+</section>
+<section id="static-dir">
+<span id="id3"></span><h3><code class="docutils literal notranslate"><span class="pre">STATIC_DIR</span></code><a class="headerlink" href="#static-dir" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/path/to/collected/static/assets/</span></code></p></li>
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p></li>
+</ul>
+<p>Location where all static assets of the project Papermerge project (javascript files, css files) will be copied by <code class="docutils literal notranslate"><span class="pre">./manage</span> <span class="pre">collectstatic</span></code> command.</p>
+<p>By default uses a folder named <cite>static</cite> in project’s local directory.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STATIC_DIR</span> <span class="o">=</span> <span class="s2">&quot;/opt/papermerge/static/&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="document-importer">
+<h2>Document Importer<a class="headerlink" href="#document-importer" title="Permalink to this headline"></a></h2>
+<p>Importer is a command line utility, which you can invoke with <code class="docutils literal notranslate"><span class="pre">./manage.py</span> <span class="pre">importer</span></code>, used to import all documents
+from local directory.</p>
+<section id="importer-dir">
+<span id="id4"></span><h3><code class="docutils literal notranslate"><span class="pre">IMPORTER_DIR</span></code><a class="headerlink" href="#importer-dir" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/path/where/documents/will/be/imported/from/</span></code></p></li>
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p></li>
+</ul>
+<p>Location on local file system where Papermerge
+will try to import documents from.</p>
+<p>Example:</p>
+<p>IMPORTER_DIR = “/opt/papermerge/import/”</p>
+</section>
+</section>
+<section id="ocr">
+<h2>OCR<a class="headerlink" href="#ocr" title="Permalink to this headline"></a></h2>
+<section id="ocr-languages">
+<span id="id5"></span><h3><code class="docutils literal notranslate"><span class="pre">OCR_LANGUAGES</span></code><a class="headerlink" href="#ocr-languages" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p>
+<p>Addinational languages for text <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCR</span></a>. A dictionary where key is <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-2/T code</a> and value human
+text name for language</p>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OCR_LANGUAGES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;heb&#39;</span><span class="p">:</span> <span class="s1">&#39;hebrew&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;jpn&#39;</span><span class="p">:</span> <span class="s1">&#39;japanese&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that both <cite>hebrew</cite> and <cite>japanes</cite> language data for tesseract must be installed. You can check Tesseract’s available languages with following command:</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">List available languages</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tesseract --list-langs
+</pre></div>
+</div>
+</div>
+<p>Default value for OCR_LANGUAGES uses following value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OCR_LANGUAGES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;deu&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutsch&quot;</span><span class="p">,</span>  <span class="c1"># German language</span>
+    <span class="s2">&quot;eng&quot;</span><span class="p">:</span> <span class="s2">&quot;English&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ocr-default-language">
+<span id="id6"></span><h3><code class="docutils literal notranslate"><span class="pre">OCR_DEFAULT_LANGUAGE</span></code><a class="headerlink" href="#ocr-default-language" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p></li>
+</ul>
+<p>By default Papermerge will use language specified with this option to perform <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCR</span></a>. Change this value for language used by majority of your documents.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OCR_DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">&quot;spa&quot;</span>
+</pre></div>
+</div>
+<p>Default value is “deu” (German language).</p>
+</section>
+</section>
+<section id="i18n-and-localization">
+<span id="i18n"></span><h2>I18n and Localization<a class="headerlink" href="#i18n-and-localization" title="Permalink to this headline"></a></h2>
+<section id="language-code">
+<span id="config-language-code"></span><h3><code class="docutils literal notranslate"><span class="pre">LANGUAGE_CODE</span></code><a class="headerlink" href="#language-code" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p></li>
+</ul>
+<p>This option specifies language of user interface.
+There are two options:</p>
+<ul class="simple">
+<li><p>en - for user interface in English language</p></li>
+<li><p>de - for user interface in German language</p></li>
+</ul>
+<p>English is default fallback i.e. if you don’t specify anything
+or specify unsupported language then English will be used.
+Instead of <code class="docutils literal notranslate"><span class="pre">en</span></code> you can use <code class="docutils literal notranslate"><span class="pre">en-US</span></code>, <code class="docutils literal notranslate"><span class="pre">en-UK</span></code> etc.
+Instead of <code class="docutils literal notranslate"><span class="pre">de</span></code> you can use <code class="docutils literal notranslate"><span class="pre">de-DE</span></code>, <code class="docutils literal notranslate"><span class="pre">de-AT</span></code> etc.
+<a class="reference external" href="http://www.i18nguy.com/unicode/language-identifiers.html">See here</a> full least of all available language codes.
+You can <span class="xref std std-ref">translate Papermerge</span> to your own language.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">en</span></code></p>
+</section>
+<section id="language-from-agent">
+<span id="config-language-from-agent"></span><h3><code class="docutils literal notranslate"><span class="pre">LANGUAGE_FROM_AGENT</span></code><a class="headerlink" href="#language-from-agent" title="Permalink to this headline"></a></h3>
+<p>If is set to True, will use same language code as your Web Browser (agent) does.
+Browsers send ‘Accept-Language’ header with their locale.
+For more, <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language">read here</a>.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>  - will override <a class="reference internal" href="#config-language-code"><span class="std std-ref">LANGUAGE_CODE</span></a> option. This means that with <code class="docutils literal notranslate"><span class="pre">LANGUAGE_FROM_AGENT=True</span></code> in whatever locale settings your Web Browser runs - same will be used by Papermerge instance.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">False</span></code> - language code specified in <a class="reference internal" href="#config-language-code"><span class="std std-ref">LANGUAGE_CODE</span></a> option will be used and ‘Accept-Language’ header in browser will be ignored.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</section>
+</section>
+<section id="database">
+<span id="id7"></span><h2>Database<a class="headerlink" href="#database" title="Permalink to this headline"></a></h2>
+<p>By default, Papermerge uses SQLite3 database (which is a file located in <a class="reference internal" href="#db-dir"><span class="std std-ref">DBDIR</span></a>). Alternatively
+you can use a PostgreSQL or MySQL/MariaDB database. Following are options for PostgreSQL and MySQL/MariaDB database connections.</p>
+<blockquote>
+<div></div></blockquote>
+<section id="dbtype">
+<span id="id8"></span><h3><code class="docutils literal notranslate"><span class="pre">DBTYPE</span></code><a class="headerlink" href="#dbtype" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p>
+<p>DB type (if different from SQLite3).
+For PostgreSQL database use one of following values:</p>
+<ul class="simple">
+<li><p>pg</p></li>
+<li><p>postgre</p></li>
+<li><p>postgres</p></li>
+<li><p>postgresql</p></li>
+</ul>
+<p>For MySQL/MariaDB database (they share same database backend) use one of following values:</p>
+<ul class="simple">
+<li><p>my</p></li>
+<li><p>mysql</p></li>
+<li><p>maria</p></li>
+<li><p>mariadb</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DBTYPE</span> <span class="o">=</span> <span class="s2">&quot;mysql&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="dbuser">
+<span id="id9"></span><h3><code class="docutils literal notranslate"><span class="pre">DBUSER</span></code><a class="headerlink" href="#dbuser" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p>
+<p>DB user used for database connection.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DBUSER</span> <span class="o">=</span> <span class="s2">&quot;john&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="dbname">
+<span id="id10"></span><h3><code class="docutils literal notranslate"><span class="pre">DBNAME</span></code><a class="headerlink" href="#dbname" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p>
+<p>Database name.
+Default value is papermerge.</p>
+</section>
+<section id="dbhost">
+<span id="id11"></span><h3><code class="docutils literal notranslate"><span class="pre">DBHOST</span></code><a class="headerlink" href="#dbhost" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p>
+<p>Database host.
+Default value is localhost.</p>
+</section>
+<section id="dbport">
+<span id="id12"></span><h3><code class="docutils literal notranslate"><span class="pre">DBPORT</span></code><a class="headerlink" href="#dbport" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p>
+<p>Database port. Port must be specified as integer number. No string quotes.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DBPORT</span> <span class="o">=</span> <span class="mi">5432</span>
+</pre></div>
+</div>
+<p>Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.</p>
+</section>
+<section id="dbpass">
+<span id="id13"></span><h3><code class="docutils literal notranslate"><span class="pre">DBPASS</span></code><a class="headerlink" href="#dbpass" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app</span></code></p>
+<p>Password for connecting to database
+Default value is empty string.</p>
+</section>
+</section>
+<section id="email">
+<span id="settings-email"></span><h2>EMail<a class="headerlink" href="#email" title="Permalink to this headline"></a></h2>
+<p>You can import documents directly from email/IMAP account. All EMail importer settings must be defined in <code class="docutils literal notranslate"><span class="pre">papermerge.conf.py</span></code> on worker side. Read details about ingesting documents via IMAP account in <a class="reference internal" href="../User%27s%20Manual/consumption.html#importer-imap"><span class="std std-ref">document consumption chapter</span></a>.</p>
+<section id="import-mail-host">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_HOST</span></code><a class="headerlink" href="#import-mail-host" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>IMAP Server host.</p>
+</section>
+<section id="import-mail-user">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_USER</span></code><a class="headerlink" href="#import-mail-user" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>Email account/IMAP user. IMAP user needs read and write access to IMAP “INBOX” folder.</p>
+</section>
+<section id="import-mail-pass">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_PASS</span></code><a class="headerlink" href="#import-mail-pass" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>Email account/IMAP password.</p>
+</section>
+<section id="import-mail-inbox">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_INBOX</span></code><a class="headerlink" href="#import-mail-inbox" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>IMAP folder to read email from.
+Default value for this settings is “INBOX”.</p>
+</section>
+<section id="import-mail-by-user">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_USER</span></code><a class="headerlink" href="#import-mail-by-user" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>Whether to allow users to receive in their inbox folder
+emails sent from their own email address. This capability of assigning attached documents to correct user’s inbox is called <em>email routing</em> and is described at
+length in <a class="reference internal" href="../User%27s%20Manual/consumption.html#email-routing"><span class="std std-ref">One IMAP Account for Many Papermerge Users</span></a>.</p>
+</section>
+<section id="import-mail-by-secret">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_BY_SECRET</span></code><a class="headerlink" href="#import-mail-by-secret" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>Whether to allow users to receive in their inbox folder
+emails containing their own secret. This capability of assigning attached documents to correct user’s inbox is called <em>email routing</em> and is described at
+length in <a class="reference internal" href="../User%27s%20Manual/consumption.html#email-routing"><span class="std std-ref">One IMAP Account for Many Papermerge Users</span></a>.</p>
+</section>
+<section id="import-mail-delete">
+<h3><code class="docutils literal notranslate"><span class="pre">IMPORT_MAIL_DELETE</span></code><a class="headerlink" href="#import-mail-delete" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>Whether to delete emails after processing.</p>
+</section>
+</section>
+<section id="binary-dependencies">
+<span id="id14"></span><h2>Binary Dependencies<a class="headerlink" href="#binary-dependencies" title="Permalink to this headline"></a></h2>
+<p>Papermerge uses a number of open source 3rd parties for various purposes. One
+of the most obvious example is tesseract - used to <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCR</span></a> documents (extract text
+from binary image file). Another, less obvious example, is pdfinfo utility
+provided by poppler-utils package: pdfinfo is used to count number of pages in
+pdf document. Configurations listed below allow you to override path to
+specific dependency.</p>
+<section id="binary-ocr">
+<h3><code class="docutils literal notranslate"><span class="pre">BINARY_OCR</span></code><a class="headerlink" href="#binary-ocr" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">worker</span></code></p>
+<p>Full path to tesseract binary/executable file. Tesseract is used for <a class="reference internal" href="../User%27s%20Manual/glossary.html#ocr"><span class="std std-ref">OCR</span></a> operations - extracting of text from binary image files (jpeg, png, tiff).
+Default value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY_OCR</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/tesseract&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="binary-file">
+<h3><code class="docutils literal notranslate"><span class="pre">BINARY_FILE</span></code><a class="headerlink" href="#binary-file" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p>
+<p>File utility used to find out mime type of given file.
+Default value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY_FILE</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/file&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="binary-convert">
+<h3><code class="docutils literal notranslate"><span class="pre">BINARY_CONVERT</span></code><a class="headerlink" href="#binary-convert" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p>
+<p>Convert utility is provided by ImageMagick package.
+It is used for resizing images.
+Default value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY_CONVERT</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/convert&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="binary-pdftoppm">
+<h3><code class="docutils literal notranslate"><span class="pre">BINARY_PDFTOPPM</span></code><a class="headerlink" href="#binary-pdftoppm" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p>
+<p>Provided by Poppler Utils.
+Used to extract images from PDF file.
+Default value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY_PDFTOPPM</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/pdftoppm&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="binary-pdfinfo">
+<h3><code class="docutils literal notranslate"><span class="pre">BINARY_PDFINFO</span></code><a class="headerlink" href="#binary-pdfinfo" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p>
+<p>Provided by Poppler Utils.
+Used to get page count in PDF file. Default value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY_PDFINFO</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/pdfinfo&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="binary-stapler">
+<h3><code class="docutils literal notranslate"><span class="pre">BINARY_STAPLER</span></code><a class="headerlink" href="#binary-stapler" title="Permalink to this headline"></a></h3>
+<p>context: <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">app,</span> <span class="pre">worker</span></code></p>
+<p>Provided by <a class="reference external" href="https://github.com/hellerbarde/stapler">stapler</a>. This external tool is used to reorder, cut/paste, delete pages within PDF document.</p>
+<p>Default value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY_STAPLER</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/stapler&quot;</span>
+</pre></div>
+</div>
+<p>Depending on you system, and the way you installed stapler - you may want to
+adjust <code class="docutils literal notranslate"><span class="pre">BINARY_STAPLER</span></code> path.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Help/index.html" class="btn btn-neutral float-right" title="Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="settings.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/Installation/settings.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/index.html">master</a></dd>
+      <dd><a href="../../2.0.x/Installation/settings.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

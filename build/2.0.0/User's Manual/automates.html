@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automates &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Consumption" href="consumption.html" />
+    <link rel="prev" title="Versions" href="versions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Help/index.html">Help</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags_and_folders.html">Tags and Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_management.html">Page Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Automates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#document-matching-algorithms">Document Matching Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#case-sensitivity-attribute">Case Sensitivity Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inbox-automates">Inbox + Automates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automates-and-ui-logs">Automates and UI Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-mismatched-automates">Troubleshooting Mismatched Automates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="consumption.html">Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api.html">REST API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr_languages.html">OCR Languages Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document_pipelines.html">Document Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">User’s Manual</a> &raquo;</li>
+      <li>Automates</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/User&#39;s Manual/automates.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="automates">
+<span id="automation"></span><h1>Automates<a class="headerlink" href="#automates" title="Permalink to this headline"></a></h1>
+<p>Automates are very handy  if you want to apply automatically certain actions
+on incoming documents. For example, if document contains specific keywords
+(like groceries store name) then automatically add tag “groceries” on it. Even
+better use case would be: if document contains specific keywords apply
+“groceries” tag on the document AND move it from <em>Inbox</em> to
+<span class="menuselection">Expenses ‣ Groceries</span> folder. Incoming documents are those
+found in your <em>Inbox</em> folder.</p>
+<p>If you want to see automates in action watch following screencast. The rest of
+this chapter explains automate feature in detail.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5adbHHmNcEw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>With Automation feature you can automate repetitive tasks like:</p>
+<ol class="arabic simple">
+<li><p>moving documents into their destination folder</p></li>
+<li><p>assigning specific tags to the document</p></li>
+</ol>
+<figure class="align-default" id="id1">
+<img alt="List of document automate instances" src="../_images/01-automates-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1 - Example of automate instance</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Each automate instance consists of:</p>
+<ul class="simple">
+<li><p>name or a title - give it whatever name you like</p></li>
+<li><p>keywords - terms or words to look up in the document to figure out if current automate is applicable for given document</p></li>
+<li><p><a class="reference internal" href="#document-matching-alg"><span class="std std-ref">matching algorithm</span></a> - method used to decide if document matches the automate</p></li>
+<li><p><a class="reference internal" href="#case-sensitivity-attr"><span class="std std-ref">case sensitivity attribute</span></a> - are keywords specified in match case sensitive?</p></li>
+<li><p>(optional) destination folder - where shall it move the matched document?</p></li>
+<li><p>(optional) tags - which tags shall it associate to the matched document?</p></li>
+</ul>
+<p>Note that last two attributes of Automates - destination folder and tags - are
+optional. You may indicate one of them, both or neither.</p>
+<section id="document-matching-algorithms">
+<span id="document-matching-alg"></span><h2>Document Matching Algorithms<a class="headerlink" href="#document-matching-algorithms" title="Permalink to this headline"></a></h2>
+<p>In order to decide if automate instance applies to current document - it will look for certain
+keywords in the document. For example if document contains capital case REWE, then this document
+must be routed to folder Expenses/Groceries; if document contains word Deutschlandradio (german word which translates to english as German radio), then it will be routed to
+ARD ZDF Briefe</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It is crucial to understand that <strong>matching is per Page</strong>. Thus, statement <em>match a document</em> is not entirely correct.
+Automation processes is triggered every time when <a class="reference internal" href="glossary.html#ocr"><span class="std std-ref">OCR</span></a> for
+certain page completes. <span class="xref std std-ref">OCRed</span> page is sent to automation module and
+Papermerge will try to match each automate instance on it. In case there is
+a match - it is considered that document matched automate criteria,
+although technically correct is - page of respective the document matched!</p>
+</div>
+<p>There are four different ways to perform a match:</p>
+<ol class="arabic simple">
+<li><p>Any</p></li>
+<li><p>All</p></li>
+<li><p>Literal</p></li>
+<li><p>Regular Expression</p></li>
+</ol>
+<p>With <code class="docutils literal notranslate"><span class="pre">Any</span></code> matching algorithm, document matches <strong>if any of mentioned
+keyword will match</strong>. With <code class="docutils literal notranslate"><span class="pre">All</span></code>, document matches <strong>if all mentioned
+keywords are found in document</strong>. Keywords order does not matter.
+With <code class="docutils literal notranslate"><span class="pre">Literal</span></code> matching algorithm, text you enter must appear in the
+document exactly as you’ve entered it.
+You can use <code class="docutils literal notranslate"><span class="pre">Regular</span> <span class="pre">Expression</span></code> for matching criteria. Regular expressions
+is a general programming method of text matching. Computer programmers usually
+know what it means.</p>
+<p>Matching keywords should be separated by one or more spaces.</p>
+<figure class="align-default" id="id2">
+<img alt="Keywords for matching criteria separated by one or more space characters" src="../_images/document-matching-keywords-delimited-by-space-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2 - Keywords must be separated by one or more space characters</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="case-sensitivity-attribute">
+<span id="case-sensitivity-attr"></span><h2>Case Sensitivity Attribute<a class="headerlink" href="#case-sensitivity-attribute" title="Permalink to this headline"></a></h2>
+<p>If case sensitivity attribute is checked, the matching algorithms will look up for
+words occurrences with <strong>exact same letter case as matching keywords</strong></p>
+<p>For example if “schnell” is mentioned as keyword and <em>Is case sensitive</em> is
+checked then occurrences in the document of terms “SCHNELL”, “Schnell”,
+“schneLL” will be ignored because of mismatched letter case i.e. document will
+not match automate criteria.</p>
+<p>On the other hand, if very same keyword “schnell” is used but <em>Is case
+sensitive</em> attributed is unchecked, then any of following terms “SCHNELL”,
+“Schnell”, “schneLL” will match i.e. document will match automate criteria.</p>
+</section>
+<section id="inbox-automates">
+<h2>Inbox + Automates<a class="headerlink" href="#inbox-automates" title="Permalink to this headline"></a></h2>
+<p>Automates run only for documents in <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> folder.</p>
+<p>Imported documents from <a class="reference internal" href="consumption.html#importer-directory"><span class="std std-ref">local watch directory</span></a> or
+<a class="reference internal" href="consumption.html#importer-imap"><span class="std std-ref">from email account</span></a> end up in your <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> folder.
+Papermerge will apply automates only on the documents in <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> -
+regardless where those documents were imported from. The side effect of this
+feature is that <strong>automates will run on documents in</strong> <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> <strong>even if you
+uploaded them manually</strong> - this one is a very useful trick to test your
+automates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a good reason why automates apply only on the documents from
+<code class="docutils literal notranslate"><span class="pre">Inbox</span></code>. The reason is that in <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> documents may disappear. In
+other words -  it is acceptable for documents to suddenly move from
+<code class="docutils literal notranslate"><span class="pre">Inbox</span></code> to another folder - due to automation match.
+If automates would be applied on any folder - then imagine
+how confused you might be if documents would unexpectedly disappear from
+your current folder (due to automation match)!</p>
+</div>
+</section>
+<section id="automates-and-ui-logs">
+<h2>Automates and UI Logs<a class="headerlink" href="#automates-and-ui-logs" title="Permalink to this headline"></a></h2>
+<p>You can check which automate matched specific document by looking at UI Logs:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/02-ui-logs-v2.png" src="../_images/02-ui-logs-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In UI Log entry you can see document’s name, page number and document id on which
+Automates were applied (remember, automates are applied per Page!).
+Also, you can see that text which was extracted from that document:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>UI Logs are very convient to see the <strong>extracted text</strong> from the document.
+Depending on the quality of the scan, extracted text may or may not exactly match
+textual content of the document. For instance in figure below, OCR engine extracted text
+“SCHNEIL” although the actual text on the receipt was “SCHNELL”. Use UI Logs to spot such errors
+and adjust <em>MATCH</em> term.</p>
+</div>
+<figure class="align-default" id="id4">
+<img alt="../_images/03-ui-logs-v2.png" src="../_images/03-ui-logs-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In order to check which Automate matched this document/page, you need to <strong>scroll to the
+very bottom of the message</strong>:</p>
+<figure class="align-default" id="id5">
+<img alt="../_images/04-ui-logs-v2.png" src="../_images/04-ui-logs-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 5</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="troubleshooting-mismatched-automates">
+<h2>Troubleshooting Mismatched Automates<a class="headerlink" href="#troubleshooting-mismatched-automates" title="Permalink to this headline"></a></h2>
+<p>Writing Automates involves little bit of guesswork. Even if you know for sure
+that certain words will occur in the document, it will take couple of trial
+and error cycles until you’ll end up with correct <code class="docutils literal notranslate"><span class="pre">match</span></code> field.</p>
+<p>To support this try-error cycle, with Papermerge you can manually trigger
+automates. It is very intuitive how re-run automates:</p>
+<ol class="arabic simple">
+<li><p>Select Automate you wish to run</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">selected</span> <span class="pre">automates</span></code> in the action drop down on the right</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Apply</span></code> button</p></li>
+</ol>
+<figure class="align-default" id="id6">
+<img alt="Manually run selected automates" src="../_images/manually-run-automates-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 6 - Manually run selected automates</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Let’s consider an example which will illustrate how Automates are
+troubleshooted. The goal is to create an Automate which will automatically
+move Schnell receipts to <span class="menuselection">Expenses ‣ Groceries</span> folder and
+will tag them with <code class="docutils literal notranslate"><span class="pre">groceries</span></code>, <code class="docutils literal notranslate"><span class="pre">receipt</span></code>, <code class="docutils literal notranslate"><span class="pre">schnell</span></code> tags.
+For this purpose, following Automate was created:</p>
+<figure class="align-default" id="id7">
+<img alt="../_images/automate-and-two-receipts.png" src="../_images/automate-and-two-receipts.png" />
+<figcaption>
+<p><span class="caption-text">Figure 7</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">Match</span></code> field has as value one single lowercase keyword “schnell”. <code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">case</span> <span class="pre">sensitive</span></code> field is checked.</p>
+<p>For the beginning, two receipts shown in Figure 7 are uploaded to <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Automates are triggered for all <a class="reference internal" href="glossary.html#incoming-documents"><span class="std std-ref">incoming documents</span></a>, even if they are manually uploaded to <code class="docutils literal notranslate"><span class="pre">Inbox</span></code>
+folder. However, if you cut/paste document(s) from other folder to <code class="docutils literal notranslate"><span class="pre">Inbox</span></code>
+- automates <strong>won’t run</strong>.</p>
+</div>
+<p>To make sure that automates ran, check last entries in <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Logs</span></code>. Also, in
+<code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Logs</span></code> you will see actual extracted text the automates were compared
+with. For Automate and receipts from Figure 7 - uploaded receipts still will
+be in <code class="docutils literal notranslate"><span class="pre">Inbox</span></code>. The reason of that, is checked <code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">case</span> <span class="pre">sensitive</span></code>
+attribute: in extracted text for “schnell” all uppercase while our keyword is
+all lowercase.</p>
+<p>Let’s try again. Use following steps:</p>
+<ol class="arabic simple">
+<li><p>Uncheck <code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">case</span> <span class="pre">sensitive</span> <span class="pre">attribute</span></code></p></li>
+<li><p>Save changes <em>schnell receipts</em> automate</p></li>
+<li><p>Select <em>schnell receipts</em> automate</p></li>
+<li><p>run Automate again using action drop down menu <span class="menuselection">Action ‣ Run selected automates ‣ Apply</span></p></li>
+</ol>
+<p>You will notice that one of the two receipts moved indeed from <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> folder to “Groceries” folder. Also it has applied all three tags as depicted in Figure 8.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../_images/troubleshooting-automates-step-2.png"><img alt="../_images/troubleshooting-automates-step-2.png" src="../_images/troubleshooting-automates-step-2.png" style="width: 577.6px; height: 322.40000000000003px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 8 - after unchecking <cite>Is case sensitive</cite> attribute and running again Automate one of the two receipts was indeed moved from <code class="docutils literal notranslate"><span class="pre">Inbox</span></code> to <span class="menuselection">Expenses ‣ Groceries</span> folder and has all three tags applied.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Why other receipt didn’t match ? Let’s have a closer look the UI Logs. Open last UI Log entry which starts with <em>Running automates for document brother_004026.pdf</em> text:</p>
+<figure class="align-default" id="id9">
+<img alt="../_images/ocr-engine-made-a-mistake.png" src="../_images/ocr-engine-made-a-mistake.png" />
+<figcaption>
+<p><span class="caption-text">Figure 9 - OCR engine got confused and extracted “SCHNEIL” instead of “SCHNELL”</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>You see in Figure 9 above that OCR engine got confused and extracted slightly wrong text. To take into account this error as well, add to <code class="docutils literal notranslate"><span class="pre">Match</span></code> field of Automate “schneil” keyword as well:</p>
+<figure class="align-default" id="id10">
+<img alt="../_images/automate-with-two-keywords.png" src="../_images/automate-with-two-keywords.png" />
+<figcaption>
+<p><span class="caption-text">Figure 10</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">Matching</span> <span class="pre">Algorithm</span></code> is <code class="docutils literal notranslate"><span class="pre">Any</span></code>, this means that Automate will
+match if any mentioned keywords will match. After saving and
+rerunning automate - second receipt is successfully moved to Groceries folder
+and it has all three tags applied as you can see in picture below:</p>
+<figure class="align-default" id="id11">
+<img alt="../_images/correctly-applied-automates.png" src="../_images/correctly-applied-automates.png" />
+<figcaption>
+<p><span class="caption-text">Figure 11 - After two attempts finally Automate matched receipts and they were moved
+into target folder.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Watch following screencast to see this troubleshooting use case in action:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/825woFE5Cas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="versions.html" class="btn btn-neutral float-left" title="Versions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="consumption.html" class="btn btn-neutral float-right" title="Consumption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="automates.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/User's Manual/automates.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/index.html">master</a></dd>
+      <dd><a href="../../2.0.x/User's Manual/automates.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

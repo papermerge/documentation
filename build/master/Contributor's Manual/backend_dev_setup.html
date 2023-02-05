@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backend Development Setup &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frontend Development Setup" href="frontend_dev_setup.html" />
+    <link rel="prev" title="Contributor’s Manual" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributor’s Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Backend Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rest-api-server">REST API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker">Worker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="frontend_dev_setup.html">Frontend Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Contributor’s Manual</a> &raquo;</li>
+      <li>Backend Development Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Contributor&#39;s Manual/backend_dev_setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backend-development-setup">
+<span id="backend-dev-setup"></span><h1>Backend Development Setup<a class="headerlink" href="#backend-development-setup" title="Permalink to this headline"></a></h1>
+<p>This guide is intended for those who want play with <strong>backend</strong> code for Papermerge.
+It order to follow it you need to be comfortoble with linux command line and python
+programming language.</p>
+<p>In this guide Ubuntu 20.04 LTS is used as Linux distribution.</p>
+<p>If you follow this document and still have troubles, please open an
+<a class="reference external" href="https://github.com/ciur/papermerge/issues">issue on GitHub</a>.</p>
+<p>Install required Ubuntu 20.04 LTS deb packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install build-essential \
+    python3-dev \
+    libpq-dev \
+    imagemagick \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    tesseract-ocr-deu \
+    tesseract-ocr-fra \
+    tesseract-ocr-spa
+</pre></div>
+</div>
+<p>Clone <a class="reference external" href="https://github.com/papermerge/papermerge-core">papermerge-core</a> repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:papermerge/papermerge-core.git
+</pre></div>
+</div>
+<p>Install python <a class="reference external" href="https://python-poetry.org/">poetry</a> - it is used for python dependencies management.</p>
+<p>Using poetry, install python dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/papermerge-core
+$ poetry install
+</pre></div>
+</div>
+<p>Activate python virtual environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ poetry shell
+</pre></div>
+</div>
+<p>Set following shell environment variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export DJANGO_SETTINGS_MODULE=config.settings
+$ export PAPERMERGE_SECRET_KEY=somesecretkey
+$ export PYTHONPATH=&lt;project-root&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;project-root&gt;</span></code> is folder where your project was cloned. Example: <code class="docutils literal notranslate"><span class="pre">/home/vagrant/papermerge-core/</span></code>.</p>
+</div>
+<p>Change current working directory to <code class="docutils literal notranslate"><span class="pre">&lt;project-root&gt;/docker/dev</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd docker/dev
+</pre></div>
+</div>
+<p>Run database migrations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py migrate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default Papermerge uses sqlite3 database.</p>
+</div>
+<p>Create superuser for Papermerge instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py createsuperuser
+</pre></div>
+</div>
+<p>Papermerge backend can start either as REST API server or as worker.
+There can be as many workers as you want, but only one REST API server.
+REST API server is http web server for serving REST API requests.
+Worker(s) perform background jobs like OCR processing, indexing.</p>
+<section id="rest-api-server">
+<h2>REST API Server<a class="headerlink" href="#rest-api-server" title="Permalink to this headline"></a></h2>
+<p>Switch to <code class="docutils literal notranslate"><span class="pre">docker/dev</span></code> folder in <code class="docutils literal notranslate"><span class="pre">&lt;project-root&gt;</span></code> and activate python virtual environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd &lt;project-root&gt;/docker/dev
+$ poetry shell
+</pre></div>
+</div>
+<p>Set shell environment variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export DJANGO_SETTINGS_MODULE=config.settings
+$ export PAPERMERGE_SECRET_KEY=somesecretkey
+$ export PYTHONPATH=&lt;project-root&gt;
+</pre></div>
+</div>
+<p>Start REST API webserver with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py runserver
+</pre></div>
+</div>
+<p>Last command will start backend REST API server on localhost port 8000.</p>
+<p>If you want to bind REST API server to <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code> IP use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py runserver 0.0.0.0:8000
+</pre></div>
+</div>
+<p>You can access REST API backend via <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/api/</span></code> url.</p>
+</section>
+<section id="worker">
+<h2>Worker<a class="headerlink" href="#worker" title="Permalink to this headline"></a></h2>
+<p>Worker(s) perform background jobs like OCR processing. Worker communicate with
+REST API server via <a class="reference external" href="https://redis.io/">Redis</a>. By default Worker(s) and REST API server will assume
+that Redis is up and available on 127.0.0.1:6379.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Without any further configuration boths REST API server and worker(s) will
+communicate via <a class="reference external" href="https://redis.io/">Redis</a> which is expected to be available on
+127.0.0.1:6379</p>
+</div>
+<p>Switch to <code class="docutils literal notranslate"><span class="pre">docker/dev</span></code> folder in <code class="docutils literal notranslate"><span class="pre">&lt;project-root&gt;</span></code> and activate python virtual environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd &lt;project-root&gt;/docker/dev
+$ poetry shell
+</pre></div>
+</div>
+<p>Set shell environment variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export DJANGO_SETTINGS_MODULE=config.settings
+$ export PAPERMERGE_SECRET_KEY=somesecretkey
+$ export PYTHONPATH=&lt;project-root&gt;
+</pre></div>
+</div>
+<p>Start worker with following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./manage.py worker
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Contributor’s Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="frontend_dev_setup.html" class="btn btn-neutral float-right" title="Frontend Development Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="backend_dev_setup.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Papermerge Cli &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Papermerge Email" href="email.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Utilities</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Papermerge Cli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-browse-nodes">List - Browse Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#me-current-user-details">Me - Current User Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-preferences">List Preferences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-preferences">Update Preferences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-folders-documents">Import Folders/Documents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download">Download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Papermerge Email</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Command Line Utilities</a> &raquo;</li>
+      <li>Papermerge Cli</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Command Line Utilities/cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="papermerge-cli">
+<span id="id1"></span><h1>Papermerge Cli<a class="headerlink" href="#papermerge-cli" title="Permalink to this headline"></a></h1>
+<p>Command line utility which uses REST API to interact with your Papermerge DMS
+instance. It can be used to:</p>
+<ul class="simple">
+<li><p>upload/import documents from local filesystem</p></li>
+<li><p>download documents and folder</p></li>
+<li><p>search through documents</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<img alt="../_images/upload-documents-from-local-folder.gif" src="../_images/upload-documents-from-local-folder.gif" />
+<figcaption>
+<p><span class="caption-text">Upload documents with papermerge-cli command line utility</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">papermerge-cli</span></code> you need to have python installed.
+You need python version &gt;= 3.10.</p>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline"></a></h2>
+<p>Install <code class="docutils literal notranslate"><span class="pre">papermerge-cli</span></code> with following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install papermerge-cli
+</pre></div>
+</div>
+<p>pip is package installer for python - it usually comes with python
+interpreter. In order to install pip on Ubuntu use following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install python3-pip
+</pre></div>
+</div>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h2>
+<p>Papermerge Cli is configured via environment variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PAPERMERGE_CLI__HOST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAPERMERGE_CLI__TOKEN</span></code></p></li>
+</ul>
+<p>as the name suggests, the first one is the host of the REST API server
+and second value is the REST API token.</p>
+<p>REST API server should be specified with <code class="docutils literal notranslate"><span class="pre">http://</span></code> or <code class="docutils literal notranslate"><span class="pre">https://</span></code>
+prefix, but without the <code class="docutils literal notranslate"><span class="pre">/api</span></code> suffix. Valid values examples: <a class="reference external" href="http://papermege.local">http://papermege.local</a>,
+<a class="reference external" href="https://my-dms.papermerge.de">https://my-dms.papermerge.de</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The host may or may not contain the <code class="docutils literal notranslate"><span class="pre">/</span></code>. E.g. <a class="reference external" href="http://papermege.local">http://papermege.local</a> and
+<a class="reference external" href="http://papermerge.local/">http://papermerge.local/</a> are both valid values and point to the same host</p>
+</div>
+<p>REST API token can be obtained either from Papermerge DMS <a class="reference internal" href="../User%27s%20Manual/rest_api_token.html#rest-api-token"><span class="std std-ref">user menu -&gt; API Tokens</span></a>
+or directly from command line by using <code class="docutils literal notranslate"><span class="pre">auth</span></code> subcommand:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export PAPERMERGE_CLI__HOST=https://mydms.some-vps.com
+$ papermerge-cli auth
+</pre></div>
+</div>
+<p>Papermerge Cli will prompt you for username and password. On successfull
+authentication your REST API token will be displayed - now you can use
+this token for all subsequent authentications.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>REST API host can be provided by command line option <code class="docutils literal notranslate"><span class="pre">--host</span></code></p>
+</div>
+</section>
+<section id="help">
+<h2>Help<a class="headerlink" href="#help" title="Permalink to this headline"></a></h2>
+<p>In order to get general help about the command use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli --help
+</pre></div>
+</div>
+<p>In order to get help for individual commands, place <code class="docutils literal notranslate"><span class="pre">--help</span></code> flag after the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli import --help
+</pre></div>
+</div>
+</section>
+<section id="list-browse-nodes">
+<h2>List - Browse Nodes<a class="headerlink" href="#list-browse-nodes" title="Permalink to this headline"></a></h2>
+<p>Now, with <code class="docutils literal notranslate"><span class="pre">PAPERMERGE_CLI__HOST</span></code> and <code class="docutils literal notranslate"><span class="pre">PAPERMERGE_CLI__TOKEN</span></code> environment
+variables set you can use list content of you home folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli list
+</pre></div>
+</div>
+<p>In order to list content of specific folder (including inbox folder):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli list --parent-uuid=UUID-of-the-folder
+</pre></div>
+</div>
+</section>
+<section id="me-current-user-details">
+<h2>Me - Current User Details<a class="headerlink" href="#me-current-user-details" title="Permalink to this headline"></a></h2>
+<p>In order to see current user details (current user UUID, home folder UUID, inbox
+folder UUID, username etc):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli me
+</pre></div>
+</div>
+</section>
+<section id="list-preferences">
+<h2>List Preferences<a class="headerlink" href="#list-preferences" title="Permalink to this headline"></a></h2>
+<p>List all preferences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli pref-list
+</pre></div>
+</div>
+<p>List specific section of the preferences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli pref-list --section=ocr
+</pre></div>
+</div>
+<p>Show value of preference <cite>trigger</cite> from section <cite>ocr</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli pref-list --section=ocr --name=trigger
+</pre></div>
+</div>
+</section>
+<section id="update-preferences">
+<h2>Update Preferences<a class="headerlink" href="#update-preferences" title="Permalink to this headline"></a></h2>
+<p>Update value of the preference <cite>trigger</cite> from section <cite>ocr</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli pref-update --section=ocr --name=trigger --value=auto
+</pre></div>
+</div>
+</section>
+<section id="import-folders-documents">
+<h2>Import Folders/Documents<a class="headerlink" href="#import-folders-documents" title="Permalink to this headline"></a></h2>
+<p>Recursively imports folder from local filesystem. For example, in order
+to import recursively all documents from local folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli import /path/to/local/folder/
+</pre></div>
+</div>
+<p>You can also import one single document:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli import /path/to/some/document.pdf
+</pre></div>
+</div>
+<p>If you want the local copy the uploaded documents <strong>to be deleted</strong> after
+successful import - use <code class="docutils literal notranslate"><span class="pre">--delete</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli import --delete /path/to/folder/
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Be extremely careful with <code class="docutils literal notranslate"><span class="pre">--delete</span></code> flag! When present,
+<code class="docutils literal notranslate"><span class="pre">papermerge-cli</span></code> will irreversible <strong>delete the local copy</strong> of all
+documents and folders in the <code class="docutils literal notranslate"><span class="pre">/path/to/folder/</span></code>!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">--delete</span></code> flag deletes the local copy of the documents/path to import
+<strong>after successful upload</strong> - this means that even if though you local copy
+of the documents vanished - the originals are still available in Papermerge DMS!</p>
+</div>
+</section>
+<section id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline"></a></h2>
+<p>Search for node (document or folder) by text or by tags:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli search -q apotheke
+</pre></div>
+</div>
+<p>Returns all documents (or folders with such title) containing OCRed
+text ‘apotheke’.</p>
+<p>You can search by tags only:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli search --tags important
+</pre></div>
+</div>
+<p>Will search for all documents (and folders) which were tagged with
+tag ‘important’ When multiple tags are provided, by default, will search for
+nodes with all mentioned tags:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli search --tags important,letters  # returns nodes with both tags important AND letters
+</pre></div>
+</div>
+<p>In case you want to search for nodes with ANY of the provided tags, use
+<cite>tags-op</cite> parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli search --tags important,letters --tags-op any
+</pre></div>
+</div>
+<p>Finally, <cite>tags</cite> and <cite>q</cite> may be combined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli search --tags important -q apartment
+</pre></div>
+</div>
+</section>
+<section id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline"></a></h2>
+<p>Downloads a folder or a document:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli download --uuid &lt;document or folder uuid&gt;
+</pre></div>
+</div>
+<p>In case uuid is the ID of specific folder - a zip file will be downloaded; zip
+file will contain all nodes insides specified folder.</p>
+<p>You can use <cite>–uuid</cite> multiple times:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli download --uuid &lt;uuid of doc1&gt; --uuid &lt;uuid of doc2&gt; --uuid &lt;uuid of folder 1&gt;
+</pre></div>
+</div>
+<p>If you want to download content to specific file on your file-system, use <cite>-f</cite>
+option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli download --uuid &lt;doc-uuid&gt; -f /path/to/file-system/document.pdf
+</pre></div>
+</div>
+<p>or in case of uuid is a folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli download --uuid &lt;folder-uuid&gt;  -f /path/to/file-system/folder.zip
+</pre></div>
+</div>
+<p>You can also specify the format/type of the downloaded archive (e.g. in case node is either a folder):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ papermerge-cli download --uuid &lt;folder-uuid&gt;  -f /path/to/file-system/folder.targz -t targz
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="email.html" class="btn btn-neutral float-right" title="Papermerge Email" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="cli.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

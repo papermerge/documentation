@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Papermerge DMS &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setup" href="Installation/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Papermerge DMS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="papermerge-dms">
+<h1>Papermerge DMS<a class="headerlink" href="#papermerge-dms" title="Permalink to this headline"></a></h1>
+<p>Papermerge is open source <strong>document management system (DMS)</strong> designed to work
+with <strong>scanned documents</strong>. Papermerge uses <strong>OCR (optical character
+recognition)</strong> technology to extract meaningful data from ingested documents.
+Data extracted with OCR is then used to index documents and prepares them for
+full text search.</p>
+<p>Papermerge is <strong>web based</strong> software and it provides look and feel of
+modern desktop application. It has features like dual panel document browser,
+organizing documents in folders, drag and drop, tagging documents and
+folders so that you can efficiently store, organize and automate your <a class="reference internal" href="glossary.html#digital-archive"><span class="std std-ref">digital
+archives</span></a> workflows.</p>
+<figure class="align-default" id="id1">
+<img alt="_images/document-management-system-screenshot.png" src="_images/document-management-system-screenshot.png" />
+<figcaption>
+<p><span class="caption-text">Papermerge screenshot</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="features-highlights">
+<h2>Features Highlights<a class="headerlink" href="#features-highlights" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Works well with PDFs</p></li>
+<li><p>Desktop like user interface</p></li>
+<li><p>Dual panel mode</p></li>
+<li><p>OCR - used to extract text for documents indexing</p></li>
+<li><p>OCRed text overlay (you can download document with OCRed text overlay)</p></li>
+<li><p>Full text search (supports multiple search engines)</p></li>
+<li><p>Document Versioning</p></li>
+<li><p>Tags - assign colored tags to documents or folders</p></li>
+<li><p>Folders - users can organize documents in folders</p></li>
+<li><p>Multi-User</p></li>
+<li><p>User permissions management</p></li>
+<li><p>Fully REST API (all features can be consumed via REST API)</p></li>
+<li><p>Page Management - delete, reorder, rotate, merge, move, extract</p></li>
+</ul>
+</section>
+<section id="what-it-does">
+<h2>What It Does<a class="headerlink" href="#what-it-does" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>It extracts (using OCR) and indexes text from your documents</p></li>
+<li><p>Provides modern, desktop like user interface to easily find your documents</p></li>
+<li><dl class="simple">
+<dt>Helps you instantly find your documents:</dt><dd><ul>
+<li><p>based on extracted text</p></li>
+<li><p>based on <a class="reference internal" href="User%27s%20Manual/tags_and_folders.html"><span class="doc">Tags and Folders</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Helps you fix scanned documents issues like:</dt><dd><ul>
+<li><p>delete blank, semi-blank or just irrelevant pages</p></li>
+<li><p>rotate pages</p></li>
+<li><p>move strayed pages between documents</p></li>
+<li><p>change page order within the document</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="what-it-doesn-t-do">
+<h2>What It Doesn’t Do<a class="headerlink" href="#what-it-doesn-t-do" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>It does <strong>not</strong> take control of your documents. Documents are <strong>stored on filesystem</strong> in a simple and intuitive manner so that you can take snapshot of your data at any time</p></li>
+<li><p>It does <strong>not</strong> stay in your way when you make decisions about your data</p></li>
+<li><p>It does <strong>not</strong> overwrite your original documents</p></li>
+</ul>
+</section>
+<section id="right-tool-for-you">
+<h2>Right Tool for You?<a class="headerlink" href="#right-tool-for-you" title="Permalink to this headline"></a></h2>
+<p>To be efficient you always need to choose right tool for the problem. Because
+Document Management is too generic - I think that a definition of what is a
+Document in context of this software is needed.</p>
+</section>
+<section id="what-is-a-document">
+<span id="what-is-a-doc"></span><h2>What is a Document?<a class="headerlink" href="#what-is-a-document" title="Permalink to this headline"></a></h2>
+<p>For Papermerge a document is anything which is a good candidate for archiving
+- some piece of information which is not editable but you need to store it for
+future reference. For example <strong>receipts</strong> are perfect examples - you don’t
+need to read receipts everyday, but eventually you will need them for your tax
+declaration. In this sense - <strong>scanned documents</strong>, which are usually in PDF
+or <a class="reference external" href="https://en.wikipedia.org/wiki/TIFF">TIFF</a> format, are perfect match.</p>
+<p><strong>PDF (Portable Document Format)</strong> is de facto standard for storing archived documents. In correct technical terms - it is <a class="reference external" href="https://en.wikipedia.org/wiki/PDF/A">PDF/A</a> subset. PDF/A differs from PDF by prohibiting features unsuitable for long-term archiving, such as font linking and encryption.</p>
+<p>Most of the modern office scanners will output scanned files in PDF/A format.
+This is why, PDF is practically synonymous for document in context of
+Papermerge.</p>
+<p>A picture made with your phone of a A4 paper document is ragarded by papermege
+as full fledged document, even though digitally it is stored as jpeg or png
+format. You can think of a picture made with a phone (of a document) as a bad
+quality scan.</p>
+</section>
+<section id="what-is-not-a-document">
+<h2>What is Not a Document?<a class="headerlink" href="#what-is-not-a-document" title="Permalink to this headline"></a></h2>
+<p>Out of scope are Office documents (ODT, DOCX, spreadsheets, presentations
+etc), text files (notes); these files are usually editable i.e. user can alter
+the content of the document. Any format of alterable type of document is out of scope
+for Papermerge project.</p>
+<p>Papermerge is simply <strong>not designed to store books</strong>. Yes, you can scan a book
+and import it in Papermege, but again - this is not what Papermerge was
+designed for.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation/index.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/docker-compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/backup.html">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/upgrading.html">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/portainer.html">Portainer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="User%27s%20Manual/index.html">User’s Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/upload_documents.html">Upload Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/tags_and_folders.html">Tags and Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/page_management.html">Page Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/merge_documents.html">Merge Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/ocr.html">OCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/user_management.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="User%27s%20Manual/rest_api_token.html">REST API Token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Settings/index.html">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Settings/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/main.html">Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/ocr.html">OCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/superuser.html">Superuser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/search.html">Search Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Settings/django_settings_module.html">Django Settings Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup_restore.html">Backup/Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html#restore">Restore</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="REST%20API/index.html">REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="REST%20API/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="REST%20API/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Command%20Line%20Utilities/index.html">Command Line Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Command%20Line%20Utilities/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command%20Line%20Utilities/cli.html">Papermerge Cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command%20Line%20Utilities/email.html">Papermerge Email</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributor%27s%20Manual/index.html">Contributor’s Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributor%27s%20Manual/backend_dev_setup.html">Backend Development Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributor%27s%20Manual/frontend_dev_setup.html">Frontend Development Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#backend-rest-api-server">Backend / REST API Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#frontend-web-ui">Frontend / Web UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#papermerge-cli">papermerge-cli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#dms">DMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#digital-archive">Digital Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#gui">GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#ocr">OCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#strayed-page">Strayed Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#incoming-documents">Incoming Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#ingesting-documents">Ingesting Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#metacolumn">Metacolumn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#superuser">Superuser</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Installation/index.html" class="btn btn-neutral float-right" title="Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="index.html">master</a></dd>
+      <dd><a href="../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

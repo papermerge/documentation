@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reference &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Command Line Utilities" href="../Command%20Line%20Utilities/index.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">REST API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#online-vs-own-instance-reference">Online vs Own Instance Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redoc">Redoc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swagger-ui">Swagger UI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">REST API</a> &raquo;</li>
+      <li>Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/REST API/reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reference">
+<span id="rest-api-reference"></span><h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline"></a></h1>
+<p>Papermerge REST API is exposed via <a class="reference external" href="https://www.openapis.org/">Open API</a> standard, which means that
+there is one <a class="reference external" href="https://github.com/papermerge/papermerge-core/blob/master/docker/openapi-schema.yml">openapi-schema.yml</a> file that can be rendered by various 3rd
+party visualizers. <a class="reference external" href="https://github.com/papermerge/papermerge-core/blob/master/docker/openapi-schema.yml">openapi-schema.yml</a> file is generated directly from
+application code and thus (at the time of generation) it matches actual
+implementation.</p>
+<p>Papermerge DMS ships with two “REST API visualizers” - redoc and swagger ui. Both
+of these “visualizers” read from same openapi schema file and thus convey same
+information - just formatted differently.</p>
+<section id="online-vs-own-instance-reference">
+<h2>Online vs Own Instance Reference<a class="headerlink" href="#online-vs-own-instance-reference" title="Permalink to this headline"></a></h2>
+<p>As you will see, there are two ways of accessing REST API reference - one is
+from your own instance and another from online documentation website.
+Accessing REST API reference from your own Papermerge DMS instance’s <strong>guarantees
+that the reference will match implementation</strong>, because in this case REST API
+reference is generated on the fly!</p>
+<p>On the other hand, online version of the REST API (i.e. <a class="reference external" href="https://docs.papermerge.io/redoc/">redoc ui</a> and
+<a class="reference external" href="https://docs.papermerge.io/swagger-ui/">swagger ui</a>) reference uses <a class="reference external" href="https://github.com/papermerge/papermerge-core/blob/master/docker/openapi-schema.yml">openapi-schema.yml</a> file generated beforehand
+which means that it may slightly differ from your own Papermerge DMS instance.
+Online REST API reference is there only for convenience.</p>
+</section>
+<section id="redoc">
+<span id="id1"></span><h2>Redoc<a class="headerlink" href="#redoc" title="Permalink to this headline"></a></h2>
+<p>Papermerge REST API online reference is available via <a class="reference external" href="https://docs.papermerge.io/redoc/">redoc ui</a>.</p>
+<p>Same reference can be accessed from your own Papermerge DMS instance using
+following URL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">redoc</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>In case when you run Papermerge DMS locally using default REST API server port
+use <a class="reference external" href="http://localhost:8000/api/schema/redoc/">http://localhost:8000/api/schema/redoc/</a>.</p>
+<p>Also, when you run your own instance of Papermerge DMS you can access
+redoc based REST API reference from user menu:</p>
+<figure class="align-default">
+<img alt="../_images/redoc.gif" src="../_images/redoc.gif" />
+</figure>
+</section>
+<section id="swagger-ui">
+<span id="swagger"></span><h2>Swagger UI<a class="headerlink" href="#swagger-ui" title="Permalink to this headline"></a></h2>
+<p>Papermerge REST API online reference is available via <a class="reference external" href="https://docs.papermerge.io/swagger-ui/">swagger ui</a>.</p>
+<p>Same reference can be accessed from your own Papermerge DMS instance using
+following URL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">server</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">swagger</span><span class="o">-</span><span class="n">ui</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>In case when you run Papermerge DMS locally using default REST API server port
+use <a class="reference external" href="http://localhost:8000/api/schema/swagger-ui/">http://localhost:8000/api/schema/swagger-ui/</a>.</p>
+<p>Also, when you run your own instance of Papermerge DMS you can access
+swagger based REST API reference from user menu:</p>
+<figure class="align-default">
+<img alt="../_images/swagger.gif" src="../_images/swagger.gif" />
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Command%20Line%20Utilities/index.html" class="btn btn-neutral float-right" title="Command Line Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="reference.html">master</a></dd>
+      <dd><a href="../../2.0.x/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

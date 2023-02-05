@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metadata &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Versions" href="versions.html" />
+    <link rel="prev" title="Page Management" href="page_management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Help/index.html">Help</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags_and_folders.html">Tags and Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_management.html">Page Management</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Metadata</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-concepts">Main Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-inheritance-and-nested-folders">Metadata Inheritance and Nested Folders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metacolumns">Metacolumns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-and-edit-metadata">Add and Edit Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-metadata">Delete Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-types">Metadata Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="automates.html">Automates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consumption.html">Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api.html">REST API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr_languages.html">OCR Languages Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document_pipelines.html">Document Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">User’s Manual</a> &raquo;</li>
+      <li>Metadata</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/User&#39;s Manual/metadata.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="metadata">
+<span id="matadata"></span><h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline"></a></h1>
+<section id="main-concepts">
+<h2>Main Concepts<a class="headerlink" href="#main-concepts" title="Permalink to this headline"></a></h2>
+<p>Metadata is extra information about your folders, documents and pages. In
+other words - data about your data. Following picture is a (scanned document)
+receipt with highlighted shop name, price and date on it.</p>
+<figure class="align-default" id="id1">
+<img alt="document with metadata" src="../_images/01-macgeiz-receipt-with-metadata.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. Receipt with metadata.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This additional information - shop name, price and date is so called document’s <strong>metadata</strong>. It has two parts a label (in picture above <code class="docutils literal notranslate"><span class="pre">shop</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">price</span></code> are all labels) and a value (in example above values are <code class="docutils literal notranslate"><span class="pre">Mäc-Geiz</span></code>, <code class="docutils literal notranslate"><span class="pre">08.06.2020</span></code>, <code class="docutils literal notranslate"><span class="pre">1.49</span></code> for shop label, date label and price label respectively). Many times instead of term <em>label</em> term <em>key</em> is used.
+Metadata is extremely useful when you need to locate specific document among many other very similar documents.</p>
+<p>Imagine that you scanned 60 groceries receipts and <em>organized</em> them in a
+folder named Groceries. If you would just store those receipts on an ordinary
+file system, then only way to distinguish between files is by file names or
+maybe by their text content (if your storage supports OCR) - finding, specific
+file, say all receipts you got in June 2020, would be time consuming.</p>
+<p>A more efficient and practical way to tackle this problem is by associating to
+all scanned documents (receipts in this example) - metadata. Let’s continue
+with groceries receipts example. It would be very time consuming to go to each
+document and add metadata to each file individually. A faster way to create
+metadata and associated it to a group of files, is by a creating a folder -
+add metadata to that folder - let’s name it Groceries-2020 - and then just
+copy all groceries related files into that folder.</p>
+<figure class="align-default" id="id2">
+<img alt="document inherits metadata attributes from its parent folder." src="../_images/02-inherited-metadata.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. Documents inherit their metadata attributes from parent folder.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folder is nothing more than a group of related documents. Thus, folders
+are convenient way to perform group operations on documents. In particular,
+by assigning metadata attributes to a folder - you automatically create
+those metadata attributes on all documents in the folder.</p>
+</div>
+</section>
+<section id="metadata-inheritance-and-nested-folders">
+<h2>Metadata Inheritance and Nested Folders<a class="headerlink" href="#metadata-inheritance-and-nested-folders" title="Permalink to this headline"></a></h2>
+<p>Nested folder is a folder stored within another folder. Folders can be nested
+arbitrarely deep. Same way as documents inherit their metadata attributes from
+thier parent folder - child folders inherit their metadata attributes from their
+parent folder. Let’s consider following example:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/nested-folders-and-metadata.png" src="../_images/nested-folders-and-metadata.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3. Nested folders and metadata</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In Figure 3 folders Groceries, Rent and Insurances are sub-folders of Expenses.
+On topmost folder - Expenses - only one metadata label is defined, namely
+<code class="docutils literal notranslate"><span class="pre">amount</span></code>. On folder Groceries two extra metadata labels are defined:
+<code class="docutils literal notranslate"><span class="pre">shop</span></code> and <code class="docutils literal notranslate"><span class="pre">date</span></code>. On folder Rent metadata label <code class="docutils literal notranslate"><span class="pre">date</span></code> is defined. On
+Insurances: <code class="docutils literal notranslate"><span class="pre">company</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">date</span></code>.</p>
+<p>As explained above, metadata labels are inherited from parent folder to
+descendant folders and documents. Because of metadata label inheritance, in
+scenario described above, folder Groceries has  in total three metadata label:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shop</span></code> - its own</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code> - its own</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code> - inherited from parent</p></li>
+</ol>
+<p>Similarly folder Insurances has in total four metadata labels, three of its
+own and one inherited (metadata label <code class="docutils literal notranslate"><span class="pre">amount</span></code>) and folder Rent has in total
+two metadata labels: one inherited (metadata label <code class="docutils literal notranslate"><span class="pre">amount</span></code>) and one of its
+own (metadata label <code class="docutils literal notranslate"><span class="pre">date</span></code>).</p>
+<p>All documents from folder Insurances will inherit metadata labels from their
+parental folders. Thus, documents ins-1.pdf and ins-2.pdf from Figure 3 have
+four metadata labels: <code class="docutils literal notranslate"><span class="pre">amount</span></code> inherited from topmost folder Expenses and
+<code class="docutils literal notranslate"><span class="pre">company</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">date</span></code> inherited from their direct parental
+folder - Insurances.</p>
+<p>Metadata inheritance concept is very convenient because you don’t need to
+define all metadata labels on each individual document, instead you define
+metadata only once on the folder containing documents.</p>
+<p>Following illustrations show you how folder structure and metadata definition
+described in Figure 3 look in practice.</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/metadata-defined-on-expenses-folder-v2.png" src="../_images/metadata-defined-on-expenses-folder-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4. Metadata label <code class="docutils literal notranslate"><span class="pre">amount</span></code> defined on “Expenses” folder.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="metacolumns">
+<span id="metadata-metacolumns"></span><h2>Metacolumns<a class="headerlink" href="#metacolumns" title="Permalink to this headline"></a></h2>
+<p>If you open “Expenses” folder and change view to list mode, among Type, Title
+and Created At columns you will see an extra column. That extra column is
+called <a class="reference internal" href="glossary.html#glossary-metacolumn"><span class="std std-ref">Metacolumn</span></a>. Metacolumns are there to display actual metadata values defined
+on the documents. At this moment there still no metadata values to display, thus metacolumn
+is empty.</p>
+<figure class="align-default" id="id5">
+<img alt="../_images/metacolumn-amount-v2.png" src="../_images/metacolumn-amount-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 5. Empty metacolumn corresponding to metadata label <code class="docutils literal notranslate"><span class="pre">amount</span></code> defined on “Expenses” folder.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>If you select “Groceries” folder, on the right side, in metadata widgets panel
+you will see three metadata label definitions - one of which is inherited.
+Notice that inherited metadata labels is not editable while it is displayed in
+the context of “Groceries” folder:</p>
+<figure class="align-default" id="id6">
+<img alt="../_images/metadata-defined-on-groceries-folder-v2.png" src="../_images/metadata-defined-on-groceries-folder-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 6. Metadata label definitions on “Groceries” folder.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Metadata labels can be edited ONLY on the folder on which they were
+defined. Conversely, inherited metadata labels (i.e. defined on parent or
+ancestor folders) cannot be edited. For example, in Figure 6, metadata
+label <code class="docutils literal notranslate"><span class="pre">amount</span></code> cannot be edited in the context of folder “Groceries”,
+because <code class="docutils literal notranslate"><span class="pre">amount</span></code> label was defined on parent folder - “Expenses”.</p>
+</div>
+<p>If you enter now “Groceries” folder and switch to list mode (and assuming you
+uploaded couple of documents to “Groceries” folder), you will see three
+metacolumns <code class="docutils literal notranslate"><span class="pre">amount</span></code>, <code class="docutils literal notranslate"><span class="pre">shop</span></code> and <code class="docutils literal notranslate"><span class="pre">date</span></code> - all of which are empty now as
+neither of the documents has metadata values yet:</p>
+<figure class="align-default" id="id7">
+<img alt="../_images/empty-metacolumns-v2.png" src="../_images/empty-metacolumns-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 7. Empty metacolumns corresponding to metadata labels defined
+on “Groceries” folder.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Finally, in Figure 8 you see metacolumns with values. Note how convenient
+it is to have data visualized this way: documents may be sorted and located by
+metadata values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point you need to fill in metadata values manually. However, in future versions
+of Papermerge it will be possible to extract metadata (and thus to fill in those metacolumns)
+automatically.</p>
+</div>
+<figure class="align-default" id="id8">
+<img alt="../_images/metacolumns-with-data-v2.png" src="../_images/metacolumns-with-data-v2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 8. Metacolumns with data values.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="add-and-edit-metadata">
+<h2>Add and Edit Metadata<a class="headerlink" href="#add-and-edit-metadata" title="Permalink to this headline"></a></h2>
+<p>Metadata is added/editing via metadata widget located on the right bar. For
+folders you can add/edit only metadata labels. For documents you can add/edit
+both labels and values (metadata labels are sometimes called keys). Documents
+metadata (both labels and values) can be edited in document browser as well as
+in document viewer. In document browser you can see metadata corresponding to
+specific document/folder either by selecting document/folder or by switching
+list mode.</p>
+</section>
+<section id="delete-metadata">
+<h2>Delete Metadata<a class="headerlink" href="#delete-metadata" title="Permalink to this headline"></a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>When you delete <strong>metadata label on a folder</strong>, all data associated with
+it i.e. all metadata values of respective label from all documents inside
+respective folder will be irreversibly lost.</p>
+</div>
+</section>
+<section id="metadata-types">
+<h2>Metadata Types<a class="headerlink" href="#metadata-types" title="Permalink to this headline"></a></h2>
+<p>Papermerge defines four different metadata types:</p>
+<ol class="arabic simple">
+<li><p>Free form text</p></li>
+<li><p>Monetary</p></li>
+<li><p>Numeric</p></li>
+<li><p>Date</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="page_management.html" class="btn btn-neutral float-left" title="Page Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="versions.html" class="btn btn-neutral float-right" title="Versions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.x
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/User's Manual/metadata.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/User's Manual/metadata.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/index.html">master</a></dd>
+      <dd><a href="metadata.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

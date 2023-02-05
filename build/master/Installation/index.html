@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="overview.html" />
+    <link rel="prev" title="Papermerge DMS" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html">Portainer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../User%27s%20Manual/index.html">User’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_restore.html">Backup/Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../REST%20API/index.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command%20Line%20Utilities/index.html">Command Line Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributor%27s%20Manual/index.html">Contributor’s Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Installation/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline"></a></h1>
+<p>In this section you will find information about requirements, setup,
+configuration and maintenance of Papermerge DMS.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#components">Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#restful-backend-server">RESTful Backend Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#worker">Worker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#frontend">Frontend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#websockets-server">Websockets Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#database">Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#search-engine">Search Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#installation-options">Installation Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#docker-compose">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#portainer">Portainer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#kubernetes">Kubernetes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#bare-metal-installation">Bare Metal Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#tesseract">Tesseract</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#tl-dr">TL;DR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#official-docker-images">Official Docker Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#get-docker-image">Get Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#adding-ocr-languages-to-the-docker-image">Adding OCR Languages to the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#use-postgresql-as-database">Use PostgreSQL as Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker-compose.html">Docker Compose</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html#docker-compose-is-not-for-production">Docker Compose is NOT for Production!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html#complete-stack-in-5-minutes">Complete Stack in 5 minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html#backend-only">Backend Only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html#external-services">External Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html#detailed-explanation">Detailed Explanation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker-compose.html#backend-and-frontend">Backend and Frontend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-compose.html#http-routing">HTTP Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-compose.html#websockets">Websockets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-compose.html#message-broker-and-workers">Message Broker and Workers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-compose.html#almost-complete-setup">Almost Complete Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-compose.html#complete-setup">Complete Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker-compose.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#media-directory">Media Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#application-version">Application Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html#backup-utility">Backup Utility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html#general-instructions">General Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html#upgrade-via-docker">Upgrade via Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading.html#from-1-5-x-to-2-x">From 1.5.x to 2.x</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="portainer.html">Portainer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html#step-1-update-etc-hosts-file">Step 1 - Update /etc/hosts file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html#step-2-add-stack">Step 2 - Add Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html#step-3-fill-in-repository-details">Step 3 - Fill in repository details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html#step-4-add-environment-variables">Step 4 - Add environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portainer.html#step-5-deploy-the-stack">Step 5 - Deploy the stack</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Papermerge DMS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/Installation/index.html">2.0.0</a></dd>
+      <dd><a href="../../2.0.1/Installation/index.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="index.html">master</a></dd>
+      <dd><a href="../../2.0.x/Installation/index.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

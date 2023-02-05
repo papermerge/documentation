@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Management &mdash; Papermerge DMS  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Metadata" href="metadata.html" />
+    <link rel="prev" title="Tags and Folders" href="tags_and_folders.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Papermerge DMS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation/index.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Help/index.html">Help</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags_and_folders.html">Tags and Folders</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Page Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delete-page-s">Delete Page(s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reorder-pages">Reorder Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cut-paste">Cut &amp; Paste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="automates.html">Automates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consumption.html">Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest_api.html">REST API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr_languages.html">OCR Languages Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document_pipelines.html">Document Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Papermerge DMS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">User’s Manual</a> &raquo;</li>
+      <li>Page Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/User&#39;s Manual/page_management.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="page-management">
+<span id="id1"></span><h1>Page Management<a class="headerlink" href="#page-management" title="Permalink to this headline"></a></h1>
+<p>Many times scanning documents in bulk results in documents with blank pages;
+some pages my be out of order or maybe part of totally different document.
+Even if you notice these flaws immediately it is time consuming and
+frustrating to redo scanning process.
+Wouldn’t it be nice to fix out of order pages with Papermerge?</p>
+<p>Page management is set of features which helps to fix scanning process errors.
+In other words you can delete, reorder, cut and paste pages within same
+document even outside it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order perform any of operations described below (delete, reorder, cut and
+paste pages) you need to have <strong>Change Permission</strong> on respective document.
+You have automatically granted <strong>Change Permission</strong>
+on the documents you uploaded (because you own the documents uploaded by you).</p>
+</div>
+<section id="delete-page-s">
+<h2>Delete Page(s)<a class="headerlink" href="#delete-page-s" title="Permalink to this headline"></a></h2>
+<p>You can delete specific pages (for instance blank pages) from the document.
+Although many scanners have automatic “remove blank pages” feature, many times
+they get confused of what is a blank page or what is not. In case
+your scans end up with undesired blank pages you can easily remove those
+pages. Obviously you can remove any page which you consider that should not be
+part of current document.</p>
+<figure class="align-default">
+<img alt="../_images/delete-selected-page.png" src="../_images/delete-selected-page.png" />
+</figure>
+<p>In order to delete a page, you need to select desired page by clicking on it, then <span class="menuselection">Right Click‣ Delete Page</span>.</p>
+<p>Every time you delete one or several pages, document vesion is advanced by
+one. For instance if document Invoice-X56.pdf currently has 4 pages and the
+document latest version is version 1, then, after deleting page 3 document’s
+latest version will be 2. Thus document’s version 1 has all 4 pages or
+original scan (with one blank) and document version 2 has 3 pages (without
+blank page).</p>
+</section>
+<section id="reorder-pages">
+<h2>Reorder Pages<a class="headerlink" href="#reorder-pages" title="Permalink to this headline"></a></h2>
+<p>Out of order pages occur very often during scanning process. Papermerge allows users
+to change pages order within the document.</p>
+<p>For instance, in figure below you can see that pages 2 and 4 are out of order. When you hover
+over page’s thumbnail, two green arrows will appear. Click respective arrows to move page up or down.</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/reorder-document-pages-v2.png" src="../_images/reorder-document-pages-v2.png" />
+<figcaption>
+<p><span class="caption-text">Change order of the document pages</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>For these changes to take effect you need to <span class="menuselection">Right Click ‣ Apply Reorder Changes</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Document pages reorder will only be saved when you <span class="menuselection">Right Click‣ Apply Reorder Changes</span>. You can reorder pages all day around, but if you close the document (by browsing away to a different view for example) without <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">Reorder</span> <span class="pre">Changes</span></code> - your hard work progress will be lost.</p>
+</div>
+<figure class="align-default" id="id3">
+<img alt="../_images/click-apply-reorder-changes-v2.png" src="../_images/click-apply-reorder-changes-v2.png" />
+<figcaption>
+<p><span class="caption-text">Save new pages order</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Similarly to deleting pages, every time you save new pages order document version will be incremented (i.e. advanced by one).</p>
+</section>
+<section id="cut-paste">
+<h2>Cut &amp; Paste<a class="headerlink" href="#cut-paste" title="Permalink to this headline"></a></h2>
+<p>You can move document pages around from one document to another. Once you cut
+one or several pages from a document, you can paste them either inside another
+document - pages will become part of new document or you can paste pages in
+file browser, this will create entirely new document from cut pages.</p>
+<p>In example illustrated in pictures below there are two documents:</p>
+<ul class="simple">
+<li><p>document A - with pages marked as A1, A2, B1, A3</p></li>
+<li><p>document B - with pages B2, B3</p></li>
+</ul>
+<p>During scan page B1 wrongly ended up in document A, although it belongs to document B.</p>
+<p>In order to fix this scanning issue, you need to cut page from document A as illustrated in figure below.</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/cut-page-from-document-A-v2.png" src="../_images/cut-page-from-document-A-v2.png" />
+<figcaption>
+<p><span class="caption-text">Cut misplaced page, marked in picture with B1, from document A</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Then, open document B and <span class="menuselection">Right Click‣ Paste</span></p>
+<figure class="align-default" id="id5">
+<img alt="../_images/paste-in-document-B-v2.png" src="../_images/paste-in-document-B-v2.png" />
+<figcaption>
+<p><span class="caption-text">Paste page B1, from document A to document B</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to see results you will need to click refresh button of your web browser</p>
+</div>
+<figure class="align-default" id="id6">
+<img alt="../_images/pasted-page.png" src="../_images/pasted-page.png" />
+<figcaption>
+<p><span class="caption-text">Result. Document B now contains all its 3 pages: B1, B2, B3</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>After browser refresh you will see that document has all 3 pages B1, B2, B3.
+Document A on the other contains now only correct pages: A1, A2 and A3.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tags_and_folders.html" class="btn btn-neutral float-left" title="Tags and Folders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="metadata.html" class="btn btn-neutral float-right" title="Metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023, Papermerge DMS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: 2.0.1
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../2.0.0/User's Manual/page_management.html">2.0.0</a></dd>
+      <dd><a href="page_management.html">2.0.1</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../master/User's Manual/page_management.html">master</a></dd>
+      <dd><a href="../../2.0.x/User's Manual/page_management.html">2.0.x</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
