@@ -115,6 +115,7 @@ designed for.
    REST API/index.rst
    Command Line Utilities/index.rst
    Contributor's Manual/index.rst
+   troubleshooting.rst
    changelog.rst
    roadmap.rst
    glossary.rst

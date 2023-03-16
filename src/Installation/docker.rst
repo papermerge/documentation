@@ -10,12 +10,16 @@ TL;DR
 
 The only two required environment variables are :ref:`settings__main__secret_key` and :ref:`settings__superuser__password`::
 
-    docker run -p 8000:8000 \
+    docker run -p 9400:8000 \
         -e PAPERMERGE__MAIN__SECRET_KEY=abc \
         -e DJANGO_SUPERUSER_PASSWORD=123 \
-        papermerge/papermerge:latest
+        papermerge/papermerge:2.1.8
 
-Use ``POST http://localhost:8000/api/auth/login/`` endpoint to authenticate.
+Point your web brower to http://localhost:9400 and you will see login screen:
+
+
+.. figure:: ./docker/login.png
+
 
 Credentials are:
 
@@ -38,7 +42,7 @@ The recommended way to get the |project| Docker Image is to pull the prebuilt im
 
 To use a specific version, you can pull a versioned tag. You can view the list of available versions in the `github repository packages`_::
 
-    docker pull papermerge/papermerge:2.1.1
+    docker pull papermerge/papermerge:2.1.8
 
 
 .. _docker_adding_ocr_languages:
@@ -59,14 +63,14 @@ You install extra languages in docker image by creating a new Dockerfile
 from ``papermerge/papermerge`` docker image.
 Create new docker file with following content::
 
-  FROM papermerge/papermerge
+  FROM papermerge/papermerge:2.1.8
 
   # add Italian, Spanish and French
   RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
 
 
 .. note::
-  ``FROM papermerge/papermerge`` pull docker image from DockerHub.
+  ``FROM papermerge/papermerge:2.1.8`` pull docker image from DockerHub.
   If you write ``FROM ghcr.io/papermerge/papermerge`` it pulls docker image
   from GitHub container registry.
 
@@ -116,34 +120,9 @@ Here is an example of docker compose file which mounts ``papermerge.toml`` file:
   services:
     backend:
       <<: *common
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.backend.rule=Host(`mydms.local`) && PathPrefix(`/api/`)"
-    ws_server:
-      <<: *common
-      command: ws_server
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.ws_server.rule=Host(`mydms.local`) && PathPrefix(`/ws/`)"
     worker:
       <<: *common
       command: worker
-    traefik:
-      image: "traefik:v2.6"
-      command:
-        - "--api.insecure=true"
-        - "--providers.docker=true"
-        - "--providers.docker.exposedbydefault=false"
-        - "--entrypoints.web.address=:80"
-      ports:
-        - "6080:80"
-      volumes:
-        - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    frontend:
-      image: papermerge/papermerge.js:latest
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.traefik.rule=Host(`mydms.local`) && PathPrefix(`/`)"
     redis:
       image: redis:6
       ports:
@@ -162,9 +141,6 @@ Here is an example of docker compose file which mounts ``papermerge.toml`` file:
     xapian_index:
 
 
-.. note:: For detailed explanation of docker compose file, see :ref:`Docker Compose Detailed Explanation <docker_compose_detailed_explanation>`
-
-
 Use PostgreSQL as Database
 --------------------------
 
@@ -174,7 +150,7 @@ By default |project| uses sqlite3 database. In order to use PostgreSQL use follo
 
     services:
       app:
-        image: papermerge/papermerge
+        image: papermerge/papermerge:2.1.8
         environment:
           - PAPERMERGE__MAIN__SECRET_KEY=abc
           - DJANGO_SUPERUSER_PASSWORD=12345
@@ -195,10 +171,6 @@ By default |project| uses sqlite3 database. In order to use PostgreSQL use follo
           - POSTGRES_PASSWORD=123
     volumes:
         postgres_data:
-
-
-Above mentioned docker compose file can be used to start |project| REST
-API backend server which will use PostgreSQL database to store data.
 
 
 .. _docker hub: https://hub.docker.com/u/papermerge
