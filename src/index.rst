@@ -108,7 +108,7 @@ designed for.
    :maxdepth: 2
    :caption: Contents:
 
-   Installation/index.rst
+   Setup/index.rst
    User's Manual/index.rst
    Settings/index.rst
    backup_restore.rst

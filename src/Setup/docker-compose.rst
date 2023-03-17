@@ -128,7 +128,6 @@ Here is setup which uses Elasticsearch::
 .. _docker-compose.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml
 .. _services.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/services.yml
 .. _backend repository: https://github.com/papermerge/papermerge-core
-.. _frontend repository: https://github.com/papermerge/papermerge.js
 .. _host header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
 .. _WebSockets: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
 .. _Redis: https://redis.io/

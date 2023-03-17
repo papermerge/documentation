@@ -55,7 +55,7 @@ Set following shell environment variables::
 
     ``<project-root>`` is folder where your project was cloned. Example: ``/home/vagrant/papermerge-core/``.
 
-    
+
 Change current working directory to ``<project-root>/docker/dev``::
 
     $ cd docker/dev
@@ -83,21 +83,20 @@ REST API Server
 ----------------
 
 Switch to ``docker/dev`` folder in ``<project-root>`` and activate python virtual environment::
-    
+
     $ cd <project-root>/docker/dev
     $ poetry shell
 
 Set shell environment variables::
 
-
     $ export DJANGO_SETTINGS_MODULE=config.settings
-    $ export PAPERMERGE_SECRET_KEY=somesecretkey
-    $ export PYTHONPATH=<project-root>    
+    $ export PAPERMERGE__MAIN__SECRET_KEY=somesecretkey
+    $ export PYTHONPATH=<project-root>
 
 
 Start REST API webserver with::
 
-    $ ./manage.py runserver
+    $ poetry run task server
 
 Last command will start backend REST API server on localhost port 8000.
 
@@ -123,7 +122,7 @@ that Redis is up and available on 127.0.0.1:6379.
 
 
 Switch to ``docker/dev`` folder in ``<project-root>`` and activate python virtual environment::
-    
+
     $ cd <project-root>/docker/dev
     $ poetry shell
 
@@ -131,12 +130,11 @@ Set shell environment variables::
 
     $ export DJANGO_SETTINGS_MODULE=config.settings
     $ export PAPERMERGE_SECRET_KEY=somesecretkey
-    $ export PYTHONPATH=<project-root>    
+    $ export PYTHONPATH=<project-root>
 
 Start worker with following command::
 
-    $ ./manage.py worker
-
+    $ poetry run task worker
 
 .. _poetry: https://python-poetry.org/
 .. _papermerge-core: https://github.com/papermerge/papermerge-core

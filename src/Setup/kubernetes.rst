@@ -1,7 +1,4 @@
-
-
 Kubernetes
 ==========
 
-
-Coming soon...
+TO DO...
