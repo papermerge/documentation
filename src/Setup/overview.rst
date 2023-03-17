@@ -3,9 +3,7 @@ Overview
 
 |project| is a distributed system with many moving parts. "Distributed
 system" - means that different components (parts) may run on different
-computers. While this increases the complexity of the system, it also brings
-many benefits like scalability, flexibility and ease of maintenance.
-
+computers.
 
 Components
 ***********
@@ -14,16 +12,11 @@ Components
 
 * RESTful backend server
 * Worker (there may be one or multiple workers)
-* Frontend (optional)
-* Websockets server (optional)
 * Database
 * Search Engine
 
 The essential parts of |project| deployment are RESTful backend server and
-one or multiple workers. The frontend and websockets servers are optional.
-They provide so called official graphical user interface of |project|. If
-you don't plan to use |project| via web GUI, you can safely skip frontend
-and websockets parts.
+one or multiple workers.
 
 
 RESTful Backend Server
@@ -65,47 +58,16 @@ docker based deployment - each worker should run in separate docker container.
    `Celery`_/`Redis`_.
 
 
-Frontend
-----------
-
-.. figure:: ../img/setup/overview/01-frontend.png
-
-Generally speaking you don't need graphical user interface to successfully use
-|project|. However, it is always awesome to have a nice UI (user interface).
-This is what *frontend* part is all about - it is the official user interface
-of |project|.
-
-In order to accomplish its job, frontend uses backend's REST API - in this
-regard, frontend is an http client which consumes backend's REST API. Almost
-any feature of the frontend can be replicated with any http client via REST
-API.
-
-.. note:: Some of the features of the frontend are tricky to do with REST API
-   only, this is because some parts of the frontend, like for example
-   reporting in real time the status of OCR processing, use websockets.
-
-.. note:: Frontend is a standalone (means separate) part and as such it has
-   separate `Frontend GitHub repository`_.
-
 .. _RESTful Backend GitHub repository: https://github.com/papermerge/papermerge-core
 .. _Celery: https://docs.celeryproject.org/en/stable/index.html
 .. _Redis: https://redis.io
-.. _Frontend GitHub repository: https://github.com/papermerge/papermerge.js
-
-
-Websockets Server
-------------------
-
-This component is used to get real time status of OCR processing and it
-strongly coupled with frontend part. In general if you don't plan to use
-frontend, you don't need to deploy websockets server neither.
 
 
 Database
 --------
 
-In order to operate sucessfully |project| needs a database to store data to.
-It case use one of several databases:
+In order to operate sucessfully |project| needs a database for store data.
+It can use one of several databases:
 
 * SQLite
 * PostgreSQL
@@ -131,14 +93,16 @@ Installation Options
 You can go multiple routes to setup and run |project|:
 
 * Use the docker compose
-* Kubernetes
+* Portainer
+* Kubernetes (instructions will be provided soon)
+* Ansible (instructions will be provided soon)
 * Bare metal installation
 
 
 Docker Compose
 ---------------
 
-Docker a de factor standard containerization technology. With docker you can
+Docker a de facto standard containerization technology. With docker you can
 start in almost no time pretty complex configuration setups. Docker ships with
 docker-compose which helps you to easily configure and start all services
 (like database, redis and elastic search for example) required to operate
@@ -146,15 +110,13 @@ docker-compose which helps you to easily configure and start all services
 
 For more details read :ref:`docker_compose` section.
 
-Portainer
----------
-
-Portainer is popular application for managing docker container via convenient
-user interface. Section :ref:`install_with_portainer` explains in details how to
-quickly start |project| instance using Portainer.
-
 Kubernetes
 -----------
+
+TODO...
+
+Ansible
+--------
 
 TODO...
 

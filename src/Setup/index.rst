@@ -12,6 +12,6 @@ configuration and maintenance of |project|.
    docker
    docker-compose
    kubernetes
+   ansible
    backup
    upgrading
-   portainer
