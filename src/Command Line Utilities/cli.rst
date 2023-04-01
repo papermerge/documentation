@@ -124,6 +124,8 @@ Update value of the preference `trigger` from section `ocr`::
 
     $ papermerge-cli pref-update --section=ocr --name=trigger --value=auto
 
+.. _import_folders:
+
 Import Folders/Documents
 ------------------------
 
@@ -136,6 +138,25 @@ You can also import one single document::
 
     $ papermerge-cli import /path/to/some/document.pdf
 
+By default all documents are imported to your user's ``.inbox`` folder. If you want to import
+to another folder, use ``--target-uuid``::
+
+    $ papermerge-cli import /path/to/some/document.pdf --target-uuid <uuid>
+
+In order to learn UUID of the folder you want to import to use ``papermerge-cli list`` command.
+To get UUIDs of ``.home`` and ``.inbox`` folders, use ``papermerge-cli me`` command.
+Another way see UUID of the target folder is via browser UI:
+
+.. figure:: ./cli/target-uuid.svg
+
+If you import same document twice to same target location, you will get a not
+very friendly error which says something about "The fields parent, title
+must make a unique set.", it means that you cannot have two documents with
+same title in one folder, to put it in other words "You already have document
+with same title in target folder":
+
+.. figure:: ./cli/error-when-importing-document.svg
+
 If you want the local copy the uploaded documents **to be deleted** after
 successful import - use ``--delete`` flag::
 
@@ -145,6 +166,9 @@ successful import - use ``--delete`` flag::
 .. danger:: Be extremely careful with ``--delete`` flag! When present,
    ``papermerge-cli`` will irreversible **delete the local copy** of all
    documents and folders in the ``/path/to/folder/``!
+
+.. danger::
+   Always, before using this flag make safe backup of the documents to be uploaded!
 
 .. note:: ``--delete`` flag deletes the local copy of the documents/path to import
     **after successful upload** - this means that even if though you local copy
