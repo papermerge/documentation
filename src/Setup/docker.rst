@@ -13,7 +13,7 @@ The only two required environment variables are :ref:`settings__main__secret_key
     docker run -p 9400:8000 \
         -e PAPERMERGE__MAIN__SECRET_KEY=abc \
         -e DJANGO_SUPERUSER_PASSWORD=123 \
-        papermerge/papermerge:2.1.8
+        papermerge/papermerge:2.1.9
 
 Point your web brower to http://localhost:9400 and you will see login screen:
 
@@ -42,7 +42,7 @@ The recommended way to get the |project| Docker Image is to pull the prebuilt im
 
 To use a specific version, you can pull a versioned tag. You can view the list of available versions in the `github repository packages`_::
 
-    docker pull papermerge/papermerge:2.1.8
+    docker pull papermerge/papermerge:2.1.9
 
 
 .. _docker_adding_ocr_languages:
@@ -63,14 +63,14 @@ You install extra languages in docker image by creating a new Dockerfile
 from ``papermerge/papermerge`` docker image.
 Create new docker file with following content::
 
-  FROM papermerge/papermerge:2.1.8
+  FROM papermerge/papermerge:2.1.9
 
   # add Italian, Spanish and French
   RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
 
 
 .. note::
-  ``FROM papermerge/papermerge:2.1.8`` pull docker image from DockerHub.
+  ``FROM papermerge/papermerge:2.1.9`` pull docker image from DockerHub.
   If you write ``FROM ghcr.io/papermerge/papermerge`` it pulls docker image
   from GitHub container registry.
 
@@ -150,7 +150,7 @@ By default |project| uses sqlite3 database. In order to use PostgreSQL use follo
 
     services:
       app:
-        image: papermerge/papermerge:2.1.8
+        image: papermerge/papermerge:2.1.9
         environment:
           - PAPERMERGE__MAIN__SECRET_KEY=abc
           - DJANGO_SUPERUSER_PASSWORD=12345
