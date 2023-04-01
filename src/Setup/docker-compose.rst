@@ -70,7 +70,7 @@ Here is setup which uses Elasticsearch::
 
   version: '3.7'
   x-backend: &common  # yaml anchor definition
-    image: papermerge/papermerge:2.1.8
+    image: papermerge/papermerge:2.1.9
     volumes:
       - media_root:/app/media
     environment:
