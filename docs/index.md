@@ -5,9 +5,9 @@ It uses optical character recognition to extract meaningful data from documents.
 Extracted data is indexed with full text search engine so that you can easily
 find any document.
 
-This is version 2.1
+This is version 2.0
 
-This is updated documentation of v2.1
+This is documentation for version 2.0
 
 ## Digital Archives
 
