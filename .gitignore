@@ -4,3 +4,4 @@
 *.sublime-workspace
 _build/
 .venv/
+site/
