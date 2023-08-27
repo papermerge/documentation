@@ -237,107 +237,106 @@ python3 -m venv .venv --system-site-packages
     Unix/Linux dotted folders have special meaning - they are hidden so to
     speak.
 
-.. note::
+!!! note
 
-    ``--system-site-packages`` is necessary, it will install a package called ``wheel``.
-    Without ``wheel`` package, pip install later will issue warning.
+    `--system-site-packages` is necessary, it will install a package called `wheel`.
+    Without `wheel` package, pip install later will issue warning.
 
 Alternatively you can create python virtual environment with following command:
 
-.. code-block:: bash
-    :caption: Another way to create python virtual environment
-
-    $ virtualenv .venv -p python3.7
+```console
+virtualenv .venv -p python3.7
+```
 
 Advantage of last command is that it specifies exact python version.
 
-.. note::
+!!! note
+
     Papermerge requires python version >= 3.7
 
 Next we need to *activate* virtual environment:
 
-.. code-block:: bash
-    :caption: Activate python virtual envitonment
-    
-    $ source .venv/bin/activate
+```console
+source .venv/bin/activate
+```
 
 Terminal's prompt (bash - in Ubuntu) will change to indicate that python virtual environment is active.
 
-.. figure:: ../img/setup/01-active-venv.png
+![active environment](../img/setup/01-active-venv.png)
 
-.. note::
+!!! note
 
     Python virtual environment is just a directory where python packages will
     be installed. Activating python environment is basically changing your
-    current ``PATH`` variable - this is exactly what ``source
-    .venv/bin/activate`` command does. If you will run ``echo $PATH`` you will
-    notice that ``PapermergeDMS/.venv/bin`` is first in path, this means that
+    current `PATH` variable - this is exactly what `source
+    .venv/bin/activate` command does. If you will run `echo $PATH` you will
+    notice that `PapermergeDMS/.venv/bin` is first in path, this means that
     python interpreter first of all will look up for its dependencies there.
 
 And now, with python virtual environment active, let's install Papermerge dependencies:
 
-.. code-block:: bash
-    :caption: Install python dependencies
-
-    $ source .venv/bin/activate # a reminder to run this first
-    $ pip3 install -r requirements/base.txt
+```console
+source .venv/bin/activate
+```
+```console
+pip3 install -r requirements/base.txt
+```
 
 At this point, all python packages were installed inside directory
-``.venv/lib/python3.8/site-packages`` and that directory is first one in your
+`.venv/lib/python3.8/site-packages` and that directory is first one in your
 path.
 
 ### Step 3 - Manage Command
 
-Papermerge is based on `Django Web Framework <https://www.djangoproject.com/>`_.
-Django provides a ``manage.py`` script which is used to run all project related commands.
-``manage.py`` script is located in project's root directory.
+Papermerge is based on [Django Web Framework](https://www.djangoproject.com/).
+Django provides a `manage.py` script which is used to run all project related commands.
+`manage.py` script is located in project's root directory.
 
 First let's run migrations:
 
-.. code-block:: bash
-    :caption: Run migrations
+```console
+./manage.py migrate
+```
 
-    $ ./manage.py migrate
-
-.. note::
+!!! note
 
     At this point you will see warnings about missing binary dependencies. We
-    deal with them little bit later when we will discuss ``./manage.py check``
+    deal with them little bit later when we will discuss `./manage.py check`
     command.
 
 *run migrations* - in django's jargon means that you prepare the database. By
-default Papermerge (as any Django based project) uses `sqlite
-<https://sqlite.org/>`_ database - which is stored in a single file.
-``./manage.py migrate`` command will create that file (it is called db.sqlite3
+default Papermerge (as any Django based project) uses [sqlite](https://sqlite.org/)
+database - which is stored in a single file.
+`./manage.py migrate` command will create that file (it is called db.sqlite3
 and is in project's root directory) and create database schema for the
 project.
 
 We are not ready yet, but at this point, you can built-in web server and
 access login screen:
 
-.. code-block:: bash
-    :caption: Run builtin web server
 
-    $ ./manage.py runserver
+```console
+./manage.py runserver
+```
 
-``runserver`` command will start web server on port ``8000``. You
+`runserver` command will start web server on port `8000`. You
 can access login screen via any web browser by pointing it to
-``http://localhost:8000/``
+`http://localhost:8000/`
 
 
-.. figure:: ../img/setup/02-login-screen.png
+![login screen](../img/setup/02-login-screen.png)
 
 But as I mentioned, we are not ready yet. First of all, when you run
-``./manage.py runserver`` command you probably noticed couple of warnings. To see
-if all binary dependencies were installed run following command::
+`./manage.py runserver` command you probably noticed couple of warnings. To see
+if all binary dependencies were installed run following command:
 
-$ ./manage.py check
+```console
+./manage.py check
+```
 
 On freshly installed Ubuntu 20.04 LTS you will see following warnings:
 
-.. code-block:: bash
-    :caption: Possible warning messages
-
+```console
     System check identified some issues:
 
     WARNINGS:
@@ -351,28 +350,27 @@ On freshly installed Ubuntu 20.04 LTS you will see following warnings:
             HINT: Create one of those files or point PAPERMERGE_CONFIG environment name to it.
 
     System check identified 5 issues (0 silenced).
+```
 
 This means that you need to install all above dependencies. Let's install all
 of them in one shot:
 
-.. code-block:: bash
-    :caption: Install tesseract, imagemagick and poppler-utils
-
-    sudo apt install imagemagick \
-        poppler-utils \
-        tesseract-ocr \
-        tesseract-ocr-eng \
-        tesseract-ocr-deu \
-        tesseract-ocr-fra \
-        tesseract-ocr-spa
+```console
+sudo apt install imagemagick \
+    poppler-utils \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    tesseract-ocr-deu \
+    tesseract-ocr-fra \
+    tesseract-ocr-spa
+```
 
 When installation is complete, run check again:
 
-.. code-block:: bash
-    :caption: Check again for warnings
-
-    $ ./manage.py check
-
+```console
+./manage.py check
+```
+```console
     System check identified some issues:
 
     WARNINGS:
@@ -380,14 +378,14 @@ When installation is complete, run check again:
             HINT: Create one of those files or point PAPERMERGE_CONFIG environment name to it.
 
     System check identified 1 issue (0 silenced).
+```
 
-To silence last warning, just create an empty ``papermerge.conf.py`` file in project's root,
+To silence last warning, just create an empty `papermerge.conf.py` file in project's root,
 we will turn our attention to that file little bit later:
 
-.. code-block:: bash
-    :caption: Create an empty papermerge.com.py file
-
-    $ touch papermerge.conf.py
+```console
+touch papermerge.conf.py
+```
 
 
 ### Step 4 - Superuser
@@ -395,21 +393,18 @@ we will turn our attention to that file little bit later:
 
 It's time to create administrative (superuser) user for your Papermerge instance:
 
-.. code-block:: bash
-    :caption: Create web administrative user
-
-    $ ./manage.py createsuperuser
+```console
+./manage.py createsuperuser
+```
 
 The username and password you will type above you will use as login credentials.
 So, start server again (in case it is not running):
 
-.. code-block:: bash
-    :caption: Run built-in web server
+```console
+./manage.py runserver
+```
 
-    $ ./manage.py runserver
-
-
-Point your web browser to ``http://localhost:8000`` and use superuser's
+Point your web browser to `http://localhost:8000` and use superuser's
 username/password to login.
 
 
@@ -419,39 +414,37 @@ In a separate window, change to the project's root directory again, but this
 time, you should start the worker with ``./manage.py worker``.
 Remember to activate python virtual environment first:
 
-.. code-block:: bash
-    :caption: Start papermerge worker instance
+```console
+$ cd ~/PapermergeDMS
+$ source .venv/bin/activate
+$ ./manage.py worker
+```
 
-    $ cd ~/PapermergeDMS
-    $ source .venv/bin/activate
-    $ ./manage.py worker
-
-Worker is the part which performs :ref:`ocr` process. For correct function of Papermerge you must have both parts
+Worker is the part which performs ocr process. For correct function of Papermerge you must have both parts
 running:
 
-* main app - the one which you start with ``./manage.py runserver``
-* worker - the one which you start with ``./manage.py worker``
+* main app - the one which you start with `./manage.py runserver`
+* worker - the one which you start with `./manage.py worker`
 
 Now, you can start uploading documents. Remember that only PDF, TIFF, jpeg and
 png :ref:`file_formats` are supported.
 
-.. figure:: ../img/setup/03-main-browse-view.png
+![main browser view](../img/setup/03-main-browse-view.png)
 
 
 ### Step 6 - Configurations
 
 
-By default, you don't need configuration ``papermerge.conf.py`` file.
+By default, you don't need configuration `papermerge.conf.py` file.
 However, if there is no configuration file - Papermerge will issue a warning.
 In one of previous steps we created an empty configuration file:
 
-.. code-block:: bash
-    :caption: Create empty configuration file
-
+```console
     $ cd ~/PapermergeDMS
     $ touch papermerge.conf.py # it is empty now
+```
 
-.. note::
+!!! note
 
     **What is the purpose of empty configuration file?** It has one - it raises
     awareness of administrator that such file exists. The logic is following -
@@ -464,28 +457,28 @@ In one of previous steps we created an empty configuration file:
 By default, in language dropdown menu, two languages will be displayed German and English.
 You can change that with following configuration:
 
-.. code-block:: Python
-    :caption: Content of papermerge.conf.py
-
+```Python
     OCR_LANGUAGES = {
         'eng': 'English',
         'deu': 'Deutsch',
         'spa': 'Español',
         'fra': 'Français'
     }
+```
 
 Now four languages will be displayed in language dropdown.
 
-.. note::
+!!! note
+
     In previous steps we installed english, spanish, french and german tesseract language
     packs (packages named tesseract-ocr-eng, tesseract-ocr-deu, tesseract-ocr-fra, tesseract-ocr-spa).
-    For each language you want to :ref:`ocr` you need to have tesseract language pack installed.
+    For each language you want to ocr you need to have tesseract language pack installed.
 
-Learn more Papermerge configurations in :ref:`settings`
+Learn more Papermerge configurations in [settings](settings.md)
 
 ## What's Next?
 
 Once you’ve tested things and are happy with the work flow, you should secure
-the installation and automate the process of starting the webserver and
-worker. :ref:`server_configurations` explains different configuration
+the installation and automate the process of starting the webserver and worker.
+[server configurations](server_configurations) explains different configuration
 scenarios of how you can make your bare metal setup - more stable.

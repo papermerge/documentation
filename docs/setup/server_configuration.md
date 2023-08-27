@@ -1,7 +1,5 @@
-.. _server_configurations:
+# Server Configurations
 
-Server Configurations
-**********************
 
 The default is to use Django’s development server provided by ``./manage.py runserver``
 command, as that’s easy and does the job well enough on a home network.

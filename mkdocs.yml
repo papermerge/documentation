@@ -22,6 +22,21 @@ nav:
   - settings.md
 theme:
   name: material
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to light mode
   features:
   - search.suggest
   - search.highlight
@@ -32,9 +47,16 @@ theme:
   - content.code.annotate
   - content.code.copy
   - content.code.select
+copyright: Copyright &copy; 2020 - 2023 Ciur Eugen, and the Papermerge DMS team
+repo_url: https://github.com/ciur/papermerge
 extra:
   version:
     provider: mike
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/ciur/papermerge
+  - icon: fontawesome/solid/globe
+    link: https://papermerge.com
 
 markdown_extensions:
   - admonition

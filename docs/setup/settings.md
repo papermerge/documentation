@@ -1,7 +1,6 @@
-.. _settings:
-=========
-Settings
-=========
+
+# Settings
+
 
 Papermerge loads its settings from a configurations file. At first it tries to
 read following files:
