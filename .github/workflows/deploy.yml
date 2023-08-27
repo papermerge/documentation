@@ -1,0 +1,27 @@
+name: Deploy Docs Version
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: choice
+        description: Docs Version
+        options:
+          - '2.0'
+          - '2.1'
+          - '3.0'
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: v${{ inputs.version }}
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install poetry
+      - run: poetry install
+      - run: poetry run mike deploy --push ${{ inputs.version }}
