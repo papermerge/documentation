@@ -173,7 +173,7 @@ Double check that `gcc` was installed:
 ```
 
 Ok, great! We have to install one more utility - `git`. Strictly speaking,
-you don't need `git`, because you can [download](download.md) the tarball and unzip
+you don't need `git`, because you can [download](downloading.md) the tarball and unzip
 (or untar or extract) sources. But let's stick with git:
 
 ```console
@@ -480,5 +480,5 @@ Learn more Papermerge configurations in [settings](settings.md)
 
 Once you’ve tested things and are happy with the work flow, you should secure
 the installation and automate the process of starting the webserver and worker.
-[server configurations](server_configurations) explains different configuration
+[server configurations](server_configuration.md) explains different configuration
 scenarios of how you can make your bare metal setup - more stable.
