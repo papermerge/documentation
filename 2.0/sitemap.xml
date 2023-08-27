@@ -2,52 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.papermerge.io/2.0/</loc>
-         <lastmod>2023-08-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/2.0/getting-started/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/settings/</loc>
-         <lastmod>2023-08-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/2.0/admin/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/dev/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.0/setup/</loc>
+         <lastmod>2023-08-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.0/setup/requirements/</loc>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/general-concepts/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.0/user/getting-started/</loc>
+         <lastmod>2023-08-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.0/user/metadata/</loc>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/page-management/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/tags-and-folders/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/upload-documents/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/user-interface/</loc>
-         <lastmod>2023-08-26</lastmod>
+         <lastmod>2023-08-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
