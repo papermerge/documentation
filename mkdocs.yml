@@ -3,7 +3,6 @@ site_url: https://docs.papermerge.io
 nav:
   - User Manual:
       - user/getting-started.md
-      - user/general-concepts.md
       - user/user-interface.md
       - user/upload-documents.md
       - user/tags-and-folders.md
@@ -50,7 +49,6 @@ theme:
   - content.code.annotate
   - content.code.copy
   - content.code.select
-copyright: Copyright &copy; 2020 - 2023 Ciur Eugen, and the Papermerge DMS team
 repo_url: https://github.com/ciur/papermerge
 extra:
   version:

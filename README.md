@@ -1,12 +1,13 @@
-# Papermerge DMS- Documentation
+# Papermerge DMS Documentation
 
-Papermerge DMS documentation is based on [sphinx-doc](https://www.sphinx-doc.org)
-which uses [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) as
-markup language.
+Papermerge DMS documentation is based on [mkdocs + material](https://squidfunk.github.io/mkdocs-material/).
 
 ## Online Version
 
-Papermerge DMS documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/)
+Papermerge DMS documentation is available online at:
+
+- [https://docs.papermerge.io/](https://docs.papermerge.io/)
+- [https://papermerge.github.io/documentation](https://papermerge.github.io/documentation)
 
 ## How to Use
 
@@ -15,36 +16,20 @@ and [poetry](https://python-poetry.org/docs/), then in root repository
 folder run following commands:
 
     $ poetry install
-    $ poetry run task autobuild
+    $ poetry run mkdocs serve
 
 Above commands will install all dependencies, switch into environment variable
 and run documentation in auto build mode. Any change in documentation
-repository will be automatically rebuild. You can access
-documentation on ``http://localhost:9600``.
+repository will be automatically rebuild.
 
-## Start with Docker
+## Multi-versions
 
-You can start documentation as docker container as follows:
-
-    $ docker run -p 10169:80 papermerge/documentation
-
-And access it via ``http://localhost:10169``
-
-## Contributors
-
-Before making changes to documentations, please make sure that:
-
-1. Your English level is decent
-2. You understand the basics of [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
-format
-
-## Repository Branches / Multi-versions
-
-For each papermerge major version there is separate repository branch in this
+For each Papermerge major version there is separate repository branch in this
 repository.
 
-Papermerge 2.0.x documentation can be found in branch 2.0.x of this
-repository.
-Papermerge 2.1.x documentation is found in branch 2.1.x.
-Master branch in this repository corresponds to latest (in development) version
-of papermerge.
+Papermerge version 2.0.x docs are in git branch v2.0
+Papermerge version 2.1.x docs are in git branch v2.1
+Papermerge version 3.0.x docs are in git branch v3.0 # !
+Papermerge version 3.1.x docs are in git branch v3.1 # !
+
+As of writing this, 3.0 is under development. Its documentation is in v3.0-dev branch.
