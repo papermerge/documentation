@@ -1,4 +1,4 @@
-site_name: Papermege DMS
+site_name: Papermerge DMS
 site_url: https://docs.papermerge.io
 nav:
   - User Manual:
@@ -25,6 +25,9 @@ theme:
   features:
   - search.suggest
   - search.highlight
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.top
 #  - content.tabs.link
 #  - navigation.indexes
   - content.tooltips
