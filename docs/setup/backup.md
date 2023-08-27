@@ -24,8 +24,8 @@ named "media" in of same directory where papermerge project was cloned.
 !!! note
 
     `media_dir` has two subfolders *docs* and *results*. :ref:`media_dir`/docs is place where
-    original documents are uploaded - it is the location you want to ensure is regularely backed up.
-    Media directory configuration is pure Django webframework thing; in Django it is called [MEDIA_ROOT](https://docs.djangoproject.com/en/3.1/ref/settings/#media-root>)
+    original documents are uploaded - it is the location you want to ensure is regularly backed up.
+    Media directory configuration is pure Django webframework thing; in Django it is called [MEDIA_ROOT](https://docs.djangoproject.com/en/3.1/ref/settings/#media-root)
 
 !!! note
 
