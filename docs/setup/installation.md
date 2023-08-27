@@ -164,80 +164,72 @@ In Ubuntu 20.04, `gcc` is available via `built-essential` package:
 
 Double check that `gcc` was installed:
 
-.. code-block:: bash
-    :caption: Double check that gcc was installed
-
+```console
     $ gcc --version
     gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0
     Copyright (C) 2019 Free Software Foundation, Inc.
     This is free software; see the source for copying conditions.  There is NO
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
 
-Ok, great! We have to install one more utility - ``git``. Strictly speaking,
-you don't need ``git``, because you can :ref:`download` the tarball and unzip
+Ok, great! We have to install one more utility - `git`. Strictly speaking,
+you don't need `git`, because you can [download](download.md) the tarball and unzip
 (or untar or extract) sources. But let's stick with git:
 
-.. code-block:: bash
-    :caption: Install git
+```console
+sudo apt install git
+```
 
-    $ sudo apt install git
+Double check that `git` was installed:
 
-Double check that ``git`` was installed:
-
-.. code-block:: bash
-    :caption: Double check that git was installed
-
-    $ git --version
-    git version 2.25.1
+```console
+$ git --version
+  git version 2.25.1
+```
 
 And now clone the latest stable version of Papermerge directly from GitHub repository:
 
-.. code-block:: bash
-    :caption: Clone latest stable release
+```console
+git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
+```
 
-    $ git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
+!!! Note
 
-.. note::
-
-    As of writing this - latest stable version of Papermerge is 1.5.5, thus the argument ``--branch``
-    with respective version. Also, notice that repository was cloned inside folder named PapermergeDMS, you
-    can choose whatever title for that folder suites you.
+    As of writing this - latest stable version of Papermerge is 1.5.5, thus the
+    argument `--branch` with respective version. Also, notice that repository was
+    cloned inside folder named PapermergeDMS, you can choose whatever title for
+    that folder suites you.
 
 From now on, I will refer to PapermergeDMS folder as *project root* or *top
 level folder of the project*
 
-### Step 2 - Python Virtual Environment
 
+### Step 2 - Python Virtual Environment
 
 Change directory to project's root (folder where you cloned/extracted sources):
 
-.. code-block:: bash
-    :caption: Change to project's directory
+```console
+cd PapermergeDMS
+```
 
-    $ cd PapermergeDMS
-
-Our goal in this step is to install python dependencies - like `Django
-<https://www.djangoproject.com/>`_ for example. Most important dependencies -
-without which project won't start - are listed in ``requirements/base.txt``
+Our goal in this step is to install python dependencies - like [Django](https://www.djangoproject.com/) for example. Most important dependencies - without which project won't start - are listed in `requirements/base.txt`
 (relative to project's root).
 
-The command to do that is as simple as ``pip install -r
-requirements/base.txt`` - but please don't rush to type it yet. We need to
+The command to do that is as simple as `pip install -r
+requirements/base.txt` - but please don't rush to type it yet. We need to
 clarify the concept of python virtual environment first.
 
-If you simply type ``pip insall -r requirements/base.txt`` - it will install
+If you simply type `pip insall -r requirements/base.txt` - it will install
 packages **system-wide**. A better approach is to install dependencies **per
 project**. So, *the place* designated for python packages specific for this
 project is called a *virtual environment*. Let's create a python virtual
-environment and name it ``.venv``:
+environment and name it `.venv`:
 
-.. code-block:: bash
-    :caption: Create python virtual environment
+```console
+python3 -m venv .venv --system-site-packages
+```
 
-    $ python3 -m venv .venv --system-site-packages
-
-
-.. note::
+!!! note
 
     For virtual environment you can choose whatever name you want. For example
     you can choose to name your virtual environment py37, in that case command
