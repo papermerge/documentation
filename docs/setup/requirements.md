@@ -36,6 +36,7 @@ In order to successfully deploy Papermerge you need following software:
 * [Imagemagick](https://imagemagick.org/script/index.php)
 * [Poppler](https://poppler.freedesktop.org/) - PDF operations
 
+
 ## Python
 
 Papermerge (server side) is written in Python programming language. The
@@ -51,19 +52,21 @@ worry about exact version of Django (or other internal python libraries on
 which Papermerge depends) required as this details are conveniently covered by
 package management tools like ``pip``.
 
+
 ## Imagemagick
 
 
 Papermerge uses Imagemagick to convert between images format. You will need to make sure
 you have image magic installed.
 
+
 ## Poppler
 
 More exactly poppler utils are used. For exampple pdfinfo command line
 utility is used to find out number of page in PDF document.
 
-## Tesseract
 
+## Tesseract
 
 If you never heard of [Tesseract software]
 (https://en.wikipedia.org/wiki/Tesseract_(software)) - it is google's open
@@ -77,7 +80,7 @@ which are listed in a file called ``requirements/base.txt`` in the project
 root directory.
 
 
-# Hardware Requirements
+## Hardware Requirements
 
 
 Papermerge can run a single or multiple hosts (computers). OCR operations are
@@ -85,7 +88,8 @@ performed by a component called worker. There can be one or more workers. For
 more efficient setups worker(s) should run on separate computer(s). The exact
 number of papermerge workers depends on your documents volume.
 
-## Single Host
+
+### Single Host
 
 On single host, both web component and worker components run on same computer.
 
@@ -103,7 +107,7 @@ The minimum hardware requirements in this case are:
     more RAM) will be able to complete OCR operations faster.
 
 
-## Multiple Hosts
+### Multiple Hosts
 
 In multiple hosts scenarios, the web component (i.e. the web application)
 requires less resources:
