@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/2.0/setup/requirements/">
+        <link rel="canonical" href="https://docs.papermerge.io/2.0/setup/installation/">
       
       
-        <link rel="prev" href="../../user/metadata/">
+        <link rel="prev" href="../downloading/">
       
       
-        <link rel="next" href="../downloading/">
+        <link rel="next" href="../server_configuration/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Requirements - Papermege DMS</title>
+        <title>Installation - Papermege DMS</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#requirements" class="md-skip">
+        <a href="#installation" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Requirements
+              Installation
             
           </span>
         </div>
@@ -473,29 +473,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Requirements
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -504,95 +484,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    Software Requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#django" class="md-nav__link">
-    Django
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#imagemagick" class="md-nav__link">
-    Imagemagick
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#poppler" class="md-nav__link">
-    Poppler
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tesseract" class="md-nav__link">
-    Tesseract
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    Hardware Requirements
-  </a>
-  
-    <nav class="md-nav" aria-label="Hardware Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#single-host" class="md-nav__link">
-    Single Host
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-hosts" class="md-nav__link">
-    Multiple Hosts
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -622,9 +513,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -633,6 +544,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#short-version" class="md-nav__link">
+    Short Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-version" class="md-nav__link">
+    Detailed Version
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-python-and-friends" class="md-nav__link">
+    Step 1 - Python and Friends
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-python-virtual-environment" class="md-nav__link">
+    Step 2 - Python Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-manage-command" class="md-nav__link">
+    Step 3 - Manage Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-superuser" class="md-nav__link">
+    Step 4 - Superuser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-worker" class="md-nav__link">
+    Step 5 - Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-configurations" class="md-nav__link">
+    Step 6 - Configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -810,71 +810,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#software-requirements" class="md-nav__link">
-    Software Requirements
+  <a href="#short-version" class="md-nav__link">
+    Short Version
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
+  <a href="#detailed-version" class="md-nav__link">
+    Detailed Version
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#django" class="md-nav__link">
-    Django
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#imagemagick" class="md-nav__link">
-    Imagemagick
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#poppler" class="md-nav__link">
-    Poppler
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tesseract" class="md-nav__link">
-    Tesseract
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
-    Hardware Requirements
-  </a>
-  
-    <nav class="md-nav" aria-label="Hardware Requirements">
+    <nav class="md-nav" aria-label="Detailed Version">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#single-host" class="md-nav__link">
-    Single Host
+  <a href="#step-1-python-and-friends" class="md-nav__link">
+    Step 1 - Python and Friends
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-hosts" class="md-nav__link">
-    Multiple Hosts
+  <a href="#step-2-python-virtual-environment" class="md-nav__link">
+    Step 2 - Python Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-manage-command" class="md-nav__link">
+    Step 3 - Manage Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-superuser" class="md-nav__link">
+    Step 4 - Superuser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-worker" class="md-nav__link">
+    Step 5 - Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-configurations" class="md-nav__link">
+    Step 6 - Configurations
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next?
+  </a>
   
 </li>
       
@@ -896,95 +896,346 @@
   
 
 
-<h1 id="requirements">Requirements</h1>
-<p>Papermerge is web based application. As with any web based application it can be
-accessed and used from any modern web browser, like Mozilla Firefox, Chrome,
-Edge, or Safari.</p>
+<h1 id="installation">Installation</h1>
+<p>If you follow this document and still have troubles, please open an
+<a href="https://github.com/ciur/papermerge/issues">issue on GitHub</a> so I can fill in
+the gaps.</p>
+<p>This guide is split into two parts: short one and very detailed one.
+Short version is meant for people who are comfortable with development tools
+like Python, Django, pip, git or even gcc. In this case I will skip most of details
+as they will sound boring for such persons.</p>
+<p>Detailed is for people who probably heard of Python - as programming
+language - but do not have any experience working with it. Any form of prior
+programming (in ruby, perl, java, C/C++) experience will help you to grasp the
+concepts quicker.</p>
+<p>In both versions of this guide you need to know what is a command line
+terminal and how to work with it. In general Papermerge is a Linux/Unix based
+software. In this guide I will use Ubuntu 20.04 as example, but this
+instructions can be adopted easily for any Linux distribution.</p>
+<h2 id="short-version">Short Version</h2>
+<p>First <a href="../downloading/">download</a> the source code. In this guide we clone latest stable version 1.5.5 into
+folder PapermergeDMS (located in home folder):</p>
+<pre><code class="language-console">git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
+</code></pre>
+<ol>
+<li>Install required Ubuntu 20.04 LTS deb packages:</li>
+</ol>
+<pre><code class="language-console">  sudo apt install build-essential \
+    python3-pip \
+    python3-venv \
+    git \
+    imagemagick \
+    poppler-utils \
+    pdftk \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    tesseract-ocr-deu \
+    tesseract-ocr-fra \
+    tesseract-ocr-spa
+</code></pre>
+<ol>
+<li>Create python virutal environment and activate it:</li>
+</ol>
+<pre><code class="language-console">  cd ~/PapermergeDMS
+  python3 -m venv .venv --system-site-packages
+  source .venv/bin/activate
+</code></pre>
+<p>Alternatively you can create python virtual environment with command:</p>
+<pre><code class="language-console">  virtualenv .venv -p python3.7
+</code></pre>
+<p>Advantage of last command is that you can specify exact python version.
+Papermerge requires python version &gt;= 3.7</p>
+<ol>
+<li>Install necessary dependencies:</li>
+</ol>
+<pre><code class="language-console">pip3 install -r requirements/base.txt
+</code></pre>
+<ol>
+<li>Initialize SQLite database with:</li>
+</ol>
+<pre><code class="language-console">  ./manage.py migrate
+</code></pre>
+<ol>
+<li>Create a user for Papermerge instance:</li>
+</ol>
+<pre><code class="language-console">./manage.py createsuperuser
+</code></pre>
+<ol>
+<li>Start webserver with:</li>
+</ol>
+<pre><code class="language-console">  ./manage.py runserver &lt;IP&gt;:&lt;PORT&gt;
+</code></pre>
+<p>If no specific IP or PORT is given, the default is 127.0.0.1:8000 also known
+as http://localhost:8000/.</p>
+<ol>
+<li>In a separate window, change to the project's root directory again, but
+this time, you should start the worker script with:</li>
+</ol>
+<pre><code class="language-console">  ./manage.py worker
+</code></pre>
+<h2 id="detailed-version">Detailed Version</h2>
+<h3 id="step-1-python-and-friends">Step 1 - Python and Friends</h3>
+<p>Papermerge is written in Python. First thing you need to make sure python interpreter is installed.
+Ubuntu 20.04 comes with python interpreter already installed.
+However, the command to invoke python interpreter is <code>python3</code>:</p>
+<pre><code class="language-console">    $ python3 --version
+    Python 3.8.2
+</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To use Papermerge all you need is just a modern web browser. Papermerge can be
-accessed and used from any operating system (provided a web browser). It can be
-accessed via web browsers from Desktop computers, tablets or mobile phones.</p>
+<p>Python community now transitions from python2 (which is not maintained
+anymore) to python3. This is why in many Linux distributions you can
+access python interpreter either with <code>python</code> command or with
+<code>python3</code> command.</p>
 </div>
-<p>Like a typical web application it runs on server-side Linux or Unix-like
-computer. Thus, if you want to deploy and run Papermerge on your own, you need a
-Linux/Unix compatible operating system.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning<p>Make sure your python is at least version 3.7</p>
+</p>
+</div>
+<p>A close python's friend is <a href="https://pip.pypa.io/en/stable/">pip</a> command. <a href="https://pip.pypa.io/en/stable/">pip</a> is python's package manager.
+Similar as with python interpreter story - there might be either pip or <code>pip3</code> - latter is specifically for
+python version 3. We will use pip3:</p>
+<pre><code class="language-console">  sudo apt install python3-pip
+</code></pre>
+<p>Make sure it was installed:</p>
+<pre><code class="language-console">  pip3 --version
+</code></pre>
+<pre><code class="language-console">  pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
+</code></pre>
+<p>Another package which you need to install is <code>python3-venv</code>. This one will be
+used in Step 2  we'll learn and setup python virtual environment:</p>
+<pre><code class="language-console">  sudo apt install python3-venv
+</code></pre>
+<p>Although Papermerge is written in python, it uses some special
+python modules which are compiled from C sources and used in binary form. This
+means that you need <a href="https://gcc.gnu.org/">gcc compiler</a> installed as well.</p>
+<p>In Ubuntu 20.04, <code>gcc</code> is available via <code>built-essential</code> package:</p>
+<pre><code class="language-console">  sudo apt install build-essential
+</code></pre>
+<p>Double check that <code>gcc</code> was installed:</p>
+<pre><code class="language-console">    $ gcc --version
+    gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0
+    Copyright (C) 2019 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre>
+<p>Ok, great! We have to install one more utility - <code>git</code>. Strictly speaking,
+you don't need <code>git</code>, because you can <a href="download.md">download</a> the tarball and unzip
+(or untar or extract) sources. But let's stick with git:</p>
+<pre><code class="language-console">sudo apt install git
+</code></pre>
+<p>Double check that <code>git</code> was installed:</p>
+<pre><code class="language-console">$ git --version
+  git version 2.25.1
+</code></pre>
+<p>And now clone the latest stable version of Papermerge directly from GitHub repository:</p>
+<pre><code class="language-console">git clone --branch v1.5.5 https://github.com/ciur/papermerge.git  PapermergeDMS
+</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To deploy Papermerge you need a Linux or Unix-like operating system.</p>
+<p>As of writing this - latest stable version of Papermerge is 1.5.5, thus the
+argument <code>--branch</code> with respective version. Also, notice that repository was
+cloned inside folder named PapermergeDMS, you can choose whatever title for
+that folder suites you.</p>
 </div>
-<p>Following installation guide explains how to install and configure Papermerge
-on Ubuntu or Debian based Linux computer. With minor adjustments you must be
-able to successfully install and run Papermerge on any flavor of modern Linux
-(or Unix) computer.</p>
-<h2 id="software-requirements">Software Requirements</h2>
-<p>In order to successfully deploy Papermerge you need following software:</p>
-<ul>
-<li><a href="https://www.python.org/&gt;">Python</a> &gt;= 3.7</li>
-<li><a href="https://www.djangoproject.com/">Django</a> &gt;= 3.1</li>
-<li><a href="https://github.com/tesseract-ocr/tesseract">Tesseract</a></li>
-<li><a href="https://imagemagick.org/script/index.php">Imagemagick</a></li>
-<li><a href="https://poppler.freedesktop.org/">Poppler</a> - PDF operations</li>
-</ul>
-<h2 id="python">Python</h2>
-<p>Papermerge (server side) is written in Python programming language. The
-minimum Python version required is 3.7.</p>
-<h2 id="django">Django</h2>
-<p>Papermerge uses Django Web Framework for its web facing components. The
-minimum required version for Django is 3.1. Generally speaking the fact that
-Papermerge is written in Django is not important for setup. You won't need to
-worry about exact version of Django (or other internal python libraries on
-which Papermerge depends) required as this details are conveniently covered by
-package management tools like <code>pip</code>.</p>
-<h2 id="imagemagick">Imagemagick</h2>
-<p>Papermerge uses Imagemagick to convert between images format. You will need to make sure
-you have image magic installed.</p>
-<h2 id="poppler">Poppler</h2>
-<p>More exactly poppler utils are used. For exampple pdfinfo command line
-utility is used to find out number of page in PDF document.</p>
-<h2 id="tesseract">Tesseract</h2>
-<p>If you never heard of [Tesseract software]
-(https://en.wikipedia.org/wiki/Tesseract_(software)) - it is google's open
-source <a href="https://en.wikipedia.org/wiki/Optical_character_recognition">Optical Character Recognition</a> software.  It
-extracts text from images. It works fantastically well for wide range of
-human languages.</p>
-<p>In addition to the above, there are a number of Python requirements, all of
-which are listed in a file called <code>requirements/base.txt</code> in the project
-root directory.</p>
-<h2 id="hardware-requirements">Hardware Requirements</h2>
-<p>Papermerge can run a single or multiple hosts (computers). OCR operations are
-performed by a component called worker. There can be one or more workers. For
-more efficient setups worker(s) should run on separate computer(s). The exact
-number of papermerge workers depends on your documents volume.</p>
-<h3 id="single-host">Single Host</h3>
-<p>On single host, both web component and worker components run on same computer.</p>
-<p>The minimum hardware requirements in this case are:</p>
-<ul>
-<li>1 GHz CPU</li>
-<li>1 GB RAM</li>
-<li>25 GB disk space</li>
-</ul>
+<p>From now on, I will refer to PapermergeDMS folder as <em>project root</em> or <em>top
+level folder of the project</em></p>
+<h3 id="step-2-python-virtual-environment">Step 2 - Python Virtual Environment</h3>
+<p>Change directory to project's root (folder where you cloned/extracted sources):</p>
+<pre><code class="language-console">cd PapermergeDMS
+</code></pre>
+<p>Our goal in this step is to install python dependencies - like <a href="https://www.djangoproject.com/">Django</a> for example. Most important dependencies - without which project won't start - are listed in <code>requirements/base.txt</code>
+(relative to project's root).</p>
+<p>The command to do that is as simple as <code>pip install -r
+requirements/base.txt</code> - but please don't rush to type it yet. We need to
+clarify the concept of python virtual environment first.</p>
+<p>If you simply type <code>pip insall -r requirements/base.txt</code> - it will install
+packages <strong>system-wide</strong>. A better approach is to install dependencies <strong>per
+project</strong>. So, <em>the place</em> designated for python packages specific for this
+project is called a <em>virtual environment</em>. Let's create a python virtual
+environment and name it <code>.venv</code>:</p>
+<pre><code class="language-console">python3 -m venv .venv --system-site-packages
+</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please keep in mind that Papermerge uses Tesseract for optical character
-recognition (OCR) operations. <strong>OCR is very CPU intense task.</strong> The rule here
-is simple - more powerful CPU and more RAM - better! A more powerful CPU (+
-more RAM) will be able to complete OCR operations faster.</p>
+<p>For virtual environment you can choose whatever name you want. For example
+you can choose to name your virtual environment py37, in that case command
+will be <code>python3 -m venv py37</code>. However, I chose <em>.venv</em> because in
+Unix/Linux dotted folders have special meaning - they are hidden so to
+speak.</p>
 </div>
-<h3 id="multiple-hosts">Multiple Hosts</h3>
-<p>In multiple hosts scenarios, the web component (i.e. the web application)
-requires less resources:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>--system-site-packages</code> is necessary, it will install a package called <code>wheel</code>.
+Without <code>wheel</code> package, pip install later will issue warning.</p>
+</div>
+<p>Alternatively you can create python virtual environment with following command:</p>
+<pre><code class="language-console">virtualenv .venv -p python3.7
+</code></pre>
+<p>Advantage of last command is that it specifies exact python version.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Papermerge requires python version &gt;= 3.7</p>
+</div>
+<p>Next we need to <em>activate</em> virtual environment:</p>
+<pre><code class="language-console">source .venv/bin/activate
+</code></pre>
+<p>Terminal's prompt (bash - in Ubuntu) will change to indicate that python virtual environment is active.</p>
+<p><img alt="active environment" src="../../img/setup/01-active-venv.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python virtual environment is just a directory where python packages will
+be installed. Activating python environment is basically changing your
+current <code>PATH</code> variable - this is exactly what <code>source
+.venv/bin/activate</code> command does. If you will run <code>echo $PATH</code> you will
+notice that <code>PapermergeDMS/.venv/bin</code> is first in path, this means that
+python interpreter first of all will look up for its dependencies there.</p>
+</div>
+<p>And now, with python virtual environment active, let's install Papermerge dependencies:</p>
+<pre><code class="language-console">source .venv/bin/activate
+</code></pre>
+<pre><code class="language-console">pip3 install -r requirements/base.txt
+</code></pre>
+<p>At this point, all python packages were installed inside directory
+<code>.venv/lib/python3.8/site-packages</code> and that directory is first one in your
+path.</p>
+<h3 id="step-3-manage-command">Step 3 - Manage Command</h3>
+<p>Papermerge is based on <a href="https://www.djangoproject.com/">Django Web Framework</a>.
+Django provides a <code>manage.py</code> script which is used to run all project related commands.
+<code>manage.py</code> script is located in project's root directory.</p>
+<p>First let's run migrations:</p>
+<pre><code class="language-console">./manage.py migrate
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point you will see warnings about missing binary dependencies. We
+deal with them little bit later when we will discuss <code>./manage.py check</code>
+command.</p>
+</div>
+<p><em>run migrations</em> - in django's jargon means that you prepare the database. By
+default Papermerge (as any Django based project) uses <a href="https://sqlite.org/">sqlite</a>
+database - which is stored in a single file.
+<code>./manage.py migrate</code> command will create that file (it is called db.sqlite3
+and is in project's root directory) and create database schema for the
+project.</p>
+<p>We are not ready yet, but at this point, you can built-in web server and
+access login screen:</p>
+<pre><code class="language-console">./manage.py runserver
+</code></pre>
+<p><code>runserver</code> command will start web server on port <code>8000</code>. You
+can access login screen via any web browser by pointing it to
+<code>http://localhost:8000/</code></p>
+<p><img alt="login screen" src="../../img/setup/02-login-screen.png" /></p>
+<p>But as I mentioned, we are not ready yet. First of all, when you run
+<code>./manage.py runserver</code> command you probably noticed couple of warnings. To see
+if all binary dependencies were installed run following command:</p>
+<pre><code class="language-console">./manage.py check
+</code></pre>
+<p>On freshly installed Ubuntu 20.04 LTS you will see following warnings:</p>
+<pre><code class="language-console">    System check identified some issues:
+
+    WARNINGS:
+    ?: Papermerge can't find convert. Without it, image resizing is not possible.
+            HINT: Either it's not in your PATH or it's not installed.
+    ?: Papermerge can't find identify. Without it, it is not possible to count pages in TIFF.
+            HINT: Either it's not in your PATH or it's not installed.
+    ?: Papermerge can't find tesseract. Without it, OCR of the documents is impossible.
+            HINT: Either it's not in your PATH or it's not installed.
+    ?: papermerge.conf.py file was found. Following locations attempted /etc/papermerge.conf.py, papermerge.conf.py
+            HINT: Create one of those files or point PAPERMERGE_CONFIG environment name to it.
+
+    System check identified 5 issues (0 silenced).
+</code></pre>
+<p>This means that you need to install all above dependencies. Let's install all
+of them in one shot:</p>
+<pre><code class="language-console">sudo apt install imagemagick \
+    poppler-utils \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    tesseract-ocr-deu \
+    tesseract-ocr-fra \
+    tesseract-ocr-spa
+</code></pre>
+<p>When installation is complete, run check again:</p>
+<pre><code class="language-console">./manage.py check
+</code></pre>
+<pre><code class="language-console">    System check identified some issues:
+
+    WARNINGS:
+    ?: papermerge.conf.py file was found. Following locations attempted /etc/papermerge.conf.py, papermerge.conf.py
+            HINT: Create one of those files or point PAPERMERGE_CONFIG environment name to it.
+
+    System check identified 1 issue (0 silenced).
+</code></pre>
+<p>To silence last warning, just create an empty <code>papermerge.conf.py</code> file in project's root,
+we will turn our attention to that file little bit later:</p>
+<pre><code class="language-console">touch papermerge.conf.py
+</code></pre>
+<h3 id="step-4-superuser">Step 4 - Superuser</h3>
+<p>It's time to create administrative (superuser) user for your Papermerge instance:</p>
+<pre><code class="language-console">./manage.py createsuperuser
+</code></pre>
+<p>The username and password you will type above you will use as login credentials.
+So, start server again (in case it is not running):</p>
+<pre><code class="language-console">./manage.py runserver
+</code></pre>
+<p>Point your web browser to <code>http://localhost:8000</code> and use superuser's
+username/password to login.</p>
+<h3 id="step-5-worker">Step 5 - Worker</h3>
+<p>In a separate window, change to the project's root directory again, but this
+time, you should start the worker with <code>./manage.py worker</code>.
+Remember to activate python virtual environment first:</p>
+<pre><code class="language-console">$ cd ~/PapermergeDMS
+$ source .venv/bin/activate
+$ ./manage.py worker
+</code></pre>
+<p>Worker is the part which performs ocr process. For correct function of Papermerge you must have both parts
+running:</p>
 <ul>
-<li>900 MHz CPU</li>
-<li>512 MB RAM</li>
-<li>15 GB disk space</li>
+<li>main app - the one which you start with <code>./manage.py runserver</code></li>
+<li>worker - the one which you start with <code>./manage.py worker</code></li>
 </ul>
-<p>Minimum requirements for 1 worker are:</p>
-<ul>
-<li>1 GHz CPU</li>
-<li>1 GB RAM</li>
-<li>25 GB disk space</li>
-</ul>
+<p>Now, you can start uploading documents. Remember that only PDF, TIFF, jpeg and
+png :ref:<code>file_formats</code> are supported.</p>
+<p><img alt="main browser view" src="../../img/setup/03-main-browse-view.png" /></p>
+<h3 id="step-6-configurations">Step 6 - Configurations</h3>
+<p>By default, you don't need configuration <code>papermerge.conf.py</code> file.
+However, if there is no configuration file - Papermerge will issue a warning.
+In one of previous steps we created an empty configuration file:</p>
+<pre><code class="language-console">    $ cd ~/PapermergeDMS
+    $ touch papermerge.conf.py # it is empty now
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>What is the purpose of empty configuration file?</strong> It has one - it raises
+awareness of administrator that such file exists. The logic is following -
+if administrator created papermerge.conf.py =&gt; Papermerge application
+immediately concludes admin is aware of such file and silence the warning
+message. Again - it is absolutely OK to leave papermerge.conf.py file
+empty.</p>
+</div>
+<p>By default, in language dropdown menu, two languages will be displayed German and English.
+You can change that with following configuration:</p>
+<pre><code class="language-Python">    OCR_LANGUAGES = {
+        'eng': 'English',
+        'deu': 'Deutsch',
+        'spa': 'Español',
+        'fra': 'Français'
+    }
+</code></pre>
+<p>Now four languages will be displayed in language dropdown.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In previous steps we installed english, spanish, french and german tesseract language
+packs (packages named tesseract-ocr-eng, tesseract-ocr-deu, tesseract-ocr-fra, tesseract-ocr-spa).
+For each language you want to ocr you need to have tesseract language pack installed.</p>
+</div>
+<p>Learn more Papermerge configurations in <a href="../settings/">settings</a></p>
+<h2 id="whats-next">What's Next?</h2>
+<p>Once you’ve tested things and are happy with the work flow, you should secure
+the installation and automate the process of starting the webserver and worker.
+<a href="server_configurations">server configurations</a> explains different configuration
+scenarios of how you can make your bare metal setup - more stable.</p>
 
 
 
