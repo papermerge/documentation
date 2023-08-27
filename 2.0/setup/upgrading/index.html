@@ -22,7 +22,7 @@
     
     
       
-        <title>Upgrading - Papermege DMS</title>
+        <title>Upgrading - Papermerge DMS</title>
       
     
     
@@ -95,9 +95,9 @@
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Papermege DMS" class="md-header__button md-logo" aria-label="Papermege DMS" data-md-component="logo">
+    <a href="../.." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -111,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Papermege DMS
+            Papermerge DMS
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -206,13 +206,94 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user/getting-started/" class="md-tabs__link">
+          
+  
+  User Manual
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../requirements/" class="md-tabs__link">
+          
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dev/" class="md-tabs__link">
+        
+  
+    
+  
+  Developer's Manual
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../settings/" class="md-tabs__link">
+        
+  
+    
+  
+  Settings
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -226,16 +307,18 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Papermege DMS" class="md-nav__button md-logo" aria-label="Papermege DMS" data-md-component="logo">
+    <a href="../.." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    Papermege DMS
+    Papermerge DMS
   </label>
   
     <div class="md-nav__source">
@@ -584,6 +667,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Upgrading
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -593,6 +687,46 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-instructions" class="md-nav__link">
+    General Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-via-docker" class="md-nav__link">
+    Upgrade via Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-15x-to-2x" class="md-nav__link">
+    From 1.5.x to 2.x
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -704,6 +838,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-instructions" class="md-nav__link">
+    General Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-via-docker" class="md-nav__link">
+    Upgrade via Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-15x-to-2x" class="md-nav__link">
+    From 1.5.x to 2.x
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -721,45 +884,40 @@
 
 
 <h1 id="upgrading">Upgrading</h1>
-<p>Always :ref:<code>backup &lt;backup&gt;</code> your database, media directory and configuration files before
+<p>Always <a href="../backup/">backup</a> your database, media directory and configuration files before
 upgrading. We try very hard to make sure that all database changes are
 non-destructive, but you should always backup beforehand anyway. You will
 never regret backing up your database and media directory. You may regret not doing so, so it’s
 just better to get into the habit.</p>
-<p>General Instructions
-~~~~~~~~~~~~~~~~~~~~~</p>
+<h2 id="general-instructions">General Instructions</h2>
 <p>In general, an upgrade involves two parts:</p>
 <ul>
 <li>upgrade application code and dependencies</li>
 <li>apply new database changes (called database migrations)</li>
 </ul>
 <p>Upgrading application code is usually something like:</p>
-<p>.. code-block:: bash</p>
-<div class="language-text highlight"><pre><span></span><code>$ git pull  # pull latest changes
+<pre><code class="language-console">$ git pull  # pull latest changes
 $ export DJANGO_SETTINGS_MODULE=config.settings.prod
 $ pip install -r requirements/base.txt
-</code></pre></div>
-<p>Applying new database changes is performed with <code>migrate</code> command:</p>
-<p>.. code-block:: bash</p>
-<div class="language-text highlight"><pre><span></span><code>$ export DJANGO_SETTINGS_MODULE=config.settings.prod
-$ ./manage.py migrate
-</code></pre></div>
-<p>Note however that above instructions are very generic and may very depending on the release and deployment environment.</p>
-<p>Upgrade via Docker</p>
-<pre><code>
-In case you run Papermerge via docker container, then all you need to do is to
-change docker image to the newer version of papermerge docker image. New
-docker image means actually new application code (with correct dependencies
-already built-in) and, the most important part **docker (startup script) will run database migrations
-for you**!
-
-
-From 1.5.x to 2.x
 </code></pre>
-<p>.. warning::</p>
-<div class="language-text highlight"><pre><span></span><code>If you run an earlier version then 1.5.x please upgrade to 1.5.5 version first.
-</code></pre></div>
-<p>It is very important to upgrade exactly from <code>1.5.5 &lt;https://github.com/ciur/papermerge/releases/tag/v1.5.5&gt;</code><em> to <code>2.0.0rc38 &lt;https://github.com/ciur/papermerge/releases/tag/v2.0.0rc38&gt;</code></em>. The very first 2.x release
+<p>Applying new database changes is performed with <code>migrate</code> command:</p>
+<pre><code class="language-console">$ export DJANGO_SETTINGS_MODULE=config.settings.prod
+$ ./manage.py migrate
+</code></pre>
+<p>Note however that above instructions are very generic and may very depending on
+the release and deployment environment.</p>
+<h2 id="upgrade-via-docker">Upgrade via Docker</h2>
+<p>In case you run Papermerge via docker container, then all you need to do is to
+change docker image to the newer version of papermerge docker image. New docker
+image means actually new application code (with correct dependencies already
+built-in) and, the most important part <strong>docker (startup script) will run
+database migrations for you</strong>!</p>
+<h2 id="from-15x-to-2x">From 1.5.x to 2.x</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you run an earlier version then 1.5.x please upgrade to 1.5.5 version first.</p>
+</div>
+<p>It is very important to upgrade exactly from <a href="https://github.com/ciur/papermerge/releases/tag/v1.5.5">1.5.5</a> to <a href="https://github.com/ciur/papermerge/releases/tag/v2.0.0rc38">2.0.0rc38</a>. The very first 2.x release
 candidate (2.0.0rc35) has problems which will result in upgrade failure.</p>
 
 
@@ -772,6 +930,12 @@ candidate (2.0.0rc35) has problems which will result in upgrade failure.</p>
           
           
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
         
       </main>
       
@@ -828,7 +992,7 @@ candidate (2.0.0rc35) has problems which will result in upgrade failure.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
