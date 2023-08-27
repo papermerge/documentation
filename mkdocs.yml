@@ -50,7 +50,6 @@ theme:
   - content.code.annotate
   - content.code.copy
   - content.code.select
-copyright: Copyright &copy; 2020 - 2023 Ciur Eugen, and the Papermerge DMS team
 repo_url: https://github.com/ciur/papermerge
 extra:
   version:
