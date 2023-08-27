@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.papermerge.io/2.0/user/user-interface/">
       
       
-        <link rel="prev" href="../general-concepts/">
+        <link rel="prev" href="../getting-started/">
       
       
         <link rel="next" href="../upload-documents/">
@@ -395,26 +395,6 @@
                 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../general-concepts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    General Concepts
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -426,6 +406,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -435,6 +426,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#document-browser" class="md-nav__link">
+    Document Browser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#right-side-widgets-panel" class="md-nav__link">
+    Right Side Widgets Panel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-side-navigation-menu" class="md-nav__link">
+    Left Side Navigation Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-menu" class="md-nav__link">
+    User Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breadcrumb" class="md-nav__link">
+    Breadcrumb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-mode" class="md-nav__link">
+    Display Mode
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -787,6 +839,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#document-browser" class="md-nav__link">
+    Document Browser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#right-side-widgets-panel" class="md-nav__link">
+    Right Side Widgets Panel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-side-navigation-menu" class="md-nav__link">
+    Left Side Navigation Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-menu" class="md-nav__link">
+    User Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breadcrumb" class="md-nav__link">
+    Breadcrumb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-mode" class="md-nav__link">
+    Display Mode
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -804,6 +906,79 @@
 
 
 <h1 id="user-interface">User Interface</h1>
+<p>Papermerge user interface is designed to be very intuitive. However, it is a
+good idea to know major interface areas by their name because they are
+referenced many times in this manual.</p>
+<p><img alt="Main user interface elements" src="../../img/user-manual/user-interface/document-browser-ui.png" /></p>
+<h2 id="document-browser">Document Browser</h2>
+<p>Marked with number 1</p>
+<p>Document browser is designed to have similar look and feel of modern desktop
+file browsers. This is the place where you browse your documents and folders.
+The huge different between Papermerge's Document Browser  and usual desktop
+environment's file managers (e.g. <a href="https://en.wikipedia.org/wiki/File_Explorer">Windows File Manager</a> is that in Papermerge there
+are only two times of items - folders and documents. Documents are mainly PDF,
+jpeg, png and tiff file formats. There is no such thing as audio files or
+video files.</p>
+<h2 id="right-side-widgets-panel">Right Side Widgets Panel</h2>
+<p>Marked with number 2.</p>
+<p>Details of selected folder or document appear in so called Right Side Widgets
+Panel or simply Widgets Panel. There may be many different widgets, but three
+most important ones are:</p>
+<ul>
+<li>OCR Language Widget</li>
+<li>Info Widget</li>
+<li>Metadata Widget</li>
+</ul>
+<p><img alt="widgets panel" src="../../img/user-manual/user-interface/widgets-panel.png" /></p>
+<p>OCR Language Widget will always be displayed (when in Document Browser). OCR
+language indicates in which language your documents will be OCRed.</p>
+<p>Basic Info Widget displays basic information about currently selected document
+or folder. Among basic information like title, owner and creation date, it
+will display folder or document's associated tags. In Info Widget there is (an
+extra obvious) download button. Note that with download button in Info Widget
+you will download only latest version of selected document (or folder
+content). In order to download older versions of the document you need to open
+document in document viewer.</p>
+<p>Metadata Widget will display metadata of the currently selected folder or document.</p>
+<h2 id="left-side-navigation-menu">Left Side Navigation Menu</h2>
+<p>In Figure 1 marked with number 3.</p>
+<p>This is main navigation menu. Immediately after sign in you will land in
+<em>Documents</em> menu which will display document browser. Depending on
+your role and permissions you may or may not see some menu items visible on
+Left Side Navigation Menu illustrated in Figure 1. For example if you don't
+have permissions to view/change other users, roles and groups - menu items
+user, roles and groups won't be displayed.</p>
+<h2 id="user-menu">User Menu</h2>
+<p>In Figure 1 marked with number 4.</p>
+<p>It is almost a standard practice in almost any modern web applications to
+place their user sign out, user preferences menus in upper left corner of the
+application. In this regard Papermerge follows this best practice. Besides
+usual <code>Sign out</code> and <code>Preferences</code> menu items there will be <code>Change
+Password</code> menu item and link to (this) online Documentation. Depending on
+your role and permissions you may see additional menu items.</p>
+<h2 id="breadcrumb">Breadcrumb</h2>
+<p>Marked with number 5.</p>
+<p><img alt="breadcrumb" src="../../img/user-manual/user-interface/breadcrumb.png" /></p>
+<p>Breadcrumb indicates current (document or folder) path. It is usual part of any desktop
+file manager to have one sort of "current path indicator" - it is just called differently.
+For web applications such location indicator is usually called breadcrumb.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The term breadcrumb is a reference to the trail of bread crumbs left by Hansel and Gretel in the German fairy tale of the same name.</p>
+</div>
+<h2 id="display-mode">Display Mode</h2>
+<p>In Figure 1 marked with number 6.</p>
+<p>With display mode drop down menu you can switch between different modes in
+which folders and documents will be displayed in document browser.
+Currently two display modes are supported:</p>
+<ul>
+<li>list</li>
+<li>grid</li>
+</ul>
+<p>Besides obvious visual difference there is one very important distinction
+between two display modes: meta columns are displayed only in
+list mode.</p>
+<p><img alt="display mode" src="../../img/user-manual/user-interface/display-mode.png" /></p>
 
 
 
@@ -829,10 +1004,6 @@
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
-  
-    <div class="md-copyright__highlight">
-      Copyright &copy; 2020 - 2023 Ciur Eugen, and the Papermerge DMS team
-    </div>
   
   
     Made with
