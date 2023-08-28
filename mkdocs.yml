@@ -64,6 +64,8 @@ extra:
     link: https://github.com/ciur/papermerge
   - icon: fontawesome/solid/globe
     link: https://papermerge.com
+extra_css:
+  - css/custom.css
 
 markdown_extensions:
   - admonition
@@ -72,5 +74,6 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - tables
 
 
