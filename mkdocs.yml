@@ -4,10 +4,18 @@ nav:
   - User Manual:
       - user/getting-started.md
       - user/user-interface.md
-      - user/upload-documents.md
       - user/tags-and-folders.md
       - user/page-management.md
       - user/metadata.md
+      - user/versions.md
+      - user/automates.md
+      - user/consumption.md
+      - user/rest_api.md
+      - user/ocr_languages.md
+      - user/file_formats.md
+      - user/document_pipelines.md
+      - user/apps.md
+      - user/glossary.md
   - Setup:
     - setup/requirements.md
     - setup/downloading.md
@@ -39,8 +47,6 @@ theme:
   features:
   - search.suggest
   - search.highlight
-  - navigation.tabs
-  - navigation.tabs.sticky
   - navigation.top
 #  - content.tabs.link
 #  - navigation.indexes
@@ -58,6 +64,8 @@ extra:
     link: https://github.com/ciur/papermerge
   - icon: fontawesome/solid/globe
     link: https://papermerge.com
+extra_css:
+  - css/custom.css
 
 markdown_extensions:
   - admonition
@@ -66,5 +74,6 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - tables
 
 
