@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/custom.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -95,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
@@ -206,94 +208,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../getting-started/" class="md-tabs__link">
-          
-  
-  User Manual
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../setup/requirements/" class="md-tabs__link">
-          
-  
-  Setup
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../dev/" class="md-tabs__link">
-        
-  
-    
-  
-  Developer's Manual
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../settings/" class="md-tabs__link">
-        
-  
-    
-  
-  Settings
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -307,10 +228,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
@@ -417,26 +336,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../upload-documents/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Upload Documents
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../tags-and-folders/" class="md-nav__link">
         
   
@@ -466,6 +365,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Page Management
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -475,6 +385,46 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delete-pages" class="md-nav__link">
+    Delete Page(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reorder-pages" class="md-nav__link">
+    Reorder Pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cut-paste" class="md-nav__link">
+    Cut &amp; Paste
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -492,6 +442,186 @@
   
   <span class="md-ellipsis">
     Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consumption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consumption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    REST API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ocr_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCR Languages Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document_pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
   </span>
   
 
@@ -767,6 +897,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delete-pages" class="md-nav__link">
+    Delete Page(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reorder-pages" class="md-nav__link">
+    Reorder Pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cut-paste" class="md-nav__link">
+    Cut &amp; Paste
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -784,6 +943,73 @@
 
 
 <h1 id="page-management">Page Management</h1>
+<p>Many times scanning documents in bulk results in documents with blank pages;
+some pages my be out of order or maybe part of totally different document.
+Even if you notice these flaws immediately it is time consuming and
+frustrating to redo scanning process.
+Wouldn't it be nice to fix out of order pages with Papermerge?</p>
+<p>Page management is set of features which helps to fix scanning process errors.
+In other words you can delete, reorder, cut and paste pages within same
+document even outside it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order perform any of operations described below (delete, reorder, cut and
+paste pages) you need to have <strong>Change Permission</strong> on respective document.
+You have automatically granted <strong>Change Permission</strong>
+on the documents you uploaded (because you own the documents uploaded by you).</p>
+</div>
+<h2 id="delete-pages">Delete Page(s)</h2>
+<p>You can delete specific pages (for instance blank pages) from the document.
+Although many scanners have automatic "remove blank pages" feature, many times
+they get confused of what is a blank page or what is not. In case
+your scans end up with undesired blank pages you can easily remove those
+pages. Obviously you can remove any page which you consider that should not be
+part of current document.</p>
+<p><img alt="delete selected pages" src="../../img/user-manual/page-management/delete-selected-page.png" /></p>
+<p>In order to delete a page, you need to select desired page by clicking on it, then <code>Right Click -&gt;  Delete Page</code>.</p>
+<p>Every time you delete one or several pages, document version is advanced by
+one. For instance if document Invoice-X56.pdf currently has 4 pages and the
+document latest version is version 1, then, after deleting page 3 document's
+latest version will be 2. Thus document's version 1 has all 4 pages or
+original scan (with one blank) and document version 2 has 3 pages (without
+blank page).</p>
+<h2 id="reorder-pages">Reorder Pages</h2>
+<p>Out of order pages occur very often during scanning process. Papermerge allows users
+to change pages order within the document.</p>
+<p>For instance, in figure below you can see that pages 2 and 4 are out of order.
+When you hover over page's thumbnail, two green arrows will appear. Click
+respective arrows to move page up or down.</p>
+<p><img alt="reorder pages" src="../../img/user-manual/page-management/reorder-document-pages-v2.png" /></p>
+<p>For these changes to take effect you need to <code>Right Click --&gt; Apply Reorder Changes</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Document pages reorder will only be saved when you :menuselection:<code>Right Click--&gt; Apply Reorder Changes</code>. You can reorder pages all day around, but if you close the document (by browsing away to a different view for example) without <code>Apply Reorder Changes</code> - your hard work progress will be lost.</p>
+</div>
+<p><img alt="save pages order" src="../../img/user-manual/page-management/click-apply-reorder-changes-v2.png" /></p>
+<p>Similarly to deleting pages, every time you save new pages order document
+version will be incremented (i.e. advanced by one).</p>
+<h2 id="cut-paste">Cut &amp; Paste</h2>
+<p>You can move document pages around from one document to another. Once you cut
+one or several pages from a document, you can paste them either inside another
+document - pages will become part of new document or you can paste pages in
+file browser, this will create entirely new document from cut pages.</p>
+<p>In example illustrated in pictures below there are two documents:</p>
+<ul>
+<li>document A - with pages marked as A1, A2, B1, A3</li>
+<li>document B - with pages B2, B3</li>
+</ul>
+<p>During scan page B1 wrongly ended up in document A, although it belongs to document B.</p>
+<p>In order to fix this scanning issue, you need to cut page from document A as illustrated in figure below.</p>
+<p><img alt="cut and paste" src="../../img/user-manual/page-management/cut-page-from-document-A-v2.png" /></p>
+<p>Then, open document B and <code>Right Click --&gt; Paste</code></p>
+<p><img alt="cut and paste" src="../../img/user-manual/page-management/paste-in-document-B-v2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to see results you will need to click refresh button of your web browser</p>
+</div>
+<p><img alt="pasted page" src="../../img/user-manual/page-management/pasted-page.png" /></p>
+<p>After browser refresh you will see that document has all 3 pages B1, B2, B3.
+Document A on the other contains now only correct pages: A1, A2 and A3.</p>
 
 
 
@@ -853,7 +1079,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>

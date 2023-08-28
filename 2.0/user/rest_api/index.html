@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/2.0/settings/">
+        <link rel="canonical" href="https://docs.papermerge.io/2.0/user/rest_api/">
       
       
-        <link rel="prev" href="../dev/">
+        <link rel="prev" href="../consumption/">
       
       
+        <link rel="next" href="../ocr_languages/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
-        <title>Settings - Papermerge DMS</title>
+        <title>REST API - Papermerge DMS</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -46,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#settings" class="md-skip">
+        <a href="#rest-api" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +99,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
+    <a href="../.." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -117,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Settings
+              REST API
             
           </span>
         </div>
@@ -229,7 +231,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
+    <a href="../.." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -256,17 +258,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
@@ -279,7 +283,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             User Manual
@@ -292,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/user-interface/" class="md-nav__link">
+      <a href="../user-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/tags-and-folders/" class="md-nav__link">
+      <a href="../tags-and-folders/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/page-management/" class="md-nav__link">
+      <a href="../page-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/metadata/" class="md-nav__link">
+      <a href="../metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -392,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/versions/" class="md-nav__link">
+      <a href="../versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/automates/" class="md-nav__link">
+      <a href="../automates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/consumption/" class="md-nav__link">
+      <a href="../consumption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,9 +454,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../user/rest_api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    REST API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -461,6 +485,54 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    How It Works?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-a-token" class="md-nav__link">
+    Get a Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-token" class="md-nav__link">
+    Use the Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api-reference" class="md-nav__link">
+    REST API Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -472,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/ocr_languages/" class="md-nav__link">
+      <a href="../ocr_languages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/file_formats/" class="md-nav__link">
+      <a href="../file_formats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -512,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/document_pipelines/" class="md-nav__link">
+      <a href="../document_pipelines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/apps/" class="md-nav__link">
+      <a href="../apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -552,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/glossary/" class="md-nav__link">
+      <a href="../glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -613,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/requirements/" class="md-nav__link">
+      <a href="../../setup/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/downloading/" class="md-nav__link">
+      <a href="../../setup/downloading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -653,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/installation/" class="md-nav__link">
+      <a href="../../setup/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/server_configuration/" class="md-nav__link">
+      <a href="../../setup/server_configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/backup/" class="md-nav__link">
+      <a href="../../setup/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -713,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/upgrading/" class="md-nav__link">
+      <a href="../../setup/upgrading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/docker/" class="md-nav__link">
+      <a href="../../setup/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -753,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/settings/" class="md-nav__link">
+      <a href="../../setup/settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/" class="md-nav__link">
+      <a href="../../dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -797,18 +869,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,7 +880,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -842,6 +904,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    How It Works?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-a-token" class="md-nav__link">
+    Get a Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-token" class="md-nav__link">
+    Use the Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api-reference" class="md-nav__link">
+    REST API Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -858,7 +956,117 @@
   
 
 
-<h1 id="settings">Settings</h1>
+<h1 id="rest-api">REST API</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OePTvPcnoMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>REST API is a way to interact with Papermerge far beyond Web Browser realm.
+It gives you power to extend Papermerge in many interesting ways.
+For example it allows you to write a simple bash script to automate uploading
+of files from your local (or remote) computer's specific location.</p>
+<p>Another practical scenario where REST API can be used is to automatically
+(well, you need some sort of 3rd party script for that)
+import attached documents from a given email account.</p>
+<h2 id="how-it-works">How It Works?</h2>
+<p>Instead of usual Sign In, with username and password, via Web Browser,
+you will <em>sign in</em> with a token (a fancy name for sequence of numbers and letters)
+from practically any software which supports http protocol.</p>
+<p>Thus, working with REST API is two step process:</p>
+<ol>
+<li>get a token</li>
+<li>use the token from 3rd party REST API client</li>
+</ol>
+<h2 id="get-a-token">Get a Token</h2>
+<ol>
+<li>Click User Menu (top right corner) -&gt; API Tokens</li>
+<li>Click New Token</li>
+<li>You will to decide on number of hours the token will be valid. Default is 4464 hours, which is roughly equivalent of 6 months. Click <em>Save</em> button.</li>
+<li>After you click <em>Save</em> button, two information messages will be displayed. <strong>Write down</strong> your token from <em>Remember the token: ...</em> info window.</li>
+</ol>
+<p><img alt="token api" src="../../img/user-manual/rest-api/01_token_api_user_menu.png" /></p>
+<p><img alt="new token button" src="../../img/user-manual/rest-api/02_new_token_button.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Write down your token. For security reasons, it is will be displayed only once.
+In picture below, it is the one marked in red.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Tokens are saved in database <strong>encrypted</strong>. Token's encrypted version is called
+<strong>digest</strong>. In tokens tables (by the way, you can have as many token you like)
+first column displays first 16 characters of the digest. It is a way to identify
+the token. In picture below, token's digest is marked with green.</p>
+</div>
+<p><img alt="displayed token" src="../../img/user-manual/rest-api/03_displayed_token.png" /></p>
+<h2 id="use-the-token">Use the Token</h2>
+<p>Once you have your REST API token, you can use Papermerge with any HTTP client,
+just remember to include REST API token as header using following format:</p>
+<pre><code class="language-console">Authorization: Token &lt;you token here&gt;
+</code></pre>
+<p>Let's see some examples with  <a href="https://curl.haxx.se" class="external-link" target="_blank">curl</a>.
+The simplest REST API call is:</p>
+<pre><code class="language-console">curl -H &quot;Authorization: Token 7502db85f8d40bc7f4f5ab0a4e4fee4a&quot;  &lt;HOST&gt;/api/documents
+</code></pre>
+<p>If get 2XX response, it means your <code>Authorization</code> header and token are correct.</p>
+<p>Upload local file to remote host specified with <code>&lt;HOST&gt;</code>:</p>
+<pre><code class="language-console">curl -H &quot;Authorization: Token 7502db85f8d40bc7f4f5ab0a4e4fee4a&quot;  \
+  -T /home/eugen/documents/demo/2019/berlin1.pdf  \
+  &lt;HOST&gt;/api/document/upload/berlin_x1.pdf
+</code></pre>
+<p>Notice that local file name is berlin1.pdf while it features in url as
+berlin_x1.pdf. This way I can rename local file.</p>
+<p>You can upload files without specifying their remote name, in that case remote
+file will have same name as local file:</p>
+<pre><code class="language-console">curl -H &quot;Authorization: Token 7502db85f8d40bc7f4f5ab0a4e4fee4a&quot;  \
+  -T /home/eugen/documents/demo/2019/berlin1.pdf  \
+  &lt;HOST&gt;/api/document/upload/
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice the trailing <code>/</code> character. When uploading file with <code>curl</code> without specifying file name URL must end with <code>/</code>. This is a way to notify curl that we don't want to rename files.</p>
+</div>
+<p>Your (REST API) uploaded files will end up in Inbox.</p>
+<p><img alt="inbox" src="../../img/user-manual/rest-api/04_inbox.png" /></p>
+<h2 id="rest-api-reference">REST API Reference</h2>
+<p>REST API authorization header:</p>
+<ul>
+<li>name: <code>Authorization</code></li>
+<li>value format <code>Token &lt;your-token-here&gt;</code></li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-console">curl ... -H &quot;Authorization: Token &lt;your-token-here&gt;&quot;
+</code></pre>
+<p>REST API URLs:</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>HTTP Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/api/documents</td>
+<td>GET</td>
+<td>json list of all documents</td>
+</tr>
+<tr>
+<td>/api/document/<id></td>
+<td>GET</td>
+<td>json info about document with id=<id></td>
+</tr>
+<tr>
+<td>/api/document/upload/</td>
+<td>PUT</td>
+<td>Uploads unnamed file (random name will be assigned)</td>
+</tr>
+<tr>
+<td>/api/document/upload/<filename></td>
+<td>PUT</td>
+<td>Uploads named file</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -928,10 +1136,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
       
     
   </body>

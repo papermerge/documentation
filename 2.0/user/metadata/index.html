@@ -14,7 +14,7 @@
         <link rel="prev" href="../page-management/">
       
       
-        <link rel="next" href="../../setup/requirements/">
+        <link rel="next" href="../versions/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../css/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -95,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
@@ -206,94 +208,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../getting-started/" class="md-tabs__link">
-          
-  
-  User Manual
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../setup/requirements/" class="md-tabs__link">
-          
-  
-  Setup
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../dev/" class="md-tabs__link">
-        
-  
-    
-  
-  Developer's Manual
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../settings/" class="md-tabs__link">
-        
-  
-    
-  
-  Settings
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -307,10 +228,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
       
@@ -417,26 +336,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../upload-documents/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Upload Documents
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../tags-and-folders/" class="md-nav__link">
         
   
@@ -486,6 +385,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Metadata
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -496,6 +406,247 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-concepts" class="md-nav__link">
+    Main Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-inheritance" class="md-nav__link">
+    Metadata Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metacolumns" class="md-nav__link">
+    Metacolumns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-and-edit-metadata" class="md-nav__link">
+    Add and Edit Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-metadata" class="md-nav__link">
+    Delete Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-types" class="md-nav__link">
+    Metadata Types
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consumption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consumption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    REST API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ocr_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCR Languages Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document_pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -767,6 +918,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-concepts" class="md-nav__link">
+    Main Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-inheritance" class="md-nav__link">
+    Metadata Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metacolumns" class="md-nav__link">
+    Metacolumns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-and-edit-metadata" class="md-nav__link">
+    Add and Edit Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-metadata" class="md-nav__link">
+    Delete Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-types" class="md-nav__link">
+    Metadata Types
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -784,6 +985,130 @@
 
 
 <h1 id="metadata">Metadata</h1>
+<h2 id="main-concepts">Main Concepts</h2>
+<p>Metadata is extra information about your folders, documents and pages. In
+other words - data about your data. Following picture is a (scanned document)
+receipt with highlighted shop name, price and date on it.</p>
+<p><img alt="document with metadata" src="../../img/user-manual/metadata/01-macgeiz-receipt-with-metadata.png" /></p>
+<p>This additional information - shop name, price and date is so called document's
+<strong>metadata</strong>. It has two parts a label (in picture above <code>shop</code>, <code>date</code> and
+<code>price</code> are all labels) and a value (in example above values are <code>Mäc-Geiz</code>,
+<code>08.06.2020</code>, <code>1.49</code> for shop label, date label and price label
+respectively). Many times instead of term <em>label</em> term <em>key</em> is used. Metadata
+is extremely useful when you need to locate specific document among many other
+very similar documents.</p>
+<p>Imagine that you scanned 60 groceries receipts and organized them in a
+folder named Groceries. If you would just store those receipts on an ordinary
+file system, then only way to distinguish between files is by file names or
+maybe by their text content (if your storage supports OCR) - finding, specific
+file, say all receipts you got in June 2020, would be time consuming.</p>
+<p>A more efficient and practical way to tackle this problem is by associating to
+all scanned documents (receipts in this example) - metadata. Let's continue
+with groceries receipts example. It would be very time consuming to go to each
+document and add metadata to each file individually. A faster way to create
+metadata and associated it to a group of files, is by a creating a folder -
+add metadata to that folder - let's name it Groceries-2020 - and then just
+copy all groceries related files into that folder.</p>
+<p><img alt="inherited metadata" src="../../img/user-manual/metadata/02-inherited-metadata.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folder is nothing more than a group of related documents. Thus, folders
+are convenient way to perform group operations on documents. In particular,
+by assigning metadata attributes to a folder - you automatically create
+those metadata attributes on all documents in the folder.</p>
+</div>
+<h2 id="metadata-inheritance">Metadata Inheritance</h2>
+<p>Nested folder is a folder stored within another folder. Folders can be nested
+arbitrarily deep. Same way as documents inherit their metadata attributes from
+their parent folder - child folders inherit their metadata attributes from their
+parent folder. Let's consider following example:</p>
+<p><img alt="nested folders" src="../../img/user-manual/metadata/nested-folders-and-metadata.png" /></p>
+<p>In Figure 3 folders Groceries, Rent and Insurances are sub-folders of Expenses.
+On topmost folder - Expenses - only one metadata label is defined, namely
+<code>amount</code>. On folder Groceries two extra metadata labels are defined:
+<code>shop</code> and <code>date</code>. On folder Rent metadata label <code>date</code> is defined. On
+Insurances: <code>company</code>, <code>start date</code> and <code>end date</code>.</p>
+<p>As explained above, metadata labels are inherited from parent folder to
+descendant folders and documents. Because of metadata label inheritance, in
+scenario described above, folder Groceries has  in total three metadata label:</p>
+<ol>
+<li><code>shop</code> - its own</li>
+<li><code>date</code> - its own</li>
+<li><code>amount</code> - inherited from parent</li>
+</ol>
+<p>Similarly folder Insurances has in total four metadata labels, three of its
+own and one inherited (metadata label <code>amount</code>) and folder Rent has in total
+two metadata labels: one inherited (metadata label <code>amount</code>) and one of its
+own (metadata label <code>date</code>).</p>
+<p>All documents from folder Insurances will inherit metadata labels from their
+parental folders. Thus, documents ins-1.pdf and ins-2.pdf from Figure 3 have
+four metadata labels: <code>amount</code> inherited from topmost folder Expenses and
+<code>company</code>, <code>start date</code>, <code>end date</code> inherited from their direct parental
+folder - Insurances.</p>
+<p>Metadata inheritance concept is very convenient because you don't need to
+define all metadata labels on each individual document, instead you define
+metadata only once on the folder containing documents.</p>
+<p>Following illustrations show you how folder structure and metadata definition
+described in Figure 3 look in practice.</p>
+<p><img alt="metadata on expenses" src="../../img/user-manual/metadata/metadata-defined-on-expenses-folder-v2.png" /></p>
+<h2 id="metacolumns">Metacolumns</h2>
+<p>If you open "Expenses" folder and change view to list mode, among Type, Title
+and Created At columns you will see an extra column. That extra column is
+called metacolumn. Metacolumns are there to display actual metadata values defined
+on the documents. At this moment there still no metadata values to display, thus metacolumn
+is empty.</p>
+<p><img alt="empty metacolumn" src="../../img/user-manual/metadata/metacolumn-amount-v2.png" /></p>
+<p>If you select "Groceries" folder, on the right side, in metadata widgets panel
+you will see three metadata label definitions - one of which is inherited.
+Notice that inherited metadata labels is not editable while it is displayed in
+the context of "Groceries" folder:</p>
+<p><img alt="metadata on groceries" src="../../img/user-manual/metadata/metadata-defined-on-groceries-folder-v2.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Metadata labels can be edited ONLY on the folder on which they were
+defined. Conversely, inherited metadata labels (i.e. defined on parent or
+ancestor folders) cannot be edited. For example, in Figure 6, metadata
+label <code>amount</code> cannot be edited in the context of folder "Groceries",
+because <code>amount</code> label was defined on parent folder - "Expenses".</p>
+</div>
+<p>If you enter now "Groceries" folder and switch to list mode (and assuming you
+uploaded couple of documents to "Groceries" folder), you will see three
+metacolumns <code>amount</code>, <code>shop</code> and <code>date</code> - all of which are empty now as
+neither of the documents has metadata values yet:</p>
+<p><img alt="empty metadata" src="../../img/user-manual/metadata/empty-metacolumns-v2.png" /></p>
+<p>Finally, in Figure 8 you see metacolumns with values. Note how convenient
+it is to have data visualized this way: documents may be sorted and located by
+metadata values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point you need to fill in metadata values manually. However, in future versions
+of Papermerge it will be possible to extract metadata (and thus to fill in those metacolumns)
+automatically.</p>
+</div>
+<p><img alt="metadata with values" src="../../img/user-manual/metadata/metacolumns-with-data-v2.png" /></p>
+<h2 id="add-and-edit-metadata">Add and Edit Metadata</h2>
+<p>Metadata is added/editing via metadata widget located on the right bar. For
+folders you can add/edit only metadata labels. For documents you can add/edit
+both labels and values (metadata labels are sometimes called keys). Documents
+metadata (both labels and values) can be edited in document browser as well as
+in document viewer. In document browser you can see metadata corresponding to
+specific document/folder either by selecting document/folder or by switching
+list mode.</p>
+<h2 id="delete-metadata">Delete Metadata</h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>When you delete <strong>metadata label on a folder</strong>, all data associated with
+it i.e. all metadata values of respective label from all documents inside
+respective folder will be irreversibly lost.</p>
+</div>
+<h2 id="metadata-types">Metadata Types</h2>
+<p>Papermerge defines four different metadata types:</p>
+<ol>
+<li>Free form text</li>
+<li>Monetary</li>
+<li>Numeric</li>
+<li>Date</li>
+</ol>
 
 
 
@@ -853,7 +1178,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
