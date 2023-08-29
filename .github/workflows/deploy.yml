@@ -31,4 +31,4 @@ jobs:
           git fetch origin gh-pages --depth=1
           git config --global user.name Docs deploy
           git config --global user.email docs@dummy.bot.com
-      - run: poetry run mike deploy --push ${ inputs.version }
+      - run: poetry run mike deploy --push ${{ inputs.version }}
