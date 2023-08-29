@@ -1,103 +1,129 @@
 # User Interface
 
-Papermerge user interface is designed to be very intuitive. However, it is a
-good idea to know major interface areas by their name because they are
-referenced many times in this manual.
 
-![Main user interface elements](../img/user-manual/user-interface/document-browser-ui.png)
+{{ extra.project }} comes with a simple and intuitive user interface (UI) layout. The UI
+is divided into four areas:
 
-
-## Document Browser
-
-Marked with number 1
-
-Document browser is designed to have similar look and feel of modern desktop
-file browsers. This is the place where you browse your documents and folders.
-The huge different between Papermerge's Document Browser  and usual desktop
-environment's file managers (e.g. [Windows File Manager](https://en.wikipedia.org/wiki/File_Explorer) is that in Papermerge there
-are only two times of items - folders and documents. Documents are mainly PDF,
-jpeg, png and tiff file formats. There is no such thing as audio files or
-video files.
+1. Navigation Menu - contains different views like tags, users, groups, inbox
+2. Search Bar - quick search of any document
+3. User Menu - contains user preferences, API tokens and other menu items.
+4. Commander Panel - or Commander - area for browsing documents and folders
 
 
-## Right Side Widgets Panel
-
-Marked with number 2.
-
-Details of selected folder or document appear in so called Right Side Widgets
-Panel or simply Widgets Panel. There may be many different widgets, but three
-most important ones are:
-
-* OCR Language Widget
-* Info Widget
-* Metadata Widget
-
-![widgets panel](../img/user-manual/user-interface/widgets-panel.png)
-
-OCR Language Widget will always be displayed (when in Document Browser). OCR
-language indicates in which language your documents will be OCRed.
-
-Basic Info Widget displays basic information about currently selected document
-or folder. Among basic information like title, owner and creation date, it
-will display folder or document's associated tags. In Info Widget there is (an
-extra obvious) download button. Note that with download button in Info Widget
-you will download only latest version of selected document (or folder
-content). In order to download older versions of the document you need to open
-document in document viewer.
-
-Metadata Widget will display metadata of the currently selected folder or document.
+![ui layout](../img/user-manual/ui/user-interface-layout.svg)
 
 
-## Left Side Navigation Menu
+## Dual Panel Mode
 
-In Figure 1 marked with number 3.
+Commander (in figure 1. marked with number 4.) is designed to have
+similar look and feel of modern desktop file browsers. This is the place
+where you browse your documents and folders.
 
-This is main navigation menu. Immediately after sign in you will land in
-*Documents* menu which will display document browser. Depending on
-your role and permissions you may or may not see some menu items visible on
-Left Side Navigation Menu illustrated in Figure 1. For example if you don't
-have permissions to view/change other users, roles and groups - menu items
-user, roles and groups won't be displayed.
-
-## User Menu
-
-In Figure 1 marked with number 4.
-
-It is almost a standard practice in almost any modern web applications to
-place their user sign out, user preferences menus in upper left corner of the
-application. In this regard Papermerge follows this best practice. Besides
-usual `Sign out` and `Preferences` menu items there will be `Change
-Password` menu item and link to (this) online Documentation. Depending on
-your role and permissions you may see additional menu items.
+In order to assist you to quickly move around documents, folders and pages -
+there is a special mode - *dual panel model*. In dual panel mode there
+are two panels displayed side by side. Between two panels documents (as well
+as folders and pages) can be moved with one simple drag'n drop. Figure
+below shows how dual panel mode looks like:
 
 
-## Breadcrumb
+![dual panel mode](../img/user-manual/ui/ui-dual-panel-mode.svg)
 
-Marked with number 5.
+In order to switch to dual panel mode, use Commander's upper right button:
 
-![breadcrumb](../img/user-manual/user-interface/breadcrumb.png)
+![switch to dual panel mode](../img/user-manual/ui/switch-to-dual-panel-mode.svg)
 
-Breadcrumb indicates current (document or folder) path. It is usual part of any desktop
-file manager to have one sort of "current path indicator" - it is just called differently.
-For web applications such location indicator is usually called breadcrumb.
+
+To switch back to single panel mode, use close button - which is in the upper right
+corner of one of the panels:
+
+
+![close right panel](../img/user-manual/ui/close-right-panel.svg)
 
 !!! note
 
-    The term breadcrumb is a reference to the trail of bread crumbs left by Hansel and Gretel in the German fairy tale of the same name.
+        Close button will be displayed only on one of the panels.
+        Although both panels look and feel exactly the same, internally
+        application still distinguishes them as main and secondary one. Main panel
+        is the one which is always visible and secondary panel is the on which
+        opens and closes i.e. the one with "close button" in upper right corner.
 
-## Display Mode
 
-In Figure 1 marked with number 6.
+## Commander
 
-With display mode drop down menu you can switch between different modes in
-which folders and documents will be displayed in document browser.
-Currently two display modes are supported:
 
-* list
-* grid
+Commander or Commander Panel is one of the two available panels. Commander is
+the panel which shows documents and folders - modern web based file browser if
+you will.
 
-Besides obvious visual difference there is one very important distinction
-between two display modes: meta columns are displayed only in
-list mode.
+![commander](../img/user-manual/ui/one_commander.svg)
 
-![display mode](../img/user-manual/user-interface/display-mode.png)
+![two commanders](../img/user-manual/ui/two_commanders.svg)
+
+
+## Viewer
+
+Viewer or Viewer Panel or Document Viewer is one of the two available panels.
+Viewer is the panel in which document is opened.
+
+
+![one viewer](../img/user-manual/ui/one_viewer.svg)
+
+
+There can be two Viewers opened side by side. This mode (i.e. dual panel mode
+with a Viewer in each panel) is very handy when it comes to moving
+pages between documents.
+
+![two viewers](../img/user-manual/ui/two_viewers.svg)
+
+
+## Thumbnails Panel
+
+Document viewer features a thumbnails panel which can be toggles on and off.
+Pages can be selected only inside thumbnails panel; also pages can be
+dragged/dropped only from thumbnails panel.
+
+
+![thumbnails panel](../img/user-manual/ui/thumbnails_panel.svg)
+
+
+## Context Menu and its Peculiarities
+
+
+Context menu - is a gui menu which appears when you
+perform a right-click operation with your mouse. Context menu appears in same
+position where your mouse pointer is when you perform right-click.
+
+{{ extra.project }} features its own context menu,
+which may be invoked only when your mouse pointer hovers over Commander or
+Viewer. Web browser feature their own context menu - in this sense, browsers'
+context menu will appear whenever you perform right-click operation outside
+of Commander or Viewer.
+
+Pay attention to the animated image below, the {{ extra.project }} specific context menu
+will appear only when you right-click over Commander or Viewer, otherwise the
+default browser's built in context menu will be displayed:
+
+
+![context menu](../img/user-manual/ui/context-menu-only-over-view-or-commander.gif)
+
+
+Context menu is dynamic - which means that it will display different menu items
+depending on what makes sense in current situation. For example, if you did not
+select any document or folder then it does not make sense to display menu items such
+as "Rename", "Download", "Move" - and context menu won't show those items.
+
+A less obvious, but extremely important to understand, is the fact that
+context menu is bound to its panel, in other words if there are two panels
+(e.g. two Commander panels) opened side by side, then each panel has its own
+instance of context menu. This fact can be illustrated when in one Commander
+panel you select one (or multiple) folder(s) - while in other you don't
+select anything; in this case, each panel's context menu items will differ:
+
+![context menu bound to panel](../img/user-manual/ui/context-menu-bound-to-panel.gif)
+
+!!! warning
+
+    Context menu is bound to its panel! If there are two panels
+    e.g. two Commander panels, then there are two different instances of the
+    context menus, and each instance is bound to, in other words is specific
+    to, its own Commander.
