@@ -1,14 +1,20 @@
 # Papermerge DMS
 
-Papermerge is a open source document management system designed to work with
-scanned documents, also called digital archives. It extracts text from your
-scans (which might be PDF, TIFF, JPEG or PNG), indexes it, and prepares it for
-full text search. Papermerge provides the look and feel of modern desktop file
-browsers. It has features like dual panel document browser, drag and drop, tags,
-hierarchical folders, so that you can efficiently store and organize your
-documents.
+Papermerge DMS or simply Papermerge is a open source document management system
+designed to work with scanned documents, also called digital archives. It
+extracts text from your scans (which might be PDF, {-- TIFF, JPEG or PNG --}, indexes
+it, and prepares it for full text search. Papermerge provides the look and feel
+of modern desktop file browsers. It has features like dual panel document
+browser, drag and drop, tags, hierarchical folders, so that you can efficiently
+store and organize your documents.
 
-It is perfect tool for long term storage of your digital archives.
+{{ extra.project }} is perfect tool for long term storage of digital archives.
+
+!!! note
+
+    Support for TIFF, JPEG and PNG was temporary dropped. These formats are not
+    available in 2.1; TIFF, JPEG and PNG formats will be supported again since 3.0
+
 
 ![Papermerge screenshot](img/document-management-system-screenshot.png)
 
