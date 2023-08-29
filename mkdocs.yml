@@ -1,4 +1,4 @@
-site_name: Papermerge DMS
+site_name: Papermerge 2.1
 site_url: https://docs.papermerge.io
 nav:
   - User Manual:
@@ -55,7 +55,7 @@ theme:
   - content.code.select
 repo_url: https://github.com/ciur/papermerge
 extra:
-  project: Papermerge DMS  # custom variable for macros plugin
+  project: Papermerge  # custom variable for macros plugin
   version:
     provider: mike
   social:
@@ -73,6 +73,11 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - tables
 plugins:
   - macros
