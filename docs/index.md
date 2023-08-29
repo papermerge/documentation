@@ -1,25 +1,45 @@
 # Papermerge DMS
 
 Papermerge is a open source document management system designed to work with
-scanned documents. It extracts text from your scans (which might be PDF, TIFF,
-JPEG or PNG), indexes it, and prepares it for full text search. Papermerge
-provides the look and feel of modern desktop file browsers. It has features like
-tags, hierarchical folders and automations so that you can efficiently organize
-your documents.
+scanned documents, also called digital archives. It extracts text from your
+scans (which might be PDF, TIFF, JPEG or PNG), indexes it, and prepares it for
+full text search. Papermerge provides the look and feel of modern desktop file
+browsers. It has features like dual panel document browser, drag and drop, tags,
+hierarchical folders, so that you can efficiently store and organize your
+documents.
 
+It is perfect tool for long term storage of your digital archives.
 
 ![Papermerge screenshot](img/document-management-system-screenshot.png)
 
+
+## Features Highlights
+
+* Works well with PDFs
+* Desktop like user interface
+* Dual panel mode
+* OCR - used to extract text for documents indexing
+* OCRed text overlay (you can download document with OCRed text overlay)
+* Full text search (supports multiple search engines)
+* Document Versioning
+* Tags - assign colored tags to documents or folders
+* Folders - users can organize documents in folders
+* Multi-User
+* User permissions management
+* Fully REST API (all features can be consumed via REST API)
+* Page Management - delete, reorder, rotate, merge, move, extract
+
+
 ## What It Does
 
-* It extract and indexes text from your documents
-* Provides nice user interface to easily find your documents
-* Augments your documents with tags and [metadata](user/metadata.md)
-* Helps you instantly find your documents:
-    * based on extracted text
-    * based on [metadata](user/metadata.md)
-    * based on [tags and folders](user/tags-and-folders.md)
-* Helps you fix scanned documents issues
+* It extracts (using OCR) and indexes text from your documents
+* Provides modern, desktop like user interface to easily find your documents
+* Helps you instantly find your documents
+* Helps you fix scanned documents issues like:
+   * delete blank, semi-blank or just irrelevant pages
+   * rotate pages
+   * move strayed pages between documents
+   * change page order within the document
 
 
 ## What It Doesn't Do
@@ -27,12 +47,10 @@ your documents.
 * It does **not** take control of your documents. Documents are **stored on
   filesystem** in a simple and intuitive manner so that you can take snapshot of
   your data at any time
-* It does **not** stay in your way when you make decisions about your data
 * It does **not** overwrite your original documents
 
 
 ## Right Tool for You?
-
 
 To be efficient you always need to choose right tool for the problem. Because
 Document Management is too generic - I think that a definition of what is a
