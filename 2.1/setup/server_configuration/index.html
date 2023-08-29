@@ -1,0 +1,1423 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.papermerge.io/2.1/setup/server_configuration/">
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../backup/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+    
+    
+      
+        <title>Server Configurations - Papermerge DMS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#server-configurations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Papermerge DMS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Server Configurations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ciur/papermerge" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Papermerge DMS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ciur/papermerge" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            User Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/user-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/tags-and-folders/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags and Folders
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/page-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/automates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/consumption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consumption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/rest_api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    REST API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/ocr_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCR Languages Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/file_formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/document_pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Downloading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Server Configurations
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Server Configurations
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    Apache
+  </a>
+  
+    <nav class="md-nav" aria-label="Apache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-apache-web-server" class="md-nav__link">
+    Step 1 - Install Apache Web Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-get-mod_wsgi" class="md-nav__link">
+    Step 2 - Get mod_wsgi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-build-install-mod_wsgi" class="md-nav__link">
+    Step 3 - Build &amp; Install mod_wsgi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-virtual-host" class="md-nav__link">
+    Step 4 - Configure Virtual Host
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-gunicorn" class="md-nav__link">
+    Nginx + Gunicorn
+  </a>
+  
+    <nav class="md-nav" aria-label="Nginx + Gunicorn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-gunicorn" class="md-nav__link">
+    Step 1 - Install Gunicorn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-systemd-service-for-gunicorn" class="md-nav__link">
+    Step 2 - Systemd Service for Gunicorn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-nginx" class="md-nav__link">
+    Step 3 - Nginx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    Worker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broker-messaging-queue-and-their-configuration" class="md-nav__link">
+    Broker, Messaging Queue and their Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer's Manual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    Apache
+  </a>
+  
+    <nav class="md-nav" aria-label="Apache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-apache-web-server" class="md-nav__link">
+    Step 1 - Install Apache Web Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-get-mod_wsgi" class="md-nav__link">
+    Step 2 - Get mod_wsgi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-build-install-mod_wsgi" class="md-nav__link">
+    Step 3 - Build &amp; Install mod_wsgi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-virtual-host" class="md-nav__link">
+    Step 4 - Configure Virtual Host
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-gunicorn" class="md-nav__link">
+    Nginx + Gunicorn
+  </a>
+  
+    <nav class="md-nav" aria-label="Nginx + Gunicorn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-gunicorn" class="md-nav__link">
+    Step 1 - Install Gunicorn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-systemd-service-for-gunicorn" class="md-nav__link">
+    Step 2 - Systemd Service for Gunicorn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-nginx" class="md-nav__link">
+    Step 3 - Nginx
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    Worker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broker-messaging-queue-and-their-configuration" class="md-nav__link">
+    Broker, Messaging Queue and their Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="server-configurations">Server Configurations</h1>
+<p>The default is to use Django’s development server provided by <code>./manage.py runserver</code>
+command, as that’s easy and does the job well enough on a home network.
+However it is heavily discouraged to use it for more than that.</p>
+<p>If you want to do things right you should use a real webserver capable of
+handling more than one thread. You will also have to let the webserver serve
+the static files (CSS, JavaScript) from the directory configured in
+:ref:<code>static_dir</code>. The default static files directory is <code>static</code>.</p>
+<p>For that you need to activate your virtual environment and collect the static
+files with the command:</p>
+<pre><code class="language-console">./manage.py collectstatic
+</code></pre>
+<p>Setting up a web server can sound daunting for folks who don't normally do
+that kind of thing. This guide will help you walk through the configuration
+for Apache or Nginx on Linux and OSX.</p>
+<h2 id="apache">Apache</h2>
+<p>The most common setup for Papermerge on a linux server is to use Apache, so if
+you're not sure what to pick, Apache might be the best bet, as it's free, easy
+to configure, and well documented.</p>
+<p>In order use apache web server with Django (web framework used by Papermerge)
+you need to install so called module <a href="https://modwsgi.readthedocs.io/en/develop/index.html">mod_wsg</a></p>
+<h3 id="step-1-install-apache-web-server">Step 1 - Install Apache Web Server</h3>
+<p>On Ubuntu 20.04 LTS you install apache web server with following command:</p>
+<pre><code class="language-console">sudo apt install apache2
+</code></pre>
+<h3 id="step-2-get-mod_wsgi">Step 2 - Get mod_wsgi</h3>
+<p>Get latest release of <code>mod_wsgi</code> from <a href="https://github.com/GrahamDumpleton/mod_wsgi/releases">here</a>. Extract archive:</p>
+<pre><code class="language-console">unzip mod_wsgi-4.7.1
+cd mod_wsgi-4.7.1
+</code></pre>
+<h3 id="step-3-build-install-mod_wsgi">Step 3 - Build &amp; Install mod_wsgi</h3>
+<p>In order to build mod_wsgi on Ubuntu Linux, you need three things:</p>
+<ul>
+<li><code>build-essential</code> ubuntu package with gcc compiler and friends</li>
+<li><code>apache2-dev</code> package</li>
+<li><code>python interpreter</code> from your <em>papermerge virtual environment</em></li>
+</ul>
+<p>Let's first install required packages:</p>
+<pre><code class="language-console">sudo apt install build-essential apache2-dev
+</code></pre>
+<p>Next, activate your Papermerge virtual environment (python virtual environment):</p>
+<pre><code class="language-console">source /opt/papermerge/.venv/bin/activate
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Activating python virtual environment is very important step. Because when
+compilying mod_wsgi it must find in $PATH <strong>python interpreter</strong> located
+in same virtual environment with other python dependencies.</p>
+</div>
+<p>Switch to extracted directory mod_wsgi-4.7.1 and run following commands:</p>
+<pre><code class="language-console">$ ./configure
+$ make
+$ sudo make install
+</code></pre>
+<p>On Ubuntu 20.04 LTS <code>sudo make install</code> command will copy <code>mod_wsgi.so</code>
+binary file to <code>/usr/lib/apache2/modules/mod_wsgi.so</code></p>
+<p>Next enable mod_wsgi module with following command:</p>
+<pre><code class="language-console">a2enmod mod_wsgi
+</code></pre>
+<p>You can double check if mod_wsgi module was enabled with:</p>
+<pre><code class="language-console">apachectl -M
+</code></pre>
+<p>It should display a list enabled modules. Among other should be:</p>
+<pre><code class="language-console">...
+wsgi_module (shared)
+...
+</code></pre>
+<h3 id="step-4-configure-virtual-host">Step 4 - Configure Virtual Host</h3>
+<p>In directory <code>/etc/apache2/sites-available</code> create a virtual configuration file for Papermerge.
+Let's say papermerge.site. Here is configuration example for virtual host:</p>
+<pre><code class="language-console">&lt;VirtualHost *:8060&gt;
+    &lt;Directory /opt/papermerge/config&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    Alias /media/ /var/media/papermerge/
+    Alias /static/ /var/static/papermerge/
+
+    &lt;Directory /var/media/papermerge&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    &lt;Directory /var/static/papermerge&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    ServerName papermerge.home
+    ServerRoot /opt/papermerge
+&lt;/VirtualHost&gt;
+
+WSGIPythonHome /opt/papermerge/.venv/
+WSGIPythonPath /opt/papermerge/
+WSGIScriptAlias / /opt/papermerge/config/wsgi.py
+</code></pre>
+<p>The first bit in the WSGIScriptAlias line is the base URL path you want to
+serve your application at (/ indicates the root url), and the second is the
+location of a WSGI file, inside papermerge project as <code>config/wsgi.py</code>. This
+tells Apache to serve any request below the given URL using the WSGI
+application defined in that file.</p>
+<p><code>WSGIPythonHome</code> is path to python's virtual environment.</p>
+<h2 id="nginx-gunicorn">Nginx + Gunicorn</h2>
+<p>Another way to deploy Papermerge behind a real web server is by using <code>Nginx
++ Gunicorn</code> duo. <a href="https://gunicorn.org">Gunicorn</a> is called application server - it serves WSGI
+(Papermerge/Django) application via HTTP protocol (in that sense Gunicorn is
+kind of web server). However, gunicorn cannot serve static content
+(JavaScript, CSS, images), this task falls on NginX shoulders.</p>
+<h3 id="step-1-install-gunicorn">Step 1 - Install Gunicorn</h3>
+<p><a href="https://gunicorn.org/">Gunicorn</a> is not provided in list of dependencies. Thus,
+you need to installed in your current virtual python environment:</p>
+<pre><code class="language-console">$ source .venv/bin/activate
+$ pip install gunicorn
+</code></pre>
+<p>Create gunicorn configuration file:</p>
+<pre><code class="language-console">// Content of /opt/etc/gunicorn.conf.py file
+
+workers = 2
+errorlog = &quot;/opt/log/gunicorn.error&quot;
+accesslog = &quot;/opt/log/gunicorn.access&quot;
+loglevel = &quot;debug&quot;
+
+bind = [&quot;127.0.0.1:9001&quot;]
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Gunicorn configuration file must have .py extention and its syntax is
+valid python syntax.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Binding port is 9001. This same port will be later used to proxy http
+requests from nginx to gunicorn.</p>
+</div>
+<p>and environment variables file:</p>
+<pre><code class="language-console">// Content of /opt/etc/gunicorn.env file
+
+DJANGO_SETTINGS_MODULE=config.settings.production
+</code></pre>
+<p>You need to create a production.py file in /opt/papermerge/config/setting/ directory.
+Here is an example of production.py file content:</p>
+<pre><code class="language-console">// Content of /opt/papermerge/config/settings/production.py file
+
+from .base import *  # noqa
+
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+</code></pre>
+<h3 id="step-2-systemd-service-for-gunicorn">Step 2 - Systemd Service for Gunicorn</h3>
+<p>Example of systemd unit file for Gunicorn:</p>
+<pre><code class="language-console">// SystemD unit file for gunicorn
+
+[Unit]
+Description=Gunicorn Service
+
+[Service]
+WorkingDirectory=/opt/papermerge
+EnvironmentFile=/opt/etc/gunicorn.env
+ExecStart=/opt/papermerge/.venv/bin/gunicorn config.wsgi:application --config /opt/etc/gunicorn.conf.py
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3 id="step-3-nginx">Step 3 - Nginx</h3>
+<p>And finally connect nginx with gunicorn. Here is a sample configuration for nginx:</p>
+<pre><code class="language-console">server {
+    server_name papermerge.home;
+    listen 9000;
+
+    location /static/ {
+        alias /opt/static/;
+    }
+
+    location /media/ {
+        alias /opt/media/;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:9001;
+    }
+}
+</code></pre>
+<h2 id="worker">Worker</h2>
+<p>Here is worker.service unit:</p>
+<pre><code class="language-console">// Worker.service unit file
+
+[Unit]
+Description=Papermerge Worker
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/papermerge
+ExecStart=/opt/papermerge/.venv/bin/python /opt/papermerge/manage.py worker --pidfile /tmp/worker.pid
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that <code>ExecStart</code> is <strong>absolute path to python interpreter inside
+python virtual environment</strong>. Absolute path to python interpreter inside
+virtual environment is enough information for python to figure out the
+rest of python dependencies from the same virtual environment. Thus, you
+don't need to provide futher information about virtual environment.</p>
+</div>
+<p>Systemd .service may be placed in one of several locations. One options is
+to place it in <code>/etc/systemd/system</code> together with other system level
+units. In this case you need root access permissions.</p>
+<p>Another option is to place .service file inside <code>$HOME/.config/systemd/user/</code>
+In this case you can start/check status/stop systemd unit service with following commands:</p>
+<pre><code class="language-console">// Useful systemd comments
+
+$ systemctl --user start worker
+$ systemctl --user status worker
+$ systemctl --user stop worker
+</code></pre>
+<h2 id="broker-messaging-queue-and-their-configuration">Broker, Messaging Queue and their Configuration</h2>
+<p>Web application (a.k.a. main app) shows users fancy UI and is basically what
+end users see and interact with. Worker extracts information from scanned
+documents OCRs them) i.e workers actually do the most laborious
+task. Number of workers is only limited by your resources: there can be one
+worker or one thousand.</p>
+<p>How does web application pass the heavy OCR jobs to the worker(s)? How does it
+happen that in case of many workers one starts the job and others are aware of
+it and do not start the same again - i.e. a job is never performed twice? All
+this <em>workers management</em> is done by a component called <em>Broker</em>. Passing of
+those OCR related jobs from main app to the broker (which in turn will pass it to correct
+worker) is done via so called <em>Messaging Queue</em>. Messaging queue can be
+something as simple as file system; but database, computer memory, key/value
+in-memory databases are also good candidates.</p>
+<p>The thing is, to keep initial setup very simple (i.e. to require the minimum
+amount of configuration to start the application) the broker part is performed
+by a package called celery - which is part of Papermerge. Similarly, to keep
+everything simple at the beginning message queue was chosen to be file system
+itself.</p>
+<p>By default, configurations for broker and messaging queue are
+following:</p>
+<pre><code class="language-py">CELERY_BROKER_URL = &quot;filesystem://&quot;
+CELERY_BROKER_TRANSPORT_OPTIONS = {
+    'data_folder_in': PAPERMERGE_TASK_QUEUE_DIR,
+    'data_folder_out': PAPERMERGE_TASK_QUEUE_DIR,
+}
+</code></pre>
+<p>Where <code>PAPERMERGE_TASK_QUEUE_DIR</code> points to the folder on the file system,
+and its default value is <code>queue</code>. Which basically means that all messages
+will be saved in the current folder named <code>queue</code>.</p>
+<p>Above configuration is fantastic for development, because zero configuration required.</p>
+<p>However, <strong>filesystem based broker configuration is terrible for production!</strong></p>
+<p>If you will use it, you will experience CPU increase over time, like described
+in this <a href="https://github.com/ciur/papermerge/issues/198">ticket</a> on github.</p>
+<p>Following is good configuration for production:</p>
+<pre><code class="language-py">// Recommended options for production
+
+CELERY_BROKER_URL = &quot;redis://&quot;
+CELERY_BROKER_TRANSPORT_OPTIONS = {}
+CELERY_RESULT_BACKEND = &quot;redis://localhost/0&quot;
+</code></pre>
+<p>It uses <a href="https://redis.io/">redis</a> key value database. With redis as broker transport you will
+never have CPU spikes.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code>CELERY_BROKER_URL</code>, <code>CELERY_BROKER_TRANSPORT_OPTIONS</code> and
+<code>CELERY_RESULT_BACKEND</code> configurations go into django configuration file
+of Papermerge project not in papermerge.conf.py. Django configuration file
+is the one in <a href="https://github.com/ciur/papermerge/blob/master/config/settings/base.py">project_dir/config/base.py</a></p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ciur/papermerge" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://papermerge.com" target="_blank" rel="noopener" title="papermerge.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.4c2.2 20.4 3.3 41.8 3.3 64zm28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6zM8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zm186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6h116.7zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.6z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+    
+  </body>
+</html>
