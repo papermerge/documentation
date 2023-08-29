@@ -1,0 +1,1089 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.papermerge.io/v2.1/user/consumption/">
+      
+      
+        <link rel="prev" href="../automates/">
+      
+      
+        <link rel="next" href="../rest_api/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+    
+    
+      
+        <title>Consumption - Papermerge DMS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#consumption" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Papermerge DMS" class="md-header__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Papermerge DMS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Consumption
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ciur/papermerge" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Papermerge DMS" class="md-nav__button md-logo" aria-label="Papermerge DMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Papermerge DMS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ciur/papermerge" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            User Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags-and-folders/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags and Folders
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../page-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Consumption
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Consumption
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-importer-directory" class="md-nav__link">
+    The Importer Directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imap-email" class="md-nav__link">
+    IMAP (Email)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-imap-account-for-many-papermerge-users" class="md-nav__link">
+    One IMAP Account for Many Papermerge Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-by-user" class="md-nav__link">
+    Matching By User
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-by-secret" class="md-nav__link">
+    Matching By Secret
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    REST API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ocr_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCR Languages Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document_pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/docker-compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/upgrading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer's Manual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-importer-directory" class="md-nav__link">
+    The Importer Directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imap-email" class="md-nav__link">
+    IMAP (Email)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-imap-account-for-many-papermerge-users" class="md-nav__link">
+    One IMAP Account for Many Papermerge Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-by-user" class="md-nav__link">
+    Matching By User
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-by-secret" class="md-nav__link">
+    Matching By Secret
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="consumption">Consumption</h1>
+<p>Once you’ve got Papermerge up and running, you need to start feeding documents
+into it. Currently, there are four options: upload directly via web user
+interface, the importer directory, IMAP (email), and the REST API.</p>
+<p>Uploading document via web interface won't be explained here as it is very
+obvious. Uploading via REST API along with how to register a token is
+explained in <a href="../rest_api/">REST API</a>. Here we will focus on importing from
+a local directory and importing documents from an email account (imap).</p>
+<h2 id="the-importer-directory">The Importer Directory</h2>
+<p>You can point Papermerge to a specific directory on your local system and
+<code>worker</code> script will import all documents from that
+directory. Getting stuff into this directory is up to you. If you’re running
+Papermerge on your local computer, you might just want to drag and drop files
+there. Imported documents will land in your superuser's Inbox folder.</p>
+<p>The configuration setting you are looking for is <code>IMPORTER_DIR</code>. It points to the directory where all documents will be imported from. Example:</p>
+<pre><code class="language-console">IMPORTER_DIR = &quot;/mnt/media/importer_dir&quot;
+</code></pre>
+<p>The <code>IMPORTER_DIR</code> directory pointed must be readable by the Papermerge application.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that <code>IMPORTER_DIR</code> must be defined on the worker side. For single
+deployments worker and main app will share the same <code>papermerge.conf.py</code>
+configuration file, thus all configurations will be in same configuration file.
+In case of distributed deployment - or even in case when the main app and worker
+run within different docker images - this distinction becomes important.
+<code>IMPORTER_DIR</code> should be defined in <code>papermerge.conf.py</code> of the host (or docker
+image) where the worker runs.</p>
+</div>
+<p>All imported documents will land in superuser's Inbox.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Papermerge is a multi-user system. The very first system user is called
+superuser. Papermerge must have at least one superuser. Regardless of how many
+users there are in Papermerge DMS, imported documents will always end up in
+first superuser's inbox.</p>
+</div>
+<h2 id="imap-email">IMAP (Email)</h2>
+<p>Papermerge can import documents from an email account. This feature is somehow
+similar to importing documents from a local directory, but instead of a local
+path you need to provide details about an email account (email account = IMAP
+account). At very least you need to provide following email importing
+settings:</p>
+<ol>
+<li><code>IMPORT_MAIL_HOST</code> - IMAP server hostname</li>
+<li><code>IMPORT_MAIL_USER</code> - IMAP username</li>
+<li><code>IMPORT_MAIL_PASS</code> - IMAP password</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Email importing settings must be defined on the worker side.</p>
+</div>
+<p>with those three configurations worker will securely connect every 30 seconds
+to provided IMAP account and check for newly arrived <strong>email messages with
+attachments</strong>. By default email attachment's will end up in your superuser's
+Inbox.</p>
+<h2 id="one-imap-account-for-many-papermerge-users">One IMAP Account for Many Papermerge Users</h2>
+<p>Adding all email attachments to your superuser Inbox is absolutely fine when
+superuser is the one and only user in Papermerge. However, if your Papermerge
+instance has multiple users, then assigning documents for specific Papermerge
+user's Inbox is little tricky. There are couple ways to match incoming emails to
+specific Papermerge user:</p>
+<ol>
+<li>matching by "From" or "To" fields (also called matching "by user")</li>
+<li>matching by special "secret" in email's subject or email's body</li>
+</ol>
+<p>The following configurations enable/disable respective matching features:</p>
+<ul>
+<li><code>IMPORT_MAIL_BY_USER</code> = True | False</li>
+<li><code>IMPORT_MAIL_BY_SECRET</code> = True | False</li>
+</ul>
+<h2 id="matching-by-user">Matching By User</h2>
+<p><code>IMPORT_MAIL_BY_USER</code> allows user to send emails from their
+user-configured email address and have them end up in their inbox. With this option enabled, Papermerge
+looks up email's "From" and "To" fields to decide for who those documents are addressed. Document will end up in Papermerge user with same email address as either email's "From" or email's "To" field.</p>
+<p>Following picture illustrates how matching by user works:</p>
+<p><img alt="match by user" src="../../img/user-manual/consumption/match_by_user.svg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You configure Papermerge with only one IMAP/email account.</p>
+</div>
+<h2 id="matching-by-secret">Matching By Secret</h2>
+<p><code>IMPORT_MAIL_BY_SECRET</code> is yet another way to route email's attachments to
+correct Papermerge inbox. It this case a per-user secret in email body or
+email subject is the decision factor. Secret can be any text. In your email
+you need to surround it with <code>SECRET{ ... }</code> keyword. Note that keyword
+<code>SECRET</code> must be all capital-case and there are no spaces between opening
+curly brackets and word <code>SECRET</code>, however there may be spaces between secret
+text and surrounding curly brackets. Papermerge looks for <code>SECRET{
+... }</code> in emails subject or emails text body - but <strong>NOT in the
+attachment</strong>!</p>
+<p>Let's consider an example: Papermerge user <em>john</em> in preferences enables <em>Email routing
+by secret</em> option and chooses as secret <em>the one who loves cats and documents</em>. Then any incoming
+email (in configured IMAP account) with following text (either in subject or in its body):</p>
+<div class="language-text highlight"><pre><span></span><code>SECRET{ the one who loves cats and documents }
+</code></pre></div>
+<p>with be assigned to Papermerge user <em>john</em>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>There are <strong>no spaces between</strong> keyword <code>SECRET</code> and <code>{</code></p>
+</div>
+<p>Notice that email matching feature must be enabled:</p>
+<ol>
+<li>system wide using <code>IMPORT_MAIL_BY_USER</code> and/or <code>IMPORT_MAIL_BY_SECRET</code> in <code>papermerge.conf.py</code> file</li>
+<li>per user - in user preferences menu</li>
+</ol>
+<p>If both configurations options <code>IMPORT_MAIL_BY_USER</code> and <code>IMPORT_MAIL_BY_SECRET</code> are set to <code>False</code> users won't see "Email Routing" configuration their preferences. If at lease one of above mentioned options is enabled users will see "Email Routing" preferences.</p>
+<p><img alt="email route preferences" src="../../img/user-manual/consumption/email-routing-in-preferences.svg" /></p>
+<p><img alt="email routing prefs per user" src="../../img/user-manual/consumption/email-routing.svg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that secret text is always shown (unlike passwords which are hidden
+from user's eyes) to users. Also, unlike passwords, secret text for email
+routing is stored in database as clear text. It is so, because secret text
+used for email routing and is not used as user credentials of any kind
+i.e. it doesn't grant you any privilege; in other words you cannot open
+any account with that "secret text" information so to speak.</p>
+</div>
+<p>Finally if <code>IMPORT_MAIL_DELETE</code> is set to True then a processed email will be deleted from
+the mail account.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ciur/papermerge" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://papermerge.com" target="_blank" rel="noopener" title="papermerge.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.4c2.2 20.4 3.3 41.8 3.3 64zm28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6zM8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zm186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6h116.7zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.6z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+    
+  </body>
+</html>
