@@ -25,23 +25,22 @@ Credentials are:
 
 ## Official Docker Images
 
-Offical {{ extra.project  }} docker images are stored on `docker hub`_ and `github packages`_.
+Official {{ extra.project  }} docker images are stored on <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a> and <a href="https://github.com/orgs/papermerge/packages" class="external-link" target="_blank">github packages</a>.
 
 
 ## Get Docker Image
 
-The recommended way to get the |project| Docker Image is to pull the prebuilt image from the `github repository packages`_:
+The recommended way to get the {{ extra.project }} Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:
 
 ```console
 docker pull papermerge/papermerge:latest
 ```
 
-To use a specific version, you can pull a versioned tag. You can view the list of available versions in the `github repository packages`_::
+To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:
 
-    docker pull papermerge/papermerge:2.1.9
-
-
-.. _docker_adding_ocr_languages:
+```console
+docker pull papermerge/papermerge:2.1.9
+```
 
 ## Adding OCR Languages to the Docker Image
 
@@ -50,31 +49,37 @@ By default the Docker image includes English and German OCR languages only.
 You may want to add other OCR languages. You add extra OCR languages in three steps:
 
 1. Install extra langs in docker image (by extending it)
-2. Update ``papermerge.toml`` file with extra languages
-3. Use/Mount ``papermerge.toml`` in docker, docker compose, kubernetes
+2. Update `papermerge.toml` file with extra languages
+3. Use/Mount `papermerge.toml` in docker, docker compose, kubernetes
 
 
 You install extra languages in docker image by creating a new Dockerfile
-from ``papermerge/papermerge`` docker image.
-Create new docker file with following content::
+from `papermerge/papermerge` docker image.
+Create new docker file with following content:
 
-  FROM papermerge/papermerge:2.1.9
+```console
+FROM papermerge/papermerge:2.1.9
 
-  # add Italian, Spanish and French
-  RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
+# add Italian, Spanish and French
+RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
+```
 
 
-.. note::
-  ``FROM papermerge/papermerge:2.1.9`` pull docker image from DockerHub.
-  If you write ``FROM ghcr.io/papermerge/papermerge`` it pulls docker image
-  from GitHub container registry.
+!!! note
 
-All languages are specified in three letters code as per `ISO 639-2T`_ standard -
+    `FROM papermerge/papermerge:2.1.9` pull docker image from DockerHub.
+    If you write `FROM ghcr.io/papermerge/papermerge` it pulls docker image
+    from GitHub container registry.
+
+All languages are specified in three letters code as per <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+" class="external-link" target="_blank">ISO 639-2T</a> standard -
 second column in the table.
 
-Then run following command::
+Then run following command:
 
-  docker build -t mypapermerge:multi-lang -f Dockerfile .
+```console
+docker build -t mypapermerge:multi-lang -f Dockerfile .
+```
 
 Notice the "." character at the end. After running above command, you can use
 newly build docker image for lunching |project| with Italian, Spanish and
@@ -83,15 +88,22 @@ French OCR languages.
 Besides installing extra OCR languages in docker image, you also need to mount
 papermerge.toml file with following OCR languages configuration::
 
-  [ocr]
-  languages = { ita = "Italian", fra = "French", spa = "Spanish", eng = "English", deu = "German" }
-  default_language = "ita"
+```console
+[ocr]
+languages = { ita = "Italian", fra = "French", spa = "Spanish", eng = "English", deu = "German" }
+default_language = "ita"
+```
 
-.. important::
-  ``languages`` must be written as one line! It uses so called `inline table`_ of toml format.
+!!! danger
 
-Here is an example of docker compose file which mounts ``papermerge.toml`` file::
+      `languages` must be written as one line! It uses so called <a
+      href="https://toml.io/en/v1.0.0#inline-table" class="external-link"
+      target="_blank">inline table</a> of toml format.
 
+
+Here is an example of docker compose file which mounts `papermerge.toml` file::
+
+```yaml
   version: '3.7'
   x-backend: &common
     image: mypapermerge:multi-lang  # <--- use docker image with extra OCR langs
@@ -134,12 +146,13 @@ Here is an example of docker compose file which mounts ``papermerge.toml`` file:
     media_root:
     postgres_data:
     xapian_index:
-
+```
 
 ## Use PostgreSQL as Database
 
-By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL use following docker compose file::
+By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL use following docker compose file:
 
+```yaml
     version: '3.7'
 
     services:
@@ -165,10 +178,4 @@ By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL
           - POSTGRES_PASSWORD=123
     volumes:
         postgres_data:
-
-
-.. _docker hub: https://hub.docker.com/u/papermerge
-.. _github packages: https://github.com/orgs/papermerge/packages
-.. _github repository packages: https://github.com/papermerge/papermerge-core/pkgs/container/papermerge
-.. _inline table: https://toml.io/en/v1.0.0#inline-table
-.. _ISO 639-2T: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+```

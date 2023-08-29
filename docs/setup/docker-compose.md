@@ -1,30 +1,28 @@
-.. _docker_compose:
-
-Docker Compose
-==============
+# Docker Compose
 
 This section describes how to setup Papermerge and
-related services using `docker compose`_.
+related services using docker compose.
 
-Each docker compose file is used here in combination with one `environment file`_ usually
-named ``.env``.
+Each docker compose file is used here in combination with one `environment file` usually
+named `.env`.
 
-Make sure you have both `docker`_ and `docker compose`_ installed.
+Make sure you have both `docker`.
 
 This guide was tested with docker version 20.10.6 and
 docker-compose version 1.29.2.
 
 
-Complete Stack in 2 minutes
----------------------------
-
-This setup installs complete |project| stack with all required services.
-
-Save following `docker-compose.yml`_ file on your local computer.
+## Complete Stack in 2 minutes
 
 
-Next, create ``.env`` file with following content::
+This setup installs complete {{ extra.project }} stack with all required services.
 
+Save following `docker-compose.yml` file on your local computer.
+
+
+Next, create `.env` file with following content:
+
+```console
   DB_USER=postgres
   DB_NAME=postgres
   DB_PASSWORD=postgres
@@ -39,35 +37,33 @@ Next, create ``.env`` file with following content::
   SUPERUSER_USERNAME=admin
   SUPERUSER_EMAIL=admin@example.com
   SUPERUSER_PASSWORD=admin
+```
 
+Start {{ extra.project }} using following docker compose command:
 
-Start |project| using following docker compose command::
-
+```console
     docker compose -f docker-compose.yml --env-file .env up
+```
 
 You can access |project| user interface using a web browser like Firefox.
 Open your web browser and point it to http://localhost:16000 address:
 
-.. figure:: ../img/papermerge-login.png
-
-    Figure 1. Sign in screen available at http://localhost:16000
+![papermerge login](../img/setup/papermerge-login.png)
 
 Sign in using credentials configured with ``SUPERUSER_USERNAME`` and
 ``SUPERUSER_PASSWORD`` options in ``.env`` file.
 
-.. figure:: ../img/setup/installation/docker/papermerge-example.png
-
-    Figure 2. Papermerge example
+![papermerge example](../img/setup/papermerge-example.png)
 
 
-Elastic Search
---------------
+## Elastic Search
 
-In previous section, |project| used xapian built in search engine. However, for
+In previous section, {{ extra.project }} used xapian built in search engine. However, for
 production environments, a full fledged search engine like Elasticsearch makes more sense.
 
-Here is setup which uses Elasticsearch::
+Here is setup which uses Elasticsearch:
 
+```yaml
   version: '3.7'
   x-backend: &common  # yaml anchor definition
     image: papermerge/papermerge:2.1.9
@@ -115,19 +111,4 @@ Here is setup which uses Elasticsearch::
   volumes:
     media_root:
     postgres_data:
-
-
-.. _docker: https://www.docker.com/
-.. _docker compose: https://docs.docker.com/compose/
-.. _environment file: https://docs.docker.com/compose/env-file/
-.. _cUrl: https://en.wikipedia.org/wiki/CURL
-.. _traefik: https://doc.traefik.io/traefik/
-.. _backend.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/backend.yml
-.. _db.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/db.yml
-.. _redis.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/redis.yml
-.. _docker-compose.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/docker-compose.yml
-.. _services.yml: https://raw.githubusercontent.com/papermerge/papermerge-core/master/docker/services.yml
-.. _backend repository: https://github.com/papermerge/papermerge-core
-.. _host header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
-.. _WebSockets: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
-.. _Redis: https://redis.io/
+```

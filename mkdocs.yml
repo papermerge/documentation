@@ -21,8 +21,6 @@ nav:
     - setup/requirements.md
     - setup/docker.md
     - setup/docker-compose.md
-    - setup/kubernetes.md
-    - setup/ansible.md
     - setup/backup.md
     - setup/upgrading.md
   - dev/index.md
