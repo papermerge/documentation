@@ -21,32 +21,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.papermerge.io/2.1/setup/docker-compose/</loc>
+         <lastmod>2023-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.papermerge.io/2.1/setup/docker/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.papermerge.io/2.1/setup/downloading/</loc>
-         <lastmod>2023-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/2.1/setup/installation/</loc>
+         <loc>https://docs.papermerge.io/2.1/setup/overview/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.1/setup/requirements/</loc>
-         <lastmod>2023-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/2.1/setup/server_configuration/</loc>
-         <lastmod>2023-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/2.1/setup/settings/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>

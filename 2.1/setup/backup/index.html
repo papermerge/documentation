@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.papermerge.io/2.1/setup/backup/">
       
       
-        <link rel="prev" href="../server_configuration/">
+        <link rel="prev" href="../docker-compose/">
       
       
         <link rel="next" href="../upgrading/">
@@ -153,45 +153,6 @@
       
     
     
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
     
     
       <div class="md-header__source">
@@ -617,6 +578,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../requirements/" class="md-nav__link">
         
   
@@ -637,11 +618,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../downloading/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Downloading
+    Docker
   </span>
   
 
@@ -657,31 +638,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Installation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../server_configuration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Server Configurations
+    Docker Compose
   </span>
   
 
@@ -747,26 +708,32 @@
     Media Directory
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Media Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#application-version" class="md-nav__link">
     Application Version
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#backup-utility" class="md-nav__link">
     Backup Utility
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -790,46 +757,6 @@
   
   <span class="md-ellipsis">
     Upgrading
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../settings/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Settings
   </span>
   
 
@@ -915,26 +842,32 @@
     Media Directory
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Media Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#application-version" class="md-nav__link">
     Application Version
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#backup-utility" class="md-nav__link">
     Backup Utility
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -975,15 +908,15 @@ up your media directory - you ensure your documents are safe.</p>
 named "media" in of same directory where papermerge project was cloned.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>media_dir</code> has two subfolders <em>docs</em> and <em>results</em>. :ref:<code>media_dir</code>/docs is place where
+<p><code>media_dir</code> has two subfolders <em>docs</em> and <em>results</em>. <code>media_dir</code>/docs is place where
 original documents are uploaded - it is the location you want to ensure is regularly backed up.
-Media directory configuration is pure Django webframework thing; in Django it is called <a href="https://docs.djangoproject.com/en/3.1/ref/settings/#media-root">MEDIA_ROOT</a></p>
+Media directory configuration is pure Django web framework thing; in Django it is called <a href="https://docs.djangoproject.com/en/3.1/ref/settings/#media-root" class="external-link" target="_blank">MEDIA_ROOT </a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Papermerge never overwrites or renames original uploads!</strong>, in that sense, Papermerge is non-destructive :ref:<code>dms</code>. Every time you perform changes on document, like :ref:<code>moving pages around &lt;page_management&gt;</code> a new document version is created, thus keeping original document version intact.</p>
 </div>
-<h2 id="database">Database</h2>
+<h3 id="database">Database</h3>
 <p>Another important part of whole backup picture - is backing up your Papermerge database. In database, Papermerge stores information like user related information, documents' metadata, documents' tags etc.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -991,11 +924,11 @@ Media directory configuration is pure Django webframework thing; in Django it is
 In general, binary files are never stored in databases.</p>
 </div>
 <p>Basically with database backup you can restore "the state" of Papermerge application.</p>
-<h2 id="application-version">Application Version</h2>
+<h3 id="application-version">Application Version</h3>
 <p>If you want to restore Papermerge backups you need to know for what
 application version that backup is. This is why it is a good idea to append
 Papermerge application version to your backup archives.</p>
-<h2 id="backup-utility">Backup Utility</h2>
+<h3 id="backup-utility">Backup Utility</h3>
 <p>Papermerge is shipped with backup command line utility. You can run it from project current directory:</p>
 <pre><code class="language-console">./manage.py backup
 </code></pre>
