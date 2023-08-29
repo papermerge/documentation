@@ -17,14 +17,14 @@ nav:
       - user/apps.md
       - user/glossary.md
   - Setup:
+    - setup/overview.md
     - setup/requirements.md
-    - setup/downloading.md
-    - setup/installation.md
-    - setup/server_configuration.md
+    - setup/docker.md
+    - setup/docker-compose.md
+    - setup/kubernetes.md
+    - setup/ansible.md
     - setup/backup.md
     - setup/upgrading.md
-    - setup/docker.md
-    - setup/settings.md
   - dev/index.md
   - settings.md
 theme:
@@ -57,6 +57,7 @@ theme:
   - content.code.select
 repo_url: https://github.com/ciur/papermerge
 extra:
+  project: Papermerge DMS  # custom variable for macros plugin
   version:
     provider: mike
   social:
@@ -75,5 +76,6 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - tables
-
+plugins:
+  - macros
 

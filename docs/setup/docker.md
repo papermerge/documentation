@@ -1,182 +1,174 @@
 # Docker
 
-Docker is a widespread containerization technology. With docker you can start in
-almost no time pretty complex configuration setups. There two popular docker
-images for Papermerge:
+## TL;DR
 
-1. Official docker image shipped within Papermerge repository
-2. Docker image provided by [linuxserver.io](https://hub.docker.com/r/linuxserver/papermerge)
-
-
-## LinuxServer.io Image
-
-LinuxServer.io provides a high quality docker image for Papermerge.
-
-![Download stats](../img/setup/linuxserver.io.png)
-
-
-For how to install Docker image provided by [linuxserver.io](https://fleet.linuxserver.io/image?name=linuxserver/papermerge) please
-refer to their documentation. For docker image specific issues please use
-Papermerge docker image [repository](https://github.com/linuxserver/docker-papermerge/issues) provided by Linux
-Server team.
-
-
-## Official Image
-
-Docker files to build official docker image are shipped within Papermerge
-repository. In following guide is explained how you can build, run and
-troubleshoot official docker images with docker compose.
-
-You will need `git`, `docker` and `docker-compose` installed.
-
-1. Install [Docker](https://www.docker.com/)
-2. Install [docker-compose](https://docs.docker.com/compose/install/)
-3. Clone Papermerge Repository:
+The only two required environment variables are `settings__main__secret_key` and `settings__superuser__password`:
 
 ```console
-$ git clone https://github.com/ciur/papermerge papermerge-proj
+docker run -p 9400:8000 \
+    -e PAPERMERGE__MAIN__SECRET_KEY=abc \
+    -e DJANGO_SUPERUSER_PASSWORD=123 \
+    papermerge/papermerge:2.1.9
 ```
 
-4. Run docker compose command (which will pull images from [DockerHub](https://hub.docker.com/r/eugenci/papermerge)):
+Point your web browser to http://localhost:9400 and you will see login screen:
+
+
+![login screen](../img/setup/login.png)
+
+
+Credentials are:
+
+- username `admin`
+- password `123`
+
+
+## Official Docker Images
+
+Offical {{ extra.project  }} docker images are stored on `docker hub`_ and `github packages`_.
+
+
+## Get Docker Image
+
+The recommended way to get the |project| Docker Image is to pull the prebuilt image from the `github repository packages`_:
 
 ```console
-$ cd papermerge-proj/docker
-$ docker-compose up -d
+docker pull papermerge/papermerge:latest
 ```
 
-This will pull and start the necessary containers. If you wish, you can use `docker-compose -f docker-compose-dev.yml up --build -d` command instead to build local images.
+To use a specific version, you can pull a versioned tag. You can view the list of available versions in the `github repository packages`_::
 
-Check if services are up and running:
-
-
-```console
-$ docker-compose ps
-```
-
-Papermerge Web Service is available at `http://localhost:8000`
-For initial sign in use:
-
-* URL: http://localhost:8000
-* username: admin
-* password: admin
-
-You can check logs of each service with:
-
-```console
-$ docker-compose logs worker
-$ docker-compose logs app
-$ docker-compose logs db
-```
+    docker pull papermerge/papermerge:2.1.9
 
 
-## Main App, Worker or Both?
+.. _docker_adding_ocr_languages:
+
+## Adding OCR Languages to the Docker Image
+
+By default the Docker image includes English and German OCR languages only.
+
+You may want to add other OCR languages. You add extra OCR languages in three steps:
+
+1. Install extra langs in docker image (by extending it)
+2. Update ``papermerge.toml`` file with extra languages
+3. Use/Mount ``papermerge.toml`` in docker, docker compose, kubernetes
 
 
-The command `docker-compose up` starts three containers:
+You install extra languages in docker image by creating a new Dockerfile
+from ``papermerge/papermerge`` docker image.
+Create new docker file with following content::
 
-* main app (exact container name is papermerge_app)
-* worker (exact container name is papermerge_worker)
-* postgres_db
+  FROM papermerge/papermerge:2.1.9
 
-By default, both `main app` and `worker` container will have their own
-copy of `papermerge.conf.py`. In case you want to change/adjust `papermerge.conf.py`
-you need to take into account for whom that configuration applies.
-All [settings](settings.md) have in their description a field *context* with one of three values:
-
-1. main app
-2. worker
-3. main app, worker
-
-In first and second cases configuration needs to be changed only on main app or
-worker respectively. When *context* field states `main app, worker` - it
-means that respective configuration variable must be changed on both main app
-**AND** worker to function properly.
+  # add Italian, Spanish and French
+  RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
 
 
-## Configuration Changes in Docker Container
+.. note::
+  ``FROM papermerge/papermerge:2.1.9`` pull docker image from DockerHub.
+  If you write ``FROM ghcr.io/papermerge/papermerge`` it pulls docker image
+  from GitHub container registry.
 
-Here is how you can apply configuration changes on the running docker containers.
-First, make sure docker containers are up and running:
+All languages are specified in three letters code as per `ISO 639-2T`_ standard -
+second column in the table.
 
-```console
-$ docker ps
+Then run following command::
 
-CONTAINER ID        IMAGE                             COMMAND                  CREATED              STATUS              PORTS                    NAMES
-3018d5fc00cf        eugenci/papermerge-worker:1.4.3   "/opt/app/startup.sh"    4 seconds ago        Up 3 seconds                                 papermerge_worker
-3e554df78f5d        eugenci/papermerge:1.4.3          "/opt/app/startup.sh"    About a minute ago   Up 2 seconds        0.0.0.0:8000->8000/tcp   papermerge_app
-ba160197ff8c        postgres:12.3                     "docker-entrypoint.s…"   22 hours ago         Up 3 seconds        5432/tcp                 postgres_db
-```
+  docker build -t mypapermerge:multi-lang -f Dockerfile .
 
-Then, *login* to running docker of e.g. worker container. In example above CONTAINER ID of the worker is *3018d5fc00cf*:
+Notice the "." character at the end. After running above command, you can use
+newly build docker image for lunching |project| with Italian, Spanish and
+French OCR languages.
 
-```console
+Besides installing extra OCR languages in docker image, you also need to mount
+papermerge.toml file with following OCR languages configuration::
 
-$ docker exec -it 3018d5fc00cf /bin/bash
-www@3018d5fc00cf:~$ whoami
-www
-www@3018d5fc00cf:~$ pwd
-/opt/app
-www@3018d5fc00cf:~$ cat papermerge.conf.py
+  [ocr]
+  languages = { ita = "Italian", fra = "French", spa = "Spanish", eng = "English", deu = "German" }
+  default_language = "ita"
 
-DBUSER = "***"
-DBPASS = "***"
-DBHOST = "***"
-DBNAME = "***"
+.. important::
+  ``languages`` must be written as one line! It uses so called `inline table`_ of toml format.
 
-MEDIA_DIR = "/opt/media"
-STATIC_DIR = "/opt/static"
-MEDIA_URL = "/media/"
-STATIC_URL = "/static/"
+Here is an example of docker compose file which mounts ``papermerge.toml`` file::
 
-OCR_DEFAULT_LANGUAGE = "deu"
+  version: '3.7'
+  x-backend: &common
+    image: mypapermerge:multi-lang  # <--- use docker image with extra OCR langs
+    volumes:
+      - media_root:/app/media
+      - xapian_index: /app/xapian_index
+      - ./papermerge.toml:/etc/papermerge.toml  # <--- Mounted papermerge.toml (!)
+    environment:
+      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
+      - DJANGO_SUPERUSER_PASSWORD=1234
+      - PAPERMERGE__REDIS__HOST=redis
+      - PAPERMERGE__REDIS__PORT=6379
+      - PAPERMERGE__DATABASE__TYPE=postgres
+      - PAPERMERGE__DATABASE__USER=postgres
+      - PAPERMERGE__DATABASE__NAME=postgres
+      - PAPERMERGE__DATABASE__PASSWORD=postgres
+      - PAPERMERGE__DATABASE__HOST=db
+      - PAPERMERGE__DATABASE__PORT=5432
+      - PAPERMERGE__SEARCH__ENGINE=xapian
+      - PAPERMERGE__SEARCH__PATH=/app/xapian_index
+  services:
+    backend:
+      <<: *common
+    worker:
+      <<: *common
+      command: worker
+    redis:
+      image: redis:6
+      ports:
+        - '6379:6379'
+    db:
+      image: postgres:14.4
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+        - POSTGRES_PASSWORD=postgres
+  volumes:
+    media_root:
+    postgres_data:
+    xapian_index:
 
-OCR_LANGUAGES = {
-    "deu": "Deutsch",
-    "spa": "Spanish",
-}
-```
 
-If you want to add *English* as additional language and make it default ocr language. I need to change `OCR_LANGUAGES` and `OCR_DEFAULT_LANGUAGE` as follows:
+## Use PostgreSQL as Database
 
-```py
-OCR_DEFAULT_LANGUAGE = "eng"
+By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL use following docker compose file::
 
-OCR_LANGUAGES = {
-    "eng": "English",
-    "deu": "Deutsch",
-    "spa": "Spanish",
-}
-```
+    version: '3.7'
 
-Note that you **don't need to install** tesseract's English language pack as it is already part of the worker image:
+    services:
+      app:
+        image: papermerge/papermerge:2.1.9
+        environment:
+          - PAPERMERGE__MAIN__SECRET_KEY=abc
+          - DJANGO_SUPERUSER_PASSWORD=12345
+          - PAPERMERGE__DATABASE__TYPE=postgres
+          - PAPERMERGE__DATABASE__USER=postgres
+          - PAPERMERGE__DATABASE__PASSWORD=123
+          - PAPERMERGE__DATABASE__NAME=postgres
+          - PAPERMERGE__DATABASE__HOST=db
+        ports:
+          - 8000:8000
+        depends_on:
+          - db
+      db:
+        image: bitnami/postgresql:14.4.0
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        environment:
+          - POSTGRES_PASSWORD=123
+    volumes:
+        postgres_data:
 
-```console
-www@3018d5fc00cf:~$ tesseract --list-langs
 
-List of available languages (5):
-deu
-eng
-fra
-osd
-spa
-```
-
-In both `ocr_languages` and `ocr_default_language` settings, there is a line
-mentioning "context: main app, worker" - it means that you need to change these
-settings in **both worker and main app**. So, in next step, change
-`OCR_LANGUAGES` and `OCR_DEFAULT_LANGUAGE` in main app as well:
-
-```console
-$ docker ps
-CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                    NAMES
-3018d5fc00cf        eugenci/papermerge-worker:1.4.3   "/opt/app/startup.sh"    16 minutes ago      Up 16 minutes                                papermerge_worker
-3e554df78f5d        eugenci/papermerge:1.4.3          "/opt/app/startup.sh"    18 minutes ago      Up 16 minutes       0.0.0.0:8000->8000/tcp   papermerge_app
-ba160197ff8c        postgres:12.3                     "docker-entrypoint.s…"   23 hours ago        Up 16 minutes       5432/tcp                 postgres_db
-
-$ docker exec -it 3e554df78f5d /bin/bash
-# same changes as for worker container
-# cat papermerge.conf.py
-# etc etc
-```
-
-Restart containers. Restarting containers will preserve changes you made to papermerge.conf.py.
+.. _docker hub: https://hub.docker.com/u/papermerge
+.. _github packages: https://github.com/orgs/papermerge/packages
+.. _github repository packages: https://github.com/papermerge/papermerge-core/pkgs/container/papermerge
+.. _inline table: https://toml.io/en/v1.0.0#inline-table
+.. _ISO 639-2T: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
