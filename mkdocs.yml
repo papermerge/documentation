@@ -19,11 +19,9 @@ nav:
       - user/merge-documents.md
       - user/ocr.md
       - user/automates.md
-      - user/rest_api_token.md
-      - user/file_formats.md
-      - user/document_pipelines.md
-      - user/apps.md
-      - user/glossary.md
+      - user/file-formats.md
+      - user/user-management.md
+      - user/rest-api-token.md
   - dev/index.md
   - settings.md
 theme:
