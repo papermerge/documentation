@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/2.1/user/rest_api/">
+        <link rel="canonical" href="https://docs.papermerge.io/2.1/user/file-formats/">
       
       
-        <link rel="prev" href="../consumption/">
+        <link rel="prev" href="../automates/">
       
       
-        <link rel="next" href="../ocr_languages/">
+        <link rel="next" href="../user-management/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>REST API - Papermerge 2.1</title>
+        <title>File Formats - Papermerge 2.1</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rest-api" class="md-skip">
+        <a href="#file-formats" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              REST API
+              File Formats
             
           </span>
         </div>
@@ -219,397 +219,6 @@
       
   
   
-    
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
-        
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    User Manual
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            User Manual
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Getting Started
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-interface/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    User Interface
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tags-and-folders/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tags and Folders
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../page-management/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Page Management
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../metadata/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Metadata
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../versions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Versions
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../automates/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Automates
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../consumption/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Consumption
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    REST API
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    REST API
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    How It Works?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-a-token" class="md-nav__link">
-    Get a Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-the-token" class="md-nav__link">
-    Use the Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rest-api-reference" class="md-nav__link">
-    REST API Reference
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ocr_languages/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OCR Languages Support
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../file_formats/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    File Formats
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../document_pipelines/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Document Pipelines
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../apps/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Apps
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Glossary
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
   
     
     
@@ -620,9 +229,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -633,8 +242,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Setup
           </label>
@@ -771,6 +380,319 @@
       
   
   
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upload-documents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upload Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags-and-folders/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags and Folders
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../page-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../merge-documents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ocr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    File Formats
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api-token/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    REST API Token
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
     <li class="md-nav__item">
       <a href="../../dev/" class="md-nav__link">
@@ -825,42 +747,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    How It Works?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-a-token" class="md-nav__link">
-    Get a Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-the-token" class="md-nav__link">
-    Use the Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rest-api-reference" class="md-nav__link">
-    REST API Reference
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -877,117 +763,20 @@
   
 
 
-<h1 id="rest-api">REST API</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OePTvPcnoMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>REST API is a way to interact with Papermerge far beyond Web Browser realm.
-It gives you power to extend Papermerge in many interesting ways.
-For example it allows you to write a simple bash script to automate uploading
-of files from your local (or remote) computer's specific location.</p>
-<p>Another practical scenario where REST API can be used is to automatically
-(well, you need some sort of 3rd party script for that)
-import attached documents from a given email account.</p>
-<h2 id="how-it-works">How It Works?</h2>
-<p>Instead of usual Sign In, with username and password, via Web Browser,
-you will <em>sign in</em> with a token (a fancy name for sequence of numbers and letters)
-from practically any software which supports http protocol.</p>
-<p>Thus, working with REST API is two step process:</p>
-<ol>
-<li>get a token</li>
-<li>use the token from 3rd party REST API client</li>
-</ol>
-<h2 id="get-a-token">Get a Token</h2>
-<ol>
-<li>Click User Menu (top right corner) -&gt; API Tokens</li>
-<li>Click New Token</li>
-<li>You will to decide on number of hours the token will be valid. Default is 4464 hours, which is roughly equivalent of 6 months. Click <em>Save</em> button.</li>
-<li>After you click <em>Save</em> button, two information messages will be displayed. <strong>Write down</strong> your token from <em>Remember the token: ...</em> info window.</li>
-</ol>
-<p><img alt="token api" src="../../img/user-manual/rest-api/01_token_api_user_menu.png" /></p>
-<p><img alt="new token button" src="../../img/user-manual/rest-api/02_new_token_button.png" /></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Write down your token. For security reasons, it is will be displayed only once.
-In picture below, it is the one marked in red.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Tokens are saved in database <strong>encrypted</strong>. Token's encrypted version is called
-<strong>digest</strong>. In tokens tables (by the way, you can have as many token you like)
-first column displays first 16 characters of the digest. It is a way to identify
-the token. In picture below, token's digest is marked with green.</p>
-</div>
-<p><img alt="displayed token" src="../../img/user-manual/rest-api/03_displayed_token.png" /></p>
-<h2 id="use-the-token">Use the Token</h2>
-<p>Once you have your REST API token, you can use Papermerge with any HTTP client,
-just remember to include REST API token as header using following format:</p>
-<pre><code class="language-console">Authorization: Token &lt;you token here&gt;
-</code></pre>
-<p>Let's see some examples with  <a href="https://curl.haxx.se" class="external-link" target="_blank">curl</a>.
-The simplest REST API call is:</p>
-<pre><code class="language-console">curl -H &quot;Authorization: Token 7502db85f8d40bc7f4f5ab0a4e4fee4a&quot;  &lt;HOST&gt;/api/documents
-</code></pre>
-<p>If get 2XX response, it means your <code>Authorization</code> header and token are correct.</p>
-<p>Upload local file to remote host specified with <code>&lt;HOST&gt;</code>:</p>
-<pre><code class="language-console">curl -H &quot;Authorization: Token 7502db85f8d40bc7f4f5ab0a4e4fee4a&quot;  \
-  -T /home/eugen/documents/demo/2019/berlin1.pdf  \
-  &lt;HOST&gt;/api/document/upload/berlin_x1.pdf
-</code></pre>
-<p>Notice that local file name is berlin1.pdf while it features in url as
-berlin_x1.pdf. This way I can rename local file.</p>
-<p>You can upload files without specifying their remote name, in that case remote
-file will have same name as local file:</p>
-<pre><code class="language-console">curl -H &quot;Authorization: Token 7502db85f8d40bc7f4f5ab0a4e4fee4a&quot;  \
-  -T /home/eugen/documents/demo/2019/berlin1.pdf  \
-  &lt;HOST&gt;/api/document/upload/
-</code></pre>
+<h1 id="file-formats">File Formats</h1>
+<p>Scanned documents play a central role in Papermerge.
+Technically, scanned document can be stored in a plethora of file formats.
+Papermerge 2.1 works only with PDF files.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Notice the trailing <code>/</code> character. When uploading file with <code>curl</code> without specifying file name URL must end with <code>/</code>. This is a way to notify curl that we don't want to rename files.</p>
+<p class="admonition-title">Note<p>Before version 2.1 Papermerge had support for PDF, TIFF, JPEG,
+PNG formats.</p>
+</p>
 </div>
-<p>Your (REST API) uploaded files will end up in Inbox.</p>
-<p><img alt="inbox" src="../../img/user-manual/rest-api/04_inbox.png" /></p>
-<h2 id="rest-api-reference">REST API Reference</h2>
-<p>REST API authorization header:</p>
-<ul>
-<li>name: <code>Authorization</code></li>
-<li>value format <code>Token &lt;your-token-here&gt;</code></li>
-</ul>
-<p>Example:</p>
-<pre><code class="language-console">curl ... -H &quot;Authorization: Token &lt;your-token-here&gt;&quot;
-</code></pre>
-<p>REST API URLs:</p>
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>HTTP Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/api/documents</td>
-<td>GET</td>
-<td>json list of all documents</td>
-</tr>
-<tr>
-<td>/api/document/<id></td>
-<td>GET</td>
-<td>json info about document with id=<id></td>
-</tr>
-<tr>
-<td>/api/document/upload/</td>
-<td>PUT</td>
-<td>Uploads unnamed file (random name will be assigned)</td>
-</tr>
-<tr>
-<td>/api/document/upload/<filename></td>
-<td>PUT</td>
-<td>Uploads named file</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition important">
+<p class="admonition-title">Important<p>Support for TIFF, JPEG and PNG file formats will be re-introduced
+in later versions.</p>
+</p>
+</div>
 
 
 
