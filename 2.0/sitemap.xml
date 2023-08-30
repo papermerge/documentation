@@ -2,127 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.papermerge.io/2.0/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/settings/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/dev/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/backup/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/docker/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/downloading/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/installation/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/requirements/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/server_configuration/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/settings/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/setup/upgrading/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/apps/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/automates/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/consumption/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/document_pipelines/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/file_formats/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/getting-started/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/glossary/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/metadata/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/ocr_languages/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/page-management/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/rest_api/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/tags-and-folders/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/user-interface/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/2.0/user/versions/</loc>
-         <lastmod>2023-08-28</lastmod>
+         <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
