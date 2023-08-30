@@ -91,4 +91,5 @@ markdown_extensions:
   - md_in_html
 plugins:
   - macros
+  - search
 
