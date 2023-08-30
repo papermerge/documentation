@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/2.1/setup/overview/">
+        <link rel="canonical" href="https://docs.papermerge.io/2.1/settings/ocr/">
       
       
+        <link rel="prev" href="../main/">
       
-        <link rel="next" href="../requirements/">
+      
+        <link rel="next" href="../database/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Overview - Papermerge 2.1</title>
+        <title>OCR - Papermerge 2.1</title>
       
     
     
@@ -77,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#ocr" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              OCR
             
           </span>
         </div>
@@ -256,19 +258,17 @@
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
@@ -281,7 +281,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Setup
@@ -292,29 +292,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../setup/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -323,94 +303,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
-  </a>
-  
-    <nav class="md-nav" aria-label="Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restful-backend-server" class="md-nav__link">
-    RESTful Backend Server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#worker" class="md-nav__link">
-    Worker
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#search-engine" class="md-nav__link">
-    Search Engine
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-options" class="md-nav__link">
-    Installation Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker Compose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bare-metal-installation" class="md-nav__link">
-    Bare Metal Installation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -422,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../requirements/" class="md-nav__link">
+      <a href="../../setup/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -442,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
+      <a href="../../setup/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -462,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker-compose/" class="md-nav__link">
+      <a href="../../setup/docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup/" class="md-nav__link">
+      <a href="../../setup/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../upgrading/" class="md-nav__link">
+      <a href="../../setup/upgrading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,17 +720,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -851,7 +745,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Settings
@@ -864,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/main/" class="md-nav__link">
+      <a href="../main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -902,9 +796,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../settings/ocr/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OCR
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -913,6 +827,40 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default_language" class="md-nav__link">
+    DEFAULT_LANGUAGE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#languages" class="md-nav__link">
+    LANGUAGES
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -924,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/database/" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -944,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/superuser/" class="md-nav__link">
+      <a href="../superuser/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/redis/" class="md-nav__link">
+      <a href="../redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -984,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/search/" class="md-nav__link">
+      <a href="../search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1004,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/django-settings-module/" class="md-nav__link">
+      <a href="../django-settings-module/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1071,70 +1019,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
+  <a href="#default_language" class="md-nav__link">
+    DEFAULT_LANGUAGE
   </a>
-  
-    <nav class="md-nav" aria-label="Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restful-backend-server" class="md-nav__link">
-    RESTful Backend Server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#worker" class="md-nav__link">
-    Worker
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#search-engine" class="md-nav__link">
-    Search Engine
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation-options" class="md-nav__link">
-    Installation Options
+  <a href="#languages" class="md-nav__link">
+    LANGUAGES
   </a>
-  
-    <nav class="md-nav" aria-label="Installation Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker Compose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bare-metal-installation" class="md-nav__link">
-    Bare Metal Installation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1156,87 +1050,47 @@
   
 
 
-<h1 id="overview">Overview</h1>
-<p>Papermerge is a distributed system with many moving parts. "Distributed
-system" - means that different components (parts) may run on different
-computers.</p>
-<h2 id="components">Components</h2>
-<p>Papermerge consists of the following components:</p>
-<ul>
-<li>RESTful backend server</li>
-<li>Worker (there may be one or multiple workers)</li>
-<li>Database</li>
-<li>Search Engine</li>
-</ul>
-<p>The essential parts of Papermerge deployment are RESTful backend server and
-one or multiple workers.</p>
-<h3 id="restful-backend-server">RESTful Backend Server</h3>
-<p>or REST API backend server (backend server for short) this is the main
-piece, the heart of the system so to speak. It is the web application
-which serves REST API. A typical deployment will have one backend server.</p>
-<h3 id="worker">Worker</h3>
-<p>This part performs "laborious tasks" like for example OCR of the documents.</p>
+<h1 id="ocr">OCR</h1>
+<p>This section groups all OCR specific configurations.</p>
+<h2 id="default_language">DEFAULT_LANGUAGE</h2>
+<p>By default Papermerge will use language specified with this option to
+perform OCR. Change this value for language used by majority of your documents. For detailed list of three letter
+codes see 639-2/T column from <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes" class="external-link" target="_blank">ISO 639 2</a>.</p>
+<p>Example as environment variable:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__DEFAULT_LANGUAGE=spa
+</code></pre></div>
+<p>Example in toml configuration file:</p>
+<div class="language-text highlight"><pre><span></span><code>[ocr]
+default_language=&quot;spa&quot;
+</code></pre></div>
+<p>Default value is "deu" (German language).</p>
+<h2 id="languages">LANGUAGES</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In order to understand why worker is required at all, a little more
-  background is necessary: the typical web server consists of a series of
-  requests and responses. A well behaved web server for each request it will
-  send a response in less than 100 milliseconds. However, the OCR processing
-  of a single page of the document can easily take several seconds, maybe
-  minutes or even hours(!). This is why OCR processing, relative to typical
-  request/response cycle of the web server, is considered a "laborious task".
-  And this is why OCR processing must run in a separate component, outside of
-  web server's request/response cycles.</p>
+<p>This option may be defined only in toml configuration file</p>
 </div>
-<p>In a typical Papermerge deployment <strong>there can be as many as possible workers</strong>.
-Number of workers depends on the number of incoming documents and how quick you
-want to process all of them.</p>
-<p>For best results each worker should run on a separate computer. In case of
-docker based deployment - each worker should run in separate docker container.</p>
-<h3 id="database">Database</h3>
-<p>In order to operate successfully Papermerge needs a database for store data.
-It can use one of several databases:</p>
-<ul>
-<li>SQLite</li>
-<li>PostgreSQL</li>
-<li>MySQL (MariaDB)</li>
-</ul>
-<h3 id="search-engine">Search Engine</h3>
-<p>Papermerge supports multiple search engine backends:</p>
-<ul>
-<li><a href='https://getting-started-with-xapian.readthedocs.io/en/latest' class='external-link' target="_blank">Xapian</a></li>
-<li>Whoosh</li>
-<li>Elasticsearch</li>
-<li>Apache Solr</li>
-</ul>
-<p>Xapian is used by default.</p>
-<h2 id="installation-options">Installation Options</h2>
-<p>You can go multiple routes to setup and run Papermerge:</p>
-<ul>
-<li>Use the docker compose</li>
-<li>Portainer</li>
-<li>Kubernetes (instructions will be provided soon)</li>
-<li>Ansible (instructions will be provided soon)</li>
-<li>Bare metal installation</li>
-</ul>
-<h3 id="docker-compose">Docker Compose</h3>
-<p>Docker a de facto standard containerization technology. With docker you can
-start in almost no time pretty complex configuration setups. Docker ships with
-docker-compose which helps you to easily configure and start all services
-(like database, redis and elastic search for example) required to operate
-Papermerge.</p>
-<p>For more details read <a href="../docker-compose/">docker compose</a> section.</p>
-<h3 id="bare-metal-installation">Bare Metal Installation</h3>
-<p>This method is suitable if you plan to play around with Papermerge internals. In
-particular it is for developers. There are two major parts of Papermerge
-development:</p>
-<ul>
-<li>backend development</li>
-<li>frontend development</li>
-</ul>
-<p>For the backend part is you need to be familiar with Python/Django/Celery
-ecosystem. For the frontend part familiarity with JavaScript/Nodejs/EmberJS is
-necessary.</p>
+<p>Defines all languages available for OCR. This option is defined as <a href="https://toml.io/en/v1.0.0#inline-table"  class="external-link" target="_blank">inline table</a>
+where key is <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes" class="external-link" target="_blank">ISO 639 2</a> code and value is human text name for language.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>[ocr]
+languages = { heb = &quot;hebrew&quot;, jpn = &quot;japanese&quot;}
+</code></pre></div>
+<p>Note that both <code>hebrew</code> and <code>japanes</code> language data for tesseract must be
+installed. You can check Tesseract's available languages with following
+command:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code>languages</code> value must be written in one line! This is requirement
+of the toml <code>inline table</code>_ format.</p>
+</div>
+<p>List all available languages:</p>
+<div class="language-text highlight"><pre><span></span><code>$ tesseract --list-langs
+</code></pre></div>
+<p>Default value:</p>
+<div class="language-text highlight"><pre><span></span><code>[ocr]
+languages = { deu = &quot;Deutsch&quot;, eng = &quot;English&quot; }
+</code></pre></div>
+<p>See <a href="../../setup/docker/#adding-ocr-languages-to-the-docker-image">adding ocr language</a> for detailed example of using this option.</p>
 
 
 

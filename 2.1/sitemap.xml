@@ -6,12 +6,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.papermerge.io/2.1/settings/</loc>
+         <loc>https://docs.papermerge.io/2.1/dev/</loc>
          <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.papermerge.io/2.1/dev/</loc>
+         <loc>https://docs.papermerge.io/2.1/settings/database/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/django-settings-module/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/main/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/ocr/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/overview/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/redis/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/search/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/2.1/settings/superuser/</loc>
          <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
