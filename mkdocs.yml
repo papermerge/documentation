@@ -31,6 +31,7 @@ nav:
     - settings/redis.md
     - settings/search.md
     - settings/django-settings-module.md
+  - "backup-restore.md"
   - dev/index.md
 
 theme:
