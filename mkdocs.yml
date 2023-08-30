@@ -32,6 +32,9 @@ nav:
     - settings/search.md
     - settings/django-settings-module.md
   - "backup-restore.md"
+  - "REST API":
+    - "rest-api/overview.md"
+    - "rest-api/reference.md"
   - dev/index.md
 
 theme:
