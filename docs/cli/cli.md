@@ -164,7 +164,7 @@ successful import - use `--delete` flag:
 
 !!! danger
 
-   Always, before using this flag make safe backup of the documents to be uploaded!
+    Always, before using this flag make safe backup of the documents to be uploaded!
 
 !!! note: `--delete` flag deletes the local copy of the documents/path to import
     after successful upload - this means that even if though you local copy
@@ -185,7 +185,7 @@ You can search by tags only:
 
 Will search for all documents (and folders) which were tagged with
 tag 'important' When multiple tags are provided, by default, will search for
-nodes with all mentioned tags::
+nodes with all mentioned tags:
 
     papermerge-cli search --tags important,letters  # returns nodes with both tags important AND letters
 
@@ -221,6 +221,6 @@ or in case of uuid is a folder:
 
     papermerge-cli download --uuid <folder-uuid>  -f /path/to/file-system/folder.zip
 
-You can also specify the format/type of the downloaded archive (e.g. in case node is either a folder)::
+You can also specify the format/type of the downloaded archive (e.g. in case node is either a folder):
 
     papermerge-cli download --uuid <folder-uuid>  -f /path/to/file-system/folder.targz -t targz
