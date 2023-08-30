@@ -9,21 +9,30 @@ nav:
     - setup/backup.md
     - setup/upgrading.md
   - User Manual:
-      - user/getting-started.md
-      - user/user-interface.md
-      - user/upload-documents.md
-      - user/tags-and-folders.md
-      - user/page-management.md
-      - user/metadata.md
-      - user/versions.md
-      - user/merge-documents.md
-      - user/ocr.md
-      - user/automates.md
-      - user/file-formats.md
-      - user/user-management.md
-      - user/rest-api-token.md
+    - user/getting-started.md
+    - user/user-interface.md
+    - user/upload-documents.md
+    - user/tags-and-folders.md
+    - user/page-management.md
+    - user/metadata.md
+    - user/versions.md
+    - user/merge-documents.md
+    - user/ocr.md
+    - user/automates.md
+    - user/file-formats.md
+    - user/user-management.md
+    - user/rest-api-token.md
+  - Settings:
+    - settings/overview.md
+    - settings/main.md
+    - settings/ocr.md
+    - settings/database.md
+    - settings/superuser.md
+    - settings/redis.md
+    - settings/search.md
+    - settings/django-settings-module.md
   - dev/index.md
-  - settings.md
+
 theme:
   name: material
   palette:
@@ -82,4 +91,5 @@ markdown_extensions:
   - md_in_html
 plugins:
   - macros
+  - search
 
