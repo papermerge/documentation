@@ -1,21 +1,6 @@
 site_name: Papermerge 2.1
 site_url: https://docs.papermerge.io
 nav:
-  - User Manual:
-      - user/getting-started.md
-      - user/user-interface.md
-      - user/tags-and-folders.md
-      - user/page-management.md
-      - user/metadata.md
-      - user/versions.md
-      - user/automates.md
-      - user/consumption.md
-      - user/rest_api.md
-      - user/ocr_languages.md
-      - user/file_formats.md
-      - user/document_pipelines.md
-      - user/apps.md
-      - user/glossary.md
   - Setup:
     - setup/overview.md
     - setup/requirements.md
@@ -23,6 +8,22 @@ nav:
     - setup/docker-compose.md
     - setup/backup.md
     - setup/upgrading.md
+  - User Manual:
+      - user/getting-started.md
+      - user/user-interface.md
+      - user/upload-documents.md
+      - user/tags-and-folders.md
+      - user/page-management.md
+      - user/metadata.md
+      - user/versions.md
+      - user/merge-documents.md
+      - user/ocr.md
+      - user/automates.md
+      - user/rest_api_token.md
+      - user/file_formats.md
+      - user/document_pipelines.md
+      - user/apps.md
+      - user/glossary.md
   - dev/index.md
   - settings.md
 theme:
@@ -79,6 +80,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - tables
+  - attr_list
+  - md_in_html
 plugins:
   - macros
 
