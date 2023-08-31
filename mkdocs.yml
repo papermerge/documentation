@@ -41,6 +41,10 @@ nav:
   - Contributor Manual:
     - contributor/frontend.md
     - contributor/backend.md
+  - "troubleshooting.md"
+  - "changelog.md"
+  - "roadmap.md"
+  - "glossary.md"
 
 theme:
   name: material
