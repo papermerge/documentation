@@ -1,4 +1,4 @@
-site_name: Papermerge 2.1
+site_name: Papermerge 3
 site_url: https://docs.papermerge.io
 nav:
   - Setup:
@@ -41,24 +41,21 @@ nav:
   - Contributor Manual:
     - contributor/frontend.md
     - contributor/backend.md
-  - "troubleshooting.md"
   - "changelog.md"
-  - "roadmap.md"
-  - "glossary.md"
 
 theme:
   name: material
   palette:
   - media: '(prefers-color-scheme: light)'
     scheme: default
-    primary: teal
+    primary: indigo
     accent: amber
     toggle:
       icon: material/lightbulb
       name: Switch to dark mode
   - media: '(prefers-color-scheme: dark)'
     scheme: slate
-    primary: teal
+    primary: indigo
     accent: amber
     toggle:
       icon: material/lightbulb-outline
