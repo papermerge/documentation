@@ -31,7 +31,20 @@ nav:
     - settings/redis.md
     - settings/search.md
     - settings/django-settings-module.md
-  - dev/index.md
+  - "backup-restore.md"
+  - REST API:
+    - "rest-api/overview.md"
+    - "rest-api/reference.md"
+  - Command Line Utilities:
+    - cli/overview.md
+    - cli/cli.md
+  - Contributor Manual:
+    - contributor/frontend.md
+    - contributor/backend.md
+  - "troubleshooting.md"
+  - "changelog.md"
+  - "roadmap.md"
+  - "glossary.md"
 
 theme:
   name: material
