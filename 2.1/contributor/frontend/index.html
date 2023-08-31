@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/2.1/dev/">
+        <link rel="canonical" href="https://docs.papermerge.io/2.1/contributor/frontend/">
       
       
-        <link rel="prev" href="../settings/django-settings-module/">
+        <link rel="prev" href="../../cli/cli/">
       
       
+        <link rel="next" href="../backend/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
-        <title>Developer's Manual - Papermerge 2.1</title>
+        <title>Frontend - Papermerge 2.1</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -46,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#developers-manual" class="md-skip">
+        <a href="#frontend" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +99,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Papermerge 2.1" class="md-header__button md-logo" aria-label="Papermerge 2.1" data-md-component="logo">
+    <a href="../.." title="Papermerge 2.1" class="md-header__button md-logo" aria-label="Papermerge 2.1" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -117,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Developer's Manual
+              Frontend
             
           </span>
         </div>
@@ -229,7 +231,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Papermerge 2.1" class="md-nav__button md-logo" aria-label="Papermerge 2.1" data-md-component="logo">
+    <a href="../.." title="Papermerge 2.1" class="md-nav__button md-logo" aria-label="Papermerge 2.1" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -292,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/overview/" class="md-nav__link">
+      <a href="../../setup/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/requirements/" class="md-nav__link">
+      <a href="../../setup/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/docker/" class="md-nav__link">
+      <a href="../../setup/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/docker-compose/" class="md-nav__link">
+      <a href="../../setup/docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/backup/" class="md-nav__link">
+      <a href="../../setup/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -392,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/upgrading/" class="md-nav__link">
+      <a href="../../setup/upgrading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -453,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/getting-started/" class="md-nav__link">
+      <a href="../../user/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -473,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/user-interface/" class="md-nav__link">
+      <a href="../../user/user-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -493,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/upload-documents/" class="md-nav__link">
+      <a href="../../user/upload-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -513,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/tags-and-folders/" class="md-nav__link">
+      <a href="../../user/tags-and-folders/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/page-management/" class="md-nav__link">
+      <a href="../../user/page-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/metadata/" class="md-nav__link">
+      <a href="../../user/metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/versions/" class="md-nav__link">
+      <a href="../../user/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/merge-documents/" class="md-nav__link">
+      <a href="../../user/merge-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -613,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/ocr/" class="md-nav__link">
+      <a href="../../user/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/automates/" class="md-nav__link">
+      <a href="../../user/automates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -653,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/file-formats/" class="md-nav__link">
+      <a href="../../user/file-formats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/user-management/" class="md-nav__link">
+      <a href="../../user/user-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user/rest-api-token/" class="md-nav__link">
+      <a href="../../user/rest-api-token/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/overview/" class="md-nav__link">
+      <a href="../../settings/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -774,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/main/" class="md-nav__link">
+      <a href="../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/ocr/" class="md-nav__link">
+      <a href="../../settings/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -814,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/database/" class="md-nav__link">
+      <a href="../../settings/database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/superuser/" class="md-nav__link">
+      <a href="../../settings/superuser/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -854,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/redis/" class="md-nav__link">
+      <a href="../../settings/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/search/" class="md-nav__link">
+      <a href="../../settings/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -894,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/django-settings-module/" class="md-nav__link">
+      <a href="../../settings/django-settings-module/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,6 +921,223 @@
       
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../backup-restore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup/Restore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    REST API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            REST API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rest-api/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rest-api/reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Command Line Utilities
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Command Line Utilities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Papermerge CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contributor Manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Contributor Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
     
   
   
@@ -934,12 +1153,116 @@
         
   
   <span class="md-ellipsis">
-    Developer's Manual
+    Frontend
   </span>
   
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -980,7 +1303,44 @@
   
 
 
-<h1 id="developers-manual">Developer's Manual</h1>
+<h1 id="frontend">Frontend</h1>
+<p>This guide is intended for those who want play with frontend code for Papermerge.
+It order to follow it you need to be comfortable with linux command line and JavaScript
+programming language.</p>
+<p>In this guide Ubuntu 20.04 LTS is used as Linux distribution.</p>
+<p>If you follow this document and still have troubles, please open an
+<a href="https://github.com/ciur/papermerge/issues" class="external-link" target="_blank">issue on GitHub</a>.</p>
+<p>First install <code>NodeJs</code> version 16.x and make sure it is available on your system:</p>
+<div class="language-text highlight"><pre><span></span><code>$ node -v
+
+v16.15.0
+</code></pre></div>
+<p>Also, make sure you have <code>npm</code>  (node package manager) as well:</p>
+<div class="language-text highlight"><pre><span></span><code>$ npm --version
+
+8.5.5
+</code></pre></div>
+<p>Install <code>EmberJs</code>:</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo npm install -g ember-cli
+</code></pre></div>
+<p>Clone <a href="https://github.com/papermerge/papermerge.js" class="external-link" target="_blank">PapermergeJs</a> repository:</p>
+<div class="language-text highlight"><pre><span></span><code>$ git clone git@github.com:papermerge/papermerge.js.git
+</code></pre></div>
+<p>Install javascript dependencies:</p>
+<div class="language-text highlight"><pre><span></span><code>$ cd papermerge.js
+$ npm install
+</code></pre></div>
+<p>Run local development server:</p>
+<div class="language-text highlight"><pre><span></span><code>$ ember serve
+</code></pre></div>
+<p>If you wish to bind local server to different IP:</p>
+<div class="language-text highlight"><pre><span></span><code>$ ember serve --host 0.0.0.0 --port 4200
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default ember application assumes that REST API backend server
+is available on <code>http://localhost:8000/api/</code></p>
+</div>
 
 
 
@@ -1050,10 +1410,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
       
     
   </body>
