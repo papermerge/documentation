@@ -340,70 +340,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
-  </a>
-  
-    <nav class="md-nav" aria-label="Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restful-backend-server" class="md-nav__link">
-    RESTful Backend Server
+  <a href="#web-app-and-worker" class="md-nav__link">
+    Web App and Worker
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#worker" class="md-nav__link">
-    Worker
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#search-engine" class="md-nav__link">
     Search Engine
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#installation-options" class="md-nav__link">
-    Installation Options
+  <a href="#ocr" class="md-nav__link">
+    OCR
   </a>
-  
-    <nav class="md-nav" aria-label="Installation Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker Compose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bare-metal-installation" class="md-nav__link">
-    Bare Metal Installation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -884,11 +844,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../../settings/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -944,26 +944,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/superuser/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../settings/redis/" class="md-nav__link">
         
   
@@ -989,26 +969,6 @@
   
   <span class="md-ellipsis">
     Search Engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../settings/django-settings-module/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
   </span>
   
 
@@ -1333,70 +1293,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
-  </a>
-  
-    <nav class="md-nav" aria-label="Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restful-backend-server" class="md-nav__link">
-    RESTful Backend Server
+  <a href="#web-app-and-worker" class="md-nav__link">
+    Web App and Worker
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#worker" class="md-nav__link">
-    Worker
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#database" class="md-nav__link">
     Database
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#search-engine" class="md-nav__link">
     Search Engine
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#installation-options" class="md-nav__link">
-    Installation Options
+  <a href="#ocr" class="md-nav__link">
+    OCR
   </a>
-  
-    <nav class="md-nav" aria-label="Installation Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker Compose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bare-metal-installation" class="md-nav__link">
-    Bare Metal Installation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1419,86 +1339,28 @@
 
 
 <h1 id="overview">Overview</h1>
-<p>Papermerge is a distributed system with many moving parts. "Distributed
-system" - means that different components (parts) may run on different
-computers.</p>
-<h2 id="components">Components</h2>
-<p>Papermerge consists of the following components:</p>
-<ul>
-<li>RESTful backend server</li>
-<li>Worker (there may be one or multiple workers)</li>
-<li>Database</li>
-<li>Search Engine</li>
-</ul>
-<p>The essential parts of Papermerge deployment are RESTful backend server and
-one or multiple workers.</p>
-<h3 id="restful-backend-server">RESTful Backend Server</h3>
-<p>or REST API backend server (backend server for short) this is the main
-piece, the heart of the system so to speak. It is the web application
-which serves REST API. A typical deployment will have one backend server.</p>
-<h3 id="worker">Worker</h3>
-<p>This part performs "laborious tasks" like for example OCR of the documents.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In order to understand why worker is required at all, a little more
-  background is necessary: the typical web server consists of a series of
-  requests and responses. A well behaved web server for each request it will
-  send a response in less than 100 milliseconds. However, the OCR processing
-  of a single page of the document can easily take several seconds, maybe
-  minutes or even hours(!). This is why OCR processing, relative to typical
-  request/response cycle of the web server, is considered a "laborious task".
-  And this is why OCR processing must run in a separate component, outside of
-  web server's request/response cycles.</p>
-</div>
-<p>In a typical Papermerge deployment <strong>there can be as many as possible workers</strong>.
-Number of workers depends on the number of incoming documents and how quick you
-want to process all of them.</p>
-<p>For best results each worker should run on a separate computer. In case of
-docker based deployment - each worker should run in separate docker container.</p>
-<h3 id="database">Database</h3>
-<p>In order to operate successfully Papermerge needs a database for store data.
-It can use one of several databases:</p>
+<h2 id="web-app-and-worker">Web App and Worker</h2>
+<p>Papermerge consists of one web app and multiple workers (at least one).
+The web app is the one which you see in your browsers or interact via REST API.
+The worker (one or multiple) is the part which performs background tasks like
+OCR, updating search engine index etc.</p>
+<h2 id="database">Database</h2>
+<p>In order to function Papermerge needs a database, which can be one of following:</p>
 <ul>
 <li>SQLite</li>
 <li>PostgreSQL</li>
 <li>MySQL (MariaDB)</li>
 </ul>
-<h3 id="search-engine">Search Engine</h3>
+<p>By default Papermerge uses SQLite.</p>
+<h2 id="search-engine">Search Engine</h2>
 <p>Papermerge supports multiple search engine backends:</p>
 <ul>
 <li><a href='https://getting-started-with-xapian.readthedocs.io/en/latest' class='external-link' target="_blank">Xapian</a></li>
-<li>Whoosh</li>
-<li>Elasticsearch</li>
 <li>Apache Solr</li>
 </ul>
 <p>Xapian is used by default.</p>
-<h2 id="installation-options">Installation Options</h2>
-<p>You can go multiple routes to setup and run Papermerge:</p>
-<ul>
-<li>Use the docker compose</li>
-<li>Portainer</li>
-<li>Kubernetes (instructions will be provided soon)</li>
-<li>Ansible (instructions will be provided soon)</li>
-<li>Bare metal installation</li>
-</ul>
-<h3 id="docker-compose">Docker Compose</h3>
-<p>Docker a de facto standard containerization technology. With docker you can
-start in almost no time pretty complex configuration setups. Docker ships with
-docker-compose which helps you to easily configure and start all services
-(like database, redis and elastic search for example) required to operate
-Papermerge.</p>
-<p>For more details read <a href="../docker-compose/">docker compose</a> section.</p>
-<h3 id="bare-metal-installation">Bare Metal Installation</h3>
-<p>This method is suitable if you plan to play around with Papermerge internals. In
-particular it is for developers. There are two major parts of Papermerge
-development:</p>
-<ul>
-<li>backend development</li>
-<li>frontend development</li>
-</ul>
-<p>For the backend part is you need to be familiar with Python/Django/Celery
-ecosystem. For the frontend part familiarity with JavaScript/Nodejs/EmberJS is
-necessary.</p>
+<h2 id="ocr">OCR</h2>
+<p>Papermerge uses <a class="external-link" target="_blank" href="https://github.com/tesseract-ocr/tesseract">Tesseract</a> to perform Optical Character Recognition.</p>
 
 
 

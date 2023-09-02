@@ -403,13 +403,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-ocr-languages-to-the-docker-image" class="md-nav__link">
-    Adding OCR Languages to the Docker Image
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#use-postgresql-as-database" class="md-nav__link">
     Use PostgreSQL as Database
   </a>
@@ -853,11 +846,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../../settings/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -913,26 +946,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/superuser/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../settings/redis/" class="md-nav__link">
         
   
@@ -958,26 +971,6 @@
   
   <span class="md-ellipsis">
     Search Engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../settings/django-settings-module/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
   </span>
   
 
@@ -1323,13 +1316,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-ocr-languages-to-the-docker-image" class="md-nav__link">
-    Adding OCR Languages to the Docker Image
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#use-postgresql-as-database" class="md-nav__link">
     Use PostgreSQL as Database
   </a>
@@ -1355,12 +1341,17 @@
 
 
 <h1 id="docker">Docker</h1>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Papermerge 3.0 is currently in active development. There is no stable version yet.
+  At this stage all docker images are tagged either 3.0devX or 3.0aX.</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>The only two required environment variables are <code>settings__main__secret_key</code> and <code>settings__superuser__password</code>:</p>
+<p>The only two required environment variables are <code>PAPERMERGE__MAIN__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>:</p>
 <pre><code class="language-console">docker run -p 9400:8000 \
     -e PAPERMERGE__MAIN__SECRET_KEY=abc \
-    -e DJANGO_SUPERUSER_PASSWORD=123 \
-    papermerge/papermerge:2.1.9
+    -e PAPERMERGE__AUTH__PASSWORD=123 \
+    papermerge/papermerge:3.0
 </code></pre>
 <p>Point your web browser to http://localhost:9400 and you will see login screen:</p>
 <p><img alt="login screen" src="../../img/setup/login.png" /></p>
@@ -1370,100 +1361,13 @@
 <li>password <code>123</code></li>
 </ul>
 <h2 id="official-docker-images">Official Docker Images</h2>
-<p>Official Papermerge docker images are stored on <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a> and <a href="https://github.com/orgs/papermerge/packages" class="external-link" target="_blank">github packages</a>.</p>
+<p>Official Papermerge docker images are stored in <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
 <h2 id="get-docker-image">Get Docker Image</h2>
 <p>The recommended way to get the Papermerge Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:latest
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0
 </code></pre>
 <p>To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:2.1.9
-</code></pre>
-<h2 id="adding-ocr-languages-to-the-docker-image">Adding OCR Languages to the Docker Image</h2>
-<p>By default the Docker image includes English and German OCR languages only.</p>
-<p>You may want to add other OCR languages. You add extra OCR languages in three steps:</p>
-<ol>
-<li>Install extra langs in docker image (by extending it)</li>
-<li>Update <code>papermerge.toml</code> file with extra languages</li>
-<li>Use/Mount <code>papermerge.toml</code> in docker, docker compose, kubernetes</li>
-</ol>
-<p>You install extra languages in docker image by creating a new Dockerfile
-from <code>papermerge/papermerge</code> docker image.
-Create new docker file with following content:</p>
-<pre><code class="language-console">FROM papermerge/papermerge:2.1.9
-
-# add Italian, Spanish and French
-RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
-</code></pre>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>FROM papermerge/papermerge:2.1.9</code> pull docker image from DockerHub.
-If you write <code>FROM ghcr.io/papermerge/papermerge</code> it pulls docker image
-from GitHub container registry.</p>
-</div>
-<p>All languages are specified in three letters code as per <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-" class="external-link" target="_blank">ISO 639-2T</a> standard -
-second column in the table.</p>
-<p>Then run following command:</p>
-<pre><code class="language-console">docker build -t mypapermerge:multi-lang -f Dockerfile .
-</code></pre>
-<p>Notice the "." character at the end. After running above command, you can use
-newly build docker image for lunching |project| with Italian, Spanish and
-French OCR languages.</p>
-<p>Besides installing extra OCR languages in docker image, you also need to mount
-papermerge.toml file with following OCR languages configuration::</p>
-<pre><code class="language-console">[ocr]
-languages = { ita = &quot;Italian&quot;, fra = &quot;French&quot;, spa = &quot;Spanish&quot;, eng = &quot;English&quot;, deu = &quot;German&quot; }
-default_language = &quot;ita&quot;
-</code></pre>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p><code>languages</code> must be written as one line! It uses so called <a
-  href="https://toml.io/en/v1.0.0#inline-table" class="external-link"
-  target="_blank">inline table</a> of toml format.</p>
-</div>
-<p>Here is an example of docker compose file which mounts <code>papermerge.toml</code> file::</p>
-<pre><code class="language-yaml">  version: '3.7'
-  x-backend: &amp;common
-    image: mypapermerge:multi-lang  # &lt;--- use docker image with extra OCR langs
-    volumes:
-      - media_root:/app/media
-      - xapian_index: /app/xapian_index
-      - ./papermerge.toml:/etc/papermerge.toml  # &lt;--- Mounted papermerge.toml (!)
-    environment:
-      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
-      - DJANGO_SUPERUSER_PASSWORD=1234
-      - PAPERMERGE__REDIS__HOST=redis
-      - PAPERMERGE__REDIS__PORT=6379
-      - PAPERMERGE__DATABASE__TYPE=postgres
-      - PAPERMERGE__DATABASE__USER=postgres
-      - PAPERMERGE__DATABASE__NAME=postgres
-      - PAPERMERGE__DATABASE__PASSWORD=postgres
-      - PAPERMERGE__DATABASE__HOST=db
-      - PAPERMERGE__DATABASE__PORT=5432
-      - PAPERMERGE__SEARCH__ENGINE=xapian
-      - PAPERMERGE__SEARCH__PATH=/app/xapian_index
-  services:
-    backend:
-      &lt;&lt;: *common
-    worker:
-      &lt;&lt;: *common
-      command: worker
-    redis:
-      image: redis:6
-      ports:
-        - '6379:6379'
-    db:
-      image: postgres:14.4
-      volumes:
-        - postgres_data:/var/lib/postgresql/data/
-      environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_DB=postgres
-        - POSTGRES_PASSWORD=postgres
-  volumes:
-    media_root:
-    postgres_data:
-    xapian_index:
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0
 </code></pre>
 <h2 id="use-postgresql-as-database">Use PostgreSQL as Database</h2>
 <p>By default Papermerge uses sqlite3 database. In order to use PostgreSQL use following docker compose file:</p>
@@ -1471,15 +1375,11 @@ default_language = &quot;ita&quot;
 
     services:
       app:
-        image: papermerge/papermerge:2.1.9
+        image: papermerge/papermerge:3.0
         environment:
-          - PAPERMERGE__MAIN__SECRET_KEY=abc
-          - DJANGO_SUPERUSER_PASSWORD=12345
-          - PAPERMERGE__DATABASE__TYPE=postgres
-          - PAPERMERGE__DATABASE__USER=postgres
-          - PAPERMERGE__DATABASE__PASSWORD=123
-          - PAPERMERGE__DATABASE__NAME=postgres
-          - PAPERMERGE__DATABASE__HOST=db
+          - PAPERMERGE__SECURITY__SECRET_KEY=abc
+          - PAPERMERGE__AUTH__PASSWORD=12345
+          - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
         ports:
           - 8000:8000
         depends_on:

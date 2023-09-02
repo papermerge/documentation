@@ -325,17 +325,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Requirements
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -345,39 +334,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tesseract" class="md-nav__link">
-    Tesseract
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -832,11 +788,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../../settings/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -892,26 +888,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/superuser/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../settings/redis/" class="md-nav__link">
         
   
@@ -937,26 +913,6 @@
   
   <span class="md-ellipsis">
     Search Engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../settings/django-settings-module/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
   </span>
   
 
@@ -1274,28 +1230,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tesseract" class="md-nav__link">
-    Tesseract
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1313,34 +1247,12 @@
 
 
 <h1 id="requirements">Requirements</h1>
-<p>Papermerge is web based application. As with any web based application it can be
-accessed and used from any modern web browser, like Mozilla Firefox, Chrome,
-Edge, or Safari.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To <strong>use</strong> Papermerge all you need is just a modern web browser. Papermerge can be
-accessed and used <strong>from any operating system</strong> (provided a web browser). It can be
-accessed via web browsers from Desktop computers, tablets or mobile phones.</p>
-</div>
-<p>Like a typical web application it runs on server-side Linux or Unix-like
-computer. Thus, if you want to deploy and run Papermerge on your own, you
-need a Linux/Unix compatible operating system.</p>
-<p>If you are interested in how to install Papermerge using docker -
-read <a href="../docker/">installation with docker</a> section.</p>
-<p>In order to successfully deploy Papermerge you need following software:</p>
-<ul>
-<li><a class="external-link" target="_blank" href="https://www.python.org/">Python</a> &gt;= 3.9</li>
-<li><a class="external-link" target="_blank" href="https://github.com/tesseract-ocr/tesseract">Tesseract</a> - because of OCR</li>
-<li>Database (PostgreSQL/MySQL/MariaDB/SQLite)</li>
-<li>Redis</li>
-</ul>
-<h2 id="python">Python</h2>
-<p>Papermerge (server side) is written in Python programming language. The
-minimum Python version required is 3.7.</p>
-<p>Papermerge uses <a class="external-link" target="_blank" href="https://www.djangoproject.com/">Django Web Framework</a> as backend technology.</p>
-<h2 id="tesseract">Tesseract</h2>
-<p>If you never heard of <a class="external-link" target="_blank" href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>  - it is google's open source Optical Character Recognition software.  It extracts text from images. It
-works fantastically well for wide range of human languages.</p>
+<p>All you need is to have docker, as Papermerge is shipped as docker image.
+All docker images are stored on <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
+<p>Make use that you have docker available:</p>
+<div class="language-text highlight"><pre><span></span><code>    $ docker --version
+    Docker version 24.0.3, build 3713ee1
+</code></pre></div>
 
 
 

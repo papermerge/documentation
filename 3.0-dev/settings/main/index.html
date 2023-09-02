@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/settings/main/">
       
       
-        <link rel="prev" href="../overview/">
+        <link rel="prev" href="../auth/">
       
       
-        <link rel="next" href="../ocr/">
+        <link rel="next" href="../security/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -776,6 +776,26 @@
                 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -824,13 +844,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#secret_key" class="md-nav__link">
-    SECRET_KEY
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#media_root" class="md-nav__link">
     MEDIA_ROOT
   </a>
@@ -855,6 +868,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -906,26 +939,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../superuser/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../redis/" class="md-nav__link">
         
   
@@ -951,26 +964,6 @@
   
   <span class="md-ellipsis">
     Search Engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../django-settings-module/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
   </span>
   
 
@@ -1295,13 +1288,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#secret_key" class="md-nav__link">
-    SECRET_KEY
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#media_root" class="md-nav__link">
     MEDIA_ROOT
   </a>
@@ -1341,45 +1327,22 @@
 
 
 <h1 id="main">Main</h1>
-<h2 id="secret_key">SECRET_KEY</h2>
-<p><mark class="critic"> Required </mark>. Unique secret key. The secret key must be a large random value and it must be
-kept secret. This option does not have default value, you always need
-to supply a value for it.</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__MAIN__SECRET_KEY=asjrijfpHHJH00huge00secret00QMNB344GHOOooaq
-</code></pre></div>
-<p>Example as toml configuration file:</p>
-<div class="language-text highlight"><pre><span></span><code>[main]
-secret_key = &quot;asjrijfpHHJH00huge00secret00QMNB344GHOOooaq&quot;
-</code></pre></div>
 <h2 id="media_root">MEDIA_ROOT</h2>
 <p>Absolute filesystem path to the directory that will hold user-uploaded documents.</p>
-<p>Example as environment variable:</p>
+<p>Example:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__MAIN__MEDIA_ROOT=/var/www/example.com/media/
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[main]
-media_root=&quot;/var/www/example.com/media/&quot;
 </code></pre></div>
 <h2 id="logging_cfg">LOGGING_CFG</h2>
 <p>Absolute filesystem path to the yaml file that will hold logging detailed
 configuration. Content of logging configuration file is expected to be in
 yaml format and it is very python specific.</p>
-<p>Example as environment variable:</p>
+<p>Example:</p>
 <div class="language-text highlight"><pre><span></span><code>  PAPERMERGE__MAIN__LOGGING_CFG=/etc/papermerge/logging.yaml
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>  [main]
-  logging_cfg=&quot;/etc/papermerge/logging.yaml&quot;
 </code></pre></div>
 <h2 id="timezone">TIMEZONE</h2>
 <p>Which timezone to use.</p>
-<p>Example as environment variable:</p>
+<p>Example:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__MAIN__TIMEZONE=Europe/Berlin
-</code></pre></div>
-<p>Example as toml configuration file:</p>
-<div class="language-text highlight"><pre><span></span><code>[main]
-timezone = &quot;Europe/Berlin&quot;
 </code></pre></div>
 
 

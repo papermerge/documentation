@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/settings/django-settings-module/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/settings/security/">
       
       
-        <link rel="prev" href="../search/">
+        <link rel="prev" href="../main/">
       
       
-        <link rel="next" href="../../backup-restore/">
+        <link rel="next" href="../ocr/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Django settings module - Papermerge 3</title>
+        <title>Security - Papermerge 3</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#django-settings-module" class="md-skip">
+        <a href="#security" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Django settings module
+              Security
             
           </span>
         </div>
@@ -778,6 +778,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../main/" class="md-nav__link">
         
   
@@ -787,6 +807,73 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#secret_key" class="md-nav__link">
+    SECRET_KEY
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -838,26 +925,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../superuser/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../redis/" class="md-nav__link">
         
   
@@ -887,73 +954,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Django settings module
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#django_settings_module" class="md-nav__link">
-    DJANGO_SETTINGS_MODULE
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1274,8 +1274,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#django_settings_module" class="md-nav__link">
-    DJANGO_SETTINGS_MODULE
+  <a href="#secret_key" class="md-nav__link">
+    SECRET_KEY
   </a>
   
 </li>
@@ -1298,18 +1298,13 @@
   
 
 
-<h1 id="django-settings-module">Django Settings Module</h1>
-<p>Papermerge is written in Django Web Framework. When you use Django, you
-have to tell it which settings you’re using. Do this by using an environment
-variable, DJANGO_SETTINGS_MODULE.</p>
-<h2 id="django_settings_module">DJANGO_SETTINGS_MODULE</h2>
-<p>The value of DJANGO_SETTINGS_MODULE should be in Python path syntax, e.g.
-mysite.settings. Note that the settings module should be on the Python import
-search path.
-This value is Django specific and can be passed only as environment
-variable.
-For Papermerge:</p>
-<div class="language-text highlight"><pre><span></span><code>DJANGO_SETTINGS_MODULE=config.settings
+<h1 id="security">Security</h1>
+<h2 id="secret_key">SECRET_KEY</h2>
+<p><mark class="critic"> Required </mark>. Unique secret key. The secret key must be a large random value and it must be
+kept secret. This option does not have default value, you always need
+to supply a value for it. Secret key is used to sign JWT tokens.</p>
+<p>Example as environment variable:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SECRET__SECRET_KEY=asjrijfpHHJH00huge00secret00QMNB344GHOOooaq
 </code></pre></div>
 
 

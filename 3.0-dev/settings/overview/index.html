@@ -14,7 +14,7 @@
         <link rel="prev" href="../../user/rest-api-token/">
       
       
-        <link rel="next" href="../main/">
+        <link rel="next" href="../auth/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -788,11 +788,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -848,26 +888,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../superuser/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../redis/" class="md-nav__link">
         
   
@@ -893,26 +913,6 @@
   
   <span class="md-ellipsis">
     Search Engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../django-settings-module/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
   </span>
   
 
@@ -1247,55 +1247,13 @@
 
 
 <h1 id="overview">Overview</h1>
-<p>Papermerge loads its settings from a configurations file and environment
-variables. Configuration file must be in <a href="https://toml.io/en/" href="external-link" target="_blank">toml format</a>.</p>
-<p>At first it tries to read following files:</p>
-<ul>
-<li>/etc/papermerge/papermerge.toml</li>
-<li>/etc/papermerge.toml</li>
-<li>papermerge.toml - from current project directory</li>
-</ul>
-<p>If neither of above files exists it will check environment variable
-<code>PAPERMERGE__CONFIG</code> (notice two underscores). In case environment variable
-<code>PAPERMERGE__CONFIG</code> points to an existing (toml) file - it will try to read
-its configurations from there.</p>
-<p>Notice that configuration file is optional i.e. if configuration file is not
-found Papermerge will not complain.</p>
-<p>Environment variables can be used to configure Papermerge. <strong>Environment
-variables have priority</strong> over configurations found in toml configuration file.</p>
-<p>In other words, if same configuration is present toml configuration file
-and as environment variable - the one from environment variable will apply.</p>
-<p>For example, say there is a toml configuration file with following content:</p>
-<div class="language-text highlight"><pre><span></span><code>[main]
-timezone = &#39;Europe/Berlin&#39;
-secret_key = &#39;abc123&#39;
-
-[ocr]
-default_language = &#39;deu&#39;
-
-[database]
-host = &#39;localhost&#39;
-</code></pre></div>
-<p>and there are defined three environment variables as follows:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__MAIN__SECRET_KEY=11ABGlqKQ29x
-PAPERMERGE__OCR__DEFAULT_LANGUAGE=fra
-PAPERMERGE__DATABASE__HOST=postgres.svc
-</code></pre></div>
-<p>In such case, Papermerge will use following values:</p>
-<ul>
-<li>"Europe/Berlin" for the time zone</li>
-<li>11ABGlqKQ29x for the secret key</li>
-<li>"fra" for default ocr language</li>
-<li>"postgres.svc" for database host</li>
-</ul>
-<p>first value is used from toml configuration file while last three values
-are used from environment variable, because <strong>environment variables have
-priority over toml configurations</strong>.</p>
+<p>Papermerge loads its settings from environment
+variables.</p>
 <p>Environment variables have following format:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__&lt;section&gt;__&lt;name&gt;
 </code></pre></div>
-<p>double underscores (__) are used as delimiter and all letters are in upper case.</p>
-<p>All configurations are groups by sections ocr, database, main etc.</p>
+<p>double underscores are used as delimiter; environment variables names must all
+upper case.</p>
 
 
 

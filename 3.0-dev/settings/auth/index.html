@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/settings/superuser/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/settings/auth/">
       
       
-        <link rel="prev" href="../database/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../redis/">
+        <link rel="next" href="../main/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Superuser - Papermerge 3</title>
+        <title>Auth - Papermerge 3</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#superuser" class="md-skip">
+        <a href="#auth" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Superuser
+              Auth
             
           </span>
         </div>
@@ -776,6 +776,87 @@
                 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Auth
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#username" class="md-nav__link">
+    USERNAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#password" class="md-nav__link">
+    PASSWORD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#email" class="md-nav__link">
+    EMAIL
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
     <li class="md-nav__item">
       <a href="../main/" class="md-nav__link">
@@ -783,6 +864,26 @@
   
   <span class="md-ellipsis">
     Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -836,87 +937,6 @@
                 
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Superuser
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#django_superuser_usename" class="md-nav__link">
-    DJANGO_SUPERUSER_USENAME
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#django_superuser_email" class="md-nav__link">
-    DJANGO_SUPERUSER_EMAIL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#django_superuser_password" class="md-nav__link">
-    DJANGO_SUPERUSER_PASSWORD
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
     <li class="md-nav__item">
       <a href="../redis/" class="md-nav__link">
@@ -944,26 +964,6 @@
   
   <span class="md-ellipsis">
     Search Engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../django-settings-module/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Django settings module
   </span>
   
 
@@ -1288,22 +1288,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#django_superuser_usename" class="md-nav__link">
-    DJANGO_SUPERUSER_USENAME
+  <a href="#username" class="md-nav__link">
+    USERNAME
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#django_superuser_email" class="md-nav__link">
-    DJANGO_SUPERUSER_EMAIL
+  <a href="#password" class="md-nav__link">
+    PASSWORD
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#django_superuser_password" class="md-nav__link">
-    DJANGO_SUPERUSER_PASSWORD
+  <a href="#email" class="md-nav__link">
+    EMAIL
   </a>
   
 </li>
@@ -1326,38 +1326,21 @@
   
 
 
-<h1 id="superuser">Superuser</h1>
-<p>Superuser is the most privileged user in the system. Superuser
-has all permissions and thus can perform any action in the system.
-Papermerge is instantiated with one superuser.</p>
-<p>Following settings provide superuser's username, email and password.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><mark class="critic"> Superuser configurations can be passed
-only as environment variables </mark>. Also, superuser related configurations use
-<code>DJANGO</code> prefix and one underscore as separator</p>
-</div>
-<h2 id="django_superuser_usename">DJANGO_SUPERUSER_USENAME</h2>
-<p>Superuser's username.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>DJANGO_SUPERUSER_USERNAME=john
+<h1 id="auth">Auth</h1>
+<h2 id="username">USERNAME</h2>
+<p>Username for the superuser. Default value is <code>admin</code>.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__USERNAME=john
 </code></pre></div>
-<p>This configuration can be passed only as environment variable.
-Default value is <code>admin</code>.</p>
-<h2 id="django_superuser_email">DJANGO_SUPERUSER_EMAIL</h2>
-<p>Superuser's email.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>DJANGO_SUPERUSER_EMAIL=john@example.com
+<h2 id="password">PASSWORD</h2>
+<p>Password for the superuser. No default value.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__PASSWORD=topsecret
 </code></pre></div>
-<p>This configuration can be passed only as environment variable.
-Default value is <code>admin@example.com</code>.</p>
-<h2 id="django_superuser_password">DJANGO_SUPERUSER_PASSWORD</h2>
-<p><mark class="critic"> Required </mark>. Superuser's password. Always must be set to non-empty value.</p>
-<p>This configuration can be passed only as environment variable. This
-environment variable is required. If not passed, superuser won't be
-created and no authentication will be possible.</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>DJANGO_SUPERUSER_PASSWORD=456
+<h2 id="email">EMAIL</h2>
+<p>Email for the superuser. Default value is <code>admin@example.com</code>.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__EMAIL=john@mail.com
 </code></pre></div>
 
 
