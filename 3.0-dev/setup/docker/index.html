@@ -1347,11 +1347,11 @@
   At this stage all docker images are tagged either 3.0devX or 3.0aX.</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>The only two required environment variables are <code>PAPERMERGE__MAIN__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>:</p>
+<p>The only two required environment variables are <code>PAPERMERGE__SECURITY__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>:</p>
 <pre><code class="language-console">docker run -p 9400:8000 \
-    -e PAPERMERGE__MAIN__SECRET_KEY=abc \
+    -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:3.0
+    papermerge/papermerge:3.0a2
 </code></pre>
 <p>Point your web browser to http://localhost:9400 and you will see login screen:</p>
 <p><img alt="login screen" src="../../img/setup/login.png" /></p>
@@ -1364,10 +1364,10 @@
 <p>Official Papermerge docker images are stored in <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
 <h2 id="get-docker-image">Get Docker Image</h2>
 <p>The recommended way to get the Papermerge Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0a2
 </code></pre>
 <p>To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0a2
 </code></pre>
 <h2 id="use-postgresql-as-database">Use PostgreSQL as Database</h2>
 <p>By default Papermerge uses sqlite3 database. In order to use PostgreSQL use following docker compose file:</p>
@@ -1375,7 +1375,7 @@
 
     services:
       app:
-        image: papermerge/papermerge:3.0
+        image: papermerge/papermerge:3.0a2
         environment:
           - PAPERMERGE__SECURITY__SECRET_KEY=abc
           - PAPERMERGE__AUTH__PASSWORD=12345
