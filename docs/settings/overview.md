@@ -7,5 +7,5 @@ Environment variables have following format:
 
     PAPERMERGE__<section>__<name>
 
-double underscores are used as delimiter; environment variables names must all
+double underscores are used as delimiter; environment variables names must be all
 upper case.
