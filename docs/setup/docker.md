@@ -13,7 +13,7 @@ The only two required environment variables are `PAPERMERGE__SECURITY__SECRET_KE
 docker run -p 9400:8000 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:{{ extra.docker_image_version  }}
+    papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
 Point your web browser to http://localhost:9400 and you will see login screen:
@@ -38,13 +38,13 @@ Official {{ extra.project  }} docker images are stored in <a href="https://hub.d
 The recommended way to get the {{ extra.project }} Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:
 
 ```console
-docker pull papermerge/papermerge:3.0
+docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
 To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:
 
 ```console
-docker pull papermerge/papermerge:3.0
+docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
 
@@ -57,7 +57,7 @@ By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL
 
     services:
       app:
-        image: papermerge/papermerge:3.0
+        image: papermerge/papermerge:{{ extra.docker_image_version }}
         environment:
           - PAPERMERGE__SECURITY__SECRET_KEY=abc
           - PAPERMERGE__AUTH__PASSWORD=12345
