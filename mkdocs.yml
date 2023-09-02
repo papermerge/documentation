@@ -74,6 +74,7 @@ theme:
 repo_url: https://github.com/ciur/papermerge
 extra:
   project: Papermerge  # custom variable for macros plugin
+  docker_image_version: 3.0a2
   version:
     provider: mike
   social:

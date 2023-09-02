@@ -7,13 +7,13 @@
 
 ## TL;DR
 
-The only two required environment variables are `PAPERMERGE__MAIN__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`:
+The only two required environment variables are `PAPERMERGE__SECURITY__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`:
 
 ```console
 docker run -p 9400:8000 \
-    -e PAPERMERGE__MAIN__SECRET_KEY=abc \
+    -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:3.0
+    papermerge/papermerge:{{ extra.docker_image_version  }}
 ```
 
 Point your web browser to http://localhost:9400 and you will see login screen:
