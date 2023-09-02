@@ -1,14 +1,19 @@
 # Docker
 
+!!! Danger
+
+      Papermerge 3.0 is currently in active development. There is no stable version yet.
+      At this stage all docker images are tagged either 3.0devX or 3.0aX.
+
 ## TL;DR
 
-The only two required environment variables are `settings__main__secret_key` and `settings__superuser__password`:
+The only two required environment variables are `PAPERMERGE__MAIN__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`:
 
 ```console
 docker run -p 9400:8000 \
     -e PAPERMERGE__MAIN__SECRET_KEY=abc \
-    -e DJANGO_SUPERUSER_PASSWORD=123 \
-    papermerge/papermerge:2.1.9
+    -e PAPERMERGE__AUTH__PASSWORD=123 \
+    papermerge/papermerge:3.0
 ```
 
 Point your web browser to http://localhost:9400 and you will see login screen:
@@ -25,7 +30,7 @@ Credentials are:
 
 ## Official Docker Images
 
-Official {{ extra.project  }} docker images are stored on <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a> and <a href="https://github.com/orgs/papermerge/packages" class="external-link" target="_blank">github packages</a>.
+Official {{ extra.project  }} docker images are stored in <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.
 
 
 ## Get Docker Image
@@ -33,120 +38,15 @@ Official {{ extra.project  }} docker images are stored on <a href="https://hub.d
 The recommended way to get the {{ extra.project }} Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:
 
 ```console
-docker pull papermerge/papermerge:latest
+docker pull papermerge/papermerge:3.0
 ```
 
 To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:
 
 ```console
-docker pull papermerge/papermerge:2.1.9
+docker pull papermerge/papermerge:3.0
 ```
 
-## Adding OCR Languages to the Docker Image
-
-By default the Docker image includes English and German OCR languages only.
-
-You may want to add other OCR languages. You add extra OCR languages in three steps:
-
-1. Install extra langs in docker image (by extending it)
-2. Update `papermerge.toml` file with extra languages
-3. Use/Mount `papermerge.toml` in docker, docker compose, kubernetes
-
-
-You install extra languages in docker image by creating a new Dockerfile
-from `papermerge/papermerge` docker image.
-Create new docker file with following content:
-
-```console
-FROM papermerge/papermerge:2.1.9
-
-# add Italian, Spanish and French
-RUN apt install tesseract-ocr-ita tesseract-ocr-spa tesseract-ocr-fra
-```
-
-
-!!! note
-
-    `FROM papermerge/papermerge:2.1.9` pull docker image from DockerHub.
-    If you write `FROM ghcr.io/papermerge/papermerge` it pulls docker image
-    from GitHub container registry.
-
-All languages are specified in three letters code as per <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-" class="external-link" target="_blank">ISO 639-2T</a> standard -
-second column in the table.
-
-Then run following command:
-
-```console
-docker build -t mypapermerge:multi-lang -f Dockerfile .
-```
-
-Notice the "." character at the end. After running above command, you can use
-newly build docker image for lunching |project| with Italian, Spanish and
-French OCR languages.
-
-Besides installing extra OCR languages in docker image, you also need to mount
-papermerge.toml file with following OCR languages configuration::
-
-```console
-[ocr]
-languages = { ita = "Italian", fra = "French", spa = "Spanish", eng = "English", deu = "German" }
-default_language = "ita"
-```
-
-!!! danger
-
-      `languages` must be written as one line! It uses so called <a
-      href="https://toml.io/en/v1.0.0#inline-table" class="external-link"
-      target="_blank">inline table</a> of toml format.
-
-
-Here is an example of docker compose file which mounts `papermerge.toml` file::
-
-```yaml
-  version: '3.7'
-  x-backend: &common
-    image: mypapermerge:multi-lang  # <--- use docker image with extra OCR langs
-    volumes:
-      - media_root:/app/media
-      - xapian_index: /app/xapian_index
-      - ./papermerge.toml:/etc/papermerge.toml  # <--- Mounted papermerge.toml (!)
-    environment:
-      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
-      - DJANGO_SUPERUSER_PASSWORD=1234
-      - PAPERMERGE__REDIS__HOST=redis
-      - PAPERMERGE__REDIS__PORT=6379
-      - PAPERMERGE__DATABASE__TYPE=postgres
-      - PAPERMERGE__DATABASE__USER=postgres
-      - PAPERMERGE__DATABASE__NAME=postgres
-      - PAPERMERGE__DATABASE__PASSWORD=postgres
-      - PAPERMERGE__DATABASE__HOST=db
-      - PAPERMERGE__DATABASE__PORT=5432
-      - PAPERMERGE__SEARCH__ENGINE=xapian
-      - PAPERMERGE__SEARCH__PATH=/app/xapian_index
-  services:
-    backend:
-      <<: *common
-    worker:
-      <<: *common
-      command: worker
-    redis:
-      image: redis:6
-      ports:
-        - '6379:6379'
-    db:
-      image: postgres:14.4
-      volumes:
-        - postgres_data:/var/lib/postgresql/data/
-      environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_DB=postgres
-        - POSTGRES_PASSWORD=postgres
-  volumes:
-    media_root:
-    postgres_data:
-    xapian_index:
-```
 
 ## Use PostgreSQL as Database
 
@@ -157,15 +57,11 @@ By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL
 
     services:
       app:
-        image: papermerge/papermerge:2.1.9
+        image: papermerge/papermerge:3.0
         environment:
-          - PAPERMERGE__MAIN__SECRET_KEY=abc
-          - DJANGO_SUPERUSER_PASSWORD=12345
-          - PAPERMERGE__DATABASE__TYPE=postgres
-          - PAPERMERGE__DATABASE__USER=postgres
-          - PAPERMERGE__DATABASE__PASSWORD=123
-          - PAPERMERGE__DATABASE__NAME=postgres
-          - PAPERMERGE__DATABASE__HOST=db
+          - PAPERMERGE__SECURITY__SECRET_KEY=abc
+          - PAPERMERGE__AUTH__PASSWORD=12345
+          - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
         ports:
           - 8000:8000
         depends_on:

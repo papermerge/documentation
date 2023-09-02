@@ -24,13 +24,13 @@ nav:
     - user/rest-api-token.md
   - Settings:
     - settings/overview.md
+    - settings/auth.md
     - settings/main.md
+    - settings/security.md
     - settings/ocr.md
     - settings/database.md
-    - settings/superuser.md
     - settings/redis.md
     - settings/search.md
-    - settings/django-settings-module.md
   - "backup-restore.md"
   - REST API:
     - "rest-api/overview.md"
