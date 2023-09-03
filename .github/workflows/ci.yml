@@ -18,6 +18,12 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
+      - run: |
+          git fetch origin v3.0 --depth=1
+          git checkout v3.0
+          git fetch origin gh-pages --depth=1
+          git config user.name ci-bot
+          git config user.email ci-bot@example.com
       - run: pip install poetry
       - run: poetry install
       - run: poetry run mike deploy -p 3.0-dev
