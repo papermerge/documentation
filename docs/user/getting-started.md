@@ -82,7 +82,7 @@ importantly you can reorder document pages in case you need to do so.
 
 ![Blank pages in a document](../img/getting-started/blank-pages.png)
 
-There is a separate chapter about [page management](page_management.md) where you can learn
+There is a separate chapter about [page management](page-management.md) where you can learn
 details about this feature.
 
 
