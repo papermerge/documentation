@@ -15,7 +15,7 @@ After you click Save button token will be displayed. Write down your token as
 
 ![](../img/user-manual/rest-api-token/user-menu.svg)
 ![](../img/user-manual/rest-api-token/new-token.svg)
-![](../img/user-manual/rest_api-token/token-value.svg)
+![](../img/user-manual/rest-api-token/token-value.svg)
 
 
 !!! important

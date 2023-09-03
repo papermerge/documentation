@@ -10,7 +10,7 @@
 The only two required environment variables are `PAPERMERGE__SECURITY__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`:
 
 ```console
-docker run -p 9400:8000 \
+docker run -p 9400:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
     papermerge/papermerge:{{ extra.docker_image_version }}
@@ -41,7 +41,8 @@ The recommended way to get the {{ extra.project }} Docker Image is to pull the p
 docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
-To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:
+To use a specific version, you can pull a versioned tag. You can view the list
+of available versions in the github repository packages:
 
 ```console
 docker pull papermerge/papermerge:{{ extra.docker_image_version }}
@@ -50,7 +51,8 @@ docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 
 ## Use PostgreSQL as Database
 
-By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL use following docker compose file:
+By default {{ extra.project }} uses sqlite3 database. In order to use
+PostgreSQL use following docker compose file:
 
 ```yaml
     version: '3.7'
@@ -63,7 +65,7 @@ By default {{ extra.project }} uses sqlite3 database. In order to use PostgreSQL
           - PAPERMERGE__AUTH__PASSWORD=12345
           - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
         ports:
-          - 8000:8000
+          - 9400:80
         depends_on:
           - db
       db:
