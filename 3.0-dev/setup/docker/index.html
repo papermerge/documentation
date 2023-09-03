@@ -1348,7 +1348,7 @@
 </div>
 <h2 id="tldr">TL;DR</h2>
 <p>The only two required environment variables are <code>PAPERMERGE__SECURITY__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>:</p>
-<pre><code class="language-console">docker run -p 9400:8000 \
+<pre><code class="language-console">docker run -p 9400:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
     papermerge/papermerge:3.0a2
@@ -1366,11 +1366,13 @@
 <p>The recommended way to get the Papermerge Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:</p>
 <pre><code class="language-console">docker pull papermerge/papermerge:3.0a2
 </code></pre>
-<p>To use a specific version, you can pull a versioned tag. You can view the list of available versions in the github repository packages:</p>
+<p>To use a specific version, you can pull a versioned tag. You can view the list
+of available versions in the github repository packages:</p>
 <pre><code class="language-console">docker pull papermerge/papermerge:3.0a2
 </code></pre>
 <h2 id="use-postgresql-as-database">Use PostgreSQL as Database</h2>
-<p>By default Papermerge uses sqlite3 database. In order to use PostgreSQL use following docker compose file:</p>
+<p>By default Papermerge uses sqlite3 database. In order to use
+PostgreSQL use following docker compose file:</p>
 <pre><code class="language-yaml">    version: '3.7'
 
     services:
@@ -1381,7 +1383,7 @@
           - PAPERMERGE__AUTH__PASSWORD=12345
           - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
         ports:
-          - 8000:8000
+          - 9400:80
         depends_on:
           - db
       db:
