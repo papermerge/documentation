@@ -39,8 +39,7 @@ nav:
     - cli/overview.md
     - cli/cli.md
   - Contributor Manual:
-    - contributor/frontend.md
-    - contributor/backend.md
+    - contributor/docker.md
   - "changelog.md"
 
 theme:
