@@ -15,7 +15,7 @@ and you are in root repository of source code folder:
 ## Web App
 
 This is the simplest local dev scenario, you start docker compose file only with
-web app i.e. rest api server + ui.
+web app i.e. REST API server + ui.
 
 The go to the folder where source was cloned and create following docker compose file:
 
@@ -60,3 +60,5 @@ Here is docker compose file for the case when you want to build dev docker image
 
 
 ## Web App + Worker
+
+...
