@@ -61,4 +61,73 @@ Here is docker compose file for the case when you want to build dev docker image
 
 ## Web App + Worker
 
-...
+Following docker compose adds worker service. Worker and Web App
+communicate via redis (message broker), thus we need to add redis service as
+well:
+
+    version: "3.9"
+
+    x-backend: &common  # yaml anchor definition
+      build:
+        context: .
+        dockerfile: docker/dev/Dockerfile
+      environment:
+          PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
+          PAPERMERGE__AUTH__USERNAME: admin
+          PAPERMERGE__AUTH__PASSWORD: 1234
+          PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      volumes:
+          - ./papermerge:/core_app/papermerge/
+          - ./ui:/core_ui/
+          - data:/db
+          - index_db:/core_app/index_db
+          - media_root:/core_app/media
+
+    services:
+      web:
+        <<: *common
+        ports:
+         - "11000:80"
+        depends_on:
+          - redis
+      worker:
+        <<: *common
+        command: worker
+      redis:
+        image: redis:6
+
+
+Optionally you can add custom logging configuration:
+
+    version: "3.9"
+
+    x-backend: &common
+      build:
+        context: .
+        dockerfile: docker/dev/Dockerfile
+      environment:
+          PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
+          PAPERMERGE__AUTH__USERNAME: admin
+          PAPERMERGE__AUTH__PASSWORD: 1234
+          PAPERMERGE__REDIS__URL: redis://redis:6379/0
+          PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # <-- custom config
+      volumes:
+          - ./papermerge:/core_app/papermerge/
+          - ./ui:/core_ui/
+          - data:/db
+          - index_db:/core_app/index_db
+          - media_root:/core_app/media
+          - ./custom_logging.yml:/logging.yml  # mount config file
+
+    services:
+      web:
+        <<: *common
+        ports:
+         - "11000:80"
+        depends_on:
+          - redis
+      worker:
+        <<: *common
+        command: worker
+      redis:
+        image: redis:6
