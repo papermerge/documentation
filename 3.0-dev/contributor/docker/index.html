@@ -1199,6 +1199,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#logging-config" class="md-nav__link">
+    Logging Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    PostgreSQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solr" class="md-nav__link">
+    Solr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-20" class="md-nav__link">
+    OAuth 2.0
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1270,6 +1298,34 @@
         <li class="md-nav__item">
   <a href="#web-app-worker" class="md-nav__link">
     Web App + Worker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-config" class="md-nav__link">
+    Logging Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    PostgreSQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solr" class="md-nav__link">
+    Solr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-20" class="md-nav__link">
+    OAuth 2.0
   </a>
   
 </li>
@@ -1375,8 +1431,41 @@ services:
     command: worker
   redis:
     image: redis:6
+
+volumes:
+    data:
+    index_db:
+    media_root:
 </code></pre></div>
-<p>Optionally you can add custom logging configuration:</p>
+<h2 id="logging-config">Logging Config</h2>
+<p>Both worker and web app read their logging configurations from file pointed by
+<code>PAPERMERGE__MAIN__LOGGING_CFG</code> environment variable. An example of custom
+logging config would be:</p>
+<div class="language-text highlight"><pre><span></span><code>version: 1
+disable_existing_loggers: true
+
+formatters:
+  verbose:
+    format: &#39;%(asctime)s %(levelname)s %(name)s.%(funcName)s %(message)s&#39;
+
+handlers:
+  console:
+    level: DEBUG
+    class: logging.StreamHandler
+    formatter: verbose
+
+loggers:
+  auth_server:
+    level: DEBUG
+    handlers: [console]
+  papermerge.search.tasks:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+    format: verbose
+</code></pre></div>
+<p>You may recognize it. It should be YAML version of <a href="https://docs.python.org/3/library/logging.config.html#configuration-file-format" class="external-link" target="_blank">python logging config</a>.</p>
+<p>Here is an example of docker compose with web wepp + worker + custom logging configuration:</p>
 <div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
 
 x-backend: &amp;common
@@ -1388,14 +1477,14 @@ x-backend: &amp;common
       PAPERMERGE__AUTH__USERNAME: admin
       PAPERMERGE__AUTH__PASSWORD: 1234
       PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # &lt;-- custom config
+      PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # &lt;-- absolute path to custom config file
   volumes:
       - ./papermerge:/core_app/papermerge/
       - ./ui:/core_ui/
       - data:/db
       - index_db:/core_app/index_db
       - media_root:/core_app/media
-      - ./custom_logging.yml:/logging.yml  # mount config file
+      - ./custom_logging.yml:/logging.yml  # mount local logging config file
 
 services:
   web:
@@ -1409,7 +1498,15 @@ services:
     command: worker
   redis:
     image: redis:6
+
+volumes:
+    data:
+    index_db:
+    media_root:
 </code></pre></div>
+<h2 id="postgresql">PostgreSQL</h2>
+<h2 id="solr">Solr</h2>
+<h2 id="oauth-20">OAuth 2.0</h2>
 
 
 
