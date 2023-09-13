@@ -96,6 +96,11 @@ well:
       redis:
         image: redis:6
 
+    volumes:
+        data:
+        index_db:
+        media_root:
+
 
 
 ## Logging Config
@@ -163,6 +168,12 @@ Here is an example of docker compose with web wepp + worker + custom logging con
         command: worker
       redis:
         image: redis:6
+
+    volumes:
+        data:
+        index_db:
+        media_root:
+
 
 
 ## PostgreSQL
