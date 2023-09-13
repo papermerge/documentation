@@ -97,7 +97,39 @@ well:
         image: redis:6
 
 
-Optionally you can add custom logging configuration:
+
+## Logging Config
+
+Both worker and web app read their logging configurations from file pointed by
+`PAPERMERGE__MAIN__LOGGING_CFG` environment variable. An example of custom
+logging config would be:
+
+    version: 1
+    disable_existing_loggers: true
+
+    formatters:
+      verbose:
+        format: '%(asctime)s %(levelname)s %(name)s.%(funcName)s %(message)s'
+
+    handlers:
+      console:
+        level: DEBUG
+        class: logging.StreamHandler
+        formatter: verbose
+
+    loggers:
+      auth_server:
+        level: DEBUG
+        handlers: [console]
+      papermerge.search.tasks:
+        level: DEBUG
+        handlers: [console]
+        propagate: no
+        format: verbose
+
+You may recognize it. It should be YAML version of <a href="https://docs.python.org/3/library/logging.config.html#configuration-file-format" class="external-link" target="_blank">python logging config</a>.
+
+Here is an example of docker compose with web wepp + worker + custom logging configuration:
 
     version: "3.9"
 
@@ -110,14 +142,14 @@ Optionally you can add custom logging configuration:
           PAPERMERGE__AUTH__USERNAME: admin
           PAPERMERGE__AUTH__PASSWORD: 1234
           PAPERMERGE__REDIS__URL: redis://redis:6379/0
-          PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # <-- custom config
+          PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # <-- absolute path to custom config file
       volumes:
           - ./papermerge:/core_app/papermerge/
           - ./ui:/core_ui/
           - data:/db
           - index_db:/core_app/index_db
           - media_root:/core_app/media
-          - ./custom_logging.yml:/logging.yml  # mount config file
+          - ./custom_logging.yml:/logging.yml  # mount local logging config file
 
     services:
       web:
@@ -131,3 +163,10 @@ Optionally you can add custom logging configuration:
         command: worker
       redis:
         image: redis:6
+
+
+## PostgreSQL
+
+## Solr
+
+## OAuth 2.0
