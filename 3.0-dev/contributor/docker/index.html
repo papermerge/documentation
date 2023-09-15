@@ -1207,15 +1207,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
+  <a href="#solr" class="md-nav__link">
+    Solr
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
+  <a href="#postgresql" class="md-nav__link">
+    PostgreSQL
   </a>
   
 </li>
@@ -1310,15 +1310,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
+  <a href="#solr" class="md-nav__link">
+    Solr
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
+  <a href="#postgresql" class="md-nav__link">
+    PostgreSQL
   </a>
   
 </li>
@@ -1504,8 +1504,117 @@ volumes:
     index_db:
     media_root:
 </code></pre></div>
-<h2 id="postgresql">PostgreSQL</h2>
 <h2 id="solr">Solr</h2>
+<p>Papermerge is shipped with a default search library - Xapian.</p>
+<p>However, you may opt-in to use full fledged search engine like Solr. In order to
+change search backend, use <code>PAPERMERGE__SEARCH__URL</code> env variable:</p>
+<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
+
+x-backend: &amp;common
+  build:
+    context: .
+    dockerfile: docker/dev/Dockerfile
+  environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 1234
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: 1234
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index  # &lt;- use Solr&#39;s &quot;pmg-index&quot; index
+  volumes:
+      - ./papermerge:/core_app/papermerge/
+      - ./ui:/core_ui/
+      - data:/db
+      - index_db:/core_app/index_db
+      - media_root:/core_app/media
+
+services:
+  web:
+    &lt;&lt;: *common
+    ports:
+     - &quot;11000:80&quot;
+    depends_on:
+      - redis
+      - solr
+  worker:
+    &lt;&lt;: *common
+    command: worker
+  redis:
+    image: redis:6
+  solr:
+    image: solr:9.3
+    ports:
+     - &quot;8983:8983&quot;
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg-index  # &lt;- creates index at startup of the Solr service
+
+volumes:
+  data:
+  solr_data:
+  index_db:
+  media_root:
+</code></pre></div>
+<p>Notice that Solr is started with <code>solr-precreate pmg-index</code> command, which means that Solr service will be started with
+pre-created index named <code>pmg-index</code>.</p>
+<h2 id="postgresql">PostgreSQL</h2>
+<p>Here is an example of docker compose which uses PostgreSQL as database:</p>
+<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
+
+x-backend: &amp;common
+  build:
+    context: .
+    dockerfile: docker/dev/Dockerfile
+  environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: 1234
+      PAPERMERGE__DATABASE__URL: postgresql://postgres:123@db:5432/postgres
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
+  volumes:
+    - ./papermerge:/core_app/papermerge/
+    - ./ui:/core_ui/
+    - index_db:/core_app/index_db
+    - media_root:/core_app/media
+  depends_on:
+    - redis
+    - solr
+    - db
+
+services:
+  web:
+    &lt;&lt;: *common
+    ports:
+     - &quot;11000:80&quot;
+  worker:
+    &lt;&lt;: *common
+    command: worker
+  redis:
+    image: redis:6
+  solr:
+    image: solr:9.3
+    ports:
+     - &quot;8983:8983&quot;
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg-index
+  db:
+    image: bitnami/postgresql:14.4.0
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=123
+
+volumes:
+  postgres_data:
+  solr_data:
+  index_db:
+  media_root:
+</code></pre></div>
 <h2 id="oauth-20">OAuth 2.0</h2>
 
 
