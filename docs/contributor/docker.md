@@ -175,9 +175,123 @@ Here is an example of docker compose with web wepp + worker + custom logging con
         media_root:
 
 
+## Solr
+
+{{ extra.project }} is shipped with a default search library - Xapian.
+
+However, you may opt-in to use full fledged search engine like Solr. In order to
+change search backend, use `PAPERMERGE__SEARCH__URL` env variable:
+
+    version: "3.9"
+
+    x-backend: &common
+      build:
+        context: .
+        dockerfile: docker/dev/Dockerfile
+      environment:
+          PAPERMERGE__SECURITY__SECRET_KEY: 1234
+          PAPERMERGE__AUTH__USERNAME: admin
+          PAPERMERGE__AUTH__PASSWORD: 1234
+          PAPERMERGE__REDIS__URL: redis://redis:6379/0
+          PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index  # <- use Solr's "pmg-index" index
+      volumes:
+          - ./papermerge:/core_app/papermerge/
+          - ./ui:/core_ui/
+          - data:/db
+          - index_db:/core_app/index_db
+          - media_root:/core_app/media
+
+    services:
+      web:
+        <<: *common
+        ports:
+         - "11000:80"
+        depends_on:
+          - redis
+          - solr
+      worker:
+        <<: *common
+        command: worker
+      redis:
+        image: redis:6
+      solr:
+        image: solr:9.3
+        ports:
+         - "8983:8983"
+        volumes:
+          - solr_data:/var/solr
+        command:
+          - solr-precreate
+          - pmg-index  # <- creates index at startup of the Solr service
+
+    volumes:
+      data:
+      solr_data:
+      index_db:
+      media_root:
+
+Notice that Solr is started with `solr-precreate pmg-index` command, which means that Solr service will be started with
+pre-created index named `pmg-index`.
 
 ## PostgreSQL
 
-## Solr
+Here is an example of docker compose which uses PostgreSQL as database:
+
+    version: "3.9"
+
+    x-backend: &common
+      build:
+        context: .
+        dockerfile: docker/dev/Dockerfile
+      environment:
+          PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
+          PAPERMERGE__AUTH__USERNAME: admin
+          PAPERMERGE__AUTH__PASSWORD: 1234
+          PAPERMERGE__DATABASE__URL: postgresql://postgres:123@db:5432/postgres
+          PAPERMERGE__REDIS__URL: redis://redis:6379/0
+          PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
+      volumes:
+        - ./papermerge:/core_app/papermerge/
+        - ./ui:/core_ui/
+        - index_db:/core_app/index_db
+        - media_root:/core_app/media
+      depends_on:
+        - redis
+        - solr
+        - db
+
+    services:
+      web:
+        <<: *common
+        ports:
+         - "11000:80"
+      worker:
+        <<: *common
+        command: worker
+      redis:
+        image: redis:6
+      solr:
+        image: solr:9.3
+        ports:
+         - "8983:8983"
+        volumes:
+          - solr_data:/var/solr
+        command:
+          - solr-precreate
+          - pmg-index
+      db:
+        image: bitnami/postgresql:14.4.0
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        environment:
+          - POSTGRES_PASSWORD=123
+
+    volumes:
+      postgres_data:
+      solr_data:
+      index_db:
+      media_root:
+
+
 
 ## OAuth 2.0
