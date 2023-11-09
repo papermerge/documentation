@@ -1,15 +1,6 @@
 # Docker Compose
 
-This section describes how to setup Papermerge and
-related services using docker compose.
-
-Each docker compose file is used here in combination with one `environment file` usually
-named `.env`.
-
-Make sure you have both `docker`.
-
-This guide was tested with docker version 20.10.6 and
-docker-compose version 1.29.2.
+This section describes how to setup {{ extra.project }} using docker compose.
 
 
 ## Complete Stack in 2 minutes

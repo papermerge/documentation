@@ -6,6 +6,8 @@ nav:
     - setup/requirements.md
     - setup/docker.md
     - setup/docker-compose.md
+    - setup/ansible.md
+    - setup/kubernetes.md
     - setup/backup.md
     - setup/upgrading.md
   - User Manual:
