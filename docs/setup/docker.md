@@ -52,7 +52,7 @@ docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 ## Worker
 
 For complete setup you need to start one or multiple workers.
-Worker is the component which, amon other things, performs OCR.
+Worker is the component which, among other things, performs OCR.
 
 Here is minimal docker compose file with web ui and one worker:
 
@@ -69,7 +69,7 @@ Here is minimal docker compose file with web ui and one worker:
     volumes:
         - data:/db
         - index_db:/core_app/index_db
-        - ${PWD}/mxmedia:/core_app/media
+        - media:/core_app/media
   services:
     web:
       <<: *common
@@ -85,6 +85,7 @@ Here is minimal docker compose file with web ui and one worker:
   volumes:
       data:
       index_db:
+      media:
 ```
 
 With above setup, web app is accessible on  `http://localhost:12000`.
