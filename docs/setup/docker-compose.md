@@ -56,6 +56,36 @@ Sign in using credentials configured with ``SUPERUSER_USERNAME`` and
 ![papermerge example](../img/setup/papermerge-example.png)
 
 
+## Use PostgreSQL as Database
+
+By default {{ extra.project }} uses sqlite3 database. In order to use
+PostgreSQL use following docker compose file:
+
+```yaml
+    version: '3.7'
+
+    services:
+      app:
+        image: papermerge/papermerge:{{ extra.docker_image_version }}
+        environment:
+          - PAPERMERGE__SECURITY__SECRET_KEY=abc
+          - PAPERMERGE__AUTH__PASSWORD=12345
+          - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
+        ports:
+          - 9400:80
+        depends_on:
+          - db
+      db:
+        image: bitnami/postgresql:14.4.0
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        environment:
+          - POSTGRES_PASSWORD=123
+    volumes:
+        postgres_data:
+```
+
+
 ## Elastic Search
 
 In previous section, {{ extra.project }} used xapian built in search engine. However, for
