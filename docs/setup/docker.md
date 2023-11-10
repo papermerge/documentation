@@ -1,13 +1,17 @@
 # Docker
 
-!!! Danger
+!!! Warning
 
-      Papermerge 3.0 is currently in active development. There is no stable version yet.
-      At this stage all docker images are tagged either 3.0devX or 3.0aX.
+      Papermerge 3.0 is currently in active development. There is no stable
+      version yet for 3.0. At this stage all docker images are tagged either
+      3.0devX or 3.0aX.
 
-## TL;DR
 
-The only two required environment variables are `PAPERMERGE__SECURITY__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`:
+## Web App
+
+The only two required environment variables are
+`PAPERMERGE__SECURITY__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`. To start
+web ui part use following command:
 
 ```console
 docker run -p 9400:80 \
@@ -16,7 +20,7 @@ docker run -p 9400:80 \
     papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
-Point your web browser to http://localhost:9400 and you will see login screen:
+Point your web browser to `http://localhost:9400` and you will see login screen:
 
 
 ![login screen](../img/setup/login.png)
@@ -27,53 +31,64 @@ Credentials are:
 - username `admin`
 - password `123`
 
+!!! Note
 
-## Official Docker Images
+    The above `docker run` starts only web UI part. For complete setup you
+    also need one or multiple workers.
 
-Official {{ extra.project  }} docker images are stored in <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.
+
+## Official Docker Image
+
+Official {{ extra.project  }} docker image is available on <a href="https://hub.docker.com/r/papermerge/papermerge" class="external-link" target="_blank">docker hub</a>.
 
 
 ## Get Docker Image
 
-The recommended way to get the {{ extra.project }} Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:
-
-```console
-docker pull papermerge/papermerge:{{ extra.docker_image_version }}
-```
-
-To use a specific version, you can pull a versioned tag. You can view the list
-of available versions in the github repository packages:
+The recommended way to get the {{ extra.project }} docker image is via
+docker pull command:
 
 ```console
 docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
 
-## Use PostgreSQL as Database
+## Web App + Worker
 
-By default {{ extra.project }} uses sqlite3 database. In order to use
-PostgreSQL use following docker compose file:
+For complete setup you need to start one or multiple workers.
+Worker is the component which, among other things, performs OCR.
 
-```yaml
-    version: '3.7'
+Here is minimal docker compose file with web ui and one worker:
 
-    services:
-      app:
-        image: papermerge/papermerge:{{ extra.docker_image_version }}
-        environment:
-          - PAPERMERGE__SECURITY__SECRET_KEY=abc
-          - PAPERMERGE__AUTH__PASSWORD=12345
-          - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
-        ports:
-          - 9400:80
-        depends_on:
-          - db
-      db:
-        image: bitnami/postgresql:14.4.0
-        volumes:
-          - postgres_data:/var/lib/postgresql/data/
-        environment:
-          - POSTGRES_PASSWORD=123
+```
+  version: "3.9"
+
+  x-backend: &common
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
+        PAPERMERGE__SECURITY__SECRET_KEY: 12345
+        PAPERMERGE__AUTH__USERNAME: john
+        PAPERMERGE__AUTH__PASSWORD: hohoho
+        PAPERMERGE__REDIS__URL: redis://redis:6379/0
     volumes:
-        postgres_data:
+        - data:/db
+        - index_db:/core_app/index_db
+        - media:/core_app/media
+  services:
+    web:
+      <<: *common
+      ports:
+       - "12000:80"
+      depends_on:
+        - redis
+    worker:
+      <<: *common
+      command: worker
+    redis:
+      image: redis:6
+  volumes:
+      data:
+      index_db:
+      media:
 ```
+
+With above setup, web app is accessible on  `http://localhost:12000`.
