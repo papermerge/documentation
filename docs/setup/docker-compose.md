@@ -3,133 +3,100 @@
 This section describes how to setup {{ extra.project }} using docker compose.
 
 
-## Complete Stack in 2 minutes
+## Web App + Worker
 
-
-This setup installs complete {{ extra.project }} stack with all required services.
-
-Save following `docker-compose.yml` file on your local computer.
-
-
-Next, create `.env` file with following content:
-
-```console
-  DB_USER=postgres
-  DB_NAME=postgres
-  DB_PASSWORD=postgres
-  DB_HOST=db
-  DB_PORT=5432
-
-  REDIS_HOST=redis
-  REDIS_PORT=6379
-
-  SECRET_KEY=12345abcdxyz
-
-  SUPERUSER_USERNAME=admin
-  SUPERUSER_EMAIL=admin@example.com
-  SUPERUSER_PASSWORD=admin
-```
-
-Start {{ extra.project }} using following docker compose command:
-
-```console
-    docker compose -f docker-compose.yml --env-file .env up
-```
-
-You can access |project| user interface using a web browser like Firefox.
-Open your web browser and point it to http://localhost:16000 address:
-
-![papermerge login](../img/setup/papermerge-login.png)
-
-Sign in using credentials configured with ``SUPERUSER_USERNAME`` and
-``SUPERUSER_PASSWORD`` options in ``.env`` file.
-
-![papermerge example](../img/setup/papermerge-example.png)
-
-
-## Use PostgreSQL as Database
-
-By default {{ extra.project }} uses sqlite3 database. In order to use
-PostgreSQL use following docker compose file:
+The simpliest docker compose setup for {{ extra.project }} is following:
 
 ```yaml
-    version: '3.7'
+  version: "3.9"
 
-    services:
-      app:
-        image: papermerge/papermerge:{{ extra.docker_image_version }}
-        environment:
-          - PAPERMERGE__SECURITY__SECRET_KEY=abc
-          - PAPERMERGE__AUTH__PASSWORD=12345
-          - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
-        ports:
-          - 9400:80
-        depends_on:
-          - db
-      db:
-        image: bitnami/postgresql:14.4.0
-        volumes:
-          - postgres_data:/var/lib/postgresql/data/
-        environment:
-          - POSTGRES_PASSWORD=123
-    volumes:
-        postgres_data:
-```
-
-
-## Elastic Search
-
-In previous section, {{ extra.project }} used xapian built in search engine. However, for
-production environments, a full fledged search engine like Elasticsearch makes more sense.
-
-Here is setup which uses Elasticsearch:
-
-```yaml
-  version: '3.7'
-  x-backend: &common  # yaml anchor definition
-    image: papermerge/papermerge:2.1.9
-    volumes:
-      - media_root:/app/media
+  x-backend: &common
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
     environment:
-      - PAPERMERGE__MAIN__SECRET_KEY=12345SKK
-      - DJANGO_SUPERUSER_PASSWORD=1234
-      - PAPERMERGE__REDIS__HOST=redis
-      - PAPERMERGE__REDIS__PORT=6379
-      - PAPERMERGE__DATABASE__TYPE=postgres
-      - PAPERMERGE__DATABASE__USER=postgres
-      - PAPERMERGE__DATABASE__NAME=postgres
-      - PAPERMERGE__DATABASE__PASSWORD=postgres
-      - PAPERMERGE__DATABASE__HOST=db
-      - PAPERMERGE__DATABASE__PORT=5432
-      - PAPERMERGE__SEARCH__ENGINE=elastic7
-      - PAPERMERGE__SEARCH__URL=http://es:9200
+        PAPERMERGE__SECURITY__SECRET_KEY: 12345
+        PAPERMERGE__AUTH__USERNAME: john
+        PAPERMERGE__AUTH__PASSWORD: hohoho
+        PAPERMERGE__REDIS__URL: redis://redis:6379/0
+    volumes:
+        - data:/db
+        - index_db:/core_app/index_db
+        - media:/core_app/media
   services:
-    backend:
+    web:
       <<: *common
+      ports:
+       - "12000:80"
+      depends_on:
+        - redis
     worker:
       <<: *common
       command: worker
     redis:
       image: redis:6
+  volumes:
+      data:
+      index_db:
+      media:
+```
+
+You can access {{ extra.project }} user interface using any modern web browser (e.g. Firefox, Chrome).
+Open your web browser and point it to http://localhost:12000.
+
+
+## PostgreSQL
+
+By default {{ extra.project }} uses sqlite3 database. Here is setup to which
+uses PostgreSQL:
+
+```yaml
+  version: "3.9"
+
+  x-backend: &common
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
+        PAPERMERGE__SECURITY__SECRET_KEY: 12345
+        PAPERMERGE__AUTH__USERNAME: john
+        PAPERMERGE__AUTH__PASSWORD: hohoho
+        PAPERMERGE__DATABASE__URL: postgresql://scott:tiger@db:5432/mydatabase
+        PAPERMERGE__REDIS__URL: redis://redis:6379/0
+    volumes:
+        - data:/db
+        - index_db:/core_app/index_db
+        - media:/core_app/media
+  services:
+    web:
+      <<: *common
       ports:
-        - '6379:6379'
+       - "12000:80"
+      depends_on:
+        - redis
+        - db
+    worker:
+      <<: *common
+      command: worker
+    redis:
+      image: redis:6
     db:
-      image: postgres:14.4
+      image: bitnami/postgresql:14.4.0
       volumes:
         - postgres_data:/var/lib/postgresql/data/
       environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_DB=postgres
-        - POSTGRES_PASSWORD=postgres
-    es:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
-      environment:
-        - discovery.type=single-node
-        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      ports:
-        - 9200:9200
-        - 9300:9300
+        - POSTGRES_PASSWORD=123
   volumes:
-    media_root:
-    postgres_data:
+      postgres_data:
+      index_db:
+      media:
 ```
+
+
+## Solr
+
+By default {{ extra.project }} uses xapian search engine. However, for
+production environments, a full fledged search engine like Solr is recommanded.
+
+... an example of solr setup here ...
+
+
+## OAuth 2.0
+
+...

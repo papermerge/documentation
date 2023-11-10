@@ -6,6 +6,9 @@
       version yet for 3.0. At this stage all docker images are tagged either
       3.0devX or 3.0aX.
 
+
+## Web App
+
 The only two required environment variables are
 `PAPERMERGE__SECURITY__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`. To start
 web ui part use following command:
@@ -49,7 +52,7 @@ docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
 
-## Worker
+## Web App + Worker
 
 For complete setup you need to start one or multiple workers.
 Worker is the component which, among other things, performs OCR.
