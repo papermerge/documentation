@@ -91,10 +91,10 @@ uses PostgreSQL:
 
 ## Solr
 
-By default {{ extra.project }} uses xapian search engine. However, for
-production environments, a full fledged search engine like Solr is recommanded.
+By default {{ extra.project }} uses <a href="https://xapian.org/" class="external-link" target="_blank">Xapian</a>  search engine. However, for
+production environments, full fledged search engine like Solr is recommanded.
 
-... an example of solr setup here ...
+... example of solr setup goes here ...
 
 
 ## OAuth 2.0
