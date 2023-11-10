@@ -382,15 +382,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    TL;DR
+  <a href="#web-app" class="md-nav__link">
+    Web App
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#official-docker-images" class="md-nav__link">
-    Official Docker Images
+  <a href="#official-docker-image" class="md-nav__link">
+    Official Docker Image
   </a>
   
 </li>
@@ -403,8 +403,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-postgresql-as-database" class="md-nav__link">
-    Use PostgreSQL as Database
+  <a href="#web-app-worker" class="md-nav__link">
+    Web App + Worker
   </a>
   
 </li>
@@ -444,11 +444,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup/" class="md-nav__link">
+      <a href="../ansible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Backup
+    Ansible
   </span>
   
 
@@ -464,11 +464,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../upgrading/" class="md-nav__link">
+      <a href="../kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Upgrading
+    Kubernetes
   </span>
   
 
@@ -1275,15 +1275,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    TL;DR
+  <a href="#web-app" class="md-nav__link">
+    Web App
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#official-docker-images" class="md-nav__link">
-    Official Docker Images
+  <a href="#official-docker-image" class="md-nav__link">
+    Official Docker Image
   </a>
   
 </li>
@@ -1296,8 +1296,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-postgresql-as-database" class="md-nav__link">
-    Use PostgreSQL as Database
+  <a href="#web-app-worker" class="md-nav__link">
+    Web App + Worker
   </a>
   
 </li>
@@ -1321,60 +1321,75 @@
 
 
 <h1 id="docker">Docker</h1>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>Papermerge 3.0 is currently in active development. There is no stable version yet.
-  At this stage all docker images are tagged either 3.0devX or 3.0aX.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Papermerge 3.0 is currently in active development. There is no stable
+  version yet for 3.0. At this stage all docker images are tagged either
+  3.0devX or 3.0aX.</p>
 </div>
-<h2 id="tldr">TL;DR</h2>
-<p>The only two required environment variables are <code>PAPERMERGE__SECURITY__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>:</p>
+<h2 id="web-app">Web App</h2>
+<p>The only two required environment variables are
+<code>PAPERMERGE__SECURITY__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>. To start
+web ui part use following command:</p>
 <pre><code class="language-console">docker run -p 9400:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:3.0a1
+    papermerge/papermerge:3.0a6
 </code></pre>
-<p>Point your web browser to http://localhost:9400 and you will see login screen:</p>
+<p>Point your web browser to <code>http://localhost:9400</code> and you will see login screen:</p>
 <p><img alt="login screen" src="../../img/setup/login.png" /></p>
 <p>Credentials are:</p>
 <ul>
 <li>username <code>admin</code></li>
 <li>password <code>123</code></li>
 </ul>
-<h2 id="official-docker-images">Official Docker Images</h2>
-<p>Official Papermerge docker images are stored in <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above <code>docker run</code> starts only web UI part. For complete setup you
+also need one or multiple workers.</p>
+</div>
+<h2 id="official-docker-image">Official Docker Image</h2>
+<p>Official Papermerge docker image is available on <a href="https://hub.docker.com/r/papermerge/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
 <h2 id="get-docker-image">Get Docker Image</h2>
-<p>The recommended way to get the Papermerge Docker Image is to pull the prebuilt image from the <a href=" https://github.com/papermerge/papermerge-core/pkgs/container/papermerge" class="external-link" target="_blank">github repository packages</a>:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0a1
+<p>The recommended way to get the Papermerge docker image is via
+docker pull command:</p>
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0a6
 </code></pre>
-<p>To use a specific version, you can pull a versioned tag. You can view the list
-of available versions in the github repository packages:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0a1
-</code></pre>
-<h2 id="use-postgresql-as-database">Use PostgreSQL as Database</h2>
-<p>By default Papermerge uses sqlite3 database. In order to use
-PostgreSQL use following docker compose file:</p>
-<pre><code class="language-yaml">    version: '3.7'
+<h2 id="web-app-worker">Web App + Worker</h2>
+<p>For complete setup you need to start one or multiple workers.
+Worker is the component which, among other things, performs OCR.</p>
+<p>Here is minimal docker compose file with web ui and one worker:</p>
+<pre><code>  version: &quot;3.9&quot;
 
-    services:
-      app:
-        image: papermerge/papermerge:3.0a1
-        environment:
-          - PAPERMERGE__SECURITY__SECRET_KEY=abc
-          - PAPERMERGE__AUTH__PASSWORD=12345
-          - PAPERMERGE__DATABASE__URL=postgresql://scott:tiger@db:5432/mydatabase
-        ports:
-          - 9400:80
-        depends_on:
-          - db
-      db:
-        image: bitnami/postgresql:14.4.0
-        volumes:
-          - postgres_data:/var/lib/postgresql/data/
-        environment:
-          - POSTGRES_PASSWORD=123
+  x-backend: &amp;common
+    image: papermerge/papermerge:3.0a6
+    environment:
+        PAPERMERGE__SECURITY__SECRET_KEY: 12345
+        PAPERMERGE__AUTH__USERNAME: john
+        PAPERMERGE__AUTH__PASSWORD: hohoho
+        PAPERMERGE__REDIS__URL: redis://redis:6379/0
     volumes:
-        postgres_data:
+        - data:/db
+        - index_db:/core_app/index_db
+        - media:/core_app/media
+  services:
+    web:
+      &lt;&lt;: *common
+      ports:
+       - &quot;12000:80&quot;
+      depends_on:
+        - redis
+    worker:
+      &lt;&lt;: *common
+      command: worker
+    redis:
+      image: redis:6
+  volumes:
+      data:
+      index_db:
+      media:
 </code></pre>
+<p>With above setup, web app is accessible on  <code>http://localhost:12000</code>.</p>
 
 
 

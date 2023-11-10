@@ -11,10 +11,6 @@
         <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/setup/upgrading/">
       
       
-        <link rel="prev" href="../backup/">
-      
-      
-        <link rel="next" href="../../user/getting-started/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -258,19 +254,17 @@
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
@@ -283,7 +277,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Setup
@@ -376,11 +370,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup/" class="md-nav__link">
+      <a href="../ansible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Backup
+    Ansible
   </span>
   
 
@@ -394,78 +388,17 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Upgrading
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Upgrading
+    Kubernetes
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#general-instructions" class="md-nav__link">
-    General Instructions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrade-via-docker" class="md-nav__link">
-    Upgrade via Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#from-15x-to-2x" class="md-nav__link">
-    From 1.5.x to 2.x
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1307,7 +1240,7 @@
 
 
 <h1 id="upgrading">Upgrading</h1>
-<p>Always <a href="../backup/">backup</a> your database, media directory and configuration files before
+<p>Always <a href="backup.md">backup</a> your database, media directory and configuration files before
 upgrading. We try very hard to make sure that all database changes are
 non-destructive, but you should always backup beforehand anyway. You will
 never regret backing up your database and media directory. You may regret not doing so, so it’s
