@@ -1,12 +1,12 @@
 # Backup/Restore
 
 
-{{ extra.project }} is shipped with two Django managements commands for performing backup/restore operations.
+{{ extra.project }} docker image is shipped with backup/restore utilities.
 
 
 ## Backup
 
-Invoke backup command using Django's manage.py:
+Backup you documents with following command:
 
     ./manage.py backup <optional-location>
 
