@@ -42,7 +42,7 @@ Next, create `.env` file with following content:
 Start {{ extra.project }} using following docker compose command:
 
 ```console
-    docker compose -f docker-compose.yml --env-file .env up
+    docker-compose -f docker-compose.yml --env-file .env up
 ```
 
 You can access |project| user interface using a web browser like Firefox.
