@@ -36,6 +36,15 @@ To install {{ extra.project }}, simply run ``install.yml`` playbook:
 ansible-playbook -i inventory install.yml
 ```
 
+After installation is complete, the application will be available at:
+
+```
+http://<target-host>:<web_app_port>
+```
+
+``web_app_port`` variable is in ``group_vars/all`` file.
+The ``web_app_port`` default value is 9400.
+
 
 ## Backup
 
@@ -44,10 +53,10 @@ On the target host, folder ``/backup`` is mounted to web_app's container folder 
 In order to create a backup, run following playbook:
 
 ```
-ansible-playbook -i inventory backup.yml /backup/
+ansible-playbook -i inventory backup.yml
 ```
 
-Above command will create backup file in ``/backup/`` in web app's folder, but
+Above command will create backup file in  ``/backup/`` in web app's folder, but
 because that folder is mounted by default to target VM host, you will see
 backup archive available in ``/backup/`` folder of host VM as well.
 
