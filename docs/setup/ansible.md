@@ -3,7 +3,7 @@
 Ansible playbook is available at [papermerge/ansible](https://github.com/papermerge/ansible).
 
 Playbook will install web app, one worker, database, Redis and Solr search
-engine on target host. All services will be stareted via docker containers.
+engine on target host. All services will be started via docker containers.
 
 Inventory file is not provided in the repository, you will need
 to create one. Here is an example of inventory file:
@@ -14,7 +14,7 @@ to create one. Here is an example of inventory file:
 
 Playbook was tested in vagrant environment, with Ubuntu 22.04 as target host.
 Ansible config file is not in repository, you need to create one.
-Here is an example of ansible config file:
+Here is an example of Ansible config file:
 
 ```
 [defaults]
@@ -68,4 +68,4 @@ File path is one from web app's docker container.
 As mentioned above, currently playbook assumes only Ubuntu 22.04 host.
 We are happy to accept your pull requests for other hosts.
 
-Ansible playbook repository is availble at [papermerge/ansible](https://github.com/papermerge/ansible).
+Ansible playbook repository is available at [papermerge/ansible](https://github.com/papermerge/ansible).
