@@ -1343,12 +1343,17 @@ private_key_file = .vagrant/machines/default/virtualbox/private_key
 <p>To install Papermerge, simply run <code>install.yml</code> playbook:</p>
 <pre><code>ansible-playbook -i inventory install.yml
 </code></pre>
+<p>After installation is complete, the application will be available at:</p>
+<pre><code>http://&lt;target-host&gt;:&lt;web_app_port&gt;
+</code></pre>
+<p><code>web_app_port</code> variable is in <code>group_vars/all</code> file.
+The <code>web_app_port</code> default value is 9400.</p>
 <h2 id="backup">Backup</h2>
 <p>On the target host, folder <code>/backup</code> is mounted to web_app's container folder <code>/backup</code>.</p>
 <p>In order to create a backup, run following playbook:</p>
-<pre><code>ansible-playbook -i inventory backup.yml /backup/
+<pre><code>ansible-playbook -i inventory backup.yml
 </code></pre>
-<p>Above command will create backup file in <code>/backup/</code> in web app's folder, but
+<p>Above command will create backup file in  <code>/backup/</code> in web app's folder, but
 because that folder is mounted by default to target VM host, you will see
 backup archive available in <code>/backup/</code> folder of host VM as well.</p>
 <h2 id="restore">Restore</h2>
