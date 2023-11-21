@@ -385,6 +385,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ansible
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -394,6 +405,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restore" class="md-nav__link">
+    Restore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1210,6 +1268,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restore" class="md-nav__link">
+    Restore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1227,7 +1321,45 @@
 
 
 <h1 id="ansible">Ansible</h1>
-<p>To be added soon...</p>
+<p>Ansible playbook is available at <a href="https://github.com/papermerge/ansible">papermerge/ansible</a>.</p>
+<p>Playbook will install web app, one worker, database, Redis and Solr search
+engine on target host. All services will be started via docker containers.</p>
+<p>Inventory file is not provided in the repository, you will need
+to create one. Here is an example of inventory file:</p>
+<pre><code>192.168.56.99 secret_key=abc superuser_password=1234 superuser_username=eugen database_url=&quot;postgresql://scott:tiger@db/mydatabase&quot;  db_pass=tiger
+</code></pre>
+<p>Playbook was tested in vagrant environment, with Ubuntu 22.04 as target host.
+Ansible config file is not in repository, you need to create one.
+Here is an example of Ansible config file:</p>
+<pre><code>[defaults]
+inventory = inventory
+host_key_checking = False
+deprication_warnings = False
+remote_user = vagrant
+private_key_file = .vagrant/machines/default/virtualbox/private_key
+</code></pre>
+<p>All other variables, with their defaults are in <code>group_vars/all</code> file.</p>
+<h2 id="install">Install</h2>
+<p>To install Papermerge, simply run <code>install.yml</code> playbook:</p>
+<pre><code>ansible-playbook -i inventory install.yml
+</code></pre>
+<h2 id="backup">Backup</h2>
+<p>On the target host, folder <code>/backup</code> is mounted to web_app's container folder <code>/backup</code>.</p>
+<p>In order to create a backup, run following playbook:</p>
+<pre><code>ansible-playbook -i inventory backup.yml /backup/
+</code></pre>
+<p>Above command will create backup file in <code>/backup/</code> in web app's folder, but
+because that folder is mounted by default to target VM host, you will see
+backup archive available in <code>/backup/</code> folder of host VM as well.</p>
+<h2 id="restore">Restore</h2>
+<p>To restore a backup, run following playbook:</p>
+<pre><code>ansible-playbook restore.yml --extra-vars &quot;backup_file=/backup/backup_20_11_2023-07_33_03.tar.gz&quot;
+</code></pre>
+<p>File path is one from web app's docker container.</p>
+<h2 id="contribute">Contribute</h2>
+<p>As mentioned above, currently playbook assumes only Ubuntu 22.04 host.
+We are happy to accept your pull requests for other hosts.</p>
+<p>Ansible playbook repository is available at <a href="https://github.com/papermerge/ansible">papermerge/ansible</a>.</p>
 
 
 
