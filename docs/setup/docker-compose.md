@@ -60,9 +60,8 @@ uses PostgreSQL:
         PAPERMERGE__DATABASE__URL: postgresql://scott:tiger@db:5432/mydatabase
         PAPERMERGE__REDIS__URL: redis://redis:6379/0
     volumes:
-        - data:/db
-        - index_db:/core_app/index_db
-        - media:/core_app/media
+      - index_db:/core_app/index_db
+      - media:/core_app/media
   services:
     web:
       <<: *common
@@ -81,11 +80,13 @@ uses PostgreSQL:
       volumes:
         - postgres_data:/var/lib/postgresql/data/
       environment:
-        - POSTGRES_PASSWORD=123
+        POSTGRES_USER: scott
+        POSTGRES_PASSWORD: tiger
+        POSTGRES_DB: mydatabase
   volumes:
-      postgres_data:
-      index_db:
-      media:
+    postgres_data:
+    index_db:
+    media:
 ```
 
 
