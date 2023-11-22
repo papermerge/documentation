@@ -4,29 +4,20 @@
 {{ extra.project }} uses redis.
 
 
-## HOST
+## REDIS__URL
 
-Redis host.
+For Redis the URL is given in following format:
 
-Example as environment variable::
+```
+redis://HOST:PORT/NUMBER
+```
 
-    PAPERMERGE__REDIS__HOST=redis
+For example:
 
-Example as toml config:
+```
+redis://redis:6379/0
+```
 
-    [redis]
-    host="redis"
+!!! Note
 
-
-## PORT
-
-Redis port.
-
-Example as environment variable:
-
-    PAPERMERGE__REDIS__PORT=6379
-
-Example as toml config:
-
-    [redis]
-    host=6379
+    Both web_app and worker must have same ``PAPERMERGE__REDIS__URL``

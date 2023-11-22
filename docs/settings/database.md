@@ -35,6 +35,6 @@ Default value is ``sqlite:////db/db.sqlite3``, in other words,
 if ```DATABASE__URL``` is missing, {{extra.project}}
 will use SQLite with ``/db/db.sqlite3`` as db file.
 
+!!! Note
 
-
-
+    Both web_app and worker must have same ``PAPERMERGE__DATABAS_URL``.

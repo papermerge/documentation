@@ -1,7 +1,7 @@
 # Security
 
 
-## SECRET_KEY
+## SECURITY__SECRET_KEY
 
 
 {== Required ==}. Unique secret key. The secret key must be a large random value and it must be
