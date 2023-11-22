@@ -34,9 +34,9 @@ The simpliest docker compose setup for {{ extra.project }} is following:
     redis:
       image: redis:6
   volumes:
-      data:
-      index_db:
-      media:
+    data:
+    index_db:
+    media:
 ```
 
 You can access {{ extra.project }} user interface using any modern web browser (e.g. Firefox, Chrome).
