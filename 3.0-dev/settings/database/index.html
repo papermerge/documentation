@@ -904,43 +904,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#type" class="md-nav__link">
-    TYPE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#user" class="md-nav__link">
-    USER
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#name" class="md-nav__link">
-    NAME
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#host" class="md-nav__link">
-    HOST
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    PORT
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#password" class="md-nav__link">
-    PASSWORD
+  <a href="#database__url" class="md-nav__link">
+    DATABASE__URL
   </a>
   
 </li>
@@ -1289,43 +1254,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#type" class="md-nav__link">
-    TYPE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#user" class="md-nav__link">
-    USER
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#name" class="md-nav__link">
-    NAME
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#host" class="md-nav__link">
-    HOST
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    PORT
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#password" class="md-nav__link">
-    PASSWORD
+  <a href="#database__url" class="md-nav__link">
+    DATABASE__URL
   </a>
   
 </li>
@@ -1351,75 +1281,27 @@
 <h1 id="database">Database</h1>
 <p>This sections is for database configurations.
 Papermerge supports following databases SQLite3, PostgreSQL, MySQL/MariaDB.</p>
-<h2 id="type">TYPE</h2>
-<p>Database type.
-For PostgreSQL database use one of following values:</p>
-<ul>
-<li>pg</li>
-<li>postgre</li>
-<li>postgres</li>
-<li>postgresql</li>
-</ul>
-<p>For MySQL/MariaDB database use one of
-following values:</p>
-<ul>
-<li>my</li>
-<li>mysql</li>
-<li>maria</li>
-<li>mariadb</li>
-</ul>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__DATABASE__TYPE=mysql
-</code></pre></div>
-<h2 id="user">USER</h2>
-<p>Database user.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__DATABASE__USER=john
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[database]
-user=&quot;john&quot;
-</code></pre></div>
-<h2 id="name">NAME</h2>
-<p>Database name.
-Default value is papermerge.</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__DATABASE__NAME=db
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[database]
-name=&quot;db&quot;
-</code></pre></div>
-<h2 id="host">HOST</h2>
-<p>Database host.
-Default value is localhost.</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__DATABASE__HOST=mydbhost
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[database]
-host=&quot;mydbhost&quot;
-</code></pre></div>
-<h2 id="port">PORT</h2>
-<p>Database port. Port must be specified as integer number. No string quotes.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__DATABASE__PORT=5432
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[database]
-port=5432
-</code></pre></div>
-<p>Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.</p>
-<h2 id="password">PASSWORD</h2>
-<p>Password for connecting to database</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__DATABASE__PASSWORD=somesecurepassword
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[database]
-password=somesecurepassword
-</code></pre></div>
-<p>Default value is empty string.</p>
+<h2 id="database__url">DATABASE__URL</h2>
+<p>For PostgreSQL the database URL is given in following format:</p>
+<pre><code>postgres://USER:PASSWORD@HOST:PORT/NAME
+</code></pre>
+<p>or</p>
+<pre><code>postgresql://USER:PASSWORD@HOST:PORT/NAME
+</code></pre>
+<p>Example:</p>
+<pre><code>postgresql://scott:tiger@db:5432/mydatabase
+</code></pre>
+<p>For SQLite the format is: <code>sqlite:///PATH</code>.</p>
+<p>Example:</p>
+<pre><code>sqlite:////db/db.sqlite3
+</code></pre>
+<p>Default value is <code>sqlite:////db/db.sqlite3</code>, in other words,
+if <code>DATABASE__URL</code> is missing, Papermerge
+will use SQLite with <code>/db/db.sqlite3</code> as db file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and worker must have same <code>PAPERMERGE__DATABAS_URL</code>.</p>
+</div>
 
 
 

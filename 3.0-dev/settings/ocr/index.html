@@ -884,15 +884,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#default_language" class="md-nav__link">
-    DEFAULT_LANGUAGE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#languages" class="md-nav__link">
-    LANGUAGES
+  <a href="#ocr__default_language" class="md-nav__link">
+    OCR__DEFAULT_LANGUAGE
   </a>
   
 </li>
@@ -1261,15 +1254,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#default_language" class="md-nav__link">
-    DEFAULT_LANGUAGE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#languages" class="md-nav__link">
-    LANGUAGES
+  <a href="#ocr__default_language" class="md-nav__link">
+    OCR__DEFAULT_LANGUAGE
   </a>
   
 </li>
@@ -1294,45 +1280,14 @@
 
 <h1 id="ocr">OCR</h1>
 <p>This section groups all OCR specific configurations.</p>
-<h2 id="default_language">DEFAULT_LANGUAGE</h2>
+<h2 id="ocr__default_language">OCR__DEFAULT_LANGUAGE</h2>
 <p>By default Papermerge will use language specified with this option to
 perform OCR. Change this value for language used by majority of your documents. For detailed list of three letter
 codes see 639-2/T column from <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes" class="external-link" target="_blank">ISO 639 2</a>.</p>
 <p>Example as environment variable:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__DEFAULT_LANGUAGE=spa
 </code></pre></div>
-<p>Example in toml configuration file:</p>
-<div class="language-text highlight"><pre><span></span><code>[ocr]
-default_language=&quot;spa&quot;
-</code></pre></div>
 <p>Default value is "deu" (German language).</p>
-<h2 id="languages">LANGUAGES</h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This option may be defined only in toml configuration file</p>
-</div>
-<p>Defines all languages available for OCR. This option is defined as <a href="https://toml.io/en/v1.0.0#inline-table"  class="external-link" target="_blank">inline table</a>
-where key is <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes" class="external-link" target="_blank">ISO 639 2</a> code and value is human text name for language.</p>
-<p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code>[ocr]
-languages = { heb = &quot;hebrew&quot;, jpn = &quot;japanese&quot;}
-</code></pre></div>
-<p>Note that both <code>hebrew</code> and <code>japanes</code> language data for tesseract must be
-installed. You can check Tesseract's available languages with following
-command:</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p><code>languages</code> value must be written in one line! This is requirement
-of the toml <code>inline table</code>_ format.</p>
-</div>
-<p>List all available languages:</p>
-<div class="language-text highlight"><pre><span></span><code>$ tesseract --list-langs
-</code></pre></div>
-<p>Default value:</p>
-<div class="language-text highlight"><pre><span></span><code>[ocr]
-languages = { deu = &quot;Deutsch&quot;, eng = &quot;English&quot; }
-</code></pre></div>
-<p>See <a href="../../setup/docker/#adding-ocr-languages-to-the-docker-image">adding ocr language</a> for detailed example of using this option.</p>
 
 
 

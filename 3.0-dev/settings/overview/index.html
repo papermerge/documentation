@@ -1232,8 +1232,23 @@ variables.</p>
 <p>Environment variables have following format:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__&lt;section&gt;__&lt;name&gt;
 </code></pre></div>
-<p>double underscores are used as delimiter; environment variables names must be all
-upper case.</p>
+<p>double underscores are used as delimiter; environment variables names must be all upper case.</p>
+<p>Only required environment variables are:</p>
+<ul>
+<li>PAPERMERGE__SECURITY__SECRET_KEY</li>
+<li>PAPERMERGE__AUTH__PASSWORD</li>
+</ul>
+<p><code>PAPERMERGE__SECURITY__SECRET_KEY</code> is the key to securing signed
+data – it is vital you keep this secure, or attackers could use it to
+generate their own signed values.</p>
+<p><code>PAPERMERGE__AUTH__PASSWORD</code> is the password for super user
+(administrative user or admin user). Super user is created automatically for
+you when Papermerge starts for the first time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the documentation, for brevity sake, <code>PAPERMERGE__</code> prefix may be omitted.
+For example docs may say: default value for <code>DATABASE__URL</code> is "sqlite:////db/db.sqlite3"; what is meant actually is: default value for <code>PAPERMERGE__DATABASE_URL</code> is "sqlite:////db/db.sqlite3".</p>
+</div>
 
 
 

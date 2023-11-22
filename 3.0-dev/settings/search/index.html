@@ -944,29 +944,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#engine" class="md-nav__link">
-    ENGINE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#url" class="md-nav__link">
-    URL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index_name" class="md-nav__link">
-    INDEX_NAME
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#path" class="md-nav__link">
-    PATH
+  <a href="#search__url" class="md-nav__link">
+    SEARCH__URL
   </a>
   
 </li>
@@ -1275,29 +1254,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#engine" class="md-nav__link">
-    ENGINE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#url" class="md-nav__link">
-    URL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index_name" class="md-nav__link">
-    INDEX_NAME
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#path" class="md-nav__link">
-    PATH
+  <a href="#search__url" class="md-nav__link">
+    SEARCH__URL
   </a>
   
 </li>
@@ -1321,67 +1279,24 @@
 
 
 <h1 id="search-engine">Search Engine</h1>
-<p>Papermerge supports multiple search engine backends:</p>
+<p>Papermerge supports multiple search engine backends. Currently two backends are available:</p>
 <ul>
 <li><a href="https://xapian.org/" class="external-link" target="_blank">xapian</a></li>
-<li><a href="https://www.elastic.co/" class="external-link" target="_blank">elasticsearch</a></li>
 <li><a href="https://solr.apache.org/" class="external-link" target="_blank">solr</a></li>
-<li><a href="https://whoosh.readthedocs.io/en/latest/" class="external-link" target="_blank">whoosh</a></li>
 </ul>
-<h2 id="engine">ENGINE</h2>
-<p>Search engine backend to use. Following
-values are possible:</p>
-<ul>
-<li><code>xapian</code> (for Xapian search engine)</li>
-<li><code>es</code>, <code>elastic</code>, <code>elasticsearch</code>, <code>es7</code>, <code>elastic7</code>, <code>elasticsearch7</code> for elastic search backend</li>
-<li><code>solr</code> - for solr search engine backend</li>
-<li><code>whoosh</code> - for whoosh backend</li>
-</ul>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SEARCH__ENGINE=xapian
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[search]
-engine=whoosh
-</code></pre></div>
-<p>Default value is <code>xapian</code>.</p>
-<h2 id="url">URL</h2>
-<p>URL of search engine.
-This setting is <mark class="critic"> applicable only in case of Elastic and Solr </mark> backends.</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SEARCH__ENGINE=elastic7
-PAPERMERGE__SEARCH__URL=http://my-elastic7-host:9200
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[search]
-engine=elastic7
-url=http://my-elastic7-host:9200
-</code></pre></div>
-<h2 id="index_name">INDEX_NAME</h2>
-<p>Index name.
-This setting is <mark class="critic"> applicable only for Elastic </mark> backends.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SEARCH__ENGINE=elastic7
-PAPERMERGE__SEARCH__INDEX_NAME=my_index
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[search]
-engine=elastic7
-index_name=my_index
-</code></pre></div>
-<p>Default value is <code>papermerge</code>.</p>
-<h2 id="path">PATH</h2>
-<p>PATH on the filesystem where of search index is stored.
-This setting is <mark class="critic"> applicable only in case of Xapian and Whoosh </mark> backends.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SEARCH__ENGINE=xapian
-PAPERMERGE__SEARCH__PATH=/app/xapian_index
-</code></pre></div>
-<p>Example as toml config::</p>
-<div class="language-text highlight"><pre><span></span><code>[search]
-engine=xapian
-path=/app/xapian_index
-</code></pre></div>
+<h2 id="search__url">SEARCH__URL</h2>
+<p>Search engine backend to use. For Solr
+format is:</p>
+<pre><code>solr://HOST:PORT/INDEX
+</code></pre>
+<p>Example: <code>solr://solr:8983/pmg-index</code></p>
+<p>For Xapian URL format is <code>xapian:///PATH</code>. Example: <code>xapian:////index_db</code> - in other words, xapian will store all index
+data in <code>/index_db</code> folder.</p>
+<p>Default value for <code>PAPERMERGE__SEARCH__URL</code> is <code>xapian:////index_db</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and worker must have same <code>PAPERMERGE__SEARCH__URL</code></p>
+</div>
 
 
 

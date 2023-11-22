@@ -924,15 +924,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#host" class="md-nav__link">
-    HOST
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    PORT
+  <a href="#redis__url" class="md-nav__link">
+    REDIS__URL
   </a>
   
 </li>
@@ -1261,15 +1254,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#host" class="md-nav__link">
-    HOST
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    PORT
+  <a href="#redis__url" class="md-nav__link">
+    REDIS__URL
   </a>
   
 </li>
@@ -1294,24 +1280,17 @@
 
 <h1 id="redis">Redis</h1>
 <p>Papermerge uses redis.</p>
-<h2 id="host">HOST</h2>
-<p>Redis host.</p>
-<p>Example as environment variable::</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__REDIS__HOST=redis
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[redis]
-host=&quot;redis&quot;
-</code></pre></div>
-<h2 id="port">PORT</h2>
-<p>Redis port.</p>
-<p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__REDIS__PORT=6379
-</code></pre></div>
-<p>Example as toml config:</p>
-<div class="language-text highlight"><pre><span></span><code>[redis]
-host=6379
-</code></pre></div>
+<h2 id="redis__url">REDIS__URL</h2>
+<p>For Redis the URL is given in following format:</p>
+<pre><code>redis://HOST:PORT/NUMBER
+</code></pre>
+<p>For example:</p>
+<pre><code>redis://redis:6379/0
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and worker must have same <code>PAPERMERGE__REDIS__URL</code></p>
+</div>
 
 
 
