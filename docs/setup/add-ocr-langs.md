@@ -1,4 +1,4 @@
-# Add Extra OCR Languages
+# Add OCR Languages
 
 By default the {{extra.project}} Docker image includes English, German, French, Italian, Spanish, Romanian and Portugues OCR languages.
 
