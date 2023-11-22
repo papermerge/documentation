@@ -1,7 +1,7 @@
 # Auth
 
 
-## USERNAME
+## AUTH__USERNAME
 
 Username for the superuser. Default value is `admin`.
 
@@ -10,7 +10,7 @@ Example:
     PAPERMERGE__AUTH__USERNAME=john
 
 
-## PASSWORD
+## AUTH__PASSWORD
 
 Password for the superuser. No default value.
 
@@ -19,7 +19,7 @@ Example:
     PAPERMERGE__AUTH__PASSWORD=topsecret
 
 
-## EMAIL
+## AUTH__EMAIL
 
 Email for the superuser. Default value is `admin@example.com`.
 

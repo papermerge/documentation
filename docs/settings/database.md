@@ -4,101 +4,37 @@ This sections is for database configurations.
 {{ extra.project }} supports following databases SQLite3, PostgreSQL, MySQL/MariaDB.
 
 
-## TYPE
+## DATABASE__URL
 
-Database type.
-For PostgreSQL database use one of following values:
+For PostgreSQL the database URL is given in following format:
 
-* pg
-* postgre
-* postgres
-* postgresql
+```
+postgres://USER:PASSWORD@HOST:PORT/NAME
+```
+or
 
-For MySQL/MariaDB database use one of
-following values:
+```
+postgresql://USER:PASSWORD@HOST:PORT/NAME
+```
 
-* my
-* mysql
-* maria
-* mariadb
+Example:
 
-Example as environment variable::
+```
+postgresql://scott:tiger@db:5432/mydatabase
+```
 
-    PAPERMERGE__DATABASE__TYPE=mysql
+For SQLite the format is: ``sqlite:///PATH``.
 
+Example:
 
+```
+sqlite:////db/db.sqlite3
+```
 
-## USER
+Default value is ``sqlite:////db/db.sqlite3``, in other words,
+if ```DATABASE__URL``` is missing, {{extra.project}}
+will use SQLite with ``/db/db.sqlite3`` as db file.
 
-Database user.
+!!! Note
 
-Example as environment variable::
-
-    PAPERMERGE__DATABASE__USER=john
-
-Example as toml config:
-
-    [database]
-    user="john"
-
-
-## NAME
-
-Database name.
-Default value is papermerge.
-
-Example as environment variable:
-
-    PAPERMERGE__DATABASE__NAME=db
-
-Example as toml config:
-
-    [database]
-    name="db"
-
-
-## HOST
-
-Database host.
-Default value is localhost.
-
-Example as environment variable:
-
-    PAPERMERGE__DATABASE__HOST=mydbhost
-
-Example as toml config:
-
-    [database]
-    host="mydbhost"
-
-
-## PORT
-
-Database port. Port must be specified as integer number. No string quotes.
-
-Example as environment variable::
-
-    PAPERMERGE__DATABASE__PORT=5432
-
-Example as toml config:
-
-    [database]
-    port=5432
-
-Default value is 5432 for PostgreSQL and 3306 for MySQL/MariaDB.
-
-
-## PASSWORD
-
-Password for connecting to database
-
-Example as environment variable:
-
-    PAPERMERGE__DATABASE__PASSWORD=somesecurepassword
-
-Example as toml config:
-
-    [database]
-    password=somesecurepassword
-
-Default value is empty string.
+    Both web_app and worker must have same ``PAPERMERGE__DATABAS_URL``.
