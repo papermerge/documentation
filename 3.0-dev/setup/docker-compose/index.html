@@ -478,6 +478,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-ocr-langs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add OCR Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1327,7 +1347,7 @@
 <pre><code class="language-yaml">  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0a10
+    image: papermerge/papermerge:3.0dev13
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
         PAPERMERGE__AUTH__USERNAME: john
@@ -1350,9 +1370,9 @@
     redis:
       image: redis:6
   volumes:
-      data:
-      index_db:
-      media:
+    data:
+    index_db:
+    media:
 </code></pre>
 <p>You can access Papermerge user interface using any modern web browser (e.g. Firefox, Chrome).
 Open your web browser and point it to http://localhost:12000.</p>
@@ -1362,7 +1382,7 @@ uses PostgreSQL:</p>
 <pre><code class="language-yaml">  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0a10
+    image: papermerge/papermerge:3.0dev13
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
         PAPERMERGE__AUTH__USERNAME: john
@@ -1404,7 +1424,7 @@ production environments, full fledged search engine like Solr is recommanded.</p
 <pre><code class="language-yaml">version: &quot;3.9&quot;
 
 x-backend: &amp;common
-  image: papermerge/papermerge:3.0a10
+  image: papermerge/papermerge:3.0dev13
   environment:
     PAPERMERGE__SECURITY__SECRET_KEY: 12345
     PAPERMERGE__AUTH__USERNAME: john

@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/setup/upgrading/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.0-dev/setup/add-ocr-langs/">
       
       
+        <link rel="prev" href="../kubernetes/">
+      
+      
+        <link rel="next" href="../../user/getting-started/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Upgrading - Papermerge 3</title>
+        <title>Add OCR Languages - Papermerge 3</title>
       
     
     
@@ -75,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading" class="md-skip">
+        <a href="#add-ocr-languages" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading
+              Add OCR Languages
             
           </span>
         </div>
@@ -254,17 +258,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
@@ -277,7 +283,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Setup
@@ -399,6 +405,36 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Add OCR Languages
+  </span>
+  
+
+      </a>
+      
     </li>
   
 
@@ -1194,35 +1230,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#general-instructions" class="md-nav__link">
-    General Instructions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrade-via-docker" class="md-nav__link">
-    Upgrade via Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#from-15x-to-2x" class="md-nav__link">
-    From 1.5.x to 2.x
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1239,41 +1246,24 @@
   
 
 
-<h1 id="upgrading">Upgrading</h1>
-<p>Always <a href="backup.md">backup</a> your database, media directory and configuration files before
-upgrading. We try very hard to make sure that all database changes are
-non-destructive, but you should always backup beforehand anyway. You will
-never regret backing up your database and media directory. You may regret not doing so, so it’s
-just better to get into the habit.</p>
-<h2 id="general-instructions">General Instructions</h2>
-<p>In general, an upgrade involves two parts:</p>
-<ul>
-<li>upgrade application code and dependencies</li>
-<li>apply new database changes (called database migrations)</li>
-</ul>
-<p>Upgrading application code is usually something like:</p>
-<pre><code class="language-console">$ git pull
-$ export DJANGO_SETTINGS_MODULE=config.settings.prod
-$ pip install -r requirements/base.txt
+<h1 id="add-ocr-languages">Add OCR Languages</h1>
+<p>By default the Papermerge Docker image includes English, German, French, Italian, Spanish, Romanian and Portugues OCR languages.</p>
+<p>You can install extra languages by creating a new docker image from base <code>papermerge/papermerge</code>.</p>
+<p>Create new docker file with following content:</p>
+<pre><code>FROM papermerge/papermerge:3.0dev13
+
+# add Danish and Polish OCR languages
+RUN apt install tesseract-ocr-dan tesseract-ocr-pol
 </code></pre>
-<p>Applying new database changes is performed with <code>migrate</code> command:</p>
-<pre><code class="language-console">$ export DJANGO_SETTINGS_MODULE=config.settings.prod
-$ ./manage.py migrate
+<p>All languages are specified in three letters code as per <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+" class="external-link" target="_blank">ISO 639-2T</a> standard -
+second column in the table.</p>
+<p>In order to build your image run:</p>
+<pre><code>docker build -t mypaper:3.0 -f Dockerfile .
 </code></pre>
-<p>Note however that above instructions are very generic and may very depending on the release and deployment environment.</p>
-<h2 id="upgrade-via-docker">Upgrade via Docker</h2>
-<p>In case you run Papermerge via docker container, then all you need to do is to
-change docker image to the newer version of papermerge docker image. New
-docker image means actually new application code (with correct dependencies
-already built-in) and, the most important part <strong>docker (startup script) will run database migrations
-for you</strong>!</p>
-<h2 id="from-15x-to-2x">From 1.5.x to 2.x</h2>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>If you run an earlier version then 1.5.x please upgrade to 1.5.5 version first.</p>
-</div>
-<p>It is very important to upgrade exactly from <a href="https://github.com/ciur/papermerge/releases/tag/v1.5.5" target="_blank" class="external-link">1.5.5 </a> to <a href="https://github.com/ciur/papermerge/releases/tag/v2.0.0rc38" target="_blank" class="external-link">2.0.0rc38</a>. The very first 2.x release
-candidate (2.0.0rc35) has problems which will result in upgrade failure.</p>
+<p>Check that OCR languages were installed:</p>
+<pre><code>docker run -it --rm  mypaper:3.0  tesseract --list-langs
+</code></pre>
 
 
 
