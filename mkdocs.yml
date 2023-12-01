@@ -60,6 +60,8 @@ theme:
     toggle:
       icon: material/lightbulb-outline
       name: Switch to light mode
+  logo: assets/logo.svg
+  favicon: img/favicon.ico
   features:
   - search.suggest
   - search.highlight
