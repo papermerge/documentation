@@ -1352,7 +1352,7 @@ web ui part use following command:</p>
 <pre><code class="language-console">docker run -p 9400:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:3.0dev15
+    papermerge/papermerge:3.0dev16
 </code></pre>
 <p>Point your web browser to <code>http://localhost:9400</code> and you will see login screen:</p>
 <p><img alt="login screen" src="../../img/setup/login.png" /></p>
@@ -1371,7 +1371,7 @@ also need one or multiple workers.</p>
 <h2 id="get-docker-image">Get Docker Image</h2>
 <p>The recommended way to get the Papermerge docker image is via
 docker pull command:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0dev15
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0dev16
 </code></pre>
 <h2 id="web-app-worker">Web App + Worker</h2>
 <p>For complete setup you need to start one or multiple workers.
@@ -1380,7 +1380,7 @@ Worker is the component which, among other things, performs OCR.</p>
 <pre><code>  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0dev15
+    image: papermerge/papermerge:3.0dev16
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
         PAPERMERGE__AUTH__USERNAME: john
