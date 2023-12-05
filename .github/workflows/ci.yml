@@ -1,9 +1,8 @@
 name: Deploy 3.0-dev docs
 on:
-  workflow_dispatch:
-#  push:
-#    branches:
-#      - "v3.0"
+  push:
+    branches:
+      - "v3.0"
 
 permissions:
   contents: write
@@ -20,4 +19,4 @@ jobs:
           python-version: 3.x
       - run: pip install poetry
       - run: poetry install
-      - run: poetry run mike deploy -p 3.0-dev
+      - run: poetry run mike deploy -p 3.0 latest --update-aliases
