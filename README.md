@@ -4,10 +4,8 @@ Papermerge DMS documentation is based on [mkdocs material](https://squidfunk.git
 
 ## Online Version
 
-Papermerge DMS documentation is available online at:
+Papermerge DMS documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/)
 
-- [https://docs.papermerge.io/](https://docs.papermerge.io/)
-- [https://papermerge.github.io/documentation](https://papermerge.github.io/documentation)
 
 ## How to Use
 
