@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: 3.x
       - run: |
-          pip install --upgrade setuptools
-          pip install poetry
+          pip3 install --upgrade setuptools
+          pip3 install poetry
           poetry install --no-root
           poetry run mike deploy -p 3.0 latest --update-aliases
