@@ -1,6 +1,0 @@
-Papermerge Email
-================
-
-Will be added (command line utility not yet available)...
-
-Work in progress...

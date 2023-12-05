@@ -1,7 +1,0 @@
-
-
-Kubernetes
-==========
-
-
-Coming soon...
