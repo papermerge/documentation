@@ -1001,43 +1001,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#backup_1" class="md-nav__link">
-    Backup
+  <a href="#backup-file-structure" class="md-nav__link">
+    Backup File Structure
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#media-directory" class="md-nav__link">
-    Media Directory
-  </a>
-  
-    <nav class="md-nav" aria-label="Media Directory">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#application-version" class="md-nav__link">
-    Application Version
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup-utility" class="md-nav__link">
-    Backup Utility
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1332,43 +1298,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#backup_1" class="md-nav__link">
-    Backup
+  <a href="#backup-file-structure" class="md-nav__link">
+    Backup File Structure
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#media-directory" class="md-nav__link">
-    Media Directory
-  </a>
-  
-    <nav class="md-nav" aria-label="Media Directory">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#application-version" class="md-nav__link">
-    Application Version
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup-utility" class="md-nav__link">
-    Backup Utility
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1391,100 +1323,104 @@
 
 
 <h1 id="backuprestore">Backup/Restore</h1>
-<p>Papermerge docker image is shipped with backup/restore utilities.</p>
+<p>Papermerge docker image is shipped with backup and restore utilities.
+Shipped utility will backup all your folders, documents with their associated versions
+and OCR data, tags and users. Search engine index is not included in backup though.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>User passwords are included in backup file as well. Passwords are stored
+as digests.</p>
+</div>
 <h2 id="backup">Backup</h2>
-<p>Backup you documents with following command:</p>
-<div class="language-text highlight"><pre><span></span><code>./manage.py backup &lt;optional-location&gt;
+<p>Backup your documents with following command:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker exec &lt;papermerge-server-container&gt; backup.sh &lt;optional-location&gt;
 </code></pre></div>
-<p>where <code>&lt;optional-location&gt;</code> is the path to where to save backup file. If location
-is not provided, backup file will be saved in current folder.</p>
-<p>Backup command can be invoked via docker container as follows:</p>
-<div class="language-text highlight"><pre><span></span><code>docker run papermerge/papermerge backup /place/backup/file/here/
+<p>where <code>&lt;optional-location&gt;</code> is the path to file or folder <strong>inside container</strong> where to save backup
+file. If location is not provided, backup file will be saved in /core_app/ folder
+- the papermerge core application's current folder.</p>
+<p>Example:</p>
+<pre><code>    $ docker ps --format '{\{.ID\}} {\{.Command\}} {\{.Names\}}'
+
+    914dda21dd3d &quot;/run.bash server&quot; 091223_30-web-1
+    42095cee91f0 &quot;docker-entrypoint.s…&quot; 091223_30-solr-1
+    d65b3205d9ec &quot;/run.bash worker&quot; 091223_30-worker-1
+    ac5cfd76993a &quot;docker-entrypoint.s…&quot; 091223_30-redis-1
+    8ad6d0a7eb6c &quot;/opt/bitnami/script…&quot; 091223_30-db-1
+</code></pre>
+<p>In above example the Papermerge has 5 containers: app server (the core
+or web or http or REST API server, pick the name you like :P), solr search
+engine, redis, database and finally one paper worker.</p>
+<p>To create a backup in root folder of the app container just run:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker exec 914dda21dd3d backup.sh /
 </code></pre></div>
-<p>The result of backup operation is a (zipped) tar archive which
-contains following:</p>
+<p>When above command is ready, check that backup file was created:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker exec 914dda21dd3d ls /
+
+auth_server_app
+backup_10_12_2023-11_30_37.tar.gz
+bin
+boot
+...
+core_app
+core_ui
+db
+...
+usr
+var
+</code></pre></div>
+<p>Backup file is backup_10_12_2023-06_30_37.tar.gz.
+Now you can copy backup file to your local filesystem:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker cp 914dda21dd3d:/backup_10_12_2023-06_30_37.tar.gz .
+</code></pre></div>
+<p>You may choose to name file differently:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker exec 914dda21dd3d backup.sh /my-daily-backup.tar.gz
+</code></pre></div>
+<p>Then copy it to your local filesystem:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker cp 914dda21dd3d:/my-daily-backup.tar.gz .
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Backup files are gzipped tar archives, thus you probably want to
+append ".tar.gz" to their name.</p>
+</div>
+<h2 id="restore">Restore</h2>
+<p>When you plan to restore previous backup, we suggest to start with new Papermerge instance,
+with only one superuser (which is created by
+default anyway). Make sure there are no documents in the new instance.</p>
+<p>For sake of example, let's say the superuser's username is "admin".
+For restoring use <code>restore.sh</code> command:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker exec &lt;papermerge-server-container&gt; restore.sh &lt;backup-file&gt;
+</code></pre></div>
+<p>For that to work, you need first to copy backup archive file
+to core (server) container. Sticking with example from previous section:</p>
+<div class="language-text highlight"><pre><span></span><code>$ docker cp my-backup.tar.gz 914dda21dd3d:/my-backup.tar.gz
+$ docker exec 914dda21dd3d restore.sh /my-backup.tar.gz
+</code></pre></div>
+<p>If "admin" user already existed in backup file, then admin's password will
+be set to the one from the backup file.</p>
+<h2 id="backup-file-structure">Backup File Structure</h2>
+<p>The backup file is a gzipped tar archive with following content:</p>
 <ol>
 <li><code>backup.json</code> file</li>
-<li><code>sidecars/</code> folder</li>
-<li><code>docs/</code>  folder</li>
+<li><code>ocr/</code> folder</li>
+<li><code>docvers/</code>  folder</li>
 <li><code>username1</code>/, <code>username2</code>, ... i.e. one folder per user with folder title being user's username</li>
 </ol>
-<p><code>backup.json</code> file contains all necessary info to restore the database.
-(all users, their nodes, tags etc).
-<code>sidecars/</code> contains the exact content of <media_root>/sidecars/ folder
-<code>docs/</code> contains the exact content of <media_root>/docs/ folder</p>
-<p><code>backup.json</code> is used to backup/restore database content.
-<code>sidecars/</code> and <code>docs/</code> are used to backup/restore associated files.</p>
-<p>Folder mentioned in point 4. contain same folder structure as users see in web
-frontend, grouped by username. Instead of documents, in folder structure
-symbolic links are used. Symbolic links point to the last version
-(i.e. associated file) of the document. Whatever is in these folders
-(in <username1>, <username2>, ...) is NOT used to restore the data (i.e. it
-is redundant) instead they are human-readable i.e. make backup archive easier
-to use by human to quickly assert the content of the archive.</p>
-<h2 id="restore">Restore</h2>
-<p>Invoke restore command using Django's manage.py:</p>
-<div class="language-text highlight"><pre><span></span><code>./manage.py restore &lt;path/to/backup-archive&gt;
-</code></pre></div>
-<p>Restore command can be invoked via docker container as follows::</p>
-<div class="language-text highlight"><pre><span></span><code>docker run papermerge/papermerge restore backup-archive.tar.gz
-</code></pre></div>
-<p>Note that before restoring the backup archive, the DB schema should exist i.e.
-all required tables with correct schema should be already in database.
-You create schema by running <code>migrate</code> command (this is Django native management command):</p>
-<div class="language-text highlight"><pre><span></span><code>./manage.py migrate
-</code></pre></div>
-<h2 id="backup_1">Backup</h2>
-<p>For peace of mind you always need to backup data. There three aspects of full backup:</p>
-<ul>
-<li>media directory</li>
-<li>database</li>
-<li>application version</li>
-</ul>
-<p>If all you want is to just to ensure safe copy of you documents then all you need to
-do is to backup media directory.
-If you want to create full snapshot (i.e you want to be able to restore full application state from specific moment in past) then you need media directory backup + database backup + Papermerge version
-of that specific moment in time.</p>
-<h2 id="media-directory">Media Directory</h2>
-<p>Media directory is place where Papermerge application saves all your original
-documents and their derivatives (extracted text, images etc). By backing
-up your media directory - you ensure your documents are safe.</p>
-<p>Media directory is configured with :ref:<code>media_dir</code> setting. By default it is a folder
-named "media" in of same directory where papermerge project was cloned.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>media_dir</code> has two subfolders <em>docs</em> and <em>results</em>. <code>media_dir</code>/docs is place where
-original documents are uploaded - it is the location you want to ensure is regularly backed up.
-Media directory configuration is pure Django web framework thing; in Django it is called <a href="https://docs.djangoproject.com/en/3.1/ref/settings/#media-root" class="external-link" target="_blank">MEDIA_ROOT </a></p>
+<p><code>backup.json</code> file contains all necessary info to restore the database i.e.
+all users, their nodes, tags etc.</p>
+<p><code>docvers/</code> contains actually document versions files. Your documents are here.</p>
+<p><code>ocr/</code> contains OCR data of each individual page in the document.</p>
+<p>User folders mentioned in point 4. are provided for convenience, so that you
+may quickly get an understanding of the folder structure and their content.
+Each file in user folder is actually a symbolic link pointing to the last
+version of the document (from <code>docvers</code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Each user has two special folders: <code>.home</code> and <code>.inbox</code>; special folder's title
+start with dot. If you open backup archive in file browsers which hides dot files
+(file starting with dot character) - the content of user folder may appear
+empty! When opening backup archive <strong>make sure you set 'show hidden files flag' on</strong>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Papermerge never overwrites or renames original uploads!</strong>, in that sense, Papermerge is non-destructive :ref:<code>dms</code>. Every time you perform changes on document, like :ref:<code>moving pages around &lt;page_management&gt;</code> a new document version is created, thus keeping original document version intact.</p>
-</div>
-<h3 id="database">Database</h3>
-<p>Another important part of whole backup picture - is backing up your Papermerge database. In database, Papermerge stores information like user related information, documents' metadata, documents' tags etc.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Uploaded documents are NOT stored in database! Uploaded files are stored (by default) on local filesystem.
-In general, binary files are never stored in databases.</p>
-</div>
-<p>Basically with database backup you can restore "the state" of Papermerge application.</p>
-<h3 id="application-version">Application Version</h3>
-<p>If you want to restore Papermerge backups you need to know for what
-application version that backup is. This is why it is a good idea to append
-Papermerge application version to your backup archives.</p>
-<h3 id="backup-utility">Backup Utility</h3>
-<p>Papermerge is shipped with backup command line utility. You can run it from project current directory:</p>
-<pre><code class="language-console">./manage.py backup
-</code></pre>
-<p>That command will backup all your documents with preserved directory structure (it will backup documents of all users).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>provided backup utility does not backup tags and metadata information.</p>
-</div>
-<p>In order to restore backup:</p>
-<pre><code class="language-console">./manage.py restore &lt;path-to-tar-file&gt;
-</code></pre>
 
 
 
