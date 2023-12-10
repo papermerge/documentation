@@ -12,12 +12,12 @@ and OCR data, tags and users. Search engine index is not included in backup thou
 
 ## Backup
 
-Backup you documents with following command:
+Backup your documents with following command:
 
     $ docker exec <papermerge-server-container> backup.sh <optional-location>
 
 
-where `<optional-location>` is the path to file or folder where to save backup
+where `<optional-location>` is the path to file or folder **inside container** where to save backup
 file. If location is not provided, backup file will be saved in /core_app/ folder
 - the papermerge core application's current folder.
 
@@ -33,11 +33,11 @@ Example:
     8ad6d0a7eb6c "/opt/bitnami/script…" 091223_30-db-1
 ```
 
-In above example the {{ extra.project }} has 5 containers: app server(the core
+In above example the {{ extra.project }} has 5 containers: app server (the core
 or web or http or REST API server, pick the name you like :P), solr search
 engine, redis, database and finally one paper worker.
 
-To create a backup in root folder of the app container, run:
+To create a backup in root folder of the app container just run:
 
     $ docker exec 914dda21dd3d backup.sh /
 
@@ -46,7 +46,7 @@ When above command is ready, check that backup file was created:
     $ docker exec 914dda21dd3d ls /
 
     auth_server_app
-    backup_10_12_2023-06_30_37.tar.gz
+    backup_10_12_2023-11_30_37.tar.gz
     bin
     boot
     ...
@@ -80,8 +80,8 @@ Then copy it to your local filesystem:
 
 ## Restore
 
-When you plan to restore previous backup, we suggest you to start with new {
-{ extra.project }} instance, with only one superuser (which is created by
+When you plan to restore previous backup, we suggest to start with new {{ extra.project }} instance,
+with only one superuser (which is created by
 default anyway). Make sure there are no documents in the new instance.
 
 For sake of example, let's say the superuser's username is "admin".
@@ -96,14 +96,13 @@ to core (server) container. Sticking with example from previous section:
     $ docker exec 914dda21dd3d restore.sh /my-backup.tar.gz
 
 
-If "admin" user already existed in backup file, then "admin"'s password will
+If "admin" user already existed in backup file, then admin's password will
 be set to the one from the backup file.
 
 
 ## Backup File Structure
 
-The result of backup operation is a (zipped) tar archive which
-contains following:
+The backup file is a gzipped tar archive with following content:
 
 1. `backup.json` file
 2. `ocr/` folder
