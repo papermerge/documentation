@@ -23,6 +23,17 @@ Example:
 postgresql://scott:tiger@db:5432/mydatabase
 ```
 
+
+For MariaDB and MySQL the URL scheme is `mysql`.
+
+Example:
+
+```
+mysql://myuser:mypass@db:3306/paperdb
+```
+
+
+
 For SQLite the format is: ``sqlite:///PATH``.
 
 Example:
@@ -37,4 +48,4 @@ will use SQLite with ``/db/db.sqlite3`` as db file.
 
 !!! Note
 
-    Both web_app and worker must have same ``PAPERMERGE__DATABAS_URL``.
+    Both web_app and worker must have same ``PAPERMERGE__DATABASE__URL``.
