@@ -1309,6 +1309,10 @@ Papermerge supports following databases SQLite3, PostgreSQL, MySQL/MariaDB.</p>
 <p>Example:</p>
 <pre><code>postgresql://scott:tiger@db:5432/mydatabase
 </code></pre>
+<p>For MariaDB and MySQL the URL scheme is <code>mysql</code>.</p>
+<p>Example:</p>
+<pre><code>mysql://myuser:mypass@db:3306/paperdb
+</code></pre>
 <p>For SQLite the format is: <code>sqlite:///PATH</code>.</p>
 <p>Example:</p>
 <pre><code>sqlite:////db/db.sqlite3
@@ -1318,7 +1322,7 @@ if <code>DATABASE__URL</code> is missing, Papermerge
 will use SQLite with <code>/db/db.sqlite3</code> as db file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Both web_app and worker must have same <code>PAPERMERGE__DATABAS_URL</code>.</p>
+<p>Both web_app and worker must have same <code>PAPERMERGE__DATABASE__URL</code>.</p>
 </div>
 
 
