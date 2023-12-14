@@ -158,6 +158,63 @@ volumes:
   media:
 ```
 
+## MySQL / MariaDB
+
+Here is an example of docker compose setup with MariaDB:
+
+```yaml
+version: "3.9"
+
+x-backend: &common
+  image: papermerge/papermerge:{{ extra.docker_image_version }}
+  environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
+      PAPERMERGE__AUTH__USERNAME: eugen
+      PAPERMERGE__AUTH__PASSWORD: 1234
+      PAPERMERGE__DATABASE__URL: mysql://myuser:mypass@db:3306/paperdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
+  volumes:
+    - media_root:/core_app/media
+  depends_on:
+    - redis
+    - solr
+    - db
+
+services:
+  web:
+    <<: *common
+    ports:
+     - "11000:80"
+  worker:
+    <<: *common
+    command: worker
+  redis:
+    image: redis:6
+  solr:
+    image: solr:9.3
+    ports:
+     - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg-index
+  db:
+    image: mariadb:11.2
+    volumes:
+      - maria:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mypass
+      MYSQL_DATABASE: paperdb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
+volumes:
+  maria:
+  solr_data:
+  media_root:
+```
+
 ## OAuth 2.0
 
 ...
