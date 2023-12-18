@@ -31,7 +31,7 @@ More CPU cores and more powerful the CPUs means OCR will be performed faster.
 
 !!! Note
 
-        **GPU is not needed** as Tesseract runs OCR entirely on your CPU.
+        **GPU is not required** as Tesseract runs OCR entirely on your CPU.
 
 Testing system for {{ extra.project }} has following specs:
 
