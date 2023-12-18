@@ -426,7 +426,7 @@
         
   
   <span class="md-ellipsis">
-    Docker compose
+    Docker Compose
   </span>
   
 
@@ -1339,12 +1339,6 @@
 
 
 <h1 id="docker">Docker</h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Papermerge 3.0 is currently in active development. There is no stable
-  version yet for 3.0. At this stage all docker images are tagged either
-  3.0devX or 3.0aX.</p>
-</div>
 <h2 id="web-app">Web App</h2>
 <p>The only two required environment variables are
 <code>PAPERMERGE__SECURITY__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>. To start
@@ -1352,7 +1346,7 @@ web ui part use following command:</p>
 <pre><code class="language-console">docker run -p 9400:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:3.0dev19
+    papermerge/papermerge:3.0dev20
 </code></pre>
 <p>Point your web browser to <code>http://localhost:9400</code> and you will see login screen:</p>
 <p><img alt="login screen" src="../../img/setup/login.png" /></p>
@@ -1364,23 +1358,23 @@ web ui part use following command:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above <code>docker run</code> starts only web UI part. For complete setup you
-also need one or multiple workers.</p>
+also <a href="#web-app-worker">need one or multiple workers</a>.</p>
 </div>
 <h2 id="official-docker-image">Official Docker Image</h2>
 <p>Official Papermerge docker image is available on <a href="https://hub.docker.com/r/papermerge/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
 <h2 id="get-docker-image">Get Docker Image</h2>
 <p>The recommended way to get the Papermerge docker image is via
 docker pull command:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0dev19
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0dev20
 </code></pre>
 <h2 id="web-app-worker">Web App + Worker</h2>
 <p>For complete setup you need to start one or multiple workers.
 Worker is the component which, among other things, performs OCR.</p>
-<p>Here is minimal docker compose file with web ui and one worker:</p>
+<p>Here is minimal docker compose file with web UI and one worker:</p>
 <pre><code>  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0dev19
+    image: papermerge/papermerge:3.0dev20
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
         PAPERMERGE__AUTH__USERNAME: john

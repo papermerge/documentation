@@ -323,6 +323,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Requirements
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -332,6 +343,39 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -368,7 +412,7 @@
         
   
   <span class="md-ellipsis">
-    Docker compose
+    Docker Compose
   </span>
   
 
@@ -1228,6 +1272,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1245,12 +1311,37 @@
 
 
 <h1 id="requirements">Requirements</h1>
-<p>All you need is to have docker, as Papermerge is shipped as docker image.
+<h2 id="software">Software</h2>
+<p>Papermerge is designed to run on Linux/Unix compatible system.</p>
+<p>You need to have docker installed, as Papermerge is shipped as docker image.
 All docker images are stored on <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.</p>
 <p>Make sure that you have docker available:</p>
 <div class="language-text highlight"><pre><span></span><code>    $ docker --version
     Docker version 24.0.3, build 3713ee1
 </code></pre></div>
+<h2 id="hardware">Hardware</h2>
+<p>Hardware specification for Papermerge depends on number of documents and users.</p>
+<p>For one user with 1000-2000 pages a system spec with:</p>
+<ul>
+<li>2 CPU at 2.8GHz clock</li>
+<li>2 GB RAM</li>
+<li>25 GB Storage</li>
+</ul>
+<p>will do just fine.</p>
+<p>For OCR, Papermerge uses <a href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>.
+OCR is very CPU intensive operation, thus more CPUs and RAM memory your system has - better.
+More CPU cores and more powerful the CPUs means OCR will be performed faster.</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p><strong>GPU is not required</strong> as Tesseract runs OCR entirely on your CPU.</p>
+</p>
+</div>
+<p>Testing system for Papermerge has following specs:</p>
+<ul>
+<li>Ubuntu 22.04</li>
+<li>8 Core i7 2.8GHz CPU</li>
+<li>16 GB RAM</li>
+<li>50 GB storage</li>
+</ul>
 
 
 
