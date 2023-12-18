@@ -1,26 +1,18 @@
-!!! Warning
-
-    Papermerge 3.0 is currently in active development. There is no stable
-    version yet for 3.0. At this stage all docker images are tagged either
-    3.0devX or 3.0aX.
-
-    Version 3.0 is set to be officially released (i.e. tagged with 3.0)
-    by the end of December 2023
-
 
 # Papermerge DMS
 
-Papermerge DMS or simply Papermerge is a open source document management system
-designed to work with scanned documents, also called digital archives. It
-extracts text from your scans (which might be PDF, TIFF, JPEG or PNG), indexes
-it, and prepares it for full text search. Papermerge provides the look and feel
-of modern desktop file browsers. It has features like dual panel document
-browser, drag and drop, tags, hierarchical folders, so that you can efficiently
-store and organize your documents.
+Papermerge DMS or simply Papermerge is a open source document management
+system designed to work with scanned documents (also called digital
+archives). It extracts text from your scans using OCR, indexes them, and
+prepares them for full text search. Papermerge provides look and feel of
+modern desktop file browsers. It has features like dual panel document
+browser, drag and drop, tags, hierarchical folders and full text search so
+that you can efficiently store and organize your documents.
 
-{{ extra.project }} is perfect tool for long term storage of digital archives.
+It supports PDF, TIFF, JPEG and PNG document file formats. Papermerge is
+perfect tool for long term storage of your documents.
 
-![Papermerge screenshot](img/document-management-system-screenshot.png)
+![Papermerge screenshot](img/papermerge3.png)
 
 
 ## Features Highlights
@@ -35,8 +27,7 @@ store and organize your documents.
 * Tags - assign colored tags to documents or folders
 * Folders - users can organize documents in folders
 * Multi-User
-* User permissions management
-* Fully REST API (all features can be consumed via REST API)
+* Fully REST API
 * Page Management - delete, reorder, rotate, merge, move, extract
 
 
@@ -60,19 +51,11 @@ store and organize your documents.
 * It does **not** overwrite your original documents
 
 
-## Right Tool for You?
-
-To be efficient you always need to choose right tool for the problem. Because
-Document Management is too generic - I think that a definition of what is a
-Document in context of this software is needed.
-
-
 ## What is a Document?
-
 
 For Papermerge a document is anything which is a good candidate for archiving
 - some piece of information which is not editable but you need to store it for
-future reference. For example **receipts** are perfect examples - you don't
+future reference. For example **receipts** are good examples - you don't
 need to read receipts everyday, but eventually you will need them for your tax
 declaration. In this sense - **scanned documents**, which are usually in PDF
 or [TIFF](https://en.wikipedia.org/wiki/TIFF) format, are perfect match.
@@ -86,19 +69,5 @@ Most of the modern office scanners will output scanned files in PDF/A format.
 This is why, PDF is practically synonymous for document in context of
 Papermerge.
 
-A picture made with your phone of a A4 paper document is regarded by Papermege
-as full fledged document, even though digitally it is stored as jpeg or png
-format. You can think of a picture made with a phone (of a document) as a bad
-quality scan.
-
-## What is Not a Document?
-
-Out of scope are Office documents (ODT, DOCX, spreadsheets, presentations
-etc), text files (notes); these files are usually editable i.e. user can alter
-the content of the document. Any format of alterable type of document is out of scope
-for Papermerge project.
-
-
-Papermerge is simply **not designed to store books**. Yes, you can scan a book
-and import it in Papermerge, but again - this is not what Papermerge was
-designed for.
+A picture made with smart phone of A4 paper document is regarded by {{ extra.project }}
+as document.
