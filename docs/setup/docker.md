@@ -1,12 +1,5 @@
 # Docker
 
-!!! Warning
-
-      Papermerge 3.0 is currently in active development. There is no stable
-      version yet for 3.0. At this stage all docker images are tagged either
-      3.0devX or 3.0aX.
-
-
 ## Web App
 
 The only two required environment variables are
