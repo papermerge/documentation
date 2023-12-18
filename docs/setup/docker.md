@@ -1,12 +1,5 @@
 # Docker
 
-!!! Warning
-
-      Papermerge 3.0 is currently in active development. There is no stable
-      version yet for 3.0. At this stage all docker images are tagged either
-      3.0devX or 3.0aX.
-
-
 ## Web App
 
 The only two required environment variables are
@@ -34,7 +27,7 @@ Credentials are:
 !!! Note
 
     The above `docker run` starts only web UI part. For complete setup you
-    also need one or multiple workers.
+    also [need one or multiple workers](#web-app-worker).
 
 
 ## Official Docker Image
@@ -57,7 +50,7 @@ docker pull papermerge/papermerge:{{ extra.docker_image_version }}
 For complete setup you need to start one or multiple workers.
 Worker is the component which, among other things, performs OCR.
 
-Here is minimal docker compose file with web ui and one worker:
+Here is minimal docker compose file with web UI and one worker:
 
 ```
   version: "3.9"
