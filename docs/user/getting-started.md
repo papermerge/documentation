@@ -1,24 +1,26 @@
 # Getting Started
 
-## Documents
+In this part of the documentation we define important concepts used {{ extra.project }}
+parlance. We highly recommend you to read and understand this section.
 
-Let's start by clarifying the most important concept first: the document. For
-Papermerge a document is anything which is a good candidate for archiving -
-some piece of information which is not editable but you need to store it for
-future reference. For example receipts - you don’t need to edit receipts or
-read them everyday, but eventually you will need them for your tax
-declaration. In this sense - scanned documents, which are usually in PDF or
-TIFF format, are perfect match.
+## Document
 
-Another important thing - if you take a picture of a paper document with your
-mobile phone - you'll have a file in jpeg format (or maybe png file format).
-In context of Papermerge that picture of a document (though just a single jpeg
-file) is a valid one page document. Generally speaking, pictures of the
-documents produced by your camera - might be regarded as bad quality scans.
+For {{ extra.project }} a document is anything which is a good candidate for
+archiving - some piece of information which is not editable but you need to
+store it for future reference. For example receipts - you don't need to edit
+receipts or read them everyday, but eventually you will need them for your
+tax declaration. In this sense - scanned documents, which are usually in PDF,
+JPEG or TIFF format, are perfect match.
+
+If you take a picture of a paper document with your mobile phone - you'll have
+a file in jpeg format (or maybe png file format). In context of {{ extra.project }}
+that picture of a document (though just a single jpeg
+file) is a valid one page document.
 
 On the other hand, if you take a picture of a flower and upload that jpeg
-image to Papermerge - the 'document' will be processed. However, that jpeg
-format flower image is not a document in Papermerge sense.
+image to {{ extra.project }} - the 'document' will be processed. However,
+that jpeg format flower image is not a document in {{ extra.project }}
+sense.
 
 ![Png and jpeg formats along with PDF are natively supported](../img/getting-started/pdf-png-jpeg-documents.png)
 
@@ -26,17 +28,45 @@ Usually office formats with .docx (Microsoft Word), .odt (Libre Office), .txt
 (plain text) are not good candidates for archiving - as by their nature they
 are meant to be changed/edit regularly. However, once converted to PDF format
 (for instance Contract_C2.docx to Contract_C2.pdf) they are full fledged
-documents in Papermege sense.
+documents in {{ extra.project }} sense.
 
-By default, Papermerge works with documents in 4 (four) file formats: pdf,
-tiff, jpeg and png. However, many other formats (even email messages) can be
-imported as documents by converting incoming file *automatically* to PDF
-format. This is possible due to :ref:`document_pipelines` feature.
+!!! info
+
+	{{ extra.project }} works with four file formats: PDF, TIFF, JPEG and PNG.
 
 
-## Optical Character Recognition (OCR)
+## Document Version
 
-OCR is a technique to extract **text** information from **binary image formats**.
+One document has one or multiple versions. The original document version - is version number 1.
+For every change applied to the document - a new document version is created with that change applied.
+
+When we say "change applied to a document" - we mean things like [rotate pages](./page-management.md#rotate), [reorder pages](./page-management.md#reorder) or
+[merge](./merge-documents.md) two documents.
+
+The point of document versions is to keep track of changes applied to the document.
+
+
+## Folder
+
+Folder in {{ extra.project }} is counterpart of "folder" concept used in major
+computer file manager applications (e.g. Finder in macOS). Folders in {{ extra.project }}
+are, intuitively enough, hierarchical - in other words one
+folder may contain other folders and/or documents.
+
+
+## Node
+
+Node is an abstraction of two concepts: document and folder.
+Every time you read *node*, you can mentally replace that term
+with either *document* or *folder* and the statement will still hold.
+
+
+## Special Folder
+
+
+## OCR
+
+OCR (Optical Character Recognition) is a technique to extract **text** information from **binary image formats**.
 This technique enables users to:
 
 * **copy/paste  text** from the document's content
@@ -49,7 +79,7 @@ Papermerge relies on external open source specialized tools like
 [Google's Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
 
 
-## Tags and Folders
+## Tags
 
 Organizing documents in folders is very common. Thus the idea of keeping your
 documents in folders doesn't need further introduction. It may be worth
@@ -84,38 +114,3 @@ importantly you can reorder document pages in case you need to do so.
 
 There is a separate chapter about [page management](page-management.md) where you can learn
 details about this feature.
-
-
-## Metadata
-
-
-Metadata is a very powerful concept and it marks the clear differences between
-an usual file browser and a system dedicated to manage your documents.
-Metadata is additional information about your folders, documents and pages. In
-other words - data about your data. Following picture is a (scanned document)
-receipt with highlighted shop name, price and date on it.
-
-![Receipt document with highlighted metadata.](../img/getting-started/macgeiz-receipt-with-metadata.png)
-
-This additional information - shop name, price and date is so called
-document's **metadata**. It has two parts a label (in picture above ``shop``,
-`date` and `price` are all labels) and a value (in example above values
-are `Mäc-Geiz`, `08.06.2020`, `1.49` for shop label, date label and
-price label respectively). Many times instead of term *label* term *key* is
-used.
-
-Metadata is extremely useful as search criteria when you need to locate
-specific document among many other very similar documents: for example if you
-need to find specific receipt issued by Mäc-Geiz company on May 27th, 2018
-among other several thousands Mäc-Geiz receipts.
-
-In Papermerge you can set metadata on folders, on documents and on each
-individual page of the document. Document's metadata can be viewed and edited
-on the right side in widgets panel. Additionally if you are inside folder with
-metadata attributes set, metadata information about each document (of current
-parent folder) is displayed in so called metacolumns as highlighted in Figure
-5.
-
-![Different ways to view metadata.](../img/getting-started/metadata-metacolumn-and-widget-panel.png)
-
-Read more on this topic in chapter dedicated to [metadata](metadata.md).
