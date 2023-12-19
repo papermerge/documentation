@@ -32,7 +32,7 @@ documents in {{ extra.project }} sense.
 
 !!! info
 
-	{{ extra.project }} works with four file formats: PDF, TIFF, JPEG and PNG.
+    {{ extra.project }} works with four file formats: PDF, TIFF, JPEG and PNG.
 
 
 ## Document Version
@@ -61,7 +61,21 @@ Every time you read *node*, you can mentally replace that term
 with either *document* or *folder* and the statement will still hold.
 
 
-## Special Folder
+## Special Folders
+
+Each user in {{ extra.project }} has two special folders: *.inbox* and *.home*.
+
+*.inbox* folder is where all incoming documents will land first.
+*.home* folder is where all user documents are.
+
+By convention special folders start with dot character.
+Special folders are top level folders (they don't have parent folder).
+
+
+!!! Note
+
+    Both `.inbox` and `.home` folders are special only by convention; structurally
+    they are just usual folders.
 
 
 ## OCR

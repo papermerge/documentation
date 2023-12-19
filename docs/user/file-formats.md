@@ -1,16 +1,23 @@
 # File Formats
 
 
-Scanned documents play a central role in {{ extra.project }}.
-Technically, scanned document can be stored in a plethora of file formats.
-{{ extra.project }} 2.1 works only with PDF files.
+{{ extra.project }} supports PDF, TIFF, JPEG and PNG file formats.
 
-!!! note
+PDF format is called *native* because {{ extra.project }} interals operate
+as if all documents are PDF.
 
-        Before version 2.1 {{ extra.project }} had support for PDF, TIFF, JPEG,
-        PNG formats.
+TIFF, JPEG or PNG on the other hand are *not native* (non-native) formats.
 
-!!! important
+The import of native format yields one version document - the PDF itself i.e.
+orignal version.
 
-        Support for TIFF, JPEG and PNG file formats will be re-introduced
-        in later versions.
+The import of any non-native formats yields two versions document:
+
+- version 1 with non-native file i.e. original file
+- version 2 with PDF file into which non-native format was converted
+
+
+!!! Note
+
+        At its core {{ extra.project }} code is written to work with PDF files only.
+        All other files (non-natives) are converted, on import, into PDF format.
