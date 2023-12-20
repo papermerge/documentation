@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.papermerge.io/3.0/user/file-formats/">
       
       
-        <link rel="prev" href="../automates/">
+        <link rel="prev" href="../ocr/">
       
       
         <link rel="next" href="../user-management/">
@@ -653,26 +653,6 @@
                 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../automates/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Automates
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1245,17 +1225,20 @@
 
 
 <h1 id="file-formats">File Formats</h1>
-<p>Scanned documents play a central role in Papermerge.
-Technically, scanned document can be stored in a plethora of file formats.
-Papermerge 2.1 works only with PDF files.</p>
+<p>Papermerge supports PDF, TIFF, JPEG and PNG file formats.</p>
+<p>PDF format is called <em>native</em> because Papermerge interals operate
+as if all documents are PDF.</p>
+<p>TIFF, JPEG or PNG on the other hand are <em>not native</em> (non-native) formats.</p>
+<p>The import of native format yields one version document - the PDF itself i.e.
+orignal version.</p>
+<p>The import of any non-native formats yields two versions document:</p>
+<ul>
+<li>version 1 with non-native file i.e. original file</li>
+<li>version 2 with PDF file into which non-native format was converted</li>
+</ul>
 <div class="admonition note">
-<p class="admonition-title">Note<p>Before version 2.1 Papermerge had support for PDF, TIFF, JPEG,
-PNG formats.</p>
-</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important<p>Support for TIFF, JPEG and PNG file formats will be re-introduced
-in later versions.</p>
+<p class="admonition-title">Note<p>At its core Papermerge code is written to work with PDF files only.
+All other files (non-natives) are converted, on import, into PDF format.</p>
 </p>
 </div>
 
