@@ -19,7 +19,6 @@ nav:
     - user/versions.md
     - user/merge-documents.md
     - user/ocr.md
-    - user/automates.md
     - user/file-formats.md
     - user/user-management.md
     - user/rest-api-token.md
