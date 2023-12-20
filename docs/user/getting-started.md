@@ -60,22 +60,33 @@ Node is an abstraction of two concepts: document and folder.
 Every time you read *node*, you can mentally replace that term
 with either *document* or *folder* and the statement will still hold.
 
+Bellow is graphical example of Folder, Document, Document Version relationship:
+
+![Folder/Docs/Doc Versions](../img/getting-started/folder-doc-doc-version.svg)
+
+Same hierarchy can be illustrated as nodes:
+
+![Folder/Docs/Doc Versions](../img/getting-started/nodes.svg)
+
 
 ## Special Folders
 
-Each user in {{ extra.project }} has two special folders: *.inbox* and *.home*.
+Each user in {{ extra.project }} has two special folders: *Inbox* and *Home*.
 
-*.inbox* folder is where all incoming documents will land first.
-*.home* folder is where all user documents are.
+*Inbox* folder is where all incoming documents land first.
+*Home* folder is where all user documents are.
 
-By convention special folders start with dot character.
 Special folders are top level folders (they don't have parent folder).
+
+![Special folders](../img/getting-started/special-folders.svg)
 
 
 !!! Note
 
-    Both `.inbox` and `.home` folders are special only by convention; structurally
-    they are just usual folders.
+    Both `Inbox` and `Home` folders are special only by convention; structurally
+    they are just normal folders.
+    Internally their title is actually ".inbox" and ".home".
+    By convention special folders start with dot character.
 
 
 ## OCR
@@ -96,17 +107,14 @@ Papermerge relies on external open source specialized tools like
 ## Tags
 
 Organizing documents in folders is very common. Thus the idea of keeping your
-documents in folders doesn't need further introduction. It may be worth
-mentioning that Papermerge supports folders and that folders may be
-hierarchical i.e. one folder can contain other folder(s) as well. This nesting
-(folder in folder) ca be arbitrarily deep.
+documents in folders doesn't need further introduction. The idea of using
+tags to organize your documents may be new for you though. Tags are kind of
+labels. You can associate tags to a document or to a folder. Tags have a
+color and a name.
 
 ![Folder with tags on it](../img/getting-started/folder-with-tags.png)
 
-The idea of using tags to organize your documents
-may be new for you though. Tags are kind of labels. You can associate
-(add) tags to a document or to a folder. Tags have a color and a name. Once
-tagged, documents can be searched by their tags. Conversely, is it also
+Once tagged, documents can be searched by their tags. Conversely, is it also
 possible to show all the documents tagged with a particular tag(s).
 
 Both tags and folders complement each other and provide you with powerful
@@ -115,14 +123,12 @@ means to stay organized.
 
 ## Page Management
 
-
 Many times scanning documents in bulk yields documents with blank pages; some
-pages my be out of order or maybe part of totally different document. Even if
+pages my be out of order, rotated, maybe part of totally different document. Even if
 you notices these flaws immediately it is time consuming and frustrating to
-redo scanning process. Papermerge helps you with your scanned documents like
-no other tool. With Papermerge you can delete blank or erroneous pages, you
-can move pages from one document into another (with cut and paste) and most
-importantly you can reorder document pages in case you need to do so.
+redo scanning process. {{ extra.project }} helps you with your scanned documents like
+no other tool. With {{ extra.project }} you can reorder, rotate or even delete pages in
+case you need to do so.
 
 ![Blank pages in a document](../img/getting-started/blank-pages.png)
 
