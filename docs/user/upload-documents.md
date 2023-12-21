@@ -1,51 +1,17 @@
 # Upload Documents
 
-!!! note
+There are multiple ways to upload documents to your {{ extra.project }} instance:
+web UI, command line utilities, REST API.
 
-    For uploading documents in bulk from local filesystem we highly recommend
-    `papermerge-cli` command line utility which is briefly described in
-    paragraph below and explained in details in :ref:`papermerge_cli` section.
-
-There are different ways to upload documents to {{ extra.project }}: via web
-user interface, like upload button, drag'n drop, or via command line
-utilities like papermerge-cli. All methods have one thing in common: they use
-REST API to perform the actual upload. In this sense all applications which
-upload documents, even web user interface's described in this manual,
-act as REST API clients:
+The obvious way is via web UI. After briefly explaing how to upload documents
+from web user interface, this page will dive into more interesting parts:
+command line utilities and REST API.
 
 
-![](../img/user-manual/upload-documents/rest-api-clients.svg)
-
-
-!!! note
-
-    REST API Server is web application. As any web application it is
-    accessible with an url prefixed with http or https scheme e.g.
-    https://my-example-dms.com, https://my-papermerge.local, http://localhost:8000/
-
-
-!!! note
-
-    A fancy English word for "uploading" is *ingesting* i.e. "ingest
-    documents to {{ extra.project }}" is same as "upload documents to {{ extra.project }}".
-
-
-All documents are organized in folders. Each user has two special folders -
-`Inbox` and `Home`. `Inbox` and `Home` folders are special in sense that they
-are always there they cannot be renamed or deleted. Actually, whenever a new
-user is added into the {{ extra.project }} the two special folders `Inbox` and `Home`
-are automatically created for him/her.
-
-!!! note
-
-    Internally the two special folders are named `.home` and `.inbox` -
-    title starts with a dot and has only lowercase characters.
-
-
-## Upload Button
+## Web UI
 
 Uploading documents via user interface is the most straightforward method, just click
-"upload" button:
+`upload` button:
 
 ![](../img/user-manual/ui/upload-documents.svg)
 
@@ -63,8 +29,6 @@ deeply nested folder inside Inbox as well:
 ![](../img/user-manual/upload-documents/deeply-nested-inside-inbox.svg)
 
 
-## Drag'n Drop
-
 This method is very similar to the above described method, the only difference
 is that instead of clicking upload button - you drag'n drop documents, using
 mouse, from your desktop to {{ extra.project }} web ui in your browser.
@@ -81,12 +45,11 @@ mouse, from your desktop to {{ extra.project }} web ui in your browser.
 
 ## Command Line
 
-You can upload documents and folders from your local filesystem using :ref:`papermerge_cli` command
-line utility:
+You can upload documents and folders from your local filesystem using [papermerge-cli](../cli/cli.md) command line utility:
 
     papermerge-cli import /path/to/local/folder/
 
-Note that ``papermerge-cli`` will import all content of /path/to/local/folder/ directory
+Note that `papermerge-cli` will import all content of /path/to/local/folder/ directory
 recursively i.e. it will preserve the structure of local folder in {{ extra.project }} as well.
 
 You can upload one single document by providing path to the document:
@@ -101,3 +64,6 @@ You can upload one single document by providing path to the document:
 For more information about `papermerge-cli` check `papermerge-cli` section.
 
 ![](../img/user-manual/upload-documents/upload-documents-from-local-folder.gif)
+
+
+## REST API
