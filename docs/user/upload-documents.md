@@ -3,7 +3,7 @@
 There are multiple ways to upload documents to your {{ extra.project }} instance:
 web UI, command line utilities, REST API.
 
-The obvious way is via web UI. After briefly explaing how to upload documents
+The obvious way is via web UI. After briefly explaining how to upload documents
 from web user interface, this page will dive into more interesting parts:
 command line utilities and REST API.
 
