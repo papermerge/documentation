@@ -13,9 +13,8 @@ nav:
     - user/getting-started.md
     - user/user-interface.md
     - user/upload-documents.md
-    - user/tags-and-folders.md
+    - user/tags.md
     - user/page-management.md
-    - user/metadata.md
     - user/versions.md
     - user/merge-documents.md
     - user/ocr.md
