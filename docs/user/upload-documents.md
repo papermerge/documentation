@@ -13,20 +13,12 @@ command line utilities and REST API.
 Uploading documents via user interface is the most straightforward method, just click
 `upload` button:
 
-![](../img/user-manual/ui/upload-documents.svg)
+![](../img/user-manual/upload-documents/upload-button.svg)
 
-Note that documents will be uploaded into your current folder. Current folder is
-considered the one which you currently see as opened in web UI - that may be
-Inbox folder, Home folder or any arbitrarily deeply nested folder inside Home
-or Inbox.
+Documents will be uploaded into your current folder. Current folder is
+considered the one which you currently see as opened in web UI:
 
-![](../img/user-manual/upload-documents/deeply-nested-inside-home.svg)
-
-Again, using upload button, you can upload documents into randomly
-deeply nested folder inside Inbox as well:
-
-
-![](../img/user-manual/upload-documents/deeply-nested-inside-inbox.svg)
+![](../img/user-manual/upload-documents/current-folder.svg)
 
 
 This method is very similar to the above described method, the only difference
