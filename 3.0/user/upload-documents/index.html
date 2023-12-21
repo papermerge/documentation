@@ -561,15 +561,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#upload-button" class="md-nav__link">
-    Upload Button
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dragn-drop" class="md-nav__link">
-    Drag'n Drop
+  <a href="#web-ui" class="md-nav__link">
+    Web UI
   </a>
   
 </li>
@@ -577,6 +570,13 @@
         <li class="md-nav__item">
   <a href="#command-line" class="md-nav__link">
     Command Line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    REST API
   </a>
   
 </li>
@@ -1246,15 +1246,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#upload-button" class="md-nav__link">
-    Upload Button
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dragn-drop" class="md-nav__link">
-    Drag'n Drop
+  <a href="#web-ui" class="md-nav__link">
+    Web UI
   </a>
   
 </li>
@@ -1262,6 +1255,13 @@
         <li class="md-nav__item">
   <a href="#command-line" class="md-nav__link">
     Command Line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    REST API
   </a>
   
 </li>
@@ -1285,57 +1285,21 @@
 
 
 <h1 id="upload-documents">Upload Documents</h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For uploading documents in bulk from local filesystem we highly recommend
-<code>papermerge-cli</code> command line utility which is briefly described in
-paragraph below and explained in details in :ref:<code>papermerge_cli</code> section.</p>
-</div>
-<p>There are different ways to upload documents to Papermerge: via web
-user interface, like upload button, drag'n drop, or via command line
-utilities like papermerge-cli. All methods have one thing in common: they use
-REST API to perform the actual upload. In this sense all applications which
-upload documents, even web user interface's described in this manual,
-act as REST API clients:</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/rest-api-clients.svg" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>REST API Server is web application. As any web application it is
-accessible with an url prefixed with http or https scheme e.g.
-https://my-example-dms.com, https://my-papermerge.local, http://localhost:8000/</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A fancy English word for "uploading" is <em>ingesting</em> i.e. "ingest
-documents to Papermerge" is same as "upload documents to Papermerge".</p>
-</div>
-<p>All documents are organized in folders. Each user has two special folders -
-<code>Inbox</code> and <code>Home</code>. <code>Inbox</code> and <code>Home</code> folders are special in sense that they
-are always there they cannot be renamed or deleted. Actually, whenever a new
-user is added into the Papermerge the two special folders <code>Inbox</code> and <code>Home</code>
-are automatically created for him/her.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Internally the two special folders are named <code>.home</code> and <code>.inbox</code> -
-title starts with a dot and has only lowercase characters.</p>
-</div>
-<h2 id="upload-button">Upload Button</h2>
+<p>There are multiple ways to upload documents to your Papermerge instance:
+web UI, command line utilities, REST API.</p>
+<p>The obvious way is via web UI. After briefly explaing how to upload documents
+from web user interface, this page will dive into more interesting parts:
+command line utilities and REST API.</p>
+<h2 id="web-ui">Web UI</h2>
 <p>Uploading documents via user interface is the most straightforward method, just click
-"upload" button:</p>
-<p><img alt="" src="../../img/user-manual/ui/upload-documents.svg" /></p>
-<p>Note that documents will be uploaded into your current folder. Current folder is
-considered the one which you currently see as opened in web UI - that may be
-Inbox folder, Home folder or any arbitrarily deeply nested folder inside Home
-or Inbox.</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/deeply-nested-inside-home.svg" /></p>
-<p>Again, using upload button, you can upload documents into randomly
-deeply nested folder inside Inbox as well:</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/deeply-nested-inside-inbox.svg" /></p>
-<h2 id="dragn-drop">Drag'n Drop</h2>
-<p>This method is very similar to the above described method, the only difference
-is that instead of clicking upload button - you drag'n drop documents, using
-mouse, from your desktop to Papermerge web ui in your browser.</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/upload-documents-with-drag-n-drop.gif" /></p>
+<code>upload</code> button:</p>
+<p><img alt="" src="../../img/user-manual/upload-documents/upload-button.svg" /></p>
+<p>Documents will be uploaded into your current folder. Current folder is
+considered the one which you currently see as opened in web UI:</p>
+<p><img alt="" src="../../img/user-manual/upload-documents/current-folder.svg" /></p>
+<p>Also, instead of using upload button, you can drag'n drop documents from your desktop
+file manager into Papermerge's web ui.</p>
+<p><img alt="" src="../../img/user-manual/upload-documents/drag-n-drop.gif" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Currently drag 'n drop feature does not work for folders, in other words
@@ -1343,8 +1307,7 @@ you can drag 'n drop only documents. If you want to import an folders with entir
 preserved - use <code>papermerge-cli</code> described in next paragraph.</p>
 </div>
 <h2 id="command-line">Command Line</h2>
-<p>You can upload documents and folders from your local filesystem using :ref:<code>papermerge_cli</code> command
-line utility:</p>
+<p>You can upload documents and folders from your local filesystem using <a href="../../cli/cli/">papermerge-cli</a> command line utility:</p>
 <div class="language-text highlight"><pre><span></span><code>papermerge-cli import /path/to/local/folder/
 </code></pre></div>
 <p>Note that <code>papermerge-cli</code> will import all content of /path/to/local/folder/ directory
@@ -1358,6 +1321,7 @@ recursively i.e. it will preserve the structure of local folder in Papermerge as
 </div>
 <p>For more information about <code>papermerge-cli</code> check <code>papermerge-cli</code> section.</p>
 <p><img alt="" src="../../img/user-manual/upload-documents/upload-documents-from-local-folder.gif" /></p>
+<h2 id="rest-api">REST API</h2>
 
 
 
