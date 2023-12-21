@@ -21,11 +21,10 @@ considered the one which you currently see as opened in web UI:
 ![](../img/user-manual/upload-documents/current-folder.svg)
 
 
-This method is very similar to the above described method, the only difference
-is that instead of clicking upload button - you drag'n drop documents, using
-mouse, from your desktop to {{ extra.project }} web ui in your browser.
+Also, instead of using upload button, you can drag'n drop documents from your desktop
+file manager into {{ extra.project }}'s web ui.
 
-![](../img/user-manual/upload-documents/upload-documents-with-drag-n-drop.gif)
+![](../img/user-manual/upload-documents/drag-n-drop.gif)
 
 
 !!! warning
