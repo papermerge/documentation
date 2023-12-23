@@ -67,5 +67,5 @@ In order to upload a document there are two steps:
 2. Upload the file for the created node in previous step
 
 For step 1. use `POST /nodes/` REST API endpoint.
-For step 2 use `POST /documents/<doc-uuid>/upload` where `<doc-uuid>` is the ID of the node
+For step 2 use `POST /documents/<doc-uuid>/upload` REST API endpoint, where `<doc-uuid>` is the ID of the node
 created in first step.
