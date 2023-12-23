@@ -1,12 +1,8 @@
 # Papermerge CLI
 
 Command line utility which uses REST API to interact with your {{ extra.project }}
-instance. It can be used to:
-
-* upload/import documents from local filesystem
-* download documents and folder
-* search through documents
-
+instance. It can be used to upload documents from local filesystem to yout {{ extra.project }}
+instance.
 
 ![](../img/cli//upload-documents-from-local-folder.gif)
 
@@ -49,80 +45,30 @@ https://my-dms.papermerge.de.
     http://papermerge.local/ are both valid values and point to the same host
 
 
-REST API token can be obtained either from {{ extra.project }} `user menu -> API Tokens <rest_api_token>`
-or directly from command line by using `auth` subcommand:
-
-    export PAPERMERGE_CLI__HOST=https://mydms.some-vps.com
-    papermerge-cli auth
+REST API token can be obtained from {{ extra.project }} `user menu -> API Tokens <rest_api_token>`.
 
 
-Papermerge Cli will prompt you for username and password. On successful
-authentication your REST API token will be displayed - now you can use
-this token for all subsequent authentications.
+## ls
 
+List the content of you home folder:
 
-!!! note
-
-    REST API host can be provided by command line option `--host`
-
-
-## Help
-
-In order to get general help about the command use:
-
-      papermerge-cli --help
-
-In order to get help for individual commands, place `--help` flag after the command:
-
-      papermerge-cli import --help
-
-
-## List - Browse Nodes
-
-Now, with `PAPERMERGE_CLI__HOST` and `PAPERMERGE_CLI__TOKEN` environment
-variables set you can use list content of you home folder:
-
-      papermerge-cli list
+      papermerge-cli ls
 
 In order to list content of specific folder (including inbox folder)::
 
-      papermerge-cli list --parent-uuid=UUID-of-the-folder
+      papermerge-cli ls --parent-uuid=UUID-of-the-folder
 
+## me
 
-## Me - Current User Details
-
-In order to see current user details (current user UUID, home folder UUID, inbox
-folder UUID, username etc):
+In order to see current user details use `me` command:
 
       papermerge-cli me
 
 
-## List Preferences
+## import
 
-List all preferences:
-
-      papermerge-cli pref-list
-
-List specific section of the preferences::
-
-      papermerge-cli pref-list --section=ocr
-
-Show value of preference `trigger` from section `ocr`:
-
-      papermerge-cli pref-list --section=ocr --name=trigger
-
-
-## Update Preferences
-
-Update value of the preference `trigger` from section `ocr`:
-
-    papermerge-cli pref-update --section=ocr --name=trigger --value=auto
-
-
-## Import Folders/Documents
-
-Recursively imports folder from local filesystem. For example, in order
-to import recursively all documents from local folder::
+Recursively imports documents and folders from local filesystem. For example, in order
+to import recursively all documents from local folder:
 
     papermerge-cli import /path/to/local/folder/
 
@@ -130,24 +76,14 @@ You can also import one single document:
 
     papermerge-cli import /path/to/some/document.pdf
 
-By default all documents are imported to your user's `.inbox` folder. If you want to import
-to another folder, use `--target-uuid`:
+By default all documents are imported to your user's `.inbox` folder. If you
+want to import to another folder, use `--target-uuid`:
 
     papermerge-cli import /path/to/some/document.pdf --target-uuid <uuid>
 
-In order to learn UUID of the folder you want to import to use `papermerge-cli list` command.
-To get UUIDs of `.home` and `.inbox` folders, use `papermerge-cli me` command.
-Another way see UUID of the target folder is via browser UI:
-
-![](../img/cli/target-uuid.svg)
-
-If you import same document twice to same target location, you will get a not
-very friendly error which says something about "The fields parent, title
-must make a unique set.", it means that you cannot have two documents with
-same title in one folder, to put it in other words "You already have document
-with same title in target folder":
-
-![](../img/cli/error-when-importing-document.svg)
+In order to learn UUID of the folder you want to import to use `papermerge-cli
+ls` command. To get UUIDs of `.home` and `.inbox` folders, use
+`papermerge-cli me` command.
 
 
 If you want the local copy the uploaded documents to be deleted after
@@ -170,57 +106,13 @@ successful import - use `--delete` flag:
     after successful upload - this means that even if though you local copy
     of the documents vanished - the originals are still available in {{ extra.project }}!
 
-## Search
 
-Search for node (document or folder) by text or by tags:
+## help
 
-    papermerge-cli search -q apotheke
+In order to get general help about the command use:
 
-Returns all documents (or folders with such title) containing OCRed
-text 'apotheke'.
+      papermerge-cli --help
 
-You can search by tags only:
+In order to get help for individual commands, place `--help` flag after the command:
 
-    papermerge-cli search --tags important
-
-Will search for all documents (and folders) which were tagged with
-tag 'important' When multiple tags are provided, by default, will search for
-nodes with all mentioned tags:
-
-    papermerge-cli search --tags important,letters  # returns nodes with both tags important AND letters
-
-In case you want to search for nodes with ANY of the provided tags, use
-`tags-op` parameter:
-
-      papermerge-cli search --tags important,letters --tags-op any
-
-Finally, `tags` and `q` may be combined::
-
-    papermerge-cli search --tags important -q apartment
-
-
-## Download
-
-Downloads a folder or a document:
-
-    papermerge-cli download --uuid <document or folder uuid>
-
-In case uuid is the ID of specific folder - a zip file will be downloaded; zip
-file will contain all nodes insides specified folder.
-
-You can use `--uuid` multiple times::
-
-    papermerge-cli download --uuid <uuid of doc1> --uuid <uuid of doc2> --uuid <uuid of folder 1>
-
-If you want to download content to specific file on your file-system, use `-f`
-option:
-
-    papermerge-cli download --uuid <doc-uuid> -f /path/to/file-system/document.pdf
-
-or in case of uuid is a folder:
-
-    papermerge-cli download --uuid <folder-uuid>  -f /path/to/file-system/folder.zip
-
-You can also specify the format/type of the downloaded archive (e.g. in case node is either a folder):
-
-    papermerge-cli download --uuid <folder-uuid>  -f /path/to/file-system/folder.targz -t targz
+      papermerge-cli import --help

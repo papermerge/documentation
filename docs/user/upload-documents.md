@@ -43,7 +43,7 @@ You can upload documents and folders from your local filesystem using [papermerg
 Note that `papermerge-cli` will import all content of /path/to/local/folder/ directory
 recursively i.e. it will preserve the structure of local folder in {{ extra.project }} as well.
 
-You can upload one single document by providing path to the document:
+You can upload one document by providing path to the document:
 
     papermerge-cli import /path/to/document.pdf
 
@@ -52,9 +52,20 @@ You can upload one single document by providing path to the document:
 
     By default all imported documents and folders will end up inside user's Inbox folder.
 
-For more information about `papermerge-cli` check `papermerge-cli` section.
+For more information about `papermerge-cli` check [papermerge-cli](../cli/cli.md) section.
 
 ![](../img/user-manual/upload-documents/upload-documents-from-local-folder.gif)
 
 
 ## REST API
+
+For uploading documents you can use directly REST API.
+You can access REST API swagger schema definition from user menu (upper right corner of the web UI).
+In order to upload a document there are two steps:
+
+1. Create document node without file
+2. Upload the file for the created node in previous step
+
+For step 1. use `POST /nodes/` REST API endpoint.
+For step 2 use `POST /documents/<doc-uuid>/upload` REST API endpoint, where `<doc-uuid>` is the ID of the node
+created in first step.
