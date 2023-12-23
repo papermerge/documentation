@@ -14,7 +14,7 @@
         <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../../cli/overview/">
+        <link rel="next" href="../token/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -667,26 +667,6 @@
 
               
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/rest-api-token/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    REST API Token
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -985,17 +965,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1006,46 +975,26 @@
 
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+              
+                
   
   
   
-    
+    <li class="md-nav__item">
+      <a href="../token/" class="md-nav__link">
+        
   
+  <span class="md-ellipsis">
+    REST API Token
+  </span>
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#online-vs-local-instance" class="md-nav__link">
-    Online vs Local Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#redoc" class="md-nav__link">
-    Redoc
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swagger-ui" class="md-nav__link">
-    Swagger UI
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+      </a>
     </li>
   
 
@@ -1239,35 +1188,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#online-vs-local-instance" class="md-nav__link">
-    Online vs Local Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#redoc" class="md-nav__link">
-    Redoc
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swagger-ui" class="md-nav__link">
-    Swagger UI
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1285,45 +1205,10 @@
 
 
 <h1 id="reference">Reference</h1>
-<p>Papermerge REST API is exposed via <a href="https://www.openapis.org/" class="external-link" target="_blank">Open API</a> standard. which means that there is one <code>openapi-schema.yml</code> file that can be rendered by various 3rd
-party visualizers. <code>openapi-schema.yml</code> file is generated directly from
-application code and thus (at the time of generation) it matches actual
-implementation.</p>
-<p>Papermergeships with two "REST API visualizers" - redoc and swagger ui. Both
-of these "visualizers" read from same openapi schema file and thus convey same
-information - just formatted differently.</p>
-<h2 id="online-vs-local-instance">Online vs Local Instance</h2>
-<p>As you will see, there are two ways of accessing REST API reference - one is
-from your own instance and another from online documentation website.
-Accessing REST API reference from your own Papermergeinstance's <strong>guarantees
-that the reference will match implementation</strong>, because in this case REST API
-reference is generated on the fly!</p>
-<p>On the other hand, online version of the REST API (i.e. <code>redoc ui</code> and
-<code>swagger ui</code>) reference uses <code>openapi-schema.yml</code> file generated beforehand
-which means that it may slightly differ from your own Papermergeinstance.
-Online REST API reference is there only for convenience.</p>
-<h2 id="redoc">Redoc</h2>
-<p>Papermerge REST API online reference is available via <code>redoc ui</code>.</p>
-<p>Same reference can be accessed from your own Papermergeinstance using
-following URL:</p>
-<div class="language-text highlight"><pre><span></span><code>    &lt;server-url&gt;/api/schema/redoc/
-</code></pre></div>
-<p>In case when you run Papermergelocally using default REST API server port
-use http://localhost:8000/api/schema/redoc/.</p>
-<p>Also, when you run your own instance of Papermergeyou can access
-redoc based REST API reference from user menu:</p>
-<p><img alt="" src="../../img/rest-api/redoc.gif" /></p>
-<h2 id="swagger-ui">Swagger UI</h2>
-<p>Papermerge REST API online reference is available via <code>swagger ui</code>.</p>
-<p>Same reference can be accessed from your own Papermergeinstance using
-following URL:</p>
-<div class="language-text highlight"><pre><span></span><code>    &lt;server-url&gt;/api/schema/swagger-ui/
-</code></pre></div>
-<p>In case when you run Papermergelocally using default REST API server port
-use http://localhost:8000/api/schema/swagger-ui/.</p>
-<p>Also, when you run your own instance of Papermergeyou can access
-swagger based REST API reference from user menu:</p>
-<p><img alt="" src="../../img/rest-api/swagger.gif" /></p>
+<p>Papermerge REST API is exposed via <a href="https://www.openapis.org/" class="external-link" target="_blank">Open API</a> standard.</p>
+<p>Papermerge ships with swagger REST API documentation reference.
+You can access it in your running Papermerge instance from user menu -&gt; REST API:</p>
+<p><img alt="" src="../../img/rest-api/access-restapi.gif" /></p>
 
 
 

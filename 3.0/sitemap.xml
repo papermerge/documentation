@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.papermerge.io/3.0/rest-api/token/</loc>
+         <lastmod>2023-12-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.papermerge.io/3.0/settings/auth/</loc>
          <lastmod>2023-12-23</lastmod>
          <changefreq>daily</changefreq>
@@ -142,11 +147,6 @@
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.0/user/page-management/</loc>
-         <lastmod>2023-12-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/3.0/user/rest-api-token/</loc>
          <lastmod>2023-12-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
