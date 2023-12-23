@@ -45,7 +45,7 @@ https://my-dms.papermerge.de.
     http://papermerge.local/ are both valid values and point to the same host
 
 
-REST API token can be obtained from {{ extra.project }} `user menu -> API Tokens <rest_api_token>`.
+To get REST API token follow [these instructions](../rest-api/token.md).
 
 
 ## ls

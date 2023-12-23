@@ -30,7 +30,7 @@ Examples:
 
 ## REST API Token
 
-You get REST API token from web UI of your {{ extra.project }} instance. In user menu (upper right corner)
-go to REST API Token menu item.
+Currently there is no web UI for getting your user's token.
+The only way to get REST API token is by running docker command.
 
-Further details are [described in user manual](../user/rest-api-token.md).
+Click [here for details](../rest-api/token.md).
