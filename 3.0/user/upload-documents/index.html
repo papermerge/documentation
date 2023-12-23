@@ -1312,16 +1312,26 @@ preserved - use <code>papermerge-cli</code> described in next paragraph.</p>
 </code></pre></div>
 <p>Note that <code>papermerge-cli</code> will import all content of /path/to/local/folder/ directory
 recursively i.e. it will preserve the structure of local folder in Papermerge as well.</p>
-<p>You can upload one single document by providing path to the document:</p>
+<p>You can upload one document by providing path to the document:</p>
 <div class="language-text highlight"><pre><span></span><code>papermerge-cli import /path/to/document.pdf
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By default all imported documents and folders will end up inside user's Inbox folder.</p>
 </div>
-<p>For more information about <code>papermerge-cli</code> check <code>papermerge-cli</code> section.</p>
+<p>For more information about <code>papermerge-cli</code> check <a href="../../cli/cli/">papermerge-cli</a> section.</p>
 <p><img alt="" src="../../img/user-manual/upload-documents/upload-documents-from-local-folder.gif" /></p>
 <h2 id="rest-api">REST API</h2>
+<p>For uploading documents you can use directly REST API.
+You can access REST API swagger schema definition from user menu (upper right corner of the web UI).
+In order to upload a document there are two steps:</p>
+<ol>
+<li>Create document node without file</li>
+<li>Upload the file for the created node in previous step</li>
+</ol>
+<p>For step 1. use <code>POST /nodes/</code> REST API endpoint.
+For step 2 use <code>POST /documents/&lt;doc-uuid&gt;/upload</code> REST API endpoint, where <code>&lt;doc-uuid&gt;</code> is the ID of the node
+created in first step.</p>
 
 
 

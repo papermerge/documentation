@@ -1273,30 +1273,29 @@
 <h1 id="overview">Overview</h1>
 <p>This section describes a set of command line utilities which can interact
 (e.g. import documents to, list nodes etc) with your Papermerge instance.</p>
-<p>What is common to all command line utilities listed here is the "protocol" they
-use to interact with - they all use REST API interface Papermerge. To
-state it differently - all following command line tools, in order to interact
-with Papermerge need to know:</p>
+<p>What is common to all command line utilities listed here is that they all use REST API interface.
+In order to use REST API you need to know:</p>
 <ul>
 <li>host address of the REST API server</li>
-<li>the token used for authentication (i.e. REST API token)</li>
+<li>the token used for authentication - REST API token</li>
 </ul>
 <h2 id="host-address">Host Address</h2>
-<p>Host address should be provided with <code>http://</code> or <code>https://</code> prefix (depending
-on the REST API server) and <mark class="critic"> does not </mark> include /api suffix.</p>
+<p>Host address should be provided with <code>http://</code> or <code>https://</code> prefix.</p>
 <p>Examples:</p>
-<div class="language-text highlight"><pre><span></span><code>  http://papermerge.local, https://mydms.com/, https://my-own-digital-archives.de
-</code></pre></div>
+<ul>
+<li>http://papermerge.local</li>
+<li>https://mydms.com/</li>
+<li>https://my-own-digital-archives.de</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>REST API server may or may not end with <code>/</code> character. Thus, both http://papermerge.local
     and http://papermerge.local/ are valid.</p>
 </div>
 <h2 id="rest-api-token">REST API Token</h2>
-<p>REST API token can be obtained directly from respective command line utility e.g.:</p>
-<div class="language-text highlight"><pre><span></span><code>  papermerge-cli auth
-</code></pre></div>
-<p>or the REST API token can be obtained from Papermerge user interface as <a href="../../user/rest-api-token/">described in user manual</a></p>
+<p>You get REST API token from web UI of your Papermerge instance. In user menu (upper right corner)
+go to REST API Token menu item.</p>
+<p>Further details are <a href="../../user/rest-api-token/">described in user manual</a>.</p>
 
 
 
