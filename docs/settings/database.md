@@ -49,3 +49,15 @@ will use SQLite with ``/db/db.sqlite3`` as db file.
 !!! Note
 
     Both web_app and worker must have same ``PAPERMERGE__DATABASE__URL``.
+
+
+## DATABASE__POOL_SIZE
+
+Applies only for Tivoli. Set database connections pool size. Defaults to 5.
+
+!!! Note
+
+    This configuration option applies only to [Tivoli](https://github.com/papermerge/tivoli), which is internal JWT token validator component.
+    Tivoli uses SQLAlchemy as ORM. SQLAlchemy has built-in database connections
+    pooling. The core app though, uses Django ORM - which does not have
+    built-in pooling capabilities.
