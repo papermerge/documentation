@@ -868,6 +868,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#database__pool_size" class="md-nav__link">
+    DATABASE__POOL_SIZE
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1238,6 +1245,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#database__pool_size" class="md-nav__link">
+    DATABASE__POOL_SIZE
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1283,6 +1297,15 @@ will use SQLite with <code>/db/db.sqlite3</code> as db file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Both web_app and worker must have same <code>PAPERMERGE__DATABASE__URL</code>.</p>
+</div>
+<h2 id="database__pool_size">DATABASE__POOL_SIZE</h2>
+<p>Applies only for Tivoli. Set database connections pool size. Defaults to 5.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration option applies only to <a href="https://github.com/papermerge/tivoli">Tivoli</a>, which is internal JWT token validator component.
+Tivoli uses SQLAlchemy as ORM. SQLAlchemy has built-in database connections
+pooling. The core app though, uses Django ORM - which does not have
+built-in pooling capabilities.</p>
 </div>
 
 
