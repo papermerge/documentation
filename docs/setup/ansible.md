@@ -1,89 +1,116 @@
-!!! Warning
-
-    Papermerge 3.0 is currently in active development. There is no stable
-    version yet for 3.0. At this stage all docker images are tagged either
-    3.0devX or 3.0aX.
-
-    Version 3.0 is set to be officially released (i.e. tagged with 3.0)
-    by the end of December 2023
-
 # Ansible
 
 Ansible playbook is available at [papermerge/ansible](https://github.com/papermerge/ansible).
 
+
 Playbook will install web app, one worker, database, Redis and Solr search
 engine on target host. All services will be started via docker containers.
+All services will be placed behind traefik, reverse proxy
+which will take care of TLS certficates.
 
-Inventory file is not provided in the repository, you will need
-to create one. Here is an example of inventory file:
+Choose one of following options:
+
+- option 1: install Papermerge with PostgreSQL database
+- option 2: install Papermerge with PostgreSQL + PgBouncer
+- option 3: install Papermerge with MariaDB as database
+
+
+## Secrets
+
+Ansible repository does not include secrets file.
+Secrets file contains all sensitive (paswords, api tokens) information.
+
+You need to create secrets filein `group_vars` folder:
+
+    $ touch groups_vars/secrets
+
+Place following content:
+
+
+    secret_key: ...
+    superuser_password: ...
+    database_url: ...
+    db_pass: ...
+    cloudflare_api_key: ...
+    traefik_api_password: ...
+
+Of course you need to replace dots with correct passwords, secret_key etc.
+[database_url](../settings/database.md) is in secrets file
+because it includes password.
+
+## Option 1 / PostgreSQL
+
+Make sure `database_url` in your secrets files matches database related
+options in `group_vars/all` (db_user, db_name). Also port number `database_url`
+should match the one in `db_postgres/vars/main.yml`.
+
+`database_url` should have following format:
+
+    postgresql://<user>:<pass>@db:5432/<dbname>
+
+Install Papermerge DMS with PostgreSQL:
 
 ```
-192.168.56.99 secret_key=abc superuser_password=1234 superuser_username=eugen database_url="postgresql://scott:tiger@db/mydatabase"  db_pass=tiger
+$ ansible-playbook install_1.yml -i inventory --extra-vars "@group_vars/secrets"
 ```
 
-Playbook was tested in vagrant environment, with Ubuntu 22.04 as target host.
-Ansible config file is not in repository, you need to create one.
-Here is an example of Ansible config file:
+Application will be accessible via https://<acme_domain>
+`acme_domain` is variable you set in `group_vars/all` e.g. trusel.net
+
+## Option 2 / PostgreSQL + PgBouncer
+
+In this setup application will connect to the database via pgbouncer, this
+means that `database_url` should point to pgbouncer.
+
+Your `database_url` should look like:
+
+    postgresql://<user>:<pass>@pgbouncer:6432/<dbname>
+
+
+Install Papermerge DMS with PostgreSQL and PgBouncer:
 
 ```
-[defaults]
-inventory = inventory
-host_key_checking = False
-deprication_warnings = False
-remote_user = vagrant
-private_key_file = .vagrant/machines/default/virtualbox/private_key
+$ ansible-playbook install_2.yml -i inventory --extra-vars "@group_vars/secrets"
 ```
 
-All other variables, with their defaults are in ``group_vars/all`` file.
+Application will be accessible via https://<acme_domain>
+`acme_domain` is variable you set in `group_vars/all` e.g. trusel.net
 
 
-## Install
+## Option 3 / MariaDB
 
-To install {{ extra.project }}, simply run ``install.yml`` playbook:
+For Mysql/MariaDB `database_url` should have following format:
+
+    mysql://<user>:<pass>@db:3306/<dbname>
+
+
+Install Papermerge DMS with MariaDB:
 
 ```
-ansible-playbook -i inventory install.yml
+$ ansible-playbook install_3.yml -i inventory --extra-vars "@group_vars/secrets"
 ```
-
-After installation is complete, the application will be available at:
-
-```
-http://<target-host>:<web_app_port>
-```
-
-``web_app_port`` variable is in ``group_vars/all`` file.
-The ``web_app_port`` default value is 9400.
-
 
 ## Backup
 
-On the target host, folder ``/backup`` is mounted to web_app's container folder ``/backup``.
-
-In order to create a backup, run following playbook:
+In order to create a backup:
 
 ```
-ansible-playbook -i inventory backup.yml
+$ ansible-playbook backup.yml
 ```
-
-Above command will create backup file in  ``/backup/`` in web app's folder, but
-because that folder is mounted by default to target VM host, you will see
-backup archive available in ``/backup/`` folder of host VM as well.
-
 
 ## Restore
 
-To restore a backup, run following playbook:
+
+In order to restore the backup:
 
 ```
 ansible-playbook restore.yml --extra-vars "backup_file=/backup/backup_20_11_2023-07_33_03.tar.gz"
 ```
 
-File path is one from web app's docker container.
-
+The backup file path is the one from inside docker container.
 
 ## Contribute
 
-As mentioned above, currently playbook assumes only Ubuntu 22.04 host.
-We are happy to accept your pull requests for other hosts.
+[papermerge/ansible](https://github.com/papermerge/ansible) assumes Debian12/Ubuntu 22.04 host.
 
-Ansible playbook repository is available at [papermerge/ansible](https://github.com/papermerge/ansible).
+We are happy to accept your pull requests for other hosts.
