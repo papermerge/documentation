@@ -121,11 +121,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.papermerge.io/3.0/user/apps/</loc>
-         <lastmod>2023-12-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.papermerge.io/3.0/user/file-formats/</loc>
          <lastmod>2023-12-28</lastmod>
          <changefreq>daily</changefreq>

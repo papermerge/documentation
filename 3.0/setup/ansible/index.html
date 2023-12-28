@@ -1342,10 +1342,11 @@
 
 <h1 id="ansible">Ansible</h1>
 <p>Ansible playbook is available at <a href="https://github.com/papermerge/ansible">papermerge/ansible</a>.</p>
-<p>Playbook will install web app, one worker, database, Redis and Solr search
-engine on target host. All services will be started via docker containers.
+<p>Playbook will install web app, two workers, database, Redis and Solr search
+engine on target host. All services will be deployed as docker containers.
 All services will be placed behind traefik, reverse proxy
 which will take care of TLS certficates.</p>
+<p><img alt="" src="../../img/setup/ansible/production.svg" /></p>
 <p>Choose one of following options:</p>
 <ul>
 <li>option 1: install Papermerge with PostgreSQL database</li>
