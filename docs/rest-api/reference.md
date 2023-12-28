@@ -7,4 +7,4 @@ Papermerge REST API is exposed via <a href="https://www.openapis.org/" class="ex
 You can access it in your running {{ extra.project }} instance from user menu -> REST API:
 
 
-![](../../img/rest-api/access-restapi.gif)
+![](../img/rest-api/access-restapi.gif)

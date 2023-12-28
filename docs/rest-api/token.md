@@ -36,4 +36,4 @@ In order to get REST API token for user "john" run following command:
 
 The long list of characters from above is the token for user with username "john".
 
-![](../../img/rest-api/create_token.gif)
+![](../img/rest-api/create_token.gif)

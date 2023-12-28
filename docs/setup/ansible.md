@@ -3,10 +3,13 @@
 Ansible playbook is available at [papermerge/ansible](https://github.com/papermerge/ansible).
 
 
-Playbook will install web app, one worker, database, Redis and Solr search
-engine on target host. All services will be started via docker containers.
+Playbook will install web app, two workers, database, Redis and Solr search
+engine on target host. All services will be deployed as docker containers.
 All services will be placed behind traefik, reverse proxy
 which will take care of TLS certficates.
+
+![](../img/setup/ansible/production.svg)
+
 
 Choose one of following options:
 
