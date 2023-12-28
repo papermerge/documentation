@@ -9,11 +9,6 @@ This sections is for database configurations.
 For PostgreSQL the database URL is given in following format:
 
 ```
-postgres://USER:PASSWORD@HOST:PORT/NAME
-```
-or
-
-```
 postgresql://USER:PASSWORD@HOST:PORT/NAME
 ```
 
