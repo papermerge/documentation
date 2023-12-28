@@ -420,8 +420,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    Install
+  <a href="#secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-1-postgresql" class="md-nav__link">
+    Option 1 / PostgreSQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-postgresql-pgbouncer" class="md-nav__link">
+    Option 2 / PostgreSQL + PgBouncer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-3-mariadb" class="md-nav__link">
+    Option 3 / MariaDB
   </a>
   
 </li>
@@ -1253,8 +1274,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    Install
+  <a href="#secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-1-postgresql" class="md-nav__link">
+    Option 1 / PostgreSQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-postgresql-pgbouncer" class="md-nav__link">
+    Option 2 / PostgreSQL + PgBouncer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-3-mariadb" class="md-nav__link">
+    Option 3 / MariaDB
   </a>
   
 </li>
@@ -1298,59 +1340,77 @@
   
 
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Papermerge 3.0 is currently in active development. There is no stable
-version yet for 3.0. At this stage all docker images are tagged either
-3.0devX or 3.0aX.</p>
-<p>Version 3.0 is set to be officially released (i.e. tagged with 3.0)
-by the end of December 2023</p>
-</div>
 <h1 id="ansible">Ansible</h1>
 <p>Ansible playbook is available at <a href="https://github.com/papermerge/ansible">papermerge/ansible</a>.</p>
 <p>Playbook will install web app, one worker, database, Redis and Solr search
-engine on target host. All services will be started via docker containers.</p>
-<p>Inventory file is not provided in the repository, you will need
-to create one. Here is an example of inventory file:</p>
-<pre><code>192.168.56.99 secret_key=abc superuser_password=1234 superuser_username=eugen database_url=&quot;postgresql://scott:tiger@db/mydatabase&quot;  db_pass=tiger
+engine on target host. All services will be started via docker containers.
+All services will be placed behind traefik, reverse proxy
+which will take care of TLS certficates.</p>
+<p>Choose one of following options:</p>
+<ul>
+<li>option 1: install Papermerge with PostgreSQL database</li>
+<li>option 2: install Papermerge with PostgreSQL + PgBouncer</li>
+<li>option 3: install Papermerge with MariaDB as database</li>
+</ul>
+<h2 id="secrets">Secrets</h2>
+<p>Ansible repository does not include secrets file.
+Secrets file contains all sensitive (paswords, api tokens) information.</p>
+<p>You need to create secrets filein <code>group_vars</code> folder:</p>
+<div class="language-text highlight"><pre><span></span><code>$ touch groups_vars/secrets
+</code></pre></div>
+<p>Place following content:</p>
+<div class="language-text highlight"><pre><span></span><code>secret_key: ...
+superuser_password: ...
+database_url: ...
+db_pass: ...
+cloudflare_api_key: ...
+traefik_api_password: ...
+</code></pre></div>
+<p>Of course you need to replace dots with correct passwords, secret_key etc.
+<a href="../../settings/database/">database_url</a> is in secrets file
+because it includes password.</p>
+<h2 id="option-1-postgresql">Option 1 / PostgreSQL</h2>
+<p>Make sure <code>database_url</code> in your secrets files matches database related
+options in <code>group_vars/all</code> (db_user, db_name). Also port number <code>database_url</code>
+should match the one in <code>db_postgres/vars/main.yml</code>.</p>
+<p><code>database_url</code> should have following format:</p>
+<div class="language-text highlight"><pre><span></span><code>postgresql://&lt;user&gt;:&lt;pass&gt;@db:5432/&lt;dbname&gt;
+</code></pre></div>
+<p>Install Papermerge DMS with PostgreSQL:</p>
+<pre><code>$ ansible-playbook install_1.yml -i inventory --extra-vars &quot;@group_vars/secrets&quot;
 </code></pre>
-<p>Playbook was tested in vagrant environment, with Ubuntu 22.04 as target host.
-Ansible config file is not in repository, you need to create one.
-Here is an example of Ansible config file:</p>
-<pre><code>[defaults]
-inventory = inventory
-host_key_checking = False
-deprication_warnings = False
-remote_user = vagrant
-private_key_file = .vagrant/machines/default/virtualbox/private_key
+<p>Application will be accessible via https://<acme_domain>
+<code>acme_domain</code> is variable you set in <code>group_vars/all</code> e.g. trusel.net</p>
+<h2 id="option-2-postgresql-pgbouncer">Option 2 / PostgreSQL + PgBouncer</h2>
+<p>In this setup application will connect to the database via pgbouncer, this
+means that <code>database_url</code> should point to pgbouncer.</p>
+<p>Your <code>database_url</code> should look like:</p>
+<div class="language-text highlight"><pre><span></span><code>postgresql://&lt;user&gt;:&lt;pass&gt;@pgbouncer:6432/&lt;dbname&gt;
+</code></pre></div>
+<p>Install Papermerge DMS with PostgreSQL and PgBouncer:</p>
+<pre><code>$ ansible-playbook install_2.yml -i inventory --extra-vars &quot;@group_vars/secrets&quot;
 </code></pre>
-<p>All other variables, with their defaults are in <code>group_vars/all</code> file.</p>
-<h2 id="install">Install</h2>
-<p>To install Papermerge, simply run <code>install.yml</code> playbook:</p>
-<pre><code>ansible-playbook -i inventory install.yml
+<p>Application will be accessible via https://<acme_domain>
+<code>acme_domain</code> is variable you set in <code>group_vars/all</code> e.g. trusel.net</p>
+<h2 id="option-3-mariadb">Option 3 / MariaDB</h2>
+<p>For Mysql/MariaDB <code>database_url</code> should have following format:</p>
+<div class="language-text highlight"><pre><span></span><code>mysql://&lt;user&gt;:&lt;pass&gt;@db:3306/&lt;dbname&gt;
+</code></pre></div>
+<p>Install Papermerge DMS with MariaDB:</p>
+<pre><code>$ ansible-playbook install_3.yml -i inventory --extra-vars &quot;@group_vars/secrets&quot;
 </code></pre>
-<p>After installation is complete, the application will be available at:</p>
-<pre><code>http://&lt;target-host&gt;:&lt;web_app_port&gt;
-</code></pre>
-<p><code>web_app_port</code> variable is in <code>group_vars/all</code> file.
-The <code>web_app_port</code> default value is 9400.</p>
 <h2 id="backup">Backup</h2>
-<p>On the target host, folder <code>/backup</code> is mounted to web_app's container folder <code>/backup</code>.</p>
-<p>In order to create a backup, run following playbook:</p>
-<pre><code>ansible-playbook -i inventory backup.yml
+<p>In order to create a backup:</p>
+<pre><code>$ ansible-playbook backup.yml
 </code></pre>
-<p>Above command will create backup file in  <code>/backup/</code> in web app's folder, but
-because that folder is mounted by default to target VM host, you will see
-backup archive available in <code>/backup/</code> folder of host VM as well.</p>
 <h2 id="restore">Restore</h2>
-<p>To restore a backup, run following playbook:</p>
+<p>In order to restore the backup:</p>
 <pre><code>ansible-playbook restore.yml --extra-vars &quot;backup_file=/backup/backup_20_11_2023-07_33_03.tar.gz&quot;
 </code></pre>
-<p>File path is one from web app's docker container.</p>
+<p>The backup file path is the one from inside docker container.</p>
 <h2 id="contribute">Contribute</h2>
-<p>As mentioned above, currently playbook assumes only Ubuntu 22.04 host.
-We are happy to accept your pull requests for other hosts.</p>
-<p>Ansible playbook repository is available at <a href="https://github.com/papermerge/ansible">papermerge/ansible</a>.</p>
+<p><a href="https://github.com/papermerge/ansible">papermerge/ansible</a> assumes Debian12/Ubuntu 22.04 host.</p>
+<p>We are happy to accept your pull requests for other hosts.</p>
 
 
 
