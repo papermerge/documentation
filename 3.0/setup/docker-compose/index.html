@@ -1319,7 +1319,7 @@
 <pre><code class="language-yaml">  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0rc5
+    image: papermerge/papermerge:3.0
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
         PAPERMERGE__AUTH__USERNAME: john
@@ -1354,7 +1354,7 @@ uses PostgreSQL:</p>
 <pre><code class="language-yaml">  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0rc5
+    image: papermerge/papermerge:3.0
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
         PAPERMERGE__AUTH__USERNAME: john
@@ -1396,7 +1396,7 @@ production environments, full fledged search engine like Solr is recommanded.</p
 <pre><code class="language-yaml">version: &quot;3.9&quot;
 
 x-backend: &amp;common
-  image: papermerge/papermerge:3.0rc5
+  image: papermerge/papermerge:3.0
   environment:
     PAPERMERGE__SECURITY__SECRET_KEY: 12345
     PAPERMERGE__AUTH__USERNAME: john
@@ -1449,7 +1449,7 @@ volumes:
 <pre><code class="language-yaml">version: &quot;3.9&quot;
 
 x-backend: &amp;common
-  image: papermerge/papermerge:3.0rc5
+  image: papermerge/papermerge:3.0
   environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
       PAPERMERGE__AUTH__USERNAME: eugen
