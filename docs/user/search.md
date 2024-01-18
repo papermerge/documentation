@@ -12,7 +12,7 @@ inspecting their content, title, and tags.
 
 
 By default, {{extra.project}} returns only documents which contain all words typed in
-the search bar. However, {{extra.project}} also offers addional search syntax if you
+the search bar. However, {{extra.project}} also offers additional search syntax if you
 want to drill down the results further.
 
 
