@@ -239,7 +239,7 @@ Here is an example of docker compose setup with MariaDB:
         start_period: 10s
 
   volumes:
-    postgres_data:
+    maria:
     solr_data:
     media_root:
 ```
