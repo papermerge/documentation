@@ -7,13 +7,13 @@ The only two required environment variables are
 web ui part use following command:
 
 ```console
-docker run -p 9400:80 \
+docker run -p 12000:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
-    -e PAPERMERGE__AUTH__PASSWORD=123 \
+    -e PAPERMERGE__AUTH__PASSWORD=admin \
     papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
-Point your web browser to `http://localhost:9400` and you will see login screen:
+Point your web browser to `http://localhost:12000` and you will see login screen:
 
 
 ![login screen](../img/setup/login.png)
@@ -22,7 +22,7 @@ Point your web browser to `http://localhost:9400` and you will see login screen:
 Credentials are:
 
 - username `admin`
-- password `123`
+- password `admin`
 
 !!! Note
 
@@ -59,8 +59,8 @@ Here is minimal docker compose file with web UI and one worker:
     image: papermerge/papermerge:{{ extra.docker_image_version }}
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
-        PAPERMERGE__AUTH__USERNAME: john
-        PAPERMERGE__AUTH__PASSWORD: hohoho
+        PAPERMERGE__AUTH__USERNAME: admin
+        PAPERMERGE__AUTH__PASSWORD: admin
         PAPERMERGE__REDIS__URL: redis://redis:6379/0
     volumes:
         - data:/db
