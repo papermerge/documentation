@@ -77,6 +77,12 @@ services:
     command: worker
   redis:
     image: redis:6
+    healthcheck:
+      test: redis-cli --raw incr ping
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
   db:
     image: postgres:16.1
     volumes:
