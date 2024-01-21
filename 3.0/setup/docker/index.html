@@ -1323,17 +1323,17 @@
 <p>The only two required environment variables are
 <code>PAPERMERGE__SECURITY__SECRET_KEY</code> and <code>PAPERMERGE__AUTH__PASSWORD</code>. To start
 web ui part use following command:</p>
-<pre><code class="language-console">docker run -p 9400:80 \
+<pre><code class="language-console">docker run -p 12000:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
-    -e PAPERMERGE__AUTH__PASSWORD=123 \
-    papermerge/papermerge:3.0.1
+    -e PAPERMERGE__AUTH__PASSWORD=admin \
+    papermerge/papermerge:3.0.2
 </code></pre>
-<p>Point your web browser to <code>http://localhost:9400</code> and you will see login screen:</p>
+<p>Point your web browser to <code>http://localhost:12000</code> and you will see login screen:</p>
 <p><img alt="login screen" src="../../img/setup/login.png" /></p>
 <p>Credentials are:</p>
 <ul>
 <li>username <code>admin</code></li>
-<li>password <code>123</code></li>
+<li>password <code>admin</code></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1345,7 +1345,7 @@ also <a href="#web-app-worker">need one or multiple workers</a>.</p>
 <h2 id="get-docker-image">Get Docker Image</h2>
 <p>The recommended way to get the Papermerge docker image is via
 docker pull command:</p>
-<pre><code class="language-console">docker pull papermerge/papermerge:3.0.1
+<pre><code class="language-console">docker pull papermerge/papermerge:3.0.2
 </code></pre>
 <h2 id="web-app-worker">Web App + Worker</h2>
 <p>For complete setup you need to start one or multiple workers.
@@ -1354,11 +1354,11 @@ Worker is the component which, among other things, performs OCR.</p>
 <pre><code>  version: &quot;3.9&quot;
 
   x-backend: &amp;common
-    image: papermerge/papermerge:3.0.1
+    image: papermerge/papermerge:3.0.2
     environment:
         PAPERMERGE__SECURITY__SECRET_KEY: 12345
-        PAPERMERGE__AUTH__USERNAME: john
-        PAPERMERGE__AUTH__PASSWORD: hohoho
+        PAPERMERGE__AUTH__USERNAME: admin
+        PAPERMERGE__AUTH__PASSWORD: admin
         PAPERMERGE__REDIS__URL: redis://redis:6379/0
     volumes:
         - data:/db
