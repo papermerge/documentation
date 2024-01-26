@@ -1233,9 +1233,9 @@ inspecting their content, title, and tags.</p>
 <p class="admonition-title">Note</p>
 <p>Papermerge searches only in <strong>content of the last version</strong> of the document</p>
 </div>
-<p>By default, Papermerge returns only documents which contain all words typed in
-the search bar. However, Papermerge also offers additional search syntax if you
-want to drill down the results further.</p>
+<p>By default, Papermerge returns only documents which contain any of the
+words typed in the search bar. However, Papermerge also offers
+additional search syntax if you want to drill down the results further.</p>
 <p>Matching inexact words:</p>
 <div class="language-text highlight"><pre><span></span><code>*5951
 </code></pre></div>
@@ -1244,6 +1244,29 @@ want to drill down the results further.</p>
 <div class="language-text highlight"><pre><span></span><code>tags:paid
 </code></pre></div>
 <p>will return documents with tag "paid"</p>
+<p>You can match document with logical expressions:</p>
+<div class="language-text highlight"><pre><span></span><code>pizza AND salami
+</code></pre></div>
+<p>will return all documents containing both words: "pizza" and "salami".</p>
+<div class="language-text highlight"><pre><span></span><code>pizza AND (salami OR speciale)
+</code></pre></div>
+<p>will return all documents containing either "pizza" and "salami";
+or "pizza" and "speciale".</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Logical expression must be in capital case, otherwise they
+will be ignored.</p>
+</div>
+<p>Implicit logical expression is "OR". In other words, if you search:</p>
+<div class="language-text highlight"><pre><span></span><code>pizza salami
+</code></pre></div>
+<p>is same as you would search with following query:</p>
+<div class="language-text highlight"><pre><span></span><code>pizza OR salami
+</code></pre></div>
+<p>All of these constructs can be combined as you see fit.
+For example, following search query will return all documents tagged with "important" and contain word "pizza":</p>
+<div class="language-text highlight"><pre><span></span><code>pizza AND tags:important
+</code></pre></div>
 
 
 
