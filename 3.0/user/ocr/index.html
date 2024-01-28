@@ -681,13 +681,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatic-ocr" class="md-nav__link">
-    Automatic OCR
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#default-ocr-language" class="md-nav__link">
     Default OCR Language
   </a>
@@ -1294,13 +1287,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatic-ocr" class="md-nav__link">
-    Automatic OCR
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#default-ocr-language" class="md-nav__link">
     Default OCR Language
   </a>
@@ -1367,21 +1353,22 @@ and makes them searchable.</p>
 The OCR process status is indicated by little circle next to document's
 title. When OCR process is completed new document version is created and
 document becomes searchable.</p>
-<h2 id="automatic-ocr">Automatic OCR</h2>
-<p>By default OCR is triggered automatically when document is uploaded. However,
-you can disable automatic OCR triggering, in such case you can start OCR only
-when you consider necessary.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Documents for which OCR was skipped - are not searchable!</p>
-</div>
-<p>In order to disable automatic OCR, go to User Menu -&gt; Preferences -&gt; OCR -&gt; Trigger -&gt; Manual</p>
 <h2 id="default-ocr-language">Default OCR Language</h2>
 <p>In order to perform OCR on the document you need to indicate beforehand the
-language of respective document. Choosing ocr language for each and every
-document uploaded is tedious - instead, in preferences a default OCR Language
-is set - and that language is applied for each uploaded document.</p>
-<p>In order to set default OCR language, go to User Menu -&gt; Preferences -&gt; OCR -&gt; Language</p>
+language of respective document. When you click "Run OCR" in document viewer
+you will need to choose OCR language.</p>
+<p>When you upload documents, the value of <code>PAPERMERGE__OCR__DEFAULT_LANGUAGE</code>
+indicates OCR language system will use (if you don't change anything it will use <code>deu</code>,
+which stands for German).</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Or maybe UI should ask user OCR language on upload as well, some sort of
+  modal dialog which appears when user drops docs/clicks upload? Or there
+  should be an UI preference where user can opt which way he/she wants to
+  indicate default OCR language without being ask on every doc upload?
+  Open a <a href="https://github.com/ciur/papermerge/discussions">disscussion</a> on this
+  topic and let's disscuss it!</p>
+</div>
 <h2 id="status-indicator">Status Indicator</h2>
 <p>Papermerge features real time OCR status indicator - this means that you can
 see document's OCR status updates as they happen (i.e. in real time).
