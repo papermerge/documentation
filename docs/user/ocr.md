@@ -8,27 +8,25 @@ The OCR process status is indicated by little circle next to document's
 title. When OCR process is completed new document version is created and
 document becomes searchable.
 
-## Automatic OCR
-
-By default OCR is triggered automatically when document is uploaded. However,
-you can disable automatic OCR triggering, in such case you can start OCR only
-when you consider necessary.
-
-!!! important
-
-    Documents for which OCR was skipped - are not searchable!
-
-In order to disable automatic OCR, go to User Menu -> Preferences -> OCR -> Trigger -> Manual
-
 
 ## Default OCR Language
 
 In order to perform OCR on the document you need to indicate beforehand the
-language of respective document. Choosing ocr language for each and every
-document uploaded is tedious - instead, in preferences a default OCR Language
-is set - and that language is applied for each uploaded document.
+language of respective document. When you click "Run OCR" in document viewer
+you will need to choose OCR language.
 
-In order to set default OCR language, go to User Menu -> Preferences -> OCR -> Language
+When you upload documents, the value of `PAPERMERGE__OCR__DEFAULT_LANGUAGE`
+indicates OCR language system will use (if you don't change anything it will use `deu`,
+which stands for German).
+
+!!! question
+
+      Or maybe UI should ask user OCR language on upload as well, some sort of
+      modal dialog which appears when user drops docs/clicks upload? Or there
+      should be an UI preference where user can opt which way he/she wants to
+      indicate default OCR language without being ask on every doc upload?
+      Open a [disscussion](https://github.com/ciur/papermerge/discussions) on this
+      topic and let's disscuss it!
 
 
 ## Status Indicator
