@@ -1,6 +1,7 @@
 # Add OCR Languages
 
-By default the {{extra.project}} docker image includes English, German, French, Italian, Spanish, Romanian and Portugues OCR languages.
+By default the {{extra.project}} docker image includes English, German, French, Italian, Spanish, Dutch,
+Romanian and Portugues OCR languages.
 
 You can install extra languages by creating a new docker image from base `papermerge/papermerge`.
 
