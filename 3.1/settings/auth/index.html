@@ -822,6 +822,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#auth__google_client_secret" class="md-nav__link">
+    AUTH__GOOGLE_CLIENT_SECRET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__google_client_id" class="md-nav__link">
+    AUTH__GOOGLE_CLIENT_ID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__google_authorize_url" class="md-nav__link">
+    AUTH__GOOGLE_AUTHORIZE_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__google_redirect_uri" class="md-nav__link">
+    AUTH__GOOGLE_REDIRECT_URI
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1286,6 +1314,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#auth__google_client_secret" class="md-nav__link">
+    AUTH__GOOGLE_CLIENT_SECRET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__google_client_id" class="md-nav__link">
+    AUTH__GOOGLE_CLIENT_ID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__google_authorize_url" class="md-nav__link">
+    AUTH__GOOGLE_AUTHORIZE_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__google_redirect_uri" class="md-nav__link">
+    AUTH__GOOGLE_REDIRECT_URI
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1319,6 +1375,28 @@
 <p>Email for the superuser. Default value is <code>admin@example.com</code>.</p>
 <p>Example:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__EMAIL=john@mail.com
+</code></pre></div>
+<h2 id="auth__google_client_secret">AUTH__GOOGLE_CLIENT_SECRET</h2>
+<p>When using oauth2 authentication with Google provider this variables is oauth2 client secret.
+You get oauth2 client secret from Google Console.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET=GOCSPX-qlqlqlqlqlqlqlqlq-FuOOOOORf
+</code></pre></div>
+<h2 id="auth__google_client_id">AUTH__GOOGLE_CLIENT_ID</h2>
+<p>When using oauth2 authentication with Google provider this variables is oauth2 client ID.
+You get oauth2 client ID from Google Console.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_CLIENT_ID=900000999991-1tmegfjqqqqqqqqqqqqqqqqqqqqv.apps.googleusercontent.com
+</code></pre></div>
+<h2 id="auth__google_authorize_url">AUTH__GOOGLE_AUTHORIZE_URL</h2>
+<p>Must be set to fixed value <code>https://accounts.google.com/o/oauth2/auth</code>:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=https://accounts.google.com/o/oauth2/auth
+</code></pre></div>
+<p>In case google changed their authorize URL, please <a href="https://github.com/ciur/papermerge/issues">open a ticket</a> for Papermerge to update this documentation entry with correct value.</p>
+<h2 id="auth__google_redirect_uri">AUTH__GOOGLE_REDIRECT_URI</h2>
+<p>This value always should be set to "https:<your-domain>/google/callback".
+Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI=https://demo.trusel.net/google/callback
 </code></pre></div>
 
 
