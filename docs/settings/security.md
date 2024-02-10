@@ -16,7 +16,7 @@ Example as environment variable:
 ## SECURITY__TOKEN_EXPIRE_MINUTES
 
 
-[REST API token](/rest-api/token) expiration in minutes. Default value is 360 (i.e. 6 hours).
+[REST API token](../rest-api/token) expiration in minutes. Default value is 360 (i.e. 6 hours).
 
 Example, set token to expire in 7 days (10080 = 60x24x7):
 
