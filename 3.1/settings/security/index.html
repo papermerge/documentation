@@ -848,6 +848,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#security__token_expire_minutes" class="md-nav__link">
+    SECURITY__TOKEN_EXPIRE_MINUTES
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1258,6 +1265,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#security__token_expire_minutes" class="md-nav__link">
+    SECURITY__TOKEN_EXPIRE_MINUTES
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1283,6 +1297,11 @@ kept secret. This option does not have default value, you always need
 to supply a value for it. Secret key is used to sign JWT tokens.</p>
 <p>Example as environment variable:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SECRET__SECRET_KEY=asjrijfpHHJH00huge00secret00QMNB344GHOOooaq
+</code></pre></div>
+<h2 id="security__token_expire_minutes">SECURITY__TOKEN_EXPIRE_MINUTES</h2>
+<p><a href="/rest-api/token">REST API token</a> expiration in minutes. Default value is 360 (i.e. 6 hours).</p>
+<p>Example, set token to expire in 7 days (10080 = 60x24x7):</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__SECURITY__TOKEN_EXPIRE_MINUTES=10080
 </code></pre></div>
 
 
