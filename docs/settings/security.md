@@ -12,3 +12,13 @@ Example as environment variable:
 
     PAPERMERGE__SECRET__SECRET_KEY=asjrijfpHHJH00huge00secret00QMNB344GHOOooaq
 
+
+## SECURITY__TOKEN_EXPIRE_MINUTES
+
+
+[REST API token](/rest-api/token) expiration in minutes. Default value is 360 (i.e. 6 hours).
+
+Example, set token to expire in 7 days (10080 = 60x24x7):
+
+    PAPERMERGE__SECURITY__TOKEN_EXPIRE_MINUTES=10080
+
