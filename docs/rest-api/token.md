@@ -36,4 +36,8 @@ In order to get REST API token for user "john" run following command:
 
 The long list of characters from above is the token for user with username "john".
 
+By default generated REST API token is valid for 6 hours. If you want to
+change expiration time for the token use
+[PAPERMERGE__SECURITY__TOKEN_EXPIRE_MINUTES](/settings/security) configuration setting.
+
 ![](../img/rest-api/create_token.gif)
