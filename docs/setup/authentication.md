@@ -1,14 +1,14 @@
 # Authentication
 
-{{ extra.project }} suppors different modes of authentications:
+{{ extra.project }} supports different authentication modes:
 
 - Database (default)
 - OAuth 2.0
 - LDAP
 
 The difference consist in who decides if user with given username and
-password, are valid. In first mode i.e. database authentication - it is {
-{ extra.project }} who decides if credentials are valid, this is why this
+password, are valid. In first mode i.e. database authentication - it is
+ {{ extra.project }} who decides if credentials are valid, this is why this
 database authentication is also called "internal authentication". For other
 two authentication modes it is the other party, external one like LDAP, which
 decides on validity of the given credentials.
@@ -23,7 +23,7 @@ operation mode.
 
 ## OAuth 2.0
 
-{{ extra.project }} supports OAuth 2.0 authenication protocol with Google and GitHub providers.
+{{ extra.project }} supports OAuth 2.0 authentication protocol with Google and GitHub providers.
 
 
 ### Google Provider
