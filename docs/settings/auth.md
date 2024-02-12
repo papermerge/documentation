@@ -56,7 +56,39 @@ In case google changed their authorize URL, please [open a ticket](https://githu
 
 ## AUTH__GOOGLE_REDIRECT_URI
 
-This value always should be set to "https:<your-domain>/google/callback".
+This value always should be set to `<http|https>://<your-domain>/google/callback`.
 Example:
 
     PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI=https://demo.trusel.net/google/callback
+
+
+## AUTH__GITHUB_CLIENT_SECRET
+
+When using oauth2 authentication with GitHub provider this variables is oauth2 client secret.
+
+Example:
+
+    PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET=hohoho-edited-FuOOOOORf
+
+## AUTH__GITHUB_CLIENT_ID
+
+When using oauth2 authentication with GitHub provider, this variables is oauth2 client ID.
+
+Example:
+
+    PAPERMERGE__AUTH__GITHUB_CLIENT_ID=1tmegfjq-edited-qqqqv
+
+## AUTH__GITHUB_AUTHORIZE_URL
+
+Must be set to fixed value `https://github.com/login/oauth/authorize`:
+
+    PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL=https://github.com/login/oauth/authorize
+
+In case GitHub changes their authorize URL, please [open a ticket](https://github.com/ciur/papermerge/issues) for Papermerge to update this documentation entry with correct value.
+
+## AUTH__GITHUB_REDIRECT_URI
+
+This value always should be set to `<http|https>://<your-domain>/github/callback`.
+Example:
+
+    PAPERMERGE__AUTH__GITHUB_REDIRECT_URI=https://demo.trusel.net/github/callback
