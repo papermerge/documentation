@@ -64,6 +64,9 @@ If all four environment variables are provided, the sign in view will render
 one extra button "Login with Github" as in picture below:
 
 
+![](../img/setup/auth/login-with-github.png)
+
+
 ## LDAP
 
 ...
