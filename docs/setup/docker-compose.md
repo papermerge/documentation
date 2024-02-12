@@ -280,10 +280,10 @@ services:
   web:
     <<: *common
     environment:
-      PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET=GOCSPX-edited-of-course
-      PAPERMERGE__AUTH__GOOGLE_CLIENT_ID=900000999991-edited-of-course.apps.googleusercontent.com
-      PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=https://accounts.google.com/o/oauth2/auth  # fixed
-      PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI=https://demo.trusel.net/google/callback  # replace with your domain
+      PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET: GOCSPX-edited-of-course
+      PAPERMERGE__AUTH__GOOGLE_CLIENT_ID: 900000999991-edited-of-course.apps.googleusercontent.com
+      PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL: https://accounts.google.com/o/oauth2/auth  # fixed
+      PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI: https://demo.trusel.net/google/callback  # replace with your domain
     ports:
      - "12000:80"
   worker:
@@ -356,7 +356,10 @@ services:
   web:
     <<: *common
     environment:
-      ... # replace here with github oauth2.0 configs
+      PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET: "GitHub oauth2.0 client secret"
+      PAPERMERGE__AUTH__GITHUB_CLIENT_ID: "Github oauth2.0 client ID"
+      PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL: "https://github.com/login/oauth/authorize"
+      PAPERMERGE__AUTH__GITHUB_REDIRECT_URI: "<http|https>://<your domain>/github/callback"
     ports:
      - "12000:80"
   worker:
