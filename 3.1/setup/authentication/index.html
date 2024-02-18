@@ -1408,7 +1408,31 @@ one extra button "Login with Google" as in picture below:</p>
 one extra button "Login with Github" as in picture below:</p>
 <p><img alt="" src="../../img/setup/auth/login-with-github.png" /></p>
 <h2 id="ldap">LDAP</h2>
-<p>...</p>
+<p>Papermerge can perform authentication against users stored in LDAP system.
+In order to enable LDAP authentication you need to provide at least
+two environment variables:</p>
+<ul>
+<li><a href="../../settings/auth/#auth__ldap_url">PAPERMERGE__AUTH__LDAP_URL</a></li>
+<li><a href="../../settings/auth/#auth__ldap_user_dn_format">PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT</a></li>
+</ul>
+<p>First one is the URL to your ldap server, without scheme, example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_URL=ldap.trusel.net
+</code></pre></div>
+<p>By default, Papermerge will connect to LDAP server using secure TLS connection. If you want Papermerge to access LDAP server using plain text connection, set <a href="../../settings/auth/#auth__ldap_use_ssl">PAPERMERGE__AUTH__LDAP_USE_SSL</a> to False:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USE_SSL=False
+</code></pre></div>
+<p>The second mandatory option is <a href="../../settings/auth/#auth__ldap_user_dn_format">PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT</a>. It instructs Papermerge the DN (distinguished name) of the user
+you want to authenticate against. Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT=uid={username},ou=People,dc=ldap,dc=trusel,dc=net
+</code></pre></div>
+<p>Notice "{username}" part - it must be literaly this value; the "{username}" will be replaced with actual
+username of the user when performing LDAP bind.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In case you are curious, Papermerge uses <a href="https://ldap3.readthedocs.io/en/latest/">ldap3</a> python package to perform LDAP authentication. <a href="https://github.com/papermerge/auth-server/blob/main/auth_server/backends/ldap.py">Here is source code</a> of ldap authentication part.</p>
+</div>
+<p>By default Papermerge will try to extract user's email from <code>mail</code> attribute of LDAP entry identified <code>PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT</code> distinguished name.
+You can instruct Papermerge about email attribute in LDAP entry with <a href="../../settings/auth/#auth__ldap_email_attr">PAPERMERGE__AUTH__LDAP_URL</a>.</p>
 
 
 

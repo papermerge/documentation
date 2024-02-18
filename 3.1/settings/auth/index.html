@@ -898,6 +898,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#auth__ldap_url" class="md-nav__link">
+    AUTH__LDAP_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_user_dn_format" class="md-nav__link">
+    AUTH__LDAP_USER_DN_FORMAT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_use_ssl" class="md-nav__link">
+    AUTH__LDAP_USE_SSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_email_attr" class="md-nav__link">
+    AUTH__LDAP_EMAIL_ATTR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_user_email_domain_fallback" class="md-nav__link">
+    AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1418,6 +1453,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#auth__ldap_url" class="md-nav__link">
+    AUTH__LDAP_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_user_dn_format" class="md-nav__link">
+    AUTH__LDAP_USER_DN_FORMAT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_use_ssl" class="md-nav__link">
+    AUTH__LDAP_USE_SSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_email_attr" class="md-nav__link">
+    AUTH__LDAP_EMAIL_ATTR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__ldap_user_email_domain_fallback" class="md-nav__link">
+    AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1494,6 +1564,42 @@ Example:</p>
 Example:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GITHUB_REDIRECT_URI=https://demo.trusel.net/github/callback
 </code></pre></div>
+<h2 id="auth__ldap_url">AUTH__LDAP_URL</h2>
+<p>If this environment variable is set to non-empty value, Papermerge will assume that authentication will be performed using LDAP
+backend. Value should be set to URL of the ldap server. URL is specified without scheme
+(i.e. no ldap://, ldaps:// prefix). Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_URL=ldap.trusel.net
+</code></pre></div>
+<h2 id="auth__ldap_user_dn_format">AUTH__LDAP_USER_DN_FORMAT</h2>
+<p>Format of distinguished name to the user entry. The "{username}" literal is used
+as placeholder; in other words you mark the part of the DN where actual username will be placed with "{username}" string. Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT=&quot;uid={username},ou=People,dc=ldap,dc=trusel,dc=net&quot;
+</code></pre></div>
+<p>Another example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT=&quot;uid={username},ou=Users,dc=example,dc=com&quot;
+</code></pre></div>
+<p>Yet another, fictional example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT=&quot;uid={username},ou=Accounts,dc=acme,dc=com&quot;
+</code></pre></div>
+<p>You see? "{username}" part stay fixed. It is placeholder.</p>
+<h2 id="auth__ldap_use_ssl">AUTH__LDAP_USE_SSL</h2>
+<p>Boolean value (True/False). Instructs Papermerge if secure connection should be used (TLS/SSL) when connecting to LDAP server.
+Default value is True. Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USE_SSL=False
+</code></pre></div>
+<h2 id="auth__ldap_email_attr">AUTH__LDAP_EMAIL_ATTR</h2>
+<p>Email attribute name in user LDAP entry. Default value is <code>mail</code>.</p>
+<h2 id="auth__ldap_user_email_domain_fallback">AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK</h2>
+<p>Fallback value of the email domain.
+In case Papermerge fails to extract user's email, it will use this value as fallback for email domain.
+The full email format that Papermerge will set as fallback is:</p>
+<div class="language-text highlight"><pre><span></span><code>&lt;username&gt;@&lt;email-domain-fallback&gt;
+</code></pre></div>
+<p>For example, if:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK=starship.com
+</code></pre></div>
+<p>and username is <code>coco</code> and, say, LDAP user entry does not feature mail attribute, the
+email assigned to user will be <code>coco@starship.com</code></p>
 
 
 
