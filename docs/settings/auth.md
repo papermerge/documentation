@@ -104,7 +104,7 @@ backend. Value should be set to URL of the ldap server. URL is specified without
 
 ## AUTH__LDAP_USER_DN_FORMAT
 
-Format of distingueshed name to the user entry. The "{username}" literal is used
+Format of distinguished name to the user entry. The "{username}" literal is used
 as placeholder; in other words you mark the part of the DN where actual username will be placed with "{username}" string. Example:
 
     PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT="uid={username},ou=People,dc=ldap,dc=trusel,dc=net"
