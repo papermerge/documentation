@@ -69,4 +69,35 @@ one extra button "Login with Github" as in picture below:
 
 ## LDAP
 
-...
+{{ extra.project }} can perform authentication against users stored in LDAP system.
+In order to enable LDAP authentication you need to provide at least
+two environment variables:
+
+- [PAPERMERGE__AUTH__LDAP_URL](../settings/auth.md#auth__ldap_url)
+- [PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT](../settings/auth.md#auth__ldap_user_dn_format)
+
+
+
+First one is the URL to your ldap server, without scheme, example:
+
+	PAPERMERGE__AUTH__LDAP_URL=ldap.trusel.net
+
+By default, {{ extra.project }} will connect to LDAP server using secure TLS connection. If you want {{ extra.project }} to access LDAP server using plain text connection, set [PAPERMERGE__AUTH__LDAP_USE_SSL](../settings/auth.md#auth__ldap_use_ssl) to False:
+
+	PAPERMERGE__AUTH__LDAP_USE_SSL=False
+
+The second mandatory option is [PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT](../settings/auth.md#auth__ldap_user_dn_format). It instructs {{ extra.project }} the DN (distingueshed name) of the user
+you want to authenticate against. Example:
+
+	PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT=uid={username},ou=People,dc=ldap,dc=trusel,dc=net
+
+Notice "{username}" part - it must be literaly this value; the "{username}" will be replaced with actual
+username of the user when performing LDAP bind.
+
+!!! Info
+
+	In case you are curious, {{ extra.project }} uses [ldap3](https://ldap3.readthedocs.io/en/latest/) python package to perform LDAP authentication. [Here is source code](https://github.com/papermerge/auth-server/blob/main/auth_server/backends/ldap.py) of ldap authentication part.
+
+By default {{ extra.project }} will try to extract user's email from `mail` attribute of LDAP entry identified `PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT` distingueshed name.
+You can instruct {{ extra.project }} about email attribute in LDAP entry with [PAPERMERGE__AUTH__LDAP_URL](../settings/auth.md#auth__ldap_email_attr).
+

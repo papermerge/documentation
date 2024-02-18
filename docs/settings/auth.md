@@ -92,3 +92,10 @@ This value always should be set to `<http|https>://<your-domain>/github/callback
 Example:
 
     PAPERMERGE__AUTH__GITHUB_REDIRECT_URI=https://demo.trusel.net/github/callback
+
+
+## AUTH__LDAP_URL
+## AUTH__LDAP_USER_DN_FORMAT
+## AUTH__LDAP_USE_SSL
+## AUTH__LDAP_EMAIL_ATTR
+## AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK
