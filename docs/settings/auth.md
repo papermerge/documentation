@@ -95,7 +95,52 @@ Example:
 
 
 ## AUTH__LDAP_URL
+
+If this environment variable is set to non-empty value, {{extra.project}} will assume that authentication will be performed using LDAP
+backend. Value should be set to URL of the ldap server. URL is specified without scheme
+(i.e. no ldap://, ldaps:// prefix). Example:
+
+    PAPERMERGE__AUTH__LDAP_URL=ldap.trusel.net
+
 ## AUTH__LDAP_USER_DN_FORMAT
+
+Format of distingueshed name to the user entry. The "{username}" literal is used
+as placeholder; in other words you mark the part of the DN where actual username will be placed with "{username}" string. Example:
+
+    PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT="uid={username},ou=People,dc=ldap,dc=trusel,dc=net"
+
+Another example:
+
+    PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT="uid={username},ou=Users,dc=example,dc=com"
+
+Yet another, fictional example:
+
+    PAPERMERGE__AUTH__LDAP_USER_DN_FORMAT="uid={username},ou=Accounts,dc=acme,dc=com"
+
+You see? "{username}" part stay fixed. It is placeholder.
+
 ## AUTH__LDAP_USE_SSL
+
+Boolean value (True/False). Instructs {{ extra.project }} if secure connection should be used (TLS/SSL) when connecting to LDAP server.
+Default value is True. Example:
+
+    PAPERMERGE__AUTH__LDAP_USE_SSL=False
+
 ## AUTH__LDAP_EMAIL_ATTR
+
+Email attribute name in user LDAP entry. Default value is `mail`.
+
 ## AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK
+
+Fallback value of the email domain.
+In case {{ extra.project }} fails to extract user's email, it will use this value as fallback for email domain.
+The full email format that {{ extra.project }} will set as fallback is:
+
+    <username>@<email-domain-fallback>
+
+For example, if:
+
+    PAPERMERGE__AUTH__LDAP_USER_EMAIL_DOMAIN_FALLBACK=starship.com
+
+and username is `coco` and, say, LDAP user entry does not feature mail attribute, the
+email assigned to user will be `coco@starship.com`
