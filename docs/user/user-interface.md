@@ -1,7 +1,7 @@
 # User Interface
 
 
-{{ extra.project }} comes with a simple and intuitive user interface (UI) layout. The UI
+{{ extra.project }} comes with intuitive user interface (UI) layout. The UI
 is divided into four areas:
 
 1. Navigation Menu - contains different views like tags, users, groups, inbox
