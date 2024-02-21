@@ -1,10 +1,10 @@
 # User Interface
 
 
-{{ extra.project }} comes with a simple and intuitive user interface (UI) layout. The UI
+{{ extra.project }} comes with intuitive user interface (UI) layout. The UI
 is divided into four areas:
 
-1. Navigation Menu - contains different views like tags, users, groups, inbox
+1. Navigation Menu - contains different views like tags, users, inbox
 2. Search Bar - quick search of any document
 3. User Menu - contains user preferences, API tokens and other menu items.
 4. Commander Panel - or Commander - area for browsing documents and folders
