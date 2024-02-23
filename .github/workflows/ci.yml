@@ -25,4 +25,4 @@ jobs:
           git config user.name ci-bot
           git config user.email ci-bot@example.com
           # poetry run mike deploy -p 3.0 latest --update-aliases
-          poetry run mike deploy -p 3.1 dev --update-aliases
+          poetry run mike deploy -p 3.1 latest --update-aliases
