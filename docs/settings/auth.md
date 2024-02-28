@@ -144,3 +144,53 @@ For example, if:
 
 and username is `coco` and, say, LDAP user entry does not feature mail attribute, the
 email assigned to user will be `coco@starship.com`
+
+
+
+## AUTH__REMOTE
+
+When set to non-empty value it enables remote user authentication support.
+By default this environment variable is not set.
+
+Following examples enable remote user authentication:
+
+    PAPERMERGE__AUTH__REMOTE=1
+
+or
+
+    PAPERMERGE__AUTH__REMOTE=True
+
+or
+
+    PAPERMERGE__AUTH__REMOTE=Yes
+
+
+When remote user authentication is enabled, {{ extra.project }} expects to receive
+user details via following http headers AND cookies:
+
+- `Remote-User` (header) - user's username e.g. `john`
+- `Remote-Groups` (header) - comma delimited list of groups user belongs to e.g. `admin`, `accounting,research`
+- `Remote-Email` (header) - user's email
+- `Remote-Name` (header) - user's name
+- `remote_user` (cookie) - user's username
+- `remote_groups` (cookie) - comma delimited list of groups
+- `remote_email` (cookie)
+- `remote_name` (cookie)
+
+
+!!! Note
+
+    Currently `Remote-Groups` header and `remote_groups` cookie have no effect. User groups will
+    be introduced soon.
+
+
+
+
+## AUTH__REMOTE_LOGOUT_ENDPOINT
+
+When remote user authentication is enabled, it points to the logout endpoint which ends user's session.
+Endpoint must be specified with full URL including scheme, domain and path.
+
+Example:
+
+    PAPERMERGE__AUTH__REMOTE_LOGOUT_ENDPOINT=https://auth.trusel.net/logout

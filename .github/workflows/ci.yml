@@ -2,7 +2,7 @@ name: Deploy 3.1 docs
 on:
   push:
     branches:
-      - "v3.1"
+      - "v3.2"
 
 permissions:
   contents: write
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: "v3.1"
+          ref: "v3.2"
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -23,4 +23,4 @@ jobs:
           git fetch origin gh-pages --depth=1
           git config user.name ci-bot
           git config user.email ci-bot@example.com
-          poetry run mike deploy -p 3.1 latest --update-aliases
+          poetry run mike deploy -p 3.2 dev --update-aliases
