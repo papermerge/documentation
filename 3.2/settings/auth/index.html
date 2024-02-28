@@ -933,6 +933,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#auth__remote" class="md-nav__link">
+    AUTH__REMOTE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__remote_logout_endpoint" class="md-nav__link">
+    AUTH__REMOTE_LOGOUT_ENDPOINT
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1488,6 +1502,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#auth__remote" class="md-nav__link">
+    AUTH__REMOTE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__remote_logout_endpoint" class="md-nav__link">
+    AUTH__REMOTE_LOGOUT_ENDPOINT
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1600,6 +1628,41 @@ The full email format that Papermerge will set as fallback is:</p>
 </code></pre></div>
 <p>and username is <code>coco</code> and, say, LDAP user entry does not feature mail attribute, the
 email assigned to user will be <code>coco@starship.com</code></p>
+<h2 id="auth__remote">AUTH__REMOTE</h2>
+<p>When set to non-empty value it enables remote user authentication support.
+By default this environment variable is not set.</p>
+<p>Following examples enable remote user authentication:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__REMOTE=1
+</code></pre></div>
+<p>or</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__REMOTE=True
+</code></pre></div>
+<p>or</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__REMOTE=Yes
+</code></pre></div>
+<p>When remote user authentication is enabled, Papermerge expects to receive
+user details via following http headers AND cookies:</p>
+<ul>
+<li><code>Remote-User</code> (header) - user's username e.g. <code>john</code></li>
+<li><code>Remote-Groups</code> (header) - comma delimited list of groups user belongs to e.g. <code>admin</code>, <code>accounting,research</code></li>
+<li><code>Remote-Email</code> (header) - user's email</li>
+<li><code>Remote-Name</code> (header) - user's name</li>
+<li><code>remote_user</code> (cookie) - user's username</li>
+<li><code>remote_groups</code> (cookie) - comma delimited list of groups</li>
+<li><code>remote_email</code> (cookie)</li>
+<li><code>remote_name</code> (cookie)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently <code>Remote-Groups</code> header and <code>remote_groups</code> cookie have no effect. User groups will
+be introduced soon.</p>
+</div>
+<h2 id="auth__remote_logout_endpoint">AUTH__REMOTE_LOGOUT_ENDPOINT</h2>
+<p>When remote user authentication is enabled, it points to the logout endpoint which ends user's session.
+Endpoint must be specified with full URL including scheme, domain and path.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__REMOTE_LOGOUT_ENDPOINT=https://auth.trusel.net/logout
+</code></pre></div>
 
 
 
