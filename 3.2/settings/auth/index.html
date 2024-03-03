@@ -843,57 +843,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_client_secret" class="md-nav__link">
-    AUTH__GOOGLE_CLIENT_SECRET
+  <a href="#auth__oidc_client_secret" class="md-nav__link">
+    AUTH__OIDC_CLIENT_SECRET
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_client_id" class="md-nav__link">
-    AUTH__GOOGLE_CLIENT_ID
+  <a href="#auth__oidc_client_id" class="md-nav__link">
+    AUTH__OIDC_CLIENT_ID
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_authorize_url" class="md-nav__link">
-    AUTH__GOOGLE_AUTHORIZE_URL
+  <a href="#auth__oidc_authorize_url" class="md-nav__link">
+    AUTH__OIDC_AUTHORIZE_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_redirect_uri" class="md-nav__link">
-    AUTH__GOOGLE_REDIRECT_URI
+  <a href="#auth__oidc_redirect_url" class="md-nav__link">
+    AUTH__OIDC_REDIRECT_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__github_client_secret" class="md-nav__link">
-    AUTH__GITHUB_CLIENT_SECRET
+  <a href="#auth__oidc_access_token_url" class="md-nav__link">
+    AUTH__OIDC_ACCESS_TOKEN_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__github_client_id" class="md-nav__link">
-    AUTH__GITHUB_CLIENT_ID
+  <a href="#auth__oidc_user_info_url" class="md-nav__link">
+    AUTH__OIDC_USER_INFO_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__github_authorize_url" class="md-nav__link">
-    AUTH__GITHUB_AUTHORIZE_URL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#auth__github_redirect_uri" class="md-nav__link">
-    AUTH__GITHUB_REDIRECT_URI
+  <a href="#auth__oidc_logout_url" class="md-nav__link">
+    AUTH__OIDC_LOGOUT_URL
   </a>
   
 </li>
@@ -1412,57 +1405,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_client_secret" class="md-nav__link">
-    AUTH__GOOGLE_CLIENT_SECRET
+  <a href="#auth__oidc_client_secret" class="md-nav__link">
+    AUTH__OIDC_CLIENT_SECRET
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_client_id" class="md-nav__link">
-    AUTH__GOOGLE_CLIENT_ID
+  <a href="#auth__oidc_client_id" class="md-nav__link">
+    AUTH__OIDC_CLIENT_ID
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_authorize_url" class="md-nav__link">
-    AUTH__GOOGLE_AUTHORIZE_URL
+  <a href="#auth__oidc_authorize_url" class="md-nav__link">
+    AUTH__OIDC_AUTHORIZE_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__google_redirect_uri" class="md-nav__link">
-    AUTH__GOOGLE_REDIRECT_URI
+  <a href="#auth__oidc_redirect_url" class="md-nav__link">
+    AUTH__OIDC_REDIRECT_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__github_client_secret" class="md-nav__link">
-    AUTH__GITHUB_CLIENT_SECRET
+  <a href="#auth__oidc_access_token_url" class="md-nav__link">
+    AUTH__OIDC_ACCESS_TOKEN_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__github_client_id" class="md-nav__link">
-    AUTH__GITHUB_CLIENT_ID
+  <a href="#auth__oidc_user_info_url" class="md-nav__link">
+    AUTH__OIDC_USER_INFO_URL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth__github_authorize_url" class="md-nav__link">
-    AUTH__GITHUB_AUTHORIZE_URL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#auth__github_redirect_uri" class="md-nav__link">
-    AUTH__GITHUB_REDIRECT_URI
+  <a href="#auth__oidc_logout_url" class="md-nav__link">
+    AUTH__OIDC_LOGOUT_URL
   </a>
   
 </li>
@@ -1550,47 +1536,39 @@
 <p>Example:</p>
 <div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__EMAIL=john@mail.com
 </code></pre></div>
-<h2 id="auth__google_client_secret">AUTH__GOOGLE_CLIENT_SECRET</h2>
-<p>When using oauth2 authentication with Google provider this variables is oauth2 client secret.
-You get oauth2 client secret from Google Console.</p>
+<h2 id="auth__oidc_client_secret">AUTH__OIDC_CLIENT_SECRET</h2>
+<p>When using oauth2/oidc authentication, this variables is oauth2/oidc client secret.</p>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET=GOCSPX-qlqlqlqlqlqlqlqlq-FuOOOOORf
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_CLIENT_SECRET=GOCSPX-qlqlqlqlqlqlqlqlq-FuOOOOORf
 </code></pre></div>
-<h2 id="auth__google_client_id">AUTH__GOOGLE_CLIENT_ID</h2>
-<p>When using oauth2 authentication with Google provider this variables is oauth2 client ID.
-You get oauth2 client ID from Google Console.</p>
+<h2 id="auth__oidc_client_id">AUTH__OIDC_CLIENT_ID</h2>
+<p>When using oauth2/oidc authentication, this variables is oauth2/oidc client ID.</p>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_CLIENT_ID=900000999991-1tmegfjqqqqqqqqqqqqqqqqqqqqv.apps.googleusercontent.com
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_CLIENT_ID=900000999991-1tmegfjqqqqqqqqqqqqqqqqqqqqv.apps.googleusercontent.com
 </code></pre></div>
-<h2 id="auth__google_authorize_url">AUTH__GOOGLE_AUTHORIZE_URL</h2>
-<p>Must be set to fixed value <code>https://accounts.google.com/o/oauth2/auth</code>:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=https://accounts.google.com/o/oauth2/auth
+<h2 id="auth__oidc_authorize_url">AUTH__OIDC_AUTHORIZE_URL</h2>
+<p>Must be set to fixed value OIDC authorization endpoint:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=http://authk.trusel.net/application/o/authorize/
 </code></pre></div>
-<p>In case google changed their authorize URL, please <a href="https://github.com/ciur/papermerge/issues">open a ticket</a> for Papermerge to update this documentation entry with correct value.</p>
-<h2 id="auth__google_redirect_uri">AUTH__GOOGLE_REDIRECT_URI</h2>
-<p>This value always should be set to <code>&lt;http|https&gt;://&lt;your-domain&gt;/google/callback</code>.
+<h2 id="auth__oidc_redirect_url">AUTH__OIDC_REDIRECT_URL</h2>
+<p>This value always should be set to <code>&lt;http|https&gt;://&lt;your-domain&gt;/oidc/callback</code>.
 Example:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI=https://demo.trusel.net/google/callback
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_REDIRECT_URL=http://papermerge.instance.net/oidc/callback
 </code></pre></div>
-<h2 id="auth__github_client_secret">AUTH__GITHUB_CLIENT_SECRET</h2>
-<p>When using oauth2 authentication with GitHub provider this variables is oauth2 client secret.</p>
+<h2 id="auth__oidc_access_token_url">AUTH__OIDC_ACCESS_TOKEN_URL</h2>
+<p>When using oauth2/oidc authentication, this variable contains access token endpoint.</p>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET=hohoho-edited-FuOOOOORf
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://authk.trusel.net/application/o/token/
 </code></pre></div>
-<h2 id="auth__github_client_id">AUTH__GITHUB_CLIENT_ID</h2>
-<p>When using oauth2 authentication with GitHub provider, this variables is oauth2 client ID.</p>
+<h2 id="auth__oidc_user_info_url">AUTH__OIDC_USER_INFO_URL</h2>
+<p>When using oauth2/oidc authentication, this variable contains user info endpoint.</p>
 <p>Example:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GITHUB_CLIENT_ID=1tmegfjq-edited-qqqqv
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://authk.trusel.net/application/o/userinfo/
 </code></pre></div>
-<h2 id="auth__github_authorize_url">AUTH__GITHUB_AUTHORIZE_URL</h2>
-<p>Must be set to fixed value <code>https://github.com/login/oauth/authorize</code>:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL=https://github.com/login/oauth/authorize
-</code></pre></div>
-<p>In case GitHub changes their authorize URL, please <a href="https://github.com/ciur/papermerge/issues">open a ticket</a> for Papermerge to update this documentation entry with correct value.</p>
-<h2 id="auth__github_redirect_uri">AUTH__GITHUB_REDIRECT_URI</h2>
-<p>This value always should be set to <code>&lt;http|https&gt;://&lt;your-domain&gt;/github/callback</code>.
-Example:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__GITHUB_REDIRECT_URI=https://demo.trusel.net/github/callback
+<h2 id="auth__oidc_logout_url">AUTH__OIDC_LOGOUT_URL</h2>
+<p>When using oauth2/oidc authentication, this variable contains logout endpoint.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://authk.trusel.net/application/o/calypso/end-session/
 </code></pre></div>
 <h2 id="auth__ldap_url">AUTH__LDAP_URL</h2>
 <p>If this environment variable is set to non-empty value, Papermerge will assume that authentication will be performed using LDAP

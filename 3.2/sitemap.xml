@@ -2,182 +2,182 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.papermerge.io/3.2/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/backup-restore/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/changelog/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/cli/cli/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/cli/overview/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/contributor/docker/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/rest-api/overview/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/rest-api/reference/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/rest-api/token/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/auth/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/database/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/main/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/ocr/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/overview/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/redis/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/search/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/settings/security/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/add-ocr-langs/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/ansible/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/authentication/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/docker-compose/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/docker/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/kubernetes/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/overview/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/requirements/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/file-formats/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/getting-started/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/merge-documents/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/ocr/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/page-management/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/search/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/tags/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/upload-documents/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/user-interface/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/user-management/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/user/versions/</loc>
-         <lastmod>2024-02-28</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

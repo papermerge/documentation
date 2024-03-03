@@ -487,29 +487,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
+  <a href="#oauth-20oidc" class="md-nav__link">
+    OAuth 2.0/OIDC
   </a>
-  
-    <nav class="md-nav" aria-label="OAuth 2.0">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#google-provider" class="md-nav__link">
-    Google Provider
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-provider" class="md-nav__link">
-    GitHub Provider
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1313,29 +1293,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
+  <a href="#oauth-20oidc" class="md-nav__link">
+    OAuth 2.0/OIDC
   </a>
-  
-    <nav class="md-nav" aria-label="OAuth 2.0">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#google-provider" class="md-nav__link">
-    Google Provider
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-provider" class="md-nav__link">
-    GitHub Provider
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1381,32 +1341,30 @@ decides on validity of the given credentials.</p>
 <p>In this case authentication is performed against credentials stored in
 database configured with <code>PAPERMERGE__DATABASE__URL</code>. This is default
 operation mode.</p>
-<h2 id="oauth-20">OAuth 2.0</h2>
-<p>Papermerge supports OAuth 2.0 authentication protocol with Google and GitHub providers.</p>
-<h3 id="google-provider">Google Provider</h3>
-<p>For Google provider you need to configure following environment variables:</p>
-<pre><code>* PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET=&lt;google oauth 2.0 client secret&gt;
-* PAPERMERGE__AUTH__GOOGLE_CLIENT_ID=&lt;google oauth 2.0 client ID&gt;
-* PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=https://accounts.google.com/o/oauth2/auth
-* PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI=&lt;https|http&gt;://&lt;your-domain&gt;/google/callback
-</code></pre>
-<p>Note that <code>PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL</code> should always hold the same value:
- <code>https://accounts.google.com/o/oauth2/auth</code>
-If all four environment variables are provided, the sign in view will render
-one extra button "Login with Google" as in picture below:</p>
-<p><img alt="" src="../../img/setup/auth/login-with-google.png" /></p>
-<h3 id="github-provider">GitHub Provider</h3>
-<p>For GitHub provider you need to configure following environment variables:</p>
-<pre><code>* PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET=&lt;github oauth 2.0 client secret&gt;
-* PAPERMERGE__AUTH__GITHUB_CLIENT_ID=&lt;github oauth 2.0 client ID&gt;
-* PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL=https://github.com/login/oauth/authorize
-* PAPERMERGE__AUTH__GITHUB_REDIRECT_URI=&lt;https|http&gt;://&lt;your-domain&gt;/github/callback
-</code></pre>
-<p>Note that <code>PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL</code> should always hold the same value:
- <code>https://github.com/login/oauth/authorize</code></p>
-<p>If all four environment variables are provided, the sign in view will render
-one extra button "Login with Github" as in picture below:</p>
-<p><img alt="" src="../../img/setup/auth/login-with-github.png" /></p>
+<h2 id="oauth-20oidc">OAuth 2.0/OIDC</h2>
+<p>Papermerge supports OAuth 2.0/OpenID Connect authentication protocol.</p>
+<p>In order to enable OIDC authentication you need to provide following environment variables:</p>
+<ul>
+<li>PAPERMERGE__AUTH__OIDC_CLIENT_SECRET</li>
+<li>PAPERMERGE__AUTH__OIDC_CLIENT_ID</li>
+<li>PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL</li>
+<li>PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL</li>
+<li>PAPERMERGE__AUTH__OIDC_USER_INFO_URL</li>
+<li>PAPERMERGE__AUTH__OIDC_LOGOUT_URL</li>
+<li>PAPERMERGE__AUTH__OIDC_REDIRECT_URL</li>
+</ul>
+<p>Note that last one, redirect URL, is the only URL pointing to Papermerge instance domain.
+It should have following format <code>&lt;http|https&gt;://&lt;papermerge-instance-domain&gt;/oidc/callback</code>.
+Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH__OIDC_REDIRECT_URL=https://papermerge.net/oidc/callback
+</code></pre></div>
+<p>All other URLs, authorize URL, access point URL, user info URL and logout URL, should point
+to OIDC provider domain, examples:</p>
+<div class="language-text highlight"><pre><span></span><code>- PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL=http://authk.trusel.net/application/o/authorize/
+- PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://authk.trusel.net/application/o/token/
+- PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://authk.trusel.net/application/o/userinfo/
+- PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://authk.trusel.net/application/o/calypso/end-session/
+</code></pre></div>
 <h2 id="ldap">LDAP</h2>
 <p>Papermerge can perform authentication against users stored in LDAP system.
 In order to enable LDAP authentication you need to provide at least
