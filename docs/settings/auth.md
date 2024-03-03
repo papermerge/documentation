@@ -28,70 +28,63 @@ Example:
     PAPERMERGE__AUTH__EMAIL=john@mail.com
 
 
-## AUTH__GOOGLE_CLIENT_SECRET
+## AUTH__OIDC_CLIENT_SECRET
 
-When using oauth2 authentication with Google provider this variables is oauth2 client secret.
-You get oauth2 client secret from Google Console.
-
-Example:
-
-    PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET=GOCSPX-qlqlqlqlqlqlqlqlq-FuOOOOORf
-
-## AUTH__GOOGLE_CLIENT_ID
-
-When using oauth2 authentication with Google provider this variables is oauth2 client ID.
-You get oauth2 client ID from Google Console.
+When using oauth2/oidc authentication, this variables is oauth2/oidc client secret.
 
 Example:
 
-    PAPERMERGE__AUTH__GOOGLE_CLIENT_ID=900000999991-1tmegfjqqqqqqqqqqqqqqqqqqqqv.apps.googleusercontent.com
+    PAPERMERGE__AUTH__OIDC_CLIENT_SECRET=GOCSPX-qlqlqlqlqlqlqlqlq-FuOOOOORf
 
-## AUTH__GOOGLE_AUTHORIZE_URL
+## AUTH__OIDC_CLIENT_ID
 
-Must be set to fixed value `https://accounts.google.com/o/oauth2/auth`:
-
-    PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=https://accounts.google.com/o/oauth2/auth
-
-In case google changed their authorize URL, please [open a ticket](https://github.com/ciur/papermerge/issues) for Papermerge to update this documentation entry with correct value.
-
-## AUTH__GOOGLE_REDIRECT_URI
-
-This value always should be set to `<http|https>://<your-domain>/google/callback`.
-Example:
-
-    PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI=https://demo.trusel.net/google/callback
-
-
-## AUTH__GITHUB_CLIENT_SECRET
-
-When using oauth2 authentication with GitHub provider this variables is oauth2 client secret.
+When using oauth2/oidc authentication, this variables is oauth2/oidc client ID.
 
 Example:
 
-    PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET=hohoho-edited-FuOOOOORf
+    PAPERMERGE__AUTH__OIDC_CLIENT_ID=900000999991-1tmegfjqqqqqqqqqqqqqqqqqqqqv.apps.googleusercontent.com
 
-## AUTH__GITHUB_CLIENT_ID
+## AUTH__OIDC_AUTHORIZE_URL
 
-When using oauth2 authentication with GitHub provider, this variables is oauth2 client ID.
+Must be set to fixed value OIDC authorization endpoint:
+
+    PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=http://authk.trusel.net/application/o/authorize/
+
+
+## AUTH__OIDC_REDIRECT_URL
+
+This value always should be set to `<http|https>://<your-domain>/oidc/callback`.
+Example:
+
+    PAPERMERGE__AUTH__OIDC_REDIRECT_URL=http://papermerge.instance.net/oidc/callback
+
+
+## AUTH__OIDC_ACCESS_TOKEN_URL
+
+When using oauth2/oidc authentication, this variable contains access token endpoint.
 
 Example:
 
-    PAPERMERGE__AUTH__GITHUB_CLIENT_ID=1tmegfjq-edited-qqqqv
+    PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://authk.trusel.net/application/o/token/
 
-## AUTH__GITHUB_AUTHORIZE_URL
 
-Must be set to fixed value `https://github.com/login/oauth/authorize`:
+## AUTH__OIDC_USER_INFO_URL
 
-    PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL=https://github.com/login/oauth/authorize
+When using oauth2/oidc authentication, this variable contains user info endpoint.
 
-In case GitHub changes their authorize URL, please [open a ticket](https://github.com/ciur/papermerge/issues) for Papermerge to update this documentation entry with correct value.
-
-## AUTH__GITHUB_REDIRECT_URI
-
-This value always should be set to `<http|https>://<your-domain>/github/callback`.
 Example:
 
-    PAPERMERGE__AUTH__GITHUB_REDIRECT_URI=https://demo.trusel.net/github/callback
+    PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://authk.trusel.net/application/o/userinfo/
+
+
+## AUTH__OIDC_LOGOUT_URL
+
+When using oauth2/oidc authentication, this variable contains logout endpoint.
+
+Example:
+
+    PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://authk.trusel.net/application/o/calypso/end-session/
+
 
 
 ## AUTH__LDAP_URL
