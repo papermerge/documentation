@@ -15,7 +15,7 @@ supports following authentication modes:
 By default {{ extra.project }} will use built-in authentication mechanism.
 You only need to provide `PAPERMERGE__AUTH__USERNAME`, `PAPERMERGE__AUTH__PASSWORD`
 environment variables.
-In this mode there is no other authentication party involved as all
+In this mode there is no external party involved as all
 authentication is performed by {{ extra.project }} internal components.
 
 Built-in authentication mechanism is suitable for simple setups when
