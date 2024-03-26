@@ -1,29 +1,33 @@
 # Authentication
 
-{{ extra.project }} supports different authentication modes:
+{{ extra.project }} comes with flexible authentication features.
+It can handle user accounts, groups, permissions. {{ extra.project }}
+supports following authentication modes:
 
-- Database (default)
-- OAuth 2.0
+- Built-in
+- OpenID Connect (OIDC)
+- Remote User
 - LDAP
 
-The difference consist in who decides if user with given username and
-password, are valid. In first mode i.e. database authentication - it is
- {{ extra.project }} who decides if credentials are valid, this is why this
-database authentication is also called "internal authentication". For other
-two authentication modes it is the other party, external one like LDAP, which
-decides on validity of the given credentials.
+
+## Built-in
+
+By default {{ extra.project }} will use built-in authentication mechanism.
+You only need to provide `PAPERMERGE__AUTH__USERNAME`, `PAPERMERGE__AUTH__PASSWORD`
+environment variables.
+In this mode there is no other authentication party involved as all
+authentication is performed by {{ extra.project }} internal components.
+
+Built-in authentication mechanism is suitable for simple setups when
+{{ extra.project }} is your only application of concern.
+
+When you want to give users access to multiple applications using same accounts,
+you may consider:
 
 
-## Database Authentication
+## OpenID Connect (OIDC)
 
-In this case authentication is performed against credentials stored in
-database configured with `PAPERMERGE__DATABASE__URL`. This is default
-operation mode.
-
-
-## OAuth 2.0/OIDC
-
-{{ extra.project }} supports OAuth 2.0/OpenID Connect authentication protocol.
+{{ extra.project }} supports OpenID Connect (OIDC) authentication.
 
 In order to enable OIDC authentication you need to provide following environment variables:
 
@@ -33,6 +37,7 @@ In order to enable OIDC authentication you need to provide following environment
 - PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL
 - PAPERMERGE__AUTH__OIDC_USER_INFO_URL
 - PAPERMERGE__AUTH__OIDC_LOGOUT_URL
+- PAPERMERGE__AUTH__OIDC_INTROSPECT_URL
 - PAPERMERGE__AUTH__OIDC_REDIRECT_URL
 
 Note that last one, redirect URL, is the only URL pointing to {{ extra.project }} instance domain.
@@ -41,13 +46,19 @@ Example:
 
     PAPERMERGE__AUTH__OIDC_REDIRECT_URL=https://papermerge.net/oidc/callback
 
-All other URLs, authorize URL, access point URL, user info URL and logout URL, should point
-to OIDC provider domain, examples:
+All other URLs, authorize URL, access point URL, user info URL, introspect URL and logout URL,
+should point to OIDC provider domain. Examples:
 
-    - PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL=http://authk.trusel.net/application/o/authorize/
-    - PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://authk.trusel.net/application/o/token/
-    - PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://authk.trusel.net/application/o/userinfo/
-    - PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://authk.trusel.net/application/o/calypso/end-session/
+    PAPERMERGE__AUTH__OIDC_CLIENT_SECRET=pT5Ff-your-token-eWOSvEPmtyY
+    PAPERMERGE__AUTH__OIDC_CLIENT_ID=papermerge
+    PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/auth
+    PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token
+    PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/userinfo
+    PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
+    PAPERMERGE__AUTH__OIDC_INTROSPECT_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
+
+
+## Remote User
 
 
 ## LDAP
