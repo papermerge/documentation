@@ -64,13 +64,13 @@ happens behind the scenes.
 
 !!! Note
 
-    All processes described from here on, are not visible to the users. It all happens
-    behind the scenes. Information which follows is only for devs, DevOps, SREs,
-    and all curious species out there.
+    All processes described from here on, are not visible to the users. It all
+    happens behind the scenes for them. Information which follows is
+    meant for devs, DevOps, SREs.
 
-You OIDC application needs jwt token as prove of
+Your OIDC application needs jwt token as prove of
 successful authentication. As you may guess, jwt token will be carried inside
-each subsequent http requsts as a header.
+each subsequent http requsts as http header.
 
 All incoming http requests are proved for validity of jwt token. If http request
 has a valid jwt token - request is permitted to reach app. If http request does not
