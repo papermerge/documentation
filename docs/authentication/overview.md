@@ -1,4 +1,4 @@
-# Authentication
+# Overview
 
 {{ extra.project }} comes with flexible authentication features.
 It can handle user accounts, groups, permissions. {{ extra.project }}

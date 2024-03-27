@@ -30,7 +30,7 @@ Example:
 
 ## AUTH__OIDC_CLIENT_SECRET
 
-When using oauth2/oidc authentication, this variables is oauth2/oidc client secret.
+When using OAuth 2.0/OIDC authentication, this variables is client secret.
 
 Example:
 
@@ -38,25 +38,21 @@ Example:
 
 ## AUTH__OIDC_CLIENT_ID
 
-When using oauth2/oidc authentication, this variables is oauth2/oidc client ID.
+When using OAuth 2.0/OIDC authentication, this variables is client ID.
 
 Example:
 
-    PAPERMERGE__AUTH__OIDC_CLIENT_ID=900000999991-1tmegfjqqqqqqqqqqqqqqqqqqqqv.apps.googleusercontent.com
+    PAPERMERGE__AUTH__OIDC_CLIENT_ID=papermerge
 
 ## AUTH__OIDC_AUTHORIZE_URL
 
-Must be set to fixed value OIDC authorization endpoint:
+Must be set to value OIDC authorization endpoint.
 
-    PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL=http://authk.trusel.net/application/o/authorize/
+    PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/auth
+    PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL=http://authk.trusel.net/application/o/authorize/
 
 
-## AUTH__OIDC_REDIRECT_URL
-
-This value always should be set to `<http|https>://<your-domain>/oidc/callback`.
-Example:
-
-    PAPERMERGE__AUTH__OIDC_REDIRECT_URL=http://papermerge.instance.net/oidc/callback
+Value points to identity provider's domain.
 
 
 ## AUTH__OIDC_ACCESS_TOKEN_URL
@@ -66,6 +62,9 @@ When using oauth2/oidc authentication, this variable contains access token endpo
 Example:
 
     PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://authk.trusel.net/application/o/token/
+    PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token
+
+Value points to identity provider's domain.
 
 
 ## AUTH__OIDC_USER_INFO_URL
@@ -75,6 +74,9 @@ When using oauth2/oidc authentication, this variable contains user info endpoint
 Example:
 
     PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://authk.trusel.net/application/o/userinfo/
+    PAPERMERGE__AUTH__OIDC_USER_INFO_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/userinfo
+
+Value points to identity provider's domain.
 
 
 ## AUTH__OIDC_LOGOUT_URL
@@ -83,7 +85,34 @@ When using oauth2/oidc authentication, this variable contains logout endpoint.
 
 Example:
 
+    PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
     PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://authk.trusel.net/application/o/calypso/end-session/
+
+Value points to identity provider's domain.
+
+
+## AUTH__OIDC_INTROSPECT_URL
+
+Introspect endpoint.
+
+    PAPERMERGE__AUTH__OIDC_INTROSPECT_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
+
+Value points to identity provider domain.
+Introspect endpoint is used to validate all incoming requests if they are authenticated or not.
+
+
+## AUTH__OIDC_REDIRECT_URL
+
+This value always should be set to `<http|https>://<your-papermerge-domain>/oidc/callback`.
+Example:
+
+    PAPERMERGE__AUTH__OIDC_REDIRECT_URL=http://papermerge.instance.net/oidc/callback
+
+
+Value points to {{ extra.project }} domain. This is basically domain where the identity
+provider (e.g. keycloak) will send information, or redirect, after successfull authentication.
+
+
 
 
 

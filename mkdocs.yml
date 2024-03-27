@@ -9,7 +9,6 @@ nav:
     - setup/ansible.md
     - setup/kubernetes.md
     - setup/add-ocr-langs.md
-    - setup/authentication.md
   - User Manual:
     - user/getting-started.md
     - user/user-interface.md
@@ -22,6 +21,11 @@ nav:
     - user/ocr.md
     - user/file-formats.md
     - user/user-management.md
+  - Authentication:
+    - authentication/overview.md
+    - OIDC:
+      - authentication/oidc/overview.md
+      - authentication/oidc/keycloak.md
   - Settings:
     - settings/overview.md
     - settings/auth.md
