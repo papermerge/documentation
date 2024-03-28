@@ -70,7 +70,7 @@ x-backend: &common
   environment:
     PAPERMERGE__SECURITY__SECRET_KEY: super-secret-12345
     PAPERMERGE__AUTH__USERNAME: bender
-    PAPERMERGE__AUTH__EMAIL: bender@papermerge.com
+    PAPERMERGE__AUTH__EMAIL: bender@mail.com
     PAPERMERGE__AUTH__PASSWORD: 1234-not-relevant-but-still-needs-to-be-here
     PAPERMERGE__AUTH__OIDC_CLIENT_SECRET: OHGMBgyAjcvDtn4PAu8w8vE9yf06aHn1
     PAPERMERGE__AUTH__OIDC_CLIENT_ID: papermerge
