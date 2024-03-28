@@ -8,8 +8,8 @@ nav:
     - setup/docker-compose.md
     - setup/ansible.md
     - setup/kubernetes.md
+    - setup/authentification.md
     - setup/add-ocr-langs.md
-    - setup/authentication.md
   - User Manual:
     - user/getting-started.md
     - user/user-interface.md
@@ -22,6 +22,10 @@ nav:
     - user/ocr.md
     - user/file-formats.md
     - user/user-management.md
+  - Authentication:
+    - OIDC:
+      - authentication/oidc/overview.md
+      - authentication/oidc/keycloak.md
   - Settings:
     - settings/overview.md
     - settings/auth.md
