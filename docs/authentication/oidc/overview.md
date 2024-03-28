@@ -57,8 +57,8 @@ In above illustration, for step 1 -> 2 to work `PAPERMERGE__AUTH__OIDC_AUTHORIZE
 is employed. For step 2 -> 3 to work `PAPERMERGE__AUTH__OIDC_REDIRECT_URL` is used.
 
 The trophy, which {{ extra.project }} receives from identity provider for
-successful sign in, is so call called [jwt token](https://jwt.io/). Users
-have no idea (and rightfully so) about jwt tokens, as all token business
+successful sign in, is so call called [JWT token](https://jwt.io/). Users
+have no idea (and rightfully so) about JWT tokens, as all token business
 happens behind the scenes.
 
 
@@ -68,18 +68,43 @@ happens behind the scenes.
     happens behind the scenes for them. Information which follows is
     meant for devs, DevOps, SREs.
 
-Your OIDC application needs jwt token as prove of
-successful authentication. As you may guess, jwt token will be carried inside
+Your OIDC application needs JWT token as prove of
+successful authentication. As you may guess, JWt token will be carried inside
 each subsequent http requsts as http header.
 
-All incoming http requests are proved for validity of jwt token. If http request
-has a valid jwt token - request is permitted to reach app. If http request does not
-contain a valid jwt token - it is denied access to the app.
+All incoming http requests are proved for validity of JWT token. If http request
+has valid JWT token - request is permitted to reach app. If http request does not
+contain valid JWT token - it is denied access to the app.
 
 
 !!! Note
 
-    By "valid jwt token" is usually meant that it contain valid digital signature,
+    By "valid JWT token" is usually meant that it contain valid digital signature,
     it is not expired and maybe some other checks specific to identity provider.
 
 
+Following illustrations depict what happens with incoming requests:
+
+
+![HTTP Request Access Granted](../../img/auth/oidc/request-access-granted.svg)
+
+![HTTP Request Access Denied](../../img/auth/oidc/request-access-denied.svg)
+
+Inside {{ extra.project }} there is a "guard" which, for every incoming
+request, asks identity provider if respective HTTP request is valid or not.
+If identity provider says that JWT token is valid - request is permitted to pass,
+otherwise access is denied.
+This step is possible due to `PAPERMERGE__AUTH__OIDC_INTROSPECT_URL` setting.
+OIDC introspect endpoint is go to endpoint to inquiry for validity
+of the JWT token.
+
+The last technical detail to clarify, with high risk of diving in too many details,
+is: what is this "guard" thingy?
+"Guard" is nginx's
+[authorization based on sub-request result](https://nginx.org/en/docs/http/ngx_http_auth_request_module.html).
+In other words, there is nginx's "auth_request" for every incoming HTTP request and
+depending on it's response's status code the request is allowed to pass or not.
+
+
+That's all with OIDC theory. Now it is time to jump into
+specific examples. First example is [Papermerge + Keycloak](keycloak.md) as identity provider.
