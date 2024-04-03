@@ -14,9 +14,9 @@ https, with valid certificates and without featuring ports in URLs, but for
 our guide we will skip those parts.
 
 In first part of the guide we will add administrative user
-(superuser). Superuser has all permissions. Superuser is the most privileged
-user in {{ extra.project }}. In second part of the guide we will add one
-non-superuser.
+(superuser). Superuser has all permissions, in other words, superuser is the
+most privileged user in {{ extra.project }}. In second part of the guide we
+will add one non-superuser.
 
 ## Administrative User (Superuser)
 
@@ -95,7 +95,7 @@ their counterpart from step 3.
 `PAPERMERGE__AUTH__USERNAME` and `PAPERMERGE__AUTH__EMAIL` should match the user we created in step 2. As it was
 mentioned, we will use "bender" as administrative user in {{extra.project}}.
 Note that you need to specify `PAPERMERGE__AUTH__PASSWORD`, but whatever you put there is completely irrelevant
-because administrative user will login with password managed in Keyloak (in our example it is "benderpass").
+because administrative user will login with password managed in Keycloak (in our example it is "benderpass").
 
 `PAPERMERGE__AUTH__OIDC_REDIRECT_URL` should match "Valid redirect URIs" from Step 3 and it should be of
 format: `[http|https]://<papermerge-instance-domain>/oidc/callback`.
@@ -105,34 +105,40 @@ format: `[http|https]://<papermerge-instance-domain>/oidc/callback`.
 
 ![Login as superuser](../../img/auth/oidc/login-as-bender.gif)
 
-!!! Note
+!!! Warning
 
     There is a known issue that after successful login - "sign in" view is still shown.
-    As workaround you need to hit browser's refresh button.
+    As workaround you need to hit browser's **refresh** button.
 
 
 ## Groups / Permissions
 
-In this part we will add other users which can sign in using OIDC in {{ extra.project}}.
-Users added in this part have limited permissions - they won't be able
-to add/view/delete other groups and users. User permissions are set via groups.
-Each group has a specific set of permissions; if user belongs to a group - he or she
-has all permissions assigned to respective group.
+In this part we will add less privileged users. Users added in this part have
+limited permissions - they won't be able to add/view/delete other groups and
+users. User permissions are set via groups. Each group has a specific set of
+permissions; if user belongs to a group - he or she has all permissions
+assigned to respective group.
 
 For this part to work, make sure you've completed the "superuser" part from above.
 
 Any other user you will add need to belong to one or more groups.
 In this part we will create one user "leela". "leela" will have all permissions
-but view/create/delete other users and groups.
+but view/create/delete for users/groups.
 
 
 ### Step 1 - Create Group
 
-First we need to create a group, we will name it "family", with desired set of
-permissions. You do this in {{ extra.project }} with user "bender" (which is
-superuser).
+First we need to create group, named "family", with desired set of
+permissions. You do this in {{ extra.project }} with user "bender".
 
 ![Add family group](../../img/auth/oidc/add-family-group.gif)
+
+
+!!! Note
+
+    Group names in Keycloak and in {{ extra.project }} should match.
+    Group <-> Permissions association is created in {{ extra.project }}.
+    User <-> Groups association is created in Keycloak.
 
 
 ### Step 2 - Add User
@@ -144,7 +150,9 @@ Create user "leela" in Keycloak and add her to group "family".
 
 ### Step 3 - Configure "groups" Claim
 
-Add "groups" claim. While adding it **make sure you uncheck "Full group path"**:
+
+By default Keycloak creates JWT token without "groups" claim.
+We need to add "groups" claim to the JWT token. While adding it **make sure you uncheck "Full group path"**:
 Clients -> papermerge -> Client Scopes -> papermerge-dedicated -> Add mapper -> By Configuration
 -> Group Membership.
 
