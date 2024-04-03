@@ -14,7 +14,7 @@
         <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../../../settings/overview/">
+        <link rel="next" href="../authelia/">
       
       
       <link rel="icon" href="../../../img/favicon.ico">
@@ -858,36 +858,97 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#administrative-user-superuser" class="md-nav__link">
+    Administrative User (Superuser)
+  </a>
+  
+    <nav class="md-nav" aria-label="Administrative User (Superuser)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1-create-realm" class="md-nav__link">
     Step 1 - Create Realm
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-2-create-user" class="md-nav__link">
     Step 2 - Create User
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-3-create-oidc-client" class="md-nav__link">
     Step 3 - Create OIDC Client
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-configure-username-claim" class="md-nav__link">
-    Step 4 - Configure "username" Claim
+        
+          <li class="md-nav__item">
+  <a href="#step-4-start-papermerge" class="md-nav__link">
+    Step 4 - Start Papermerge
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-login-as-superuser" class="md-nav__link">
+    Step 5 - Login as Superuser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-start-papermerge" class="md-nav__link">
-    Step 5 - Start Papermerge
+  <a href="#groups-permissions" class="md-nav__link">
+    Groups / Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="Groups / Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-group" class="md-nav__link">
+    Step 1 - Create Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-user" class="md-nav__link">
+    Step 2 - Add User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-groups-claim" class="md-nav__link">
+    Step 3 - Configure "groups" Claim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-login-as-leela" class="md-nav__link">
+    Step 4 - Login as "leela"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
   </a>
   
 </li>
@@ -896,6 +957,46 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authelia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authelia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentik/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentik
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1425,36 +1526,97 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#administrative-user-superuser" class="md-nav__link">
+    Administrative User (Superuser)
+  </a>
+  
+    <nav class="md-nav" aria-label="Administrative User (Superuser)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1-create-realm" class="md-nav__link">
     Step 1 - Create Realm
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-2-create-user" class="md-nav__link">
     Step 2 - Create User
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-3-create-oidc-client" class="md-nav__link">
     Step 3 - Create OIDC Client
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-configure-username-claim" class="md-nav__link">
-    Step 4 - Configure "username" Claim
+        
+          <li class="md-nav__item">
+  <a href="#step-4-start-papermerge" class="md-nav__link">
+    Step 4 - Start Papermerge
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-login-as-superuser" class="md-nav__link">
+    Step 5 - Login as Superuser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-start-papermerge" class="md-nav__link">
-    Step 5 - Start Papermerge
+  <a href="#groups-permissions" class="md-nav__link">
+    Groups / Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="Groups / Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-group" class="md-nav__link">
+    Step 1 - Create Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-user" class="md-nav__link">
+    Step 2 - Add User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-groups-claim" class="md-nav__link">
+    Step 3 - Configure "groups" Claim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-login-as-leela" class="md-nav__link">
+    Step 4 - Login as "leela"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
   </a>
   
 </li>
@@ -1478,8 +1640,8 @@
 
 
 <h1 id="keycloak">Keycloak</h1>
-<p>This guide shows how to setup Papermerge + <a href="https://keycloak.org">Keyloak</a> as OIDC identity
-provider. It was tested with Keycloak 24.0.2.</p>
+<p>This guide shows how to setup Papermerge + <a href="https://keycloak.org">Keyloak</a> as
+OIDC identity provider. It was tested with Keycloak 24.0.2.</p>
 <p>To follow this guide you need one Papermerge and one Keycloak instance.
 For this guide we have:</p>
 <ul>
@@ -1489,11 +1651,14 @@ For this guide we have:</p>
 <p>Of course for your specific deployment you'll want to serve both apps over
 https, with valid certificates and without featuring ports in URLs, but for
 our guide we will skip those parts.</p>
-<p>First we will configure Keycloak, and then we will start Papermerge
-with correct environment variables.</p>
-<h2 id="step-1-create-realm">Step 1 - Create Realm</h2>
+<p>In first part of the guide we will add administrative user
+(superuser). Superuser has all permissions, in other words, superuser is the
+most privileged user in Papermerge. In second part of the guide we
+will add one non-superuser.</p>
+<h2 id="administrative-user-superuser">Administrative User (Superuser)</h2>
+<h3 id="step-1-create-realm">Step 1 - Create Realm</h3>
 <p>Create a new realm in Keycloak as described <a href="https://www.keycloak.org/getting-started/getting-started-docker#_create_a_realm">here</a>. We will name it "myrealm".</p>
-<h2 id="step-2-create-user">Step 2 - Create User</h2>
+<h3 id="step-2-create-user">Step 2 - Create User</h3>
 <p>In "myrealm" create a user, as described <a href="https://www.keycloak.org/getting-started/getting-started-docker#_create_a_user">here</a> with following details:</p>
 <div class="language-text highlight"><pre><span></span><code>- username: bender
 - email: bender@mail.com
@@ -1501,7 +1666,7 @@ with correct environment variables.</p>
 </code></pre></div>
 <p>User "bender" will be administrative user in Papermerge.
 Let's create OIDC client.</p>
-<h2 id="step-3-create-oidc-client">Step 3 - Create OIDC Client</h2>
+<h3 id="step-3-create-oidc-client">Step 3 - Create OIDC Client</h3>
 <p>Make sure you are currently in "myrealm".
 Click Clients -&gt; Create client.
 Choose:</p>
@@ -1517,9 +1682,7 @@ note its "Client Secret". You will need it in next step.
 For this guide, the Client Secret is:</p>
 <div class="language-text highlight"><pre><span></span><code>- Client Secret: OHGMBgyAjcvDtn4PAu8w8vE9yf06aHn1
 </code></pre></div>
-<h2 id="step-4-configure-username-claim">Step 4 - Configure "username" Claim</h2>
-<p>... by default JWT token does not contain "username" claim ...</p>
-<h2 id="step-5-start-papermerge">Step 5 - Start Papermerge</h2>
+<h3 id="step-4-start-papermerge">Step 4 - Start Papermerge</h3>
 <p>Now, start Papermerge with OIDC enabled, with following docker compose:</p>
 <pre><code class="language-yaml">version: &quot;3.9&quot;
 
@@ -1534,6 +1697,7 @@ x-backend: &amp;common
     PAPERMERGE__AUTH__OIDC_CLIENT_ID: papermerge
     PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/auth
     PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token
+    PAPERMERGE__AUTH__OIDC_INTROSPECT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
     PAPERMERGE__AUTH__OIDC_USER_INFO_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/userinfo
     PAPERMERGE__AUTH__OIDC_LOGOUT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
     PAPERMERGE__AUTH__OIDC_REDIRECT_URL: http://demo.trusel.net:12000/oidc/callback
@@ -1551,9 +1715,61 @@ their counterpart from step 3.</p>
 <p><code>PAPERMERGE__AUTH__USERNAME</code> and <code>PAPERMERGE__AUTH__EMAIL</code> should match the user we created in step 2. As it was
 mentioned, we will use "bender" as administrative user in Papermerge.
 Note that you need to specify <code>PAPERMERGE__AUTH__PASSWORD</code>, but whatever you put there is completely irrelevant
-because administrative user will login with password managed in Keyloak (in our example it is "benderpass").</p>
+because administrative user will login with password managed in Keycloak (in our example it is "benderpass").</p>
 <p><code>PAPERMERGE__AUTH__OIDC_REDIRECT_URL</code> should match "Valid redirect URIs" from Step 3 and it should be of
 format: <code>[http|https]://&lt;papermerge-instance-domain&gt;/oidc/callback</code>.</p>
+<h3 id="step-5-login-as-superuser">Step 5 - Login as Superuser</h3>
+<p><img alt="Login as superuser" src="../../../img/auth/oidc/login-as-bender.gif" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is a known issue that after successful login - "sign in" view is still shown.
+As workaround you need to hit browser's <strong>refresh</strong> button.</p>
+</div>
+<h2 id="groups-permissions">Groups / Permissions</h2>
+<p>In this part we will add less privileged users. Users added in this part have
+limited permissions - they won't be able to add/view/delete other groups and
+users. User permissions are set via groups. Each group has a specific set of
+permissions; if user belongs to a group - he or she has all permissions
+assigned to respective group.</p>
+<p>For this part to work, make sure you've completed the "superuser" part from above.</p>
+<p>Any other user you will add need to belong to one or more groups.
+In this part we will create one user "leela". "leela" will have all permissions
+but view/create/delete for users/groups.</p>
+<h3 id="step-1-create-group">Step 1 - Create Group</h3>
+<p>First we need to create group, named "family", with desired set of
+permissions. You do this in Papermerge with user "bender".</p>
+<p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Group names in Keycloak and in Papermerge should match.
+Group &lt;-&gt; Permissions association is created in Papermerge.
+User &lt;-&gt; Groups association is created in Keycloak.</p>
+</div>
+<h3 id="step-2-add-user">Step 2 - Add User</h3>
+<p>Create user "leela" in Keycloak and add her to group "family".</p>
+<p><img alt="Add user and assign o group" src="../../../img/auth/oidc/add-user-and-group-in-keycloak.gif" /></p>
+<h3 id="step-3-configure-groups-claim">Step 3 - Configure "groups" Claim</h3>
+<p>By default Keycloak creates JWT token without "groups" claim.
+We need to add "groups" claim to the JWT token. While adding it <strong>make sure you uncheck "Full group path"</strong>:
+Clients -&gt; papermerge -&gt; Client Scopes -&gt; papermerge-dedicated -&gt; Add mapper -&gt; By Configuration
+-&gt; Group Membership.</p>
+<ul>
+<li>Name: "groups"</li>
+<li>Token Claim Name: "groups"  (it must be plural!)</li>
+<li>Uncheck "Full group path"  (important!)</li>
+</ul>
+<p><img alt="Add groups claim" src="../../../img/auth/oidc/add-groups-claim.gif" /></p>
+<h3 id="step-4-login-as-leela">Step 4 - Login as "leela"</h3>
+<p>Leela's password is managed by Keycloak. In Keycloak You can go to Users -&gt; leela -&gt; Credentials
+to change her password.</p>
+<p>Login with as leela in Papermerge. Notice that "users" and "groups" tabs on the left side bar are
+not visible, as leela does not have permissions to manage users and groups.</p>
+<p><img alt="login as leela" src="../../../img/auth/oidc/leela.gif" /></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>While troubleshooting you may want to see the actual JWT token. For that right
+click -&gt; Inspect -&gt; Application -&gt; Cookies
+-&gt; "access_token". Access token cookie is basically the JWT access token. Use
+    <a href="https://jwt.io">jwt.io</a> page to see decoded token.</p>
 
 
 
