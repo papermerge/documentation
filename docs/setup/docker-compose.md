@@ -406,7 +406,7 @@ volumes:
   media_root:
 ```
 
-For detailed information on authentication check [Authentication](./authentication.md) section.
+For detailed information on authentication check [Authentication](../authentication/oidc/overview.md) section.
 
 
 ## LDAP
@@ -487,4 +487,4 @@ volumes:
   media_root:
 ```
 
-For detailed information on authentication check [Authentication](./authentication.md) section.
+For detailed information on authentication check [Authentication](../authentication/oidc/overview.md) section.
