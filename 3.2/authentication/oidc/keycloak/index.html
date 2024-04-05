@@ -14,7 +14,7 @@
         <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../authelia/">
+        <link rel="next" href="../authentik/">
       
       
       <link rel="icon" href="../../../img/favicon.ico">
@@ -914,8 +914,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-create-group" class="md-nav__link">
-    Step 1 - Create Group
+  <a href="#step-1-create-group-in-papermerge" class="md-nav__link">
+    Step 1 - Create Group in Papermerge
   </a>
   
 </li>
@@ -957,26 +957,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../authelia/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Authelia
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1582,8 +1562,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-create-group" class="md-nav__link">
-    Step 1 - Create Group
+  <a href="#step-1-create-group-in-papermerge" class="md-nav__link">
+    Step 1 - Create Group in Papermerge
   </a>
   
 </li>
@@ -1732,18 +1712,16 @@ users. User permissions are set via groups. Each group has a specific set of
 permissions; if user belongs to a group - he or she has all permissions
 assigned to respective group.</p>
 <p>For this part to work, make sure you've completed the "superuser" part from above.</p>
-<p>Any other user you will add need to belong to one or more groups.
-In this part we will create one user "leela". "leela" will have all permissions
+<p><strong>All non-superuser (i.e. normal users) must belong to one or more groups.</strong></p>
+<p>In this part we will create one user "leela". "leela" will have all permissions
 but view/create/delete for users/groups.</p>
-<h3 id="step-1-create-group">Step 1 - Create Group</h3>
+<h3 id="step-1-create-group-in-papermerge">Step 1 - Create Group in Papermerge</h3>
 <p>First we need to create group, named "family", with desired set of
 permissions. You do this in Papermerge with user "bender".</p>
 <p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Group names in Keycloak and in Papermerge should match.
-Group &lt;-&gt; Permissions association is created in Papermerge.
-User &lt;-&gt; Groups association is created in Keycloak.</p>
+<p>Group names in Keycloak and in Papermerge should match.</p>
 </div>
 <h3 id="step-2-add-user">Step 2 - Add User</h3>
 <p>Create user "leela" in Keycloak and add her to group "family".</p>

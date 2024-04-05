@@ -801,6 +801,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -810,6 +821,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#protocol" class="md-nav__link">
+    Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups" class="md-nav__link">
+    Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -827,26 +885,6 @@
   
   <span class="md-ellipsis">
     Keycloak
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../authelia/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Authelia
   </span>
   
 
@@ -1393,6 +1431,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#protocol" class="md-nav__link">
+    Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups" class="md-nav__link">
+    Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1410,6 +1484,7 @@
 
 
 <h1 id="overview">Overview</h1>
+<h2 id="protocol">Protocol</h2>
 <p>OpenID Connect (OIDC) is an interoperable authentication protocol based on the OAuth
 2.0 framework of specifications.</p>
 <p>It is usual for organizations to use multiple software applications. Even a
@@ -1487,8 +1562,33 @@ is: what is this "guard" thingy?
 <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">authorization based on sub-request result</a>.
 In other words, there is nginx's "auth_request" for every incoming HTTP request and
 depending on it's response's status code the request is allowed to pass or not.</p>
-<p>That's all with OIDC theory. Now it is time to jump into
-specific examples. First example is <a href="../keycloak/">Papermerge + Keycloak</a> as identity provider.</p>
+<h2 id="users">Users</h2>
+<p>When using OIDC provider, users are managed on OIDC provider side. You will
+create, update, delete users on OIDC provider side. This means also
+that you set users' passwords on provider side (Keycloak, Authentik).</p>
+<p>The only exception from this rule is very first superuser account of the Papermerge.
+Initial superuser account of Papermerge is created on both sides:
+in Papermerge via <code>PAPERMERGE__AUTH__USERNAME</code>, <code>PAPERMERGE__AUTH__EMAIL</code>
+<code>PAPERMERGE__AUTH__PASSWORD</code> environment variables and via OIDC provider.</p>
+<p>Note however that even though you must supply <code>PAPERMERGE__AUTH__PASSWORD</code>, its value is
+not used, as you will login using password configured in OIDC provider.</p>
+<h2 id="groups">Groups</h2>
+<p>Every user which will login into Papermerge via OIDC must belong to one
+or more groups. The only exception from this rule is initial superuser account.</p>
+<p>Groups must be created on both sides - on Papermerge side and on OIDC
+provider side. Groups are matches by their names. This means, in order to
+match, on both sides group name must be same. Name matching is case
+sensitive, this means for examples that "Family" and "family" are distinct
+names.</p>
+<h2 id="permissions">Permissions</h2>
+<p>When using OIDC provider, permissions are managed on Papermerge side only.
+Group can be regarded as a set of permissions.
+Group &lt;-&gt; Permissions association is accomplished on Papermerge side.</p>
+<p>On the OIDC provider side, users are assigned to groups. By matching group on
+the Papermerge side, user gains all permissions of the groups they
+were assigned.</p>
+<p>Users, groups, permissions entities relations can be illustrated as in following picture:</p>
+<p><img alt="Users Groups Permissions" src="../../../img/auth/oidc/users-groups-permissions.svg" /></p>
 
 
 

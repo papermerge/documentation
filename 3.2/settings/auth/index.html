@@ -828,26 +828,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/authelia/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Authelia
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../authentication/oidc/authentik/" class="md-nav__link">
         
   
@@ -1050,6 +1030,13 @@
         <li class="md-nav__item">
   <a href="#auth__oidc_introspect_url" class="md-nav__link">
     AUTH__OIDC_INTROSPECT_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth__oidc_scope" class="md-nav__link">
+    AUTH__OIDC_SCOPE
   </a>
   
 </li>
@@ -1624,6 +1611,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#auth__oidc_scope" class="md-nav__link">
+    AUTH__OIDC_SCOPE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#auth__oidc_redirect_url" class="md-nav__link">
     AUTH__OIDC_REDIRECT_URL
   </a>
@@ -1756,6 +1750,10 @@ PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://authk.trusel.net/application/o/calypso/
 </code></pre></div>
 <p>Value points to identity provider domain.
 Introspect endpoint is used to validate all incoming requests if they are authenticated or not.</p>
+<h2 id="auth__oidc_scope">AUTH__OIDC_SCOPE</h2>
+<p>List of OIDC scopes delimited by space. Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__AUTH_OIDC_SCOPE=&quot;openid email profile&quot;
+</code></pre></div>
 <h2 id="auth__oidc_redirect_url">AUTH__OIDC_REDIRECT_URL</h2>
 <p>This value always should be set to <code>&lt;http|https&gt;://&lt;your-papermerge-domain&gt;/oidc/callback</code>.
 Example:</p>
