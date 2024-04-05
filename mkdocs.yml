@@ -26,7 +26,6 @@ nav:
     - OIDC:
       - authentication/oidc/overview.md
       - authentication/oidc/keycloak.md
-      - authentication/oidc/authelia.md
       - authentication/oidc/authentik.md
   - Settings:
     - settings/overview.md

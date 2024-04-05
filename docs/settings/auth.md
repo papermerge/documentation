@@ -101,6 +101,13 @@ Value points to identity provider domain.
 Introspect endpoint is used to validate all incoming requests if they are authenticated or not.
 
 
+## AUTH__OIDC_SCOPE
+
+List of OIDC scopes delimited by space. Example:
+
+    PAPERMERGE__AUTH_OIDC_SCOPE="openid email profile"
+
+
 ## AUTH__OIDC_REDIRECT_URL
 
 This value always should be set to `<http|https>://<your-papermerge-domain>/oidc/callback`.
