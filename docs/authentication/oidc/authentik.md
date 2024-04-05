@@ -139,3 +139,52 @@ To get all OIDC endpoints, use "OpenID Configuration URL" directly in your brows
 
     There is a known issue that after successful login - "sign in" view is still shown.
     As workaround you need to hit browser's **refresh** button.
+
+
+## Groups / Permissions
+
+In this part we will add less privileged users. Users added in this part have
+limited permissions - they won't be able to add/view/delete other groups and
+users. User permissions are set via groups. Each group has a specific set of
+permissions; if user belongs to a group - he or she has all permissions
+assigned to respective group.
+
+For this part to work, make sure you've completed the "superuser" part of this guide.
+
+**All non-superusers (i.e. normal users) must belong to one or more groups.**
+
+In this part we will create one user "leela". "leela" will have all permissions
+but view/create/delete for users/groups.
+
+
+### Step 1 - Create Group in Papermerge
+
+First we need to create group, named "family", with desired set of
+permissions. You do this in {{ extra.project }} with user "bender".
+
+![Add family group](../../img/auth/oidc/add-family-group.gif)
+
+
+!!! Note
+
+    Group names in Authentik and in {{ extra.project }} should match.
+
+### Step 2 - Add User
+
+Create user "leela" in Authentik.
+Create "family" group in Authentik.
+Add user "leela" to group "family" (in Authentik).
+Of course you will set leela's password in Authentik as well.
+
+The outcome should look like:
+
+![User Leela in Family Group](../../img/auth/oidc/authentik-user-leela-in-family-group.gif)
+
+### Step 3 - Login as "leela"
+
+Login with as leela in {{ extra.project }}. Notice that "users" and "groups" tabs on
+the left side bar are not visible, as leela does not have permissions to
+to manage users and groups.
+
+
+![Login as Leela](../../img/auth/oidc/authentik-login-as-leela.gif)
