@@ -1,5 +1,8 @@
 # Overview
 
+
+## Protocol
+
 OpenID Connect (OIDC) is an interoperable authentication protocol based on the OAuth
 2.0 framework of specifications.
 
@@ -106,5 +109,38 @@ In other words, there is nginx's "auth_request" for every incoming HTTP request 
 depending on it's response's status code the request is allowed to pass or not.
 
 
-That's all with OIDC theory. Now it is time to jump into
-specific examples. First example is [Papermerge + Keycloak](keycloak.md) as identity provider.
+## Users
+
+When using OIDC provider, users are managed on OIDC provider side. You will
+create, update, delete users on OIDC provider side. This means also
+that you set users' passwords on provider side (Keycloak, Authentik).
+
+The only exception from this rule is very first superuser account of the {{ extra.project }}.
+Initial superuser account of {{ extra.project }} is created on both sides:
+in {{ extra.project }} via `PAPERMERGE__AUTH__USERNAME`, `PAPERMERGE__AUTH__EMAIL`
+`PAPERMERGE__AUTH__PASSWORD` environment variables and via OIDC provider.
+
+Note however that even though you must supply `PAPERMERGE__AUTH__PASSWORD`, its value is
+not used, as you will login using password configured in OIDC provider.
+
+## Groups
+
+Every user which will login into {{ extra.project }} via OIDC must belong to one
+or more groups. The only exception from this rule is initial superuser account.
+
+Groups must be created on both sides - on {{extra.project}} side and on OIDC
+provider side. Groups are matches by their names. This means, in order to
+match, on both sides group name must be same. Name matching is case
+sensitive, this means for examples that "Family" and "family" are distinct
+names.
+
+
+## Permissions
+
+When using OIDC provider, permissions are managed on {{ extra.project }} side only.
+Group can be regarded as a set of permissions.
+Group <-> Permissions association in accomplished on {{ extra.project }} side.
+
+On the OIDC provider side, users are assigned to groups. By matching group on
+the {{extra.project}} side, user gains all permissions of the groups they
+were assigned.
