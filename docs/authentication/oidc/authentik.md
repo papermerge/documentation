@@ -59,7 +59,7 @@ Update.
 
 ### Step 4 - Create User
 
-Let's create a user.
+Let's create a user **in Authentik**.
 
 Directory -> Users -> Create.
 Create user with following details:
@@ -69,6 +69,11 @@ Create user with following details:
     - password: benderpass
 
 User "bender" will be administrative user in {{ extra.project }}.
+
+!!! Note
+
+    User is created in Authentik. User password is set in Authentik as well.
+
 
 
 ### Step 5 - Start Papermerge
@@ -119,3 +124,18 @@ because administrative user will login with password managed in Authentik (in ou
 format: `[http|https]://<papermerge-instance-domain>/oidc/callback`.
 
 `PAPERMERGE__AUTH__OIDC_SCOPE` must include "profile", otherwise JWT token won't contain `preferred_username` and `groups` claims
+
+It may happen that not all OIDC endpoints are shown in Authentik UI.
+To get all OIDC endpoints, use "OpenID Configuration URL" directly in your browser:
+
+![All OIDC endpoints](../../img/auth/oidc/authentik-all-oidc-endpoints.gif)
+
+
+### Step 6 - Login as Superuser
+
+![Login as superuser](../../img/auth/oidc/authentik-login-as-bender.gif)
+
+!!! Warning
+
+    There is a known issue that after successful login - "sign in" view is still shown.
+    As workaround you need to hit browser's **refresh** button.
