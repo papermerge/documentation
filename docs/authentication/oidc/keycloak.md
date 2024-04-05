@@ -121,12 +121,13 @@ assigned to respective group.
 
 For this part to work, make sure you've completed the "superuser" part from above.
 
-Any other user you will add need to belong to one or more groups.
+**All non-superuser (i.e. normal users) must belong to one or more groups.**
+
 In this part we will create one user "leela". "leela" will have all permissions
 but view/create/delete for users/groups.
 
 
-### Step 1 - Create Group
+### Step 1 - Create Group in Papermerge
 
 First we need to create group, named "family", with desired set of
 permissions. You do this in {{ extra.project }} with user "bender".
@@ -137,8 +138,6 @@ permissions. You do this in {{ extra.project }} with user "bender".
 !!! Note
 
     Group names in Keycloak and in {{ extra.project }} should match.
-    Group <-> Permissions association is created in {{ extra.project }}.
-    User <-> Groups association is created in Keycloak.
 
 
 ### Step 2 - Add User
