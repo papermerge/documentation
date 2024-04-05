@@ -139,8 +139,12 @@ names.
 
 When using OIDC provider, permissions are managed on {{ extra.project }} side only.
 Group can be regarded as a set of permissions.
-Group <-> Permissions association in accomplished on {{ extra.project }} side.
+Group <-> Permissions association is accomplished on {{ extra.project }} side.
 
 On the OIDC provider side, users are assigned to groups. By matching group on
 the {{extra.project}} side, user gains all permissions of the groups they
 were assigned.
+
+Users, groups, permissions entities relations can be illustrated as in following picture:
+
+![Users Groups Permissions](../../img/auth/oidc/users-groups-permissions.svg)
