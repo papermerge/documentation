@@ -15,6 +15,8 @@ the requests to the locally running {{ extra.project }} or Authelia.
 Local Authelia will run on `127.0.0.1:9091` and local {{ extra.project }} will
 run on `127.0.0.1:12000`.
 
+![Nginx Authelia Papermerge](../../img/auth/remote-user/nginx-authelia-papermerge.svg)
+
 ## Step 1 - Authelia's Compose
 
 Let's start with docker compose file for Authelia:
@@ -379,7 +381,7 @@ services:
       - PAPERMERGE__AUTH__REMOTE=yes
       - PAPERMERGE__AUTH__REMOTE_LOGOUT_ENDPOINT=https://auth.trusel.net/logout
       - PAPERMERGE__AUTH__USERNAME=bender
-      - PAPERMERGE__AUTH__PASSWORD=not-used
+      - PAPERMERGE__AUTH__PASSWORD=not-used-but-needs-to-be-present
       - PAPERMERGE__AUTH__EMAIL=bender@mail.com
 ```
 
