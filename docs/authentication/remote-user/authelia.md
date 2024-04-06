@@ -15,6 +15,8 @@ the requests to the locally running {{ extra.project }} or Authelia.
 Local Authelia will run on `127.0.0.1:9091` and local {{ extra.project }} will
 run on `127.0.0.1:12000`.
 
+## Step 1 - Authelia's Compose
+
 Let's start with docker compose file for Authelia:
 
 ```yaml
@@ -53,6 +55,8 @@ services:
       - PUID=1000
       - PGID=1000
 ```
+
+## Step 2 - Authelia's Configs
 
 As you can see in compose file, there is a mount from local "authelia/authelia" folder to "/config".
 Let's create that folder and place all configuration in it:
@@ -135,7 +139,7 @@ under which Authelia is available and `calypso.trusel.net` the domain
 under which {{ extra.project }} application is available.
 
 
-## Users
+## Step 3 - Authelia's Users
 
 Let's create users on Authelia side.
 There are two users: "bender" and "leela".
@@ -158,7 +162,7 @@ users:
       - family
 ```
 
-## NGINX
+## Step 4 - NGINX
 
 NGINX's sites-enabled has two files `auth.trusel.net`, which is Authelia's domain and
 `calypso.trusel.net` which is {{extra.project}} domain.
@@ -297,9 +301,11 @@ This is the heart and the most relevant part of this guide!
 
 ## The Most Important
 
-This is the most important part of the entire guide and this is where
-"remote-user" header magic actually takes place.
+**!! The most important part of the entire guide - START !!**
+
+This is where "remote-user" header magic actually takes place.
 It is `snippets/auth.conf` file included `calypso.trusel.net`.
+
 Here is its content:
 
 ```
@@ -352,3 +358,64 @@ In above statements remote headers are set. Notice that besides "Remote-User"
 etc headers there also are "Set-Cookie" in other words, the user information
 is also passed as cookie. Passing Remote-User information along via cookies
 as well is required by {{ extra.project }}.
+
+**!! The most important part of the entire guide - END !!**
+
+## Step 5 - Papermerge
+
+Start {{ extra.project }} with following docker compose file:
+
+```
+
+services:
+  paper:
+    image: papermerge/papermerge:3.2.0build28
+    container_name: paper
+    ports:
+      - 12000:80
+    restart: unless-stopped
+    environment:
+      - PAPERMERGE__SECURITY__SECRET_KEY=abc-secret
+      - PAPERMERGE__AUTH__REMOTE=yes
+      - PAPERMERGE__AUTH__REMOTE_LOGOUT_ENDPOINT=https://auth.trusel.net/logout
+      - PAPERMERGE__AUTH__USERNAME=bender
+      - PAPERMERGE__AUTH__PASSWORD=not-used
+      - PAPERMERGE__AUTH__EMAIL=bender@mail.com
+```
+
+Some key points to notice:
+
+1. The username should match existing user configured in Authelia. In our case it is "bender".
+2. The email should match the bender's email from Authelia side.
+3. User "shared" between Authelia and {{ extra.project }} is superuser i.e. administrative user.
+4. You need to supply `PAPERMERGE__AUTH__PASSWORD` value, however its value is not relevent,
+as you will be authenticating with password configured on Authelia side.
+5. Any non-empty value will do for `PAPERMERGE__AUTH__REMOTE`. It may be "1", "True", "yes".
+
+
+## Step 6 - Sign In with Superuser
+
+In this guide superuser account is "bender". Its password is managed
+on Authelia side.
+
+Once you have all containers + nginx up and running you
+can sign in with superuser.
+
+![Login as superuser](../../img/auth/remote-user/bender-sign-in.gif)
+
+## Step 7 - Create "family" Group
+
+Once inside {{ extra.project }} with superuser account, create
+"family" group. Any user from "family" group will have all
+permissions but to manage users and groups.
+In our configuration example the only user from "family" group is "leela".
+
+![Add family group](../../img/auth/oidc/add-family-group.gif)
+
+## Step 8 - Sign In as "leela"
+
+Sign in as "leela". Notice that for user "leela" there are no "users"
+and "groups" tab on the left side panel, as she does not have permissions to
+manage users and groups.
+
+![Login as leela](../../img/auth/remote-user/leela-sign-in.gif)
