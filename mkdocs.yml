@@ -22,15 +22,15 @@ nav:
     - user/ocr.md
     - user/file-formats.md
     - user/user-management.md
-  - Authentication:
-    - authentication/overview.md
+  - SSO:
+    - sso/overview.md
     - OIDC:
-      - authentication/oidc/overview.md
-      - authentication/oidc/keycloak.md
-      - authentication/oidc/authentik.md
+      - sso/oidc/overview.md
+      - sso/oidc/keycloak.md
+      - sso/oidc/authentik.md
     - Remote User:
-      - authentication/remote-user/overview.md
-      - authentication/remote-user/authelia.md
+      - sso/remote-user/overview.md
+      - sso/remote-user/authelia.md
   - Settings:
     - settings/overview.md
     - settings/auth.md

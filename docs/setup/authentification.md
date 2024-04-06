@@ -4,8 +4,8 @@ This section briefly describes authentication. It focuses mostly on relevant
 settings so that you can quickly set it up.
 
 For detailed information about each method as well
-as how to configure it with specific itenditity provider
-see e.g. [oidc](../authentication/oidc/overview.md)
+as how to configure it with specific identity provider
+check [SSO documentation](../sso/overview.md).
 
 {{ extra.project }} comes with flexible authentication features.
 It can handle user accounts, groups, permissions. {{ extra.project }}
@@ -64,7 +64,7 @@ should point to OIDC provider domain. Examples:
     PAPERMERGE__AUTH__OIDC_LOGOUT_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
     PAPERMERGE__AUTH__OIDC_INTROSPECT_URL=http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
 
-For detailed information OpenID Connect see [Authentication/OIDC](../authentication/oidc/overview.md).
+For detailed information OpenID Connect see [SSO/OIDC](../sso/oidc/overview.md) documentation.
 
 ## Remote User
 

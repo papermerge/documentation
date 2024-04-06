@@ -17,7 +17,7 @@ perfect tool for long term storage of your documents.
 
 ## Features Highlights
 
-* Works with PDF, TIFF, JPEG, PNG formats
+* Supports PDF, TIFF, JPEG, PNG file formats
 * Desktop like user interface
 * Dual panel mode
 * OCR - used to extract text for documents indexing
@@ -26,7 +26,9 @@ perfect tool for long term storage of your documents.
 * Document Versioning
 * Tags - assign colored tags to documents or folders
 * Folders - users can organize documents in folders
-* Multi-User
+* Multi-User (Users/Groups/Permissions)
+* Authorization via granular permissions to limit users' scopes
+* [SSO](sso/overview.md) - single sign on using standard protocols such as OIDC
 * Fully REST API
 * Page Management - delete, reorder, rotate, merge, move, extract
 
