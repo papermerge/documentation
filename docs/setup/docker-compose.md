@@ -249,11 +249,11 @@ volumes:
   media_root:
 ```
 
-## OAuth 2.0
+## OAuth2.0/OpenID
 
-{{ extra.project }} supports OAuth2.0 authentication with Google and Github providers.
+{{ extra.project }} supports OAuth2.0/OpenID authentication any provider.
 
-Here is an example of OAuth2.0 setup with Google provider.
+Here is an example of OIDC setup with Keycloak provider.
 
 
 ```yaml
@@ -264,7 +264,7 @@ x-backend: &common
   environment:
     PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
     PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
+    PAPERMERGE__AUTH__PASSWORD: hohoho-no-relevent
     PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
     PAPERMERGE__REDIS__URL: redis://redis:6379/0
     PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
@@ -280,10 +280,15 @@ services:
   web:
     <<: *common
     environment:
-      PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET: GOCSPX-edited-of-course
-      PAPERMERGE__AUTH__GOOGLE_CLIENT_ID: 900000999991-edited-of-course.apps.googleusercontent.com
-      PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL: https://accounts.google.com/o/oauth2/auth  # fixed
-      PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI: https://demo.trusel.net/google/callback  # replace with your domain
+      PAPERMERGE__AUTH__OIDC_CLIENT_SECRET: OHGMBgyAjcvDtn4PAu8w8vE9yf06aHn1
+      PAPERMERGE__AUTH__OIDC_CLIENT_ID: papermerge
+      PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/auth
+      PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token
+      PAPERMERGE__AUTH__OIDC_INTROSPECT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
+      PAPERMERGE__AUTH__OIDC_USER_INFO_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/userinfo
+      PAPERMERGE__AUTH__OIDC_LOGOUT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
+      PAPERMERGE__AUTH__OIDC_REDIRECT_URL: http://demo.trusel.net:12000/oidc/callback
+      PAPERMERGE__AUTH__OIDC_SCOPE: "openid email profile"
     ports:
      - "12000:80"
   worker:
@@ -330,84 +335,7 @@ volumes:
   media_root:
 ```
 
-Here is an example of OAuth2.0 setup with GitHub provider.
-
-```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
-    PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - media_root:/core_app/media
-  depends_on:
-    db:
-      condition: service_healthy
-    redis:
-      condition: service_healthy
-
-services:
-  web:
-    <<: *common
-    environment:
-      PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET: "GitHub oauth2.0 client secret"
-      PAPERMERGE__AUTH__GITHUB_CLIENT_ID: "Github oauth2.0 client ID"
-      PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL: "https://github.com/login/oauth/authorize"
-      PAPERMERGE__AUTH__GITHUB_REDIRECT_URI: "<http|https>://<your domain>/github/callback"
-    ports:
-     - "12000:80"
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-  solr:
-    image: solr:9.3
-    ports:
-     - "8983:8983"
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: mariadb:11.2
-    volumes:
-      - maria:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: kesha
-      MYSQL_DATABASE: cocodb
-      MYSQL_USER: coco
-      MYSQL_PASSWORD: kesha
-    ports:
-      - "3306:3306"
-    healthcheck:
-      test: mariadb-admin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-
-volumes:
-  maria:
-  solr_data:
-  media_root:
-```
-
-For detailed information on authentication check [Authentication](../authentication/oidc/overview.md) section.
-
+For detailed information about SSO/OIDC check [Keycloak + Papermerge](../sso/oidc/keycloak.md) section.
 
 ## LDAP
 
@@ -487,4 +415,4 @@ volumes:
   media_root:
 ```
 
-For detailed information on authentication check [Authentication](../authentication/oidc/overview.md) section.
+For detailed information on authentication check [SSO](../sso/overview.md) section.
