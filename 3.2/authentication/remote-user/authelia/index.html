@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.2/contributor/docker/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.2/authentication/remote-user/authelia/">
       
       
-        <link rel="prev" href="../../cli/cli/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../../changelog/">
+        <link rel="next" href="../../../settings/overview/">
       
       
-      <link rel="icon" href="../../img/favicon.ico">
+      <link rel="icon" href="../../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
-        <title>Docker - Papermerge 3</title>
+        <title>Authelia - Papermerge 3</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../css/custom.css">
+      <link rel="stylesheet" href="../../../css/custom.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#authelia" class="md-skip">
           Skip to content
         </a>
       
@@ -99,9 +99,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Papermerge 3" class="md-header__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
+    <a href="../../.." title="Papermerge 3" class="md-header__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Authelia
             
           </span>
         </div>
@@ -230,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Papermerge 3" class="md-nav__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
+    <a href="../../.." title="Papermerge 3" class="md-nav__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     Papermerge 3
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/overview/" class="md-nav__link">
+      <a href="../../../setup/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/requirements/" class="md-nav__link">
+      <a href="../../../setup/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/docker/" class="md-nav__link">
+      <a href="../../../setup/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/docker-compose/" class="md-nav__link">
+      <a href="../../../setup/docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/ansible/" class="md-nav__link">
+      <a href="../../../setup/ansible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -392,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/kubernetes/" class="md-nav__link">
+      <a href="../../../setup/kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/authentification/" class="md-nav__link">
+      <a href="../../../setup/authentification/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/add-ocr-langs/" class="md-nav__link">
+      <a href="../../../setup/add-ocr-langs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -493,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/getting-started/" class="md-nav__link">
+      <a href="../../../user/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -513,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/user-interface/" class="md-nav__link">
+      <a href="../../../user/user-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/upload-documents/" class="md-nav__link">
+      <a href="../../../user/upload-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/tags/" class="md-nav__link">
+      <a href="../../../user/tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/search/" class="md-nav__link">
+      <a href="../../../user/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/page-management/" class="md-nav__link">
+      <a href="../../../user/page-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -613,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/versions/" class="md-nav__link">
+      <a href="../../../user/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/merge-documents/" class="md-nav__link">
+      <a href="../../../user/merge-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -653,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/ocr/" class="md-nav__link">
+      <a href="../../../user/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/file-formats/" class="md-nav__link">
+      <a href="../../../user/file-formats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/user-management/" class="md-nav__link">
+      <a href="../../../user/user-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -718,17 +718,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -741,7 +743,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -754,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/overview/" class="md-nav__link">
+      <a href="../../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/overview/" class="md-nav__link">
+      <a href="../../oidc/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/keycloak/" class="md-nav__link">
+      <a href="../../oidc/keycloak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/authentik/" class="md-nav__link">
+      <a href="../../oidc/authentik/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,17 +876,19 @@
                 
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
@@ -897,7 +901,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Remote User
@@ -910,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/remote-user/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -928,9 +932,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../authentication/remote-user/authelia/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Authelia
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -939,6 +963,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-authelias-compose" class="md-nav__link">
+    Step 1 - Authelia's Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-authelias-configs" class="md-nav__link">
+    Step 2 - Authelia's Configs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-authelias-users" class="md-nav__link">
+    Step 3 - Authelia's Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-nginx" class="md-nav__link">
+    Step 4 - NGINX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-most-important" class="md-nav__link">
+    The Most Important
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-papermerge" class="md-nav__link">
+    Step 5 - Papermerge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-sign-in-with-superuser" class="md-nav__link">
+    Step 6 - Sign In with Superuser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-create-family-group" class="md-nav__link">
+    Step 7 - Create "family" Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-sign-in-as-leela" class="md-nav__link">
+    Step 8 - Sign In as "leela"
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -999,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/overview/" class="md-nav__link">
+      <a href="../../../settings/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1019,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/auth/" class="md-nav__link">
+      <a href="../../../settings/auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1039,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/main/" class="md-nav__link">
+      <a href="../../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1059,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/security/" class="md-nav__link">
+      <a href="../../../settings/security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1079,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/ocr/" class="md-nav__link">
+      <a href="../../../settings/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1099,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/database/" class="md-nav__link">
+      <a href="../../../settings/database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1119,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/redis/" class="md-nav__link">
+      <a href="../../../settings/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/search/" class="md-nav__link">
+      <a href="../../../settings/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1166,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../backup-restore/" class="md-nav__link">
+      <a href="../../../backup-restore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1219,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rest-api/overview/" class="md-nav__link">
+      <a href="../../../rest-api/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1239,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rest-api/reference/" class="md-nav__link">
+      <a href="../../../rest-api/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rest-api/token/" class="md-nav__link">
+      <a href="../../../rest-api/token/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1320,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/overview/" class="md-nav__link">
+      <a href="../../../cli/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1340,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/cli/" class="md-nav__link">
+      <a href="../../../cli/cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1365,19 +1472,17 @@
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
@@ -1390,7 +1495,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Contributor Manual
@@ -1401,29 +1506,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../contributor/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,68 +1517,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    Web App
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    Web App + Worker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    Logging Config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1512,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1552,43 +1575,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    Web App
+  <a href="#step-1-authelias-compose" class="md-nav__link">
+    Step 1 - Authelia's Compose
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    Web App + Worker
+  <a href="#step-2-authelias-configs" class="md-nav__link">
+    Step 2 - Authelia's Configs
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    Logging Config
+  <a href="#step-3-authelias-users" class="md-nav__link">
+    Step 3 - Authelia's Users
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
+  <a href="#step-4-nginx" class="md-nav__link">
+    Step 4 - NGINX
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
+  <a href="#the-most-important" class="md-nav__link">
+    The Most Important
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
+  <a href="#step-5-papermerge" class="md-nav__link">
+    Step 5 - Papermerge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-sign-in-with-superuser" class="md-nav__link">
+    Step 6 - Sign In with Superuser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-create-family-group" class="md-nav__link">
+    Step 7 - Create "family" Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-sign-in-as-leela" class="md-nav__link">
+    Step 8 - Sign In as "leela"
   </a>
   
 </li>
@@ -1611,274 +1655,368 @@
   
 
 
-<h1 id="docker">Docker</h1>
-<p>There is docker image for development mode. Docker image is tagged with <code>3.0devX</code>.
-With dev image, you can get feedback of your source code changes without needing to install
-any dependency or any deveopment environment configurations.</p>
-<p>All examples described below assume that you got Papermerge <a href="https://github.com/papermerge/papermerge-core" class="external-link" target="_blank">source code</a>
-and you are in root repository of source code folder:</p>
-<div class="language-text highlight"><pre><span></span><code>$ git clone git@github.com:papermerge/papermerge-core.git PapermergeSourceCode
-$ cd PapermergeSourceCode
-</code></pre></div>
-<h2 id="web-app">Web App</h2>
-<p>This is the simplest local dev scenario, you start docker compose file only with
-web app i.e. REST API server + ui.</p>
-<p>The go to the folder where source was cloned and create following docker compose file:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
+<h1 id="authelia">Authelia</h1>
+<p>Following guide is based on <a href="https://matwick.ca/authelia-nginx-sso/">Self-Hosted SSO with Authelia and NGINX</a>.</p>
+<p>In this guide adoptation, we will use two domains:</p>
+<ul>
+<li>auth.trusel.net (Authelia)</li>
+<li>calypso.trusel.net (Papermerge)</li>
+</ul>
+<p>Both domains are accessiable via HTTPS (with valid certificates). Both domains
+are resolved to the same host. There is an NGINX which receives requests for
+above mentioned domains (and takes care of the certs) and proxy passes
+the requests to the locally running Papermerge or Authelia.</p>
+<p>Local Authelia will run on <code>127.0.0.1:9091</code> and local Papermerge will
+run on <code>127.0.0.1:12000</code>.</p>
+<p><img alt="Nginx Authelia Papermerge" src="../../../img/auth/remote-user/nginx-authelia-papermerge.svg" /></p>
+<h2 id="step-1-authelias-compose">Step 1 - Authelia's Compose</h2>
+<p>Let's start with docker compose file for Authelia:</p>
+<pre><code class="language-yaml">networks:
+  net:
+    driver: bridge
 
 services:
-  backend:
-    image: papermerge/papermege:3.0dev  # check the latest dev image number in dockerhub!
+  authelia:
+    image: authelia/authelia
+    container_name: authelia
     volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
+      - ${PWD}/authelia/authelia:/config
+    networks:
+      - net
+    ports:
+      - 9091:9091
+    restart: unless-stopped
     environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<p>Assuming you are in root folder of the source code, above docker compose will
-mount the source code to the correct location in docker image. The appliction will
-be accessible to on local port 11000.</p>
-<p>Here is docker compose file for the case when you want to build dev docker image yourself:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
 
-services:
-  backend:
-    build:
-      context: .
-      dockerfile: docker/dev/Dockerfile
+  redis:
+    image: redis:alpine
+    container_name: redis_authelia
     volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
+      - ./redis:/data
+    networks:
+      - net
+    expose:
+      - 6379
+    restart: unless-stopped
     environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
+      - TZ=Europe/Berlin
+      - PUID=1000
+      - PGID=1000
+</code></pre>
+<h2 id="step-2-authelias-configs">Step 2 - Authelia's Configs</h2>
+<p>As you can see in compose file, there is a mount from local "authelia/authelia" folder to "/config".
+Let's create that folder and place all configuration in it:</p>
+<div class="language-text highlight"><pre><span></span><code>mkdir -p authelia/authelia
+cd authelia/authelia
+touch configuration.yml
 </code></pre></div>
-<h2 id="web-app-worker">Web App + Worker</h2>
-<p>Following docker compose adds worker service. Worker and Web App
-communicate via redis (message broker), thus we need to add redis service as
-well:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
+<p>In configuration.yml put following:</p>
+<pre><code class="language-yaml">server:
+  host: 0.0.0.0
+  port: 9091
+log:
+  level: info
+jwt_secret: zgpWgPv7lPDkxb0mJFZYc8DkE90jJ1LEl66RjQ6i6ekI7pXYrJQGmvHB6L6xNEEo
+default_redirection_url: https://auth.trusel.net
 
-x-backend: &amp;common  # yaml anchor definition
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
+authentication_backend:
+  file:
+    path: /config/users_database.yml
 
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
+access_control:
+  default_policy: deny
+  rules:
+    - domain:
+        - &quot;auth.trusel.net&quot;
+      policy: bypass
+    - domain:
+        - &quot;calypso.trusel.net&quot;
+      policy: one_factor
+
+session:
+  name: authelia_session
+  secret: zgpWgPv7lPDkxb0mJFZYc8DkE90jJ1LEl66RjQ6i6ekI7pXYrJQGmvHB6L6xNEEo
+  expiration: 12h           # 12 hours
+  inactivity: 100m           # 100 minutes
+  remember_me_duration: 1M  # 1 month
+  domain: trusel.net
+
   redis:
-    image: redis:6
+    host: redis_authelia
+    port: 6379
 
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="logging-config">Logging Config</h2>
-<p>Both worker and web app read their logging configurations from file pointed by
-<code>PAPERMERGE__MAIN__LOGGING_CFG</code> environment variable. An example of custom
-logging config would be:</p>
-<div class="language-text highlight"><pre><span></span><code>version: 1
-disable_existing_loggers: true
+regulation:
+  max_retries: 6
+  find_time: 5m
+  ban_time: 15m
 
-formatters:
-  verbose:
-    format: &#39;%(asctime)s %(levelname)s %(name)s.%(funcName)s %(message)s&#39;
+storage:
+  encryption_key: 12341234123412341234556987239847239478akjdhahdkjh
+  local:
+    path: /config/db2.sqlite3
 
-handlers:
-  console:
-    level: DEBUG
-    class: logging.StreamHandler
-    formatter: verbose
+notifier:
+  disable_startup_check: false
+  filesystem:
+    filename: /config/notification.txt
+</code></pre>
+<p>The important part to note here is:</p>
+<pre><code class="language-yaml">...
+access_control:
+  default_policy: deny
+  rules:
+    - domain:
+        - &quot;auth.trusel.net&quot;
+      policy: bypass
+    - domain:
+        - &quot;calypso.trusel.net&quot;
+      policy: one_factor
+...
+</code></pre>
+<p>Which setups access control for two domains: <code>auth.trusel.net</code> - which is the domain
+under which Authelia is available and <code>calypso.trusel.net</code> the domain
+under which Papermerge application is available.</p>
+<h2 id="step-3-authelias-users">Step 3 - Authelia's Users</h2>
+<p>Let's create users on Authelia side.
+There are two users: "bender" and "leela".
+"bender" is administrative (superuser).
+"leela" is normal user and she is part of "family" group.</p>
+<p>Here is the content of <code>users_database.yml</code>:</p>
+<pre><code class="language-yaml">users:
+  bender:
+    displayname: &quot;Bender&quot;
+    password: $argon2id$v=19$m=65536,t=3,p=4$ML2qiuCXKNtSh1SC2zdiDA$Zq6ar+W+J1qUTbweP6uKfDCzPbhbHG3rrScaA6uKkcc
+    email: bender@mail.com
+  leela:
+    displayname: &quot;Leela&quot;
+    password: $argon2id$v=19$m=65536,t=3,p=4$Oe6oxqot1BT4Z8pb2EdNpw$qib0A48D71bybWPslNWBZ8ieK6B++XFtKbAvKMj0Px0
+    email: leela@mail.com
+    groups:
+      - family
+</code></pre>
+<h2 id="step-4-nginx">Step 4 - NGINX</h2>
+<p>NGINX's sites-enabled has two files <code>auth.trusel.net</code>, which is Authelia's domain and
+<code>calypso.trusel.net</code> which is Papermerge domain.</p>
+<p>Here is the content of <code>/etc/nginx/sites-enabled/auth.trusel.net</code>:</p>
+<pre><code>server {
+    server_name auth.trusel.net;
+    listen 80;
+    return 301 https://$server_name$request_uri;
+}
 
-loggers:
-  auth_server:
-    level: DEBUG
-    handlers: [console]
-  papermerge.search.tasks:
-    level: DEBUG
-    handlers: [console]
-    propagate: no
-    format: verbose
-</code></pre></div>
-<p>You may recognize it. It should be YAML version of <a href="https://docs.python.org/3/library/logging.config.html#configuration-file-format" class="external-link" target="_blank">python logging config</a>.</p>
-<p>Here is an example of docker compose with web wepp + worker + custom logging configuration:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
+server {
+    server_name auth.trusel.net;
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/auth.trusel.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/auth.trusel.net/privkey.pem;
 
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # &lt;-- absolute path to custom config file
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-      - ./custom_logging.yml:/logging.yml  # mount local logging config file
+    location / {
+        set $upstream_authelia http://127.0.0.1:9091;
+        proxy_pass $upstream_authelia;
 
+        add_header Access-Control-Allow-Origin *;
+
+        client_body_buffer_size 128k;
+
+        #Timeout if the real server is dead
+        proxy_next_upstream error timeout invalid_header http_500 http_502     http_503;
+
+        # Advanced Proxy Config
+        send_timeout 5m;
+        proxy_read_timeout 360;
+        proxy_send_timeout 360;
+        proxy_connect_timeout 360;
+
+        # Basic Proxy Config
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Uri $request_uri;
+        proxy_set_header X-Forwarded-Ssl on;
+        proxy_redirect  http://  $scheme://;
+        proxy_http_version 1.1;
+        proxy_set_header Connection &quot;&quot;;
+        proxy_cache_bypass $cookie_session;
+        proxy_no_cache $cookie_session;
+        proxy_buffers 64 256k;
+
+        # If behind reverse proxy, forwards the correct IP
+        set_real_ip_from 10.0.0.0/8;
+        set_real_ip_from 172.0.0.0/8;
+        set_real_ip_from 192.168.0.0/16;
+        set_real_ip_from fc00::/7;
+        real_ip_header X-Forwarded-For;
+        real_ip_recursive on;
+    }
+}
+</code></pre>
+<p>And below is the content of <code>/etc/nginx/sites-enabled/calypso.trusel.net</code>:</p>
+<pre><code>server {
+    server_name calypso.trusel.net;
+    listen 80;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    server_name calypso.trusel.net;
+    listen 443 ssl http2;
+    ssl_certificate /etc/letsencrypt/live/calypso.trusel.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/calypso.trusel.net/privkey.pem;
+
+    include snippets/authelia.conf; # Authelia auth endpoint
+
+    location / {
+        proxy_pass http://127.0.0.1:12000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        include snippets/auth.conf; # Protect this endpoint
+    }
+}
+</code></pre>
+<p>It includes two snippets. One is <code>snippets/authelia.conf</code>:</p>
+<pre><code>location /authelia {
+    internal;
+    set $upstream_authelia http://127.0.0.1:9091/api/verify;
+    proxy_pass_request_body off;
+    proxy_pass $upstream_authelia;
+    proxy_set_header Content-Length &quot;&quot;;
+
+    # Timeout if the real server is dead
+    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
+
+    # [REQUIRED] Needed by Authelia to check authorizations of the resource.
+    # Provide either X-Original-URL and X-Forwarded-Proto or
+    # X-Forwarded-Proto, X-Forwarded-Host and X-Forwarded-Uri or both.
+    # Those headers will be used by Authelia to deduce the target url of the     user.
+    # Basic Proxy Config
+    client_body_buffer_size 128k;
+    proxy_set_header Host $host;
+    proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $http_host;
+    proxy_set_header X-Forwarded-Uri $request_uri;
+    proxy_set_header X-Forwarded-Ssl on;
+    proxy_redirect  http://  $scheme://;
+    proxy_http_version 1.1;
+    proxy_set_header Connection &quot;&quot;;
+    proxy_cache_bypass $cookie_session;
+    proxy_no_cache $cookie_session;
+    proxy_buffers 4 32k;
+
+    # Advanced Proxy Config
+    send_timeout 5m;
+    proxy_read_timeout 240;
+    proxy_send_timeout 240;
+    proxy_connect_timeout 240;
+}
+</code></pre>
+<p>And another snippet is <code>snippets/auth.conf</code>.
+This is the heart and the most relevant part of this guide!</p>
+<h2 id="the-most-important">The Most Important</h2>
+<p><strong>!! The most important part of the entire guide - START !!</strong></p>
+<p>This is where "remote-user" header magic actually takes place.
+It is <code>snippets/auth.conf</code> file included <code>calypso.trusel.net</code>.</p>
+<p>Here is its content:</p>
+<pre><code># Basic Authelia Config
+# Send a subsequent request to Authelia to verify if the user is authenticated
+# and has the right permissions to access the resource.
+auth_request /authelia;
+
+# Set the `target_url` variable based on the request. It will be used to build the portal
+# URL with the correct redirection parameter.
+auth_request_set $target_url $scheme://$http_host$request_uri;
+
+# Set the X-Forwarded-User and X-Forwarded-Groups with the headers
+# returned by Authelia for the backends which can consume them.
+# This is not safe, as the backend must make sure that they come from the
+# proxy. In the future, it's gonna be safe to just use OAuth.
+auth_request_set $user $upstream_http_remote_user;
+auth_request_set $groups $upstream_http_remote_groups;
+auth_request_set $name $upstream_http_remote_name;
+auth_request_set $email $upstream_http_remote_email;
+
+proxy_set_header Remote-User $user;
+proxy_set_header Remote-Groups $groups;
+proxy_set_header Remote-Name $name;
+proxy_set_header Remote-Email $email;
+add_header Set-Cookie &quot;remote_user=$user; path=/&quot;;
+add_header Set-Cookie &quot;remote_groups=$groups; path=/&quot;;
+add_header Set-Cookie &quot;remote_name=$name; path=/&quot;;
+add_header Set-Cookie &quot;remote_email=$email; path=/&quot;;
+
+# If Authelia returns 401, then nginx redirects the user to the login portal.
+# If it returns 200, then the request pass through to the backend.
+# For other type of errors, nginx will handle them as usual.
+error_page 401 =302 https://auth.trusel.net/?rd=$target_url;
+</code></pre>
+<p>The utmost importance are following lines:</p>
+<pre><code>proxy_set_header Remote-User $user;
+proxy_set_header Remote-Groups $groups;
+proxy_set_header Remote-Name $name;
+proxy_set_header Remote-Email $email;
+add_header Set-Cookie &quot;remote_user=$user; path=/&quot;;
+add_header Set-Cookie &quot;remote_groups=$groups; path=/&quot;;
+add_header Set-Cookie &quot;remote_name=$name; path=/&quot;;
+add_header Set-Cookie &quot;remote_email=$email; path=/&quot;;
+</code></pre>
+<p>In above statements remote headers are set. Notice that besides "Remote-User"
+etc headers there also are "Set-Cookie" in other words, the user information
+is also passed as cookie. Passing Remote-User information along via cookies
+as well is required by Papermerge.</p>
+<p><strong>!! The most important part of the entire guide - END !!</strong></p>
+<h2 id="step-5-papermerge">Step 5 - Papermerge</h2>
+<p>Start Papermerge with following docker compose file:</p>
+<pre><code>
 services:
-  web:
-    &lt;&lt;: *common
+  paper:
+    image: papermerge/papermerge:3.2
+    container_name: paper
     ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="solr">Solr</h2>
-<p>Papermerge is shipped with a default search library - Xapian.</p>
-<p>However, you may opt-in to use full fledged search engine like Solr. In order to
-change search backend, use <code>PAPERMERGE__SEARCH__URL</code> env variable:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index  # &lt;- use Solr&#39;s &quot;pmg-index&quot; index
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-      - solr
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index  # &lt;- creates index at startup of the Solr service
-
-volumes:
-  data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<p>Notice that Solr is started with <code>solr-precreate pmg-index</code> command, which means that Solr service will be started with
-pre-created index named <code>pmg-index</code>.</p>
-<h2 id="postgresql">PostgreSQL</h2>
-<p>Here is an example of docker compose which uses PostgreSQL as database:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__DATABASE__URL: postgresql://postgres:123@db:5432/postgres
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - ./papermerge:/core_app/papermerge/
-    - ./ui:/core_ui/
-    - index_db:/core_app/index_db
-    - media_root:/core_app/media
-  depends_on:
-    - redis
-    - solr
-    - db
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: bitnami/postgresql:14.4.0
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - 12000:80
+    restart: unless-stopped
     environment:
-      - POSTGRES_PASSWORD=123
-
-volumes:
-  postgres_data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<h2 id="oauth-20">OAuth 2.0</h2>
+      - PAPERMERGE__SECURITY__SECRET_KEY=abc-secret
+      - PAPERMERGE__AUTH__REMOTE=yes
+      - PAPERMERGE__AUTH__REMOTE_LOGOUT_ENDPOINT=https://auth.trusel.net/logout
+      - PAPERMERGE__AUTH__USERNAME=bender
+      - PAPERMERGE__AUTH__PASSWORD=not-used-but-needs-to-be-present
+      - PAPERMERGE__AUTH__EMAIL=bender@mail.com
+</code></pre>
+<p>Some key points to notice:</p>
+<ol>
+<li>The username should match existing user configured in Authelia. In our case it is "bender".</li>
+<li>The email should match the bender's email from Authelia side.</li>
+<li>User "shared" between Authelia and Papermerge is superuser i.e. administrative user.</li>
+<li>You need to supply <code>PAPERMERGE__AUTH__PASSWORD</code> value, however its value is not relevent,
+as you will be authenticating with password configured on Authelia side.</li>
+<li>Any non-empty value will do for <code>PAPERMERGE__AUTH__REMOTE</code>. It may be "1", "True", "yes".</li>
+</ol>
+<h2 id="step-6-sign-in-with-superuser">Step 6 - Sign In with Superuser</h2>
+<p>In this guide superuser account is "bender". Its password is managed
+on Authelia side.</p>
+<p>Once you have all containers + nginx up and running you
+can sign in with superuser.</p>
+<p><img alt="Login as superuser" src="../../../img/auth/remote-user/bender-sign-in.gif" /></p>
+<h2 id="step-7-create-family-group">Step 7 - Create "family" Group</h2>
+<p>Once inside Papermerge with superuser account, create
+"family" group. Any user from "family" group will have all
+permissions but to manage users and groups.
+In our configuration example the only user from "family" group is "leela".</p>
+<p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
+<h2 id="step-8-sign-in-as-leela">Step 8 - Sign In as "leela"</h2>
+<p>Sign in as "leela". Notice that for user "leela" there are no "users"
+and "groups" tab on the left side panel, as she does not have permissions to
+manage users and groups.</p>
+<p><img alt="Login as leela" src="../../../img/auth/remote-user/leela-sign-in.gif" /></p>
 
 
 
@@ -1948,10 +2086,10 @@ volumes:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
       
     
   </body>

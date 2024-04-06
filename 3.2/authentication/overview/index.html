@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.2/contributor/docker/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.2/authentication/overview/">
       
       
-        <link rel="prev" href="../../cli/cli/">
+        <link rel="prev" href="../../user/user-management/">
       
       
-        <link rel="next" href="../../changelog/">
+        <link rel="next" href="../oidc/overview/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Docker - Papermerge 3</title>
+        <title>Overview - Papermerge 3</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Overview
             
           </span>
         </div>
@@ -718,17 +718,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -741,7 +743,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -752,9 +754,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../authentication/overview/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -763,6 +774,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -808,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/overview/" class="md-nav__link">
+      <a href="../oidc/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/keycloak/" class="md-nav__link">
+      <a href="../oidc/keycloak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/authentik/" class="md-nav__link">
+      <a href="../oidc/authentik/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -910,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/remote-user/overview/" class="md-nav__link">
+      <a href="../remote-user/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/remote-user/authelia/" class="md-nav__link">
+      <a href="../remote-user/authelia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1365,19 +1377,17 @@
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
@@ -1390,7 +1400,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Contributor Manual
@@ -1401,29 +1411,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../contributor/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,68 +1422,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    Web App
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    Web App + Worker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    Logging Config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1545,56 +1473,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    Web App
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    Web App + Worker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    Logging Config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1611,274 +1489,34 @@
   
 
 
-<h1 id="docker">Docker</h1>
-<p>There is docker image for development mode. Docker image is tagged with <code>3.0devX</code>.
-With dev image, you can get feedback of your source code changes without needing to install
-any dependency or any deveopment environment configurations.</p>
-<p>All examples described below assume that you got Papermerge <a href="https://github.com/papermerge/papermerge-core" class="external-link" target="_blank">source code</a>
-and you are in root repository of source code folder:</p>
-<div class="language-text highlight"><pre><span></span><code>$ git clone git@github.com:papermerge/papermerge-core.git PapermergeSourceCode
-$ cd PapermergeSourceCode
-</code></pre></div>
-<h2 id="web-app">Web App</h2>
-<p>This is the simplest local dev scenario, you start docker compose file only with
-web app i.e. REST API server + ui.</p>
-<p>The go to the folder where source was cloned and create following docker compose file:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-services:
-  backend:
-    image: papermerge/papermege:3.0dev  # check the latest dev image number in dockerhub!
-    volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
-    environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<p>Assuming you are in root folder of the source code, above docker compose will
-mount the source code to the correct location in docker image. The appliction will
-be accessible to on local port 11000.</p>
-<p>Here is docker compose file for the case when you want to build dev docker image yourself:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-services:
-  backend:
-    build:
-      context: .
-      dockerfile: docker/dev/Dockerfile
-    volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
-    environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<h2 id="web-app-worker">Web App + Worker</h2>
-<p>Following docker compose adds worker service. Worker and Web App
-communicate via redis (message broker), thus we need to add redis service as
-well:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common  # yaml anchor definition
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="logging-config">Logging Config</h2>
-<p>Both worker and web app read their logging configurations from file pointed by
-<code>PAPERMERGE__MAIN__LOGGING_CFG</code> environment variable. An example of custom
-logging config would be:</p>
-<div class="language-text highlight"><pre><span></span><code>version: 1
-disable_existing_loggers: true
-
-formatters:
-  verbose:
-    format: &#39;%(asctime)s %(levelname)s %(name)s.%(funcName)s %(message)s&#39;
-
-handlers:
-  console:
-    level: DEBUG
-    class: logging.StreamHandler
-    formatter: verbose
-
-loggers:
-  auth_server:
-    level: DEBUG
-    handlers: [console]
-  papermerge.search.tasks:
-    level: DEBUG
-    handlers: [console]
-    propagate: no
-    format: verbose
-</code></pre></div>
-<p>You may recognize it. It should be YAML version of <a href="https://docs.python.org/3/library/logging.config.html#configuration-file-format" class="external-link" target="_blank">python logging config</a>.</p>
-<p>Here is an example of docker compose with web wepp + worker + custom logging configuration:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # &lt;-- absolute path to custom config file
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-      - ./custom_logging.yml:/logging.yml  # mount local logging config file
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="solr">Solr</h2>
-<p>Papermerge is shipped with a default search library - Xapian.</p>
-<p>However, you may opt-in to use full fledged search engine like Solr. In order to
-change search backend, use <code>PAPERMERGE__SEARCH__URL</code> env variable:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index  # &lt;- use Solr&#39;s &quot;pmg-index&quot; index
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-      - solr
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index  # &lt;- creates index at startup of the Solr service
-
-volumes:
-  data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<p>Notice that Solr is started with <code>solr-precreate pmg-index</code> command, which means that Solr service will be started with
-pre-created index named <code>pmg-index</code>.</p>
-<h2 id="postgresql">PostgreSQL</h2>
-<p>Here is an example of docker compose which uses PostgreSQL as database:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__DATABASE__URL: postgresql://postgres:123@db:5432/postgres
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - ./papermerge:/core_app/papermerge/
-    - ./ui:/core_ui/
-    - index_db:/core_app/index_db
-    - media_root:/core_app/media
-  depends_on:
-    - redis
-    - solr
-    - db
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: bitnami/postgresql:14.4.0
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_PASSWORD=123
-
-volumes:
-  postgres_data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<h2 id="oauth-20">OAuth 2.0</h2>
+<h1 id="overview">Overview</h1>
+<p>It is usual for organizations to use multiple software applications. Even a
+small home lab features dozens of different apps.</p>
+<p>Imagine a small home lab with 7 apps and each of those app uses separate
+authentication system. This means that the user of the home lab will need to
+keep 7 separate accounts: 7 separate users and 7 different passwords!</p>
+<p>Of course users will use various tricks to make their life easier, like register
+in all 7 accounts with same username and password. But still, they will need
+to sign in daily - 7 times!</p>
+<p>Wouldn't it be great to have one single account with which user can sign in
+once and it will take effect across all 7 apps? In other words, wouldn't it
+be great to use single account for all application within home
+lab or company?</p>
+<p>The solution is to setup so called "centralized authentication system".
+This "centralized authentication system" is usually referred
+as <em>SSO</em> - <em>single sign on</em>.</p>
+<p>This documentation part is all about SSO, it goes into details of various SSO
+method setups.</p>
+<p>Papermerge supports following SSO methods:</p>
+<ul>
+<li>OIDC</li>
+<li>Remote User</li>
+<li>LDAP</li>
+</ul>
+<p>OIDC is a standardized protocol.
+"Remote User" user method conventional.
+LDAP is the most creative method part of the three - means there many ways
+to configure LDAP authentication.</p>
 
 
 

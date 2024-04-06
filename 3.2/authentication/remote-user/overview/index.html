@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.2/contributor/docker/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.2/authentication/remote-user/overview/">
       
       
-        <link rel="prev" href="../../cli/cli/">
+        <link rel="prev" href="../../oidc/authentik/">
       
       
-        <link rel="next" href="../../changelog/">
+        <link rel="next" href="../authelia/">
       
       
-      <link rel="icon" href="../../img/favicon.ico">
+      <link rel="icon" href="../../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
-        <title>Docker - Papermerge 3</title>
+        <title>Overview - Papermerge 3</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../css/custom.css">
+      <link rel="stylesheet" href="../../../css/custom.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -99,9 +99,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Papermerge 3" class="md-header__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
+    <a href="../../.." title="Papermerge 3" class="md-header__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Overview
             
           </span>
         </div>
@@ -230,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Papermerge 3" class="md-nav__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
+    <a href="../../.." title="Papermerge 3" class="md-nav__button md-logo" aria-label="Papermerge 3" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     Papermerge 3
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/overview/" class="md-nav__link">
+      <a href="../../../setup/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/requirements/" class="md-nav__link">
+      <a href="../../../setup/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/docker/" class="md-nav__link">
+      <a href="../../../setup/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/docker-compose/" class="md-nav__link">
+      <a href="../../../setup/docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/ansible/" class="md-nav__link">
+      <a href="../../../setup/ansible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -392,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/kubernetes/" class="md-nav__link">
+      <a href="../../../setup/kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/authentification/" class="md-nav__link">
+      <a href="../../../setup/authentification/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/add-ocr-langs/" class="md-nav__link">
+      <a href="../../../setup/add-ocr-langs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -493,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/getting-started/" class="md-nav__link">
+      <a href="../../../user/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -513,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/user-interface/" class="md-nav__link">
+      <a href="../../../user/user-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/upload-documents/" class="md-nav__link">
+      <a href="../../../user/upload-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/tags/" class="md-nav__link">
+      <a href="../../../user/tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/search/" class="md-nav__link">
+      <a href="../../../user/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/page-management/" class="md-nav__link">
+      <a href="../../../user/page-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -613,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/versions/" class="md-nav__link">
+      <a href="../../../user/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/merge-documents/" class="md-nav__link">
+      <a href="../../../user/merge-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -653,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/ocr/" class="md-nav__link">
+      <a href="../../../user/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/file-formats/" class="md-nav__link">
+      <a href="../../../user/file-formats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user/user-management/" class="md-nav__link">
+      <a href="../../../user/user-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -718,17 +718,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -741,7 +743,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -754,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/overview/" class="md-nav__link">
+      <a href="../../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/overview/" class="md-nav__link">
+      <a href="../../oidc/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/keycloak/" class="md-nav__link">
+      <a href="../../oidc/keycloak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/authentik/" class="md-nav__link">
+      <a href="../../oidc/authentik/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,17 +876,19 @@
                 
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
@@ -897,7 +901,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Remote User
@@ -908,9 +912,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../authentication/remote-user/overview/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -919,6 +932,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -930,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/remote-user/authelia/" class="md-nav__link">
+      <a href="../authelia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -999,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/overview/" class="md-nav__link">
+      <a href="../../../settings/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1019,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/auth/" class="md-nav__link">
+      <a href="../../../settings/auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1039,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/main/" class="md-nav__link">
+      <a href="../../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1059,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/security/" class="md-nav__link">
+      <a href="../../../settings/security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1079,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/ocr/" class="md-nav__link">
+      <a href="../../../settings/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1099,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/database/" class="md-nav__link">
+      <a href="../../../settings/database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1119,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/redis/" class="md-nav__link">
+      <a href="../../../settings/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/search/" class="md-nav__link">
+      <a href="../../../settings/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1166,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../backup-restore/" class="md-nav__link">
+      <a href="../../../backup-restore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1219,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rest-api/overview/" class="md-nav__link">
+      <a href="../../../rest-api/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1239,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rest-api/reference/" class="md-nav__link">
+      <a href="../../../rest-api/reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rest-api/token/" class="md-nav__link">
+      <a href="../../../rest-api/token/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1320,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/overview/" class="md-nav__link">
+      <a href="../../../cli/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1340,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/cli/" class="md-nav__link">
+      <a href="../../../cli/cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1365,19 +1379,17 @@
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
@@ -1390,7 +1402,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Contributor Manual
@@ -1401,29 +1413,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../contributor/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,68 +1424,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    Web App
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    Web App + Worker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    Logging Config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1512,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,56 +1475,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    Web App
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    Web App + Worker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    Logging Config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    Solr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1611,274 +1491,22 @@
   
 
 
-<h1 id="docker">Docker</h1>
-<p>There is docker image for development mode. Docker image is tagged with <code>3.0devX</code>.
-With dev image, you can get feedback of your source code changes without needing to install
-any dependency or any deveopment environment configurations.</p>
-<p>All examples described below assume that you got Papermerge <a href="https://github.com/papermerge/papermerge-core" class="external-link" target="_blank">source code</a>
-and you are in root repository of source code folder:</p>
-<div class="language-text highlight"><pre><span></span><code>$ git clone git@github.com:papermerge/papermerge-core.git PapermergeSourceCode
-$ cd PapermergeSourceCode
-</code></pre></div>
-<h2 id="web-app">Web App</h2>
-<p>This is the simplest local dev scenario, you start docker compose file only with
-web app i.e. REST API server + ui.</p>
-<p>The go to the folder where source was cloned and create following docker compose file:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-services:
-  backend:
-    image: papermerge/papermege:3.0dev  # check the latest dev image number in dockerhub!
-    volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
-    environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<p>Assuming you are in root folder of the source code, above docker compose will
-mount the source code to the correct location in docker image. The appliction will
-be accessible to on local port 11000.</p>
-<p>Here is docker compose file for the case when you want to build dev docker image yourself:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-services:
-  backend:
-    build:
-      context: .
-      dockerfile: docker/dev/Dockerfile
-    volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
-    environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<h2 id="web-app-worker">Web App + Worker</h2>
-<p>Following docker compose adds worker service. Worker and Web App
-communicate via redis (message broker), thus we need to add redis service as
-well:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common  # yaml anchor definition
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="logging-config">Logging Config</h2>
-<p>Both worker and web app read their logging configurations from file pointed by
-<code>PAPERMERGE__MAIN__LOGGING_CFG</code> environment variable. An example of custom
-logging config would be:</p>
-<div class="language-text highlight"><pre><span></span><code>version: 1
-disable_existing_loggers: true
-
-formatters:
-  verbose:
-    format: &#39;%(asctime)s %(levelname)s %(name)s.%(funcName)s %(message)s&#39;
-
-handlers:
-  console:
-    level: DEBUG
-    class: logging.StreamHandler
-    formatter: verbose
-
-loggers:
-  auth_server:
-    level: DEBUG
-    handlers: [console]
-  papermerge.search.tasks:
-    level: DEBUG
-    handlers: [console]
-    propagate: no
-    format: verbose
-</code></pre></div>
-<p>You may recognize it. It should be YAML version of <a href="https://docs.python.org/3/library/logging.config.html#configuration-file-format" class="external-link" target="_blank">python logging config</a>.</p>
-<p>Here is an example of docker compose with web wepp + worker + custom logging configuration:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # &lt;-- absolute path to custom config file
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-      - ./custom_logging.yml:/logging.yml  # mount local logging config file
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="solr">Solr</h2>
-<p>Papermerge is shipped with a default search library - Xapian.</p>
-<p>However, you may opt-in to use full fledged search engine like Solr. In order to
-change search backend, use <code>PAPERMERGE__SEARCH__URL</code> env variable:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index  # &lt;- use Solr&#39;s &quot;pmg-index&quot; index
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-      - solr
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index  # &lt;- creates index at startup of the Solr service
-
-volumes:
-  data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<p>Notice that Solr is started with <code>solr-precreate pmg-index</code> command, which means that Solr service will be started with
-pre-created index named <code>pmg-index</code>.</p>
-<h2 id="postgresql">PostgreSQL</h2>
-<p>Here is an example of docker compose which uses PostgreSQL as database:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__DATABASE__URL: postgresql://postgres:123@db:5432/postgres
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - ./papermerge:/core_app/papermerge/
-    - ./ui:/core_ui/
-    - index_db:/core_app/index_db
-    - media_root:/core_app/media
-  depends_on:
-    - redis
-    - solr
-    - db
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: bitnami/postgresql:14.4.0
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_PASSWORD=123
-
-volumes:
-  postgres_data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<h2 id="oauth-20">OAuth 2.0</h2>
+<h1 id="overview">Overview</h1>
+<p>"Remote User" user authentication method is conventional, which means
+there are some conventions on how to set it up - but no standards around it.</p>
+<p>The general approach is that there is another application "placed in front"
+of Papermerge which takes care of authentication, registration,
+passwords, 2FA etc. In our case it will be <a href="https://www.authelia.com/">Authelia</a>.</p>
+<p>Papermerge will receive only information about already authenticated
+users via HTTP headers. The name of respective headers usually starts
+with "Remote", hence the name "Remote User" authentication.</p>
+<p><img alt="Authelia Papermerge" src="../../../img/auth/remote-user/authelia-papermerge.svg" /></p>
+<p>With this approach there is no more Papermerge own login view. Authelia
+takes over entirely login screen part as well. In other words
+Papermerge does not participate in authentication process at all, it
+will just receive the ready user ID (plus some extra info) via HTTP header.</p>
+<p>While it is very easy to conceptualize, it is actually tricky to setup.
+<a href="../authelia/">Next section</a> will detail into specifics.</p>
 
 
 
@@ -1948,10 +1576,10 @@ volumes:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.highlight", "navigation.top", "content.tooltips", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
       
     
   </body>
