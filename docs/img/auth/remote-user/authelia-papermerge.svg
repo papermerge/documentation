@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="302.2034mm"
+   height="197.93127mm"
+   viewBox="0 0 302.2034 197.93127"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="authelia-papermerge.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showborder="false"
+     inkscape:zoom="0.64052329"
+     inkscape:cx="697.8669"
+     inkscape:cy="553.45373"
+     inkscape:window-width="1860"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="marker47822"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path47820" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect47818"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect35918"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect16012"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect15749"
+       is_visible="true"
+       lpeversion="1"
+       pattern="M 0,4.9921382 C 0,2.2364779 2.2364779,0 4.9921382,0 c 2.7556604,0 4.9921383,2.2364779 4.9921383,4.9921382 0,2.7556604 -2.2364779,4.9921383 -4.9921383,4.9921383 C 2.2364779,9.9842765 0,7.7477986 0,4.9921382 Z"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect15747"
+       is_visible="true"
+       lpeversion="1" />
+    <marker
+       style="overflow:visible"
+       id="Arrow2Mend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path15173" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect15144"
+       is_visible="true"
+       lpeversion="1" />
+    <marker
+       style="overflow:visible"
+       id="Arrow2Mend-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path15173-1" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect15144-2"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect16012-0"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(79.769814,-2.0881641)">
+    <rect
+       style="opacity:0.999191;fill:#ffffff;fill-rule:evenodd;stroke:#cccccc;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="rect47538"
+       width="301.2034"
+       height="196.93127"
+       x="-79.269814"
+       y="2.5881641"
+       ry="0" />
+    <g
+       id="g12190">
+      <rect
+         style="opacity:0.999191;fill:#eeaaff;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stop-color:#000000"
+         id="rect846"
+         width="69.041389"
+         height="28.132586"
+         x="-37.809155"
+         y="87.223099" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke-width:0.264583"
+         x="-21.15712"
+         y="103.60566"
+         id="text4546"><tspan
+           sodipodi:role="line"
+           id="tspan4544"
+           style="stroke-width:0.264583"
+           x="-21.15712"
+           y="103.60566">Authelia</tspan></text>
+    </g>
+    <g
+       id="g12185"
+       transform="translate(23.346733,0.01613569)">
+      <rect
+         style="opacity:0.999191;fill:#aaffaa;fill-rule:evenodd;stroke:none;stroke-width:0.999997;stroke-linecap:round;stop-color:#000000"
+         id="rect6234"
+         width="72.967216"
+         height="27.41131"
+         x="68.896172"
+         y="62.311199" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke-width:0.264583"
+         x="82.690575"
+         y="78.687309"
+         id="text11210"><tspan
+           sodipodi:role="line"
+           id="tspan11208"
+           style="stroke-width:0.264583"
+           x="82.690575"
+           y="78.687309">Papermerge</tspan></text>
+    </g>
+    <rect
+       style="opacity:0.999191;fill:#80e5ff;fill-rule:evenodd;stroke:none;stroke-width:0.999997;stroke-linecap:round;stop-color:#000000"
+       id="rect6234-5"
+       width="72.967216"
+       height="27.41131"
+       x="91.211029"
+       y="130.84433" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke-width:0.264583"
+       x="100.79079"
+       y="147.22044"
+       id="text11210-3"><tspan
+         sodipodi:role="line"
+         id="tspan11208-5"
+         style="stroke-width:0.264583"
+         x="100.79079"
+         y="147.22044">Some Other App</tspan></text>
+    <path
+       style="fill:none;stroke:#a05a2c;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="M 32.936174,101.32085 91.242495,73.849835"
+       id="path15142"
+       inkscape:path-effect="#path-effect15144"
+       inkscape:original-d="M 32.936174,101.32085 C 52.371878,92.164108 71.80732,83.007104 91.242495,73.849835" />
+    <path
+       style="fill:none;stroke:#a05a2c;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-9)"
+       d="m 32.936174,101.32085 56.645102,47.08402"
+       id="path15142-7"
+       inkscape:path-effect="#path-effect15144-2"
+       inkscape:original-d="m 32.936174,101.32085 c 19.435704,-9.156742 37.209927,56.24129 56.645102,47.08402"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 57.988448,84.69786 C 56.982439,73.582264 61.250316,62.103423 69.273753,54.345009 76.964146,46.908639 87.358475,43.139898 97.111046,38.743411 105.46242,34.97859 113.54694,30.621981 121.28393,25.717065"
+       id="path16010"
+       inkscape:path-effect="#path-effect16012"
+       inkscape:original-d="m 57.988448,84.69786 c 3.634023,-10.117352 7.5238,-20.234968 11.285305,-30.352851 3.761501,-10.117881 18.558459,-10.4008 27.837293,-15.601598 9.278834,-5.200798 16.115524,-8.683967 24.172884,-13.026346" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 66.017569,128.51272 C 61.207663,117.63102 59.836113,105.2593 62.14579,93.588318 64.455467,81.917332 70.435792,71.000541 79.02778,62.771067 85.156808,56.900636 92.474382,52.447357 99.234504,47.316304 107.45147,41.079479 114.87895,33.803647 121.28393,25.717065"
+       id="path16010-9"
+       inkscape:path-effect="#path-effect16012-0"
+       inkscape:original-d="M 66.017569,128.51272 C 69.651592,118.39537 75.266275,72.88895 79.02778,62.771067 82.789281,52.653186 89.95567,52.517102 99.234504,47.316304 108.51334,42.115506 113.22657,30.059444 121.28393,25.717065"
+       sodipodi:nodetypes="cssc" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke-width:0.264583"
+       x="123.61876"
+       y="14.978762"
+       id="text22560"><tspan
+         sodipodi:role="line"
+         id="tspan22558"
+         style="stroke-width:0.264583"
+         x="123.61876"
+         y="14.978762">Proxies:</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="123.61876"
+         y="25.562099"
+         id="tspan24926">Remote-User header</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="123.61876"
+         y="36.145435"
+         id="tspan24928">Remote-Groups header</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="123.61876"
+         y="46.728775"
+         id="tspan33902">Remote-Name header</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="123.61876"
+         y="57.312111"
+         id="tspan33904">Remote-Email header</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="123.61876"
+         y="67.895447"
+         id="tspan24930" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.175, 3.175;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -5.779805,118.75546 c 7.0265371,10.96561 12.3458895,23.02281 15.708096,35.60503 1.967176,7.36167 3.383183,15.15633 7.91617,21.28136 2.595499,3.50707 6.145567,6.30043 10.164772,7.99811 4.019204,1.69769 8.496799,2.29516 12.820522,1.71073"
+       id="path35916"
+       inkscape:path-effect="#path-effect35918"
+       inkscape:original-d="m -5.779805,118.75546 c -3.153187,17.31817 18.861813,18.28739 15.708096,35.60503 -3.153717,17.31763 0.597285,12.41291 7.91617,21.28136 7.318886,8.86845 11.681969,3.89057 22.985294,9.70884"
+       sodipodi:nodetypes="cssc" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke-width:0.264583"
+       x="38.109276"
+       y="192.32294"
+       id="text41686"><tspan
+         sodipodi:role="line"
+         id="tspan41684"
+         style="stroke-width:0.264583"
+         x="38.109276"
+         y="192.32294">Performs authentication, registration etc</tspan></text>
+    <path
+       style="fill:#c87137;stroke:#c87137;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker47822)"
+       d="m -77.141516,101.17401 37.560665,0.43244"
+       id="path47816"
+       inkscape:path-effect="#path-effect47818"
+       inkscape:original-d="m -77.141516,101.17401 c 12.520488,0.14441 25.040709,0.28856 37.560665,0.43244" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;fill:#c87137;stroke:#c87137;stroke-width:0.264583"
+       x="-76.358925"
+       y="113.82763"
+       id="text58579"><tspan
+         sodipodi:role="line"
+         id="tspan58577"
+         style="fill:#c87137;stroke:#c87137;stroke-width:0.264583"
+         x="-76.358925"
+         y="113.82763">HTTP Req</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;fill:#c87137;stroke:#c87137;stroke-width:0.264583"
+       x="51.966461"
+       y="98.362946"
+       id="text58579-3"><tspan
+         sodipodi:role="line"
+         id="tspan58577-6"
+         style="fill:#c87137;stroke:#c87137;stroke-width:0.264583"
+         x="51.966461"
+         y="98.362946">HTTP Req</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;fill:#c87137;stroke:#c87137;stroke-width:0.264583"
+       x="39.175701"
+       y="137.09183"
+       id="text58579-3-0"><tspan
+         sodipodi:role="line"
+         id="tspan58577-6-6"
+         style="fill:#c87137;stroke:#c87137;stroke-width:0.264583"
+         x="39.175701"
+         y="137.09183">HTTP Req</tspan></text>
+  </g>
+</svg>
