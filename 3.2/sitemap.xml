@@ -16,36 +16,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.papermerge.io/3.2/authentication/overview/</loc>
-         <lastmod>2024-04-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/3.2/authentication/oidc/authentik/</loc>
-         <lastmod>2024-04-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/3.2/authentication/oidc/keycloak/</loc>
-         <lastmod>2024-04-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/3.2/authentication/oidc/overview/</loc>
-         <lastmod>2024-04-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/3.2/authentication/remote-user/authelia/</loc>
-         <lastmod>2024-04-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.papermerge.io/3.2/authentication/remote-user/overview/</loc>
-         <lastmod>2024-04-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.papermerge.io/3.2/cli/cli/</loc>
          <lastmod>2024-04-06</lastmod>
          <changefreq>daily</changefreq>
@@ -152,6 +122,36 @@
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.2/setup/requirements/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/3.2/sso/overview/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/3.2/sso/oidc/authentik/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/3.2/sso/oidc/keycloak/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/3.2/sso/oidc/overview/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/3.2/sso/remote-user/authelia/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.papermerge.io/3.2/sso/remote-user/overview/</loc>
          <lastmod>2024-04-06</lastmod>
          <changefreq>daily</changefreq>
     </url>

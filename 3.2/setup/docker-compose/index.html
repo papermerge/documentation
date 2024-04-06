@@ -428,8 +428,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
+  <a href="#oauth20openid" class="md-nav__link">
+    OAuth2.0/OpenID
   </a>
   
 </li>
@@ -818,7 +818,7 @@
             
   
   <span class="md-ellipsis">
-    Authentication
+    SSO
   </span>
   
 
@@ -828,7 +828,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Authentication
+            SSO
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -838,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/overview/" class="md-nav__link">
+      <a href="../../sso/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -892,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/overview/" class="md-nav__link">
+      <a href="../../sso/oidc/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -912,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/keycloak/" class="md-nav__link">
+      <a href="../../sso/oidc/keycloak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/oidc/authentik/" class="md-nav__link">
+      <a href="../../sso/oidc/authentik/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -994,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/remote-user/overview/" class="md-nav__link">
+      <a href="../../sso/remote-user/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1014,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../authentication/remote-user/authelia/" class="md-nav__link">
+      <a href="../../sso/remote-user/authelia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1580,8 +1580,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    OAuth 2.0
+  <a href="#oauth20openid" class="md-nav__link">
+    OAuth2.0/OpenID
   </a>
   
 </li>
@@ -1840,9 +1840,9 @@ volumes:
   solr_data:
   media_root:
 </code></pre>
-<h2 id="oauth-20">OAuth 2.0</h2>
-<p>Papermerge supports OAuth2.0 authentication with Google and Github providers.</p>
-<p>Here is an example of OAuth2.0 setup with Google provider.</p>
+<h2 id="oauth20openid">OAuth2.0/OpenID</h2>
+<p>Papermerge supports OAuth2.0/OpenID authentication any provider.</p>
+<p>Here is an example of OIDC setup with Keycloak provider.</p>
 <pre><code class="language-yaml">version: &quot;3.9&quot;
 
 x-backend: &amp;common
@@ -1850,7 +1850,7 @@ x-backend: &amp;common
   environment:
     PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
     PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
+    PAPERMERGE__AUTH__PASSWORD: hohoho-no-relevent
     PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
     PAPERMERGE__REDIS__URL: redis://redis:6379/0
     PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
@@ -1866,10 +1866,15 @@ services:
   web:
     &lt;&lt;: *common
     environment:
-      PAPERMERGE__AUTH__GOOGLE_CLIENT_SECRET: GOCSPX-edited-of-course
-      PAPERMERGE__AUTH__GOOGLE_CLIENT_ID: 900000999991-edited-of-course.apps.googleusercontent.com
-      PAPERMERGE__AUTH__GOOGLE_AUTHORIZE_URL: https://accounts.google.com/o/oauth2/auth  # fixed
-      PAPERMERGE__AUTH__GOOGLE_REDIRECT_URI: https://demo.trusel.net/google/callback  # replace with your domain
+      PAPERMERGE__AUTH__OIDC_CLIENT_SECRET: OHGMBgyAjcvDtn4PAu8w8vE9yf06aHn1
+      PAPERMERGE__AUTH__OIDC_CLIENT_ID: papermerge
+      PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/auth
+      PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token
+      PAPERMERGE__AUTH__OIDC_INTROSPECT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
+      PAPERMERGE__AUTH__OIDC_USER_INFO_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/userinfo
+      PAPERMERGE__AUTH__OIDC_LOGOUT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
+      PAPERMERGE__AUTH__OIDC_REDIRECT_URL: http://demo.trusel.net:12000/oidc/callback
+      PAPERMERGE__AUTH__OIDC_SCOPE: &quot;openid email profile&quot;
     ports:
      - &quot;12000:80&quot;
   worker:
@@ -1915,80 +1920,7 @@ volumes:
   solr_data:
   media_root:
 </code></pre>
-<p>Here is an example of OAuth2.0 setup with GitHub provider.</p>
-<pre><code class="language-yaml">version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  image: papermerge/papermerge:3.1
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
-    PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - media_root:/core_app/media
-  depends_on:
-    db:
-      condition: service_healthy
-    redis:
-      condition: service_healthy
-
-services:
-  web:
-    &lt;&lt;: *common
-    environment:
-      PAPERMERGE__AUTH__GITHUB_CLIENT_SECRET: &quot;GitHub oauth2.0 client secret&quot;
-      PAPERMERGE__AUTH__GITHUB_CLIENT_ID: &quot;Github oauth2.0 client ID&quot;
-      PAPERMERGE__AUTH__GITHUB_AUTHORIZE_URL: &quot;https://github.com/login/oauth/authorize&quot;
-      PAPERMERGE__AUTH__GITHUB_REDIRECT_URI: &quot;&lt;http|https&gt;://&lt;your domain&gt;/github/callback&quot;
-    ports:
-     - &quot;12000:80&quot;
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: mariadb:11.2
-    volumes:
-      - maria:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: kesha
-      MYSQL_DATABASE: cocodb
-      MYSQL_USER: coco
-      MYSQL_PASSWORD: kesha
-    ports:
-      - &quot;3306:3306&quot;
-    healthcheck:
-      test: mariadb-admin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-
-volumes:
-  maria:
-  solr_data:
-  media_root:
-</code></pre>
-<p>For detailed information on authentication check <a href="../../authentication/oidc/overview/">Authentication</a> section.</p>
+<p>For detailed information about SSO/OIDC check <a href="../../sso/oidc/keycloak/">Keycloak + Papermerge</a> section.</p>
 <h2 id="ldap">LDAP</h2>
 <p>Papermerge supports LDAP authentication.</p>
 <p>Here is an example of LDAP authencation setup:</p>
@@ -2061,7 +1993,7 @@ volumes:
   solr_data:
   media_root:
 </code></pre>
-<p>For detailed information on authentication check <a href="../../authentication/oidc/overview/">Authentication</a> section.</p>
+<p>For detailed information on authentication check <a href="../../sso/overview/">SSO</a> section.</p>
 
 
 

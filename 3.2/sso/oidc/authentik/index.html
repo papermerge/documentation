@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.2/authentication/remote-user/overview/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.2/sso/oidc/authentik/">
       
       
-        <link rel="prev" href="../../oidc/authentik/">
+        <link rel="prev" href="../keycloak/">
       
       
-        <link rel="next" href="../authelia/">
+        <link rel="next" href="../../remote-user/overview/">
       
       
       <link rel="icon" href="../../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Overview - Papermerge 3</title>
+        <title>Authentik - Papermerge 3</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#authentik" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Authentik
             
           </span>
         </div>
@@ -736,7 +736,7 @@
             
   
   <span class="md-ellipsis">
-    Authentication
+    SSO
   </span>
   
 
@@ -746,7 +746,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Authentication
+            SSO
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -774,17 +774,19 @@
                 
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
@@ -797,7 +799,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             OIDC
@@ -810,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oidc/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oidc/keycloak/" class="md-nav__link">
+      <a href="../keycloak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,9 +850,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../oidc/authentik/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Authentik
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -859,6 +881,115 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#administrative-user-superuser" class="md-nav__link">
+    Administrative User (Superuser)
+  </a>
+  
+    <nav class="md-nav" aria-label="Administrative User (Superuser)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-application" class="md-nav__link">
+    Step 1 - Create Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-provider" class="md-nav__link">
+    Step 2 - Create Provider
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-associated-provider-with-application" class="md-nav__link">
+    Step 3 - Associated Provider with Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-user" class="md-nav__link">
+    Step 4 - Create User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-papermerge" class="md-nav__link">
+    Step 5 - Start Papermerge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-login-as-superuser" class="md-nav__link">
+    Step 6 - Login as Superuser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups-permissions" class="md-nav__link">
+    Groups / Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="Groups / Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-group-in-papermerge" class="md-nav__link">
+    Step 1 - Create Group in Papermerge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-user" class="md-nav__link">
+    Step 2 - Add User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-login-as-leela" class="md-nav__link">
+    Step 3 - Login as "leela"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -876,19 +1007,17 @@
                 
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
@@ -901,7 +1030,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Remote User
@@ -912,18 +1041,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../remote-user/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +1052,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -944,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authelia/" class="md-nav__link">
+      <a href="../../remote-user/authelia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1475,6 +1594,103 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#administrative-user-superuser" class="md-nav__link">
+    Administrative User (Superuser)
+  </a>
+  
+    <nav class="md-nav" aria-label="Administrative User (Superuser)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-application" class="md-nav__link">
+    Step 1 - Create Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-provider" class="md-nav__link">
+    Step 2 - Create Provider
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-associated-provider-with-application" class="md-nav__link">
+    Step 3 - Associated Provider with Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-user" class="md-nav__link">
+    Step 4 - Create User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-papermerge" class="md-nav__link">
+    Step 5 - Start Papermerge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-login-as-superuser" class="md-nav__link">
+    Step 6 - Login as Superuser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups-permissions" class="md-nav__link">
+    Groups / Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="Groups / Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-group-in-papermerge" class="md-nav__link">
+    Step 1 - Create Group in Papermerge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-user" class="md-nav__link">
+    Step 2 - Add User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-login-as-leela" class="md-nav__link">
+    Step 3 - Login as "leela"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1491,22 +1707,140 @@
   
 
 
-<h1 id="overview">Overview</h1>
-<p>"Remote User" user authentication method is conventional, which means
-there are some conventions on how to set it up - but no standards around it.</p>
-<p>The general approach is that there is another application "placed in front"
-of Papermerge which takes care of authentication, registration,
-passwords, 2FA etc. In our case it will be <a href="https://www.authelia.com/">Authelia</a>.</p>
-<p>Papermerge will receive only information about already authenticated
-users via HTTP headers. The name of respective headers usually starts
-with "Remote", hence the name "Remote User" authentication.</p>
-<p><img alt="Authelia Papermerge" src="../../../img/auth/remote-user/authelia-papermerge.svg" /></p>
-<p>With this approach there is no more Papermerge own login view. Authelia
-takes over entirely login screen part as well. In other words
-Papermerge does not participate in authentication process at all, it
-will just receive the ready user ID (plus some extra info) via HTTP header.</p>
-<p>While it is very easy to conceptualize, it is actually tricky to setup.
-<a href="../authelia/">Next section</a> will detail into specifics.</p>
+<h1 id="authentik">Authentik</h1>
+<p>This guide shows how to setup Papermerge + <a href="https://goauthentik.io/">Authentik</a> as OIDC identity provider.
+It was tested with Authentik 2023.10.7</p>
+<p>To follow this guide you need one Papermerge and one Authentik instance. For
+this guide we have:</p>
+<div class="language-text highlight"><pre><span></span><code>http://authk.trusel.net:9000/ (Authentik instance)
+http://demo.trusel.net:12000/ (Papermerge instance)
+</code></pre></div>
+<p>Of course for your specific deployment you'll want to serve both apps over
+https, with valid certificates and without featuring ports in URLs, but for
+our guide we will skip those parts.</p>
+<p>In first part of the guide we will add administrative user
+(superuser). Superuser has all permissions, in other words, superuser is the
+most privileged user in Papermerge. In second part of the guide we will add
+one non-superuser.</p>
+<h2 id="administrative-user-superuser">Administrative User (Superuser)</h2>
+<h3 id="step-1-create-application">Step 1 - Create Application</h3>
+<p>Create new application.
+Applications -&gt; Create:</p>
+<div class="language-text highlight"><pre><span></span><code>Name: Papermerge
+Slug: papermerge
+Policy engine mode: any
+</code></pre></div>
+<p>Leave <code>Provider</code> field empty for this moment, we will fill it in later.</p>
+<h3 id="step-2-create-provider">Step 2 - Create Provider</h3>
+<p>Create OIDC provider.
+Applications -&gt; Providers -&gt; Create:</p>
+<div class="language-text highlight"><pre><span></span><code>Choose OAuth2/OpenID Provider
+Name: papermerge
+Authentication flow: default-authentication-flow
+Authorization flow: default-provider-authorization-explicit-consent
+Client type: confidential
+Subject mode (in Advanced protocol settings): Based on User&#39;s UUID
+Scopes (in Advanced protocol settings): make sure email, openid, profile are selected
+</code></pre></div>
+<p>Last point is very important as it will setup <code>sub</code> claim to contain user's UUID.</p>
+<p><img alt="Authentik new provider" src="../../../img/auth/oidc/authentik-new-provider.gif" /></p>
+<h3 id="step-3-associated-provider-with-application">Step 3 - Associated Provider with Application</h3>
+<p>Applications -&gt; Papermerge -&gt; Edit.
+Change <code>Provider</code> field to <code>papermerge</code>.
+Update.</p>
+<h3 id="step-4-create-user">Step 4 - Create User</h3>
+<p>Let's create a user <strong>in Authentik</strong>.</p>
+<p>Directory -&gt; Users -&gt; Create.
+Create user with following details:</p>
+<div class="language-text highlight"><pre><span></span><code>- username: bender
+- email: bender@mail.com
+- password: benderpass
+</code></pre></div>
+<p>User "bender" will be administrative user in Papermerge.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>User is created in Authentik. User password is set in Authentik as well.</p>
+</div>
+<h3 id="step-5-start-papermerge">Step 5 - Start Papermerge</h3>
+<p>Get all OIDC related settings from Authentik's Providers -&gt; papermerge.
+There you will find client ID, client secret etc.</p>
+<p>Start Papermerge with OIDC enabled, with following docker compose:</p>
+<pre><code class="language-yaml">version: &quot;3.9&quot;
+
+x-backend: &amp;common
+  image: papermerge/papermerge:3.1
+  environment:
+    PAPERMERGE__SECURITY__SECRET_KEY: super-secret-12345
+    PAPERMERGE__AUTH__USERNAME: bender
+    PAPERMERGE__AUTH__EMAIL: bender@mail.com
+    PAPERMERGE__AUTH__PASSWORD: 1234-not-relevant-but-still-needs-to-be-here
+    PAPERMERGE__AUTH__OIDC_CLIENT_SECRET: cBqWCID8xt0fjpTFJwup32K8gaF4zufuUYVmUPoAUY90FxVpnPqL1Krl74viDaKzpLyhzBNWgstKztITpstBdvjEfzlA6jr3g2HL6tqwGW6W5Ax93xGzkTD2xw0WsVTu
+    PAPERMERGE__AUTH__OIDC_CLIENT_ID: o2h90p8RuJe2GQT01LkNGlM3QuN8yxjQUdOE5Ylw
+    PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL: http://authk.trusel.net:9000/application/o/authorize/
+    PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL: http://authk.trusel.net:9000/application/o/token/
+    PAPERMERGE__AUTH__OIDC_INTROSPECT_URL: http://authk.trusel.net:9000/application/o/introspect/
+    PAPERMERGE__AUTH__OIDC_USER_INFO_URL: http://authk.trusel.net:9000/application/o/userinfo/
+    PAPERMERGE__AUTH__OIDC_LOGOUT_URL: http://authk.trusel.net:9000/application/o/papermerge/end-session/
+    PAPERMERGE__AUTH__OIDC_SCOPE: &quot;openid email profile&quot;
+    PAPERMERGE__AUTH__OIDC_REDIRECT_URL: http://demo.trusel.net:12000/oidc/callback
+services:
+  web:
+    &lt;&lt;: *common
+    ports:
+     - &quot;12000:80&quot;
+  worker:
+    &lt;&lt;: *common
+    command: worker
+</code></pre>
+<p>Note that <code>PAPERMERGE__AUTH__OIDC_CLIENT_SECRET</code>, <code>PAPERMERGE__AUTH__OIDC_CLIENT_ID</code> should match
+their counterpart in "papermerge provider" created in Authentik.</p>
+<p><code>PAPERMERGE__AUTH__USERNAME</code> and <code>PAPERMERGE__AUTH__EMAIL</code> should match the user we created in step 4. As it was
+mentioned, we will use "bender" as administrative user in Papermerge.
+Note that you need to specify <code>PAPERMERGE__AUTH__PASSWORD</code>, but whatever you put there is completely irrelevant
+because administrative user will login with password managed in Authentik (in our example it is "benderpass").</p>
+<p><code>PAPERMERGE__AUTH__OIDC_REDIRECT_URL</code> should match "Valid redirect URIs" from Step 3 and it should be of
+format: <code>[http|https]://&lt;papermerge-instance-domain&gt;/oidc/callback</code>.</p>
+<p><code>PAPERMERGE__AUTH__OIDC_SCOPE</code> must include "profile", otherwise JWT token won't contain <code>preferred_username</code> and <code>groups</code> claims</p>
+<p>It may happen that not all OIDC endpoints are shown in Authentik UI.
+To get all OIDC endpoints, use "OpenID Configuration URL" directly in your browser:</p>
+<p><img alt="All OIDC endpoints" src="../../../img/auth/oidc/authentik-all-oidc-endpoints.gif" /></p>
+<h3 id="step-6-login-as-superuser">Step 6 - Login as Superuser</h3>
+<p><img alt="Login as superuser" src="../../../img/auth/oidc/authentik-login-as-bender.gif" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is a known issue that after successful login - "sign in" view is still shown.
+As workaround you need to hit browser's <strong>refresh</strong> button.</p>
+</div>
+<h2 id="groups-permissions">Groups / Permissions</h2>
+<p>In this part we will add less privileged users. Users added in this part have
+limited permissions - they won't be able to add/view/delete other groups and
+users. User permissions are set via groups. Each group has a specific set of
+permissions; if user belongs to a group - he or she has all permissions
+assigned to respective group.</p>
+<p>For this part to work, make sure you've completed the "superuser" part of this guide.</p>
+<p><strong>All non-superusers (i.e. normal users) must belong to one or more groups.</strong></p>
+<p>In this part we will create one user "leela". "leela" will have all permissions
+but view/create/delete for users/groups.</p>
+<h3 id="step-1-create-group-in-papermerge">Step 1 - Create Group in Papermerge</h3>
+<p>First we need to create group, named "family", with desired set of
+permissions. You do this in Papermerge with user "bender".</p>
+<p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Group names in Authentik and in Papermerge should match.</p>
+</div>
+<h3 id="step-2-add-user">Step 2 - Add User</h3>
+<p>Create user "leela" in Authentik.
+Create "family" group in Authentik.
+Add user "leela" to group "family" (in Authentik).
+Of course you will set leela's password in Authentik as well.</p>
+<p>The outcome should look like:</p>
+<p><img alt="User Leela in Family Group" src="../../../img/auth/oidc/authentik-user-leela-in-family-group.gif" /></p>
+<h3 id="step-3-login-as-leela">Step 3 - Login as "leela"</h3>
+<p>Login with as leela in Papermerge. Notice that "users" and "groups" tabs on
+the left side bar are not visible, as leela does not have permissions to
+to manage users and groups.</p>
+<p><img alt="Login as Leela" src="../../../img/auth/oidc/authentik-login-as-leela.gif" /></p>
 
 
 
