@@ -369,7 +369,7 @@ Start {{ extra.project }} with following docker compose file:
 
 services:
   paper:
-    image: papermerge/papermerge:3.2.0build28
+    image: papermerge/papermerge:3.2
     container_name: paper
     ports:
       - 12000:80
