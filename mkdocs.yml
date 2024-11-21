@@ -54,6 +54,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
   - media: '(prefers-color-scheme: light)'
     scheme: default
@@ -82,6 +83,7 @@ theme:
   - content.code.annotate
   - content.code.copy
   - content.code.select
+  - announce.dismiss
 repo_url: https://github.com/ciur/papermerge
 extra:
   project: Papermerge  # custom variable for macros plugin
