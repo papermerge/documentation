@@ -86,8 +86,8 @@ theme:
   - announce.dismiss
 repo_url: https://github.com/ciur/papermerge
 extra:
-  project: Papermerge  # custom variable for macros plugin
-  docker_image_version: 3.2  # latest docker image version e.g. 3.0, 3.0.1, 3.1.9, 3.0a1
+  project: Papermerge DMS # custom variable for macros plugin
+  docker_image_version: 3.3b8
   version:
     provider: mike
   social:
