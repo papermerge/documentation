@@ -2,7 +2,7 @@
 
 This section describes how to setup {{ extra.project }} using docker compose.
 As mentioned in overview section, {{ extra.project }} philosophy revolves around
-progressive setup concept. As such, you are adviced to start with simple setups
+progressive setup concept. As such, you are advised to start with simple setups
 and progress, in small steps, towards more complicated scenarios. The idea is
 that on the way you will learn and understand better internals, which in
 turn will enable you to be build very creative deployments.
@@ -14,10 +14,10 @@ Level 1 is simplest.
 Level 10 is the most advanced.
 
 Level 1, 2, ..., 10 here are meant to rate only docker compose setups.
-Even the complexity level 10 of docker compose setups are innocent babies 👶 when compared to he very basic
+Even the complexity level 10 of docker compose setups are innocent babies 👶 when compared to the basic
 k8s 🤓 deployments!
 
-So, my heros, let's start!
+So, my heroes, let's start!
 
 
 ## Level 1 - Database/PostgreSQL
@@ -105,7 +105,7 @@ Uploaded files are not stored in database. They are stored in file system direct
 In order to persist uploaded files, you need to:
 
 1. Mount persistent volume
-2. Point {{ extra.project }} to upload files to the persistem directory
+2. Point {{ extra.project }} to upload files to the persisted directory
 
 In our example we will create docker compose volume `media_root` and mount it to internal (to container) directory `/var/media/pmg`. Finally, we use `PAPERMERGE__MAIN__MEDIA_ROOT` environment variable to tell
 {{ extra.project }} where to upload documents.
