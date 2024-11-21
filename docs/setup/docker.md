@@ -1,87 +1,30 @@
 # Docker
 
-## Web App
+## The Most Basic Setup
 
 The only two required environment variables are
 `PAPERMERGE__SECURITY__SECRET_KEY` and `PAPERMERGE__AUTH__PASSWORD`. To start
-web ui part use following command:
+web app use following command:
 
 ```console
 docker run -p 12000:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
-    -e PAPERMERGE__AUTH__PASSWORD=admin \
+    -e PAPERMERGE__AUTH__PASSWORD=pass123 \
     papermerge/papermerge:{{ extra.docker_image_version }}
 ```
 
-Point your web browser to `http://localhost:12000` and you will see login screen:
+Point your web browser to `http://localhost:12000`:
 
 
-![login screen](../img/setup/login.png)
+![login screen](./img/overview.gif)
 
 
 Credentials are:
 
 - username `admin`
-- password `admin`
+- password `pass123`
 
-!!! Note
-
-    The above `docker run` starts only web UI part. For complete setup you
-    also [need one or multiple workers](#web-app-worker).
-
-
-## Official Docker Image
-
-Official {{ extra.project  }} docker image is available on <a href="https://hub.docker.com/r/papermerge/papermerge" class="external-link" target="_blank">docker hub</a>.
-
-
-## Get Docker Image
-
-The recommended way to get the {{ extra.project }} docker image is via
-docker pull command:
-
-```console
-docker pull papermerge/papermerge:{{ extra.docker_image_version }}
-```
-
-
-## Web App + Worker
-
-For complete setup you need to start one or multiple workers.
-Worker is the component which, among other things, performs OCR.
-
-Here is minimal docker compose file with web UI and one worker:
-
-```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 12345
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: admin
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-      - data:/db
-      - index_db:/core_app/index_db
-      - media:/core_app/media
-services:
-  web:
-    <<: *common
-    ports:
-     - "12000:80"
-    depends_on:
-      - redis
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-volumes:
-    data:
-    index_db:
-    media:
-```
-
-With above setup, web app is accessible on  `http://localhost:12000`.
+Above setup, although incomplete, it is pretty good
+start. It does not include features like search function or OCR, but
+it serves well as quick demo to get a feeling of {{ extra.project }}.
+Check docker compose section for more advanced setups.

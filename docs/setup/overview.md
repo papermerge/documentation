@@ -45,10 +45,10 @@ add S3 storage.
 
 ## Microservices
 
-In following is the list of microservices which can be combined with {{ extra.project }}
+Following is the list of microservices which can be combined with {{ extra.project }}
 to extend its capabilities:
 
-- database (PostgreSQL, MariaDb)
+- database (PostgreSQL, MariaDB)
 - search engine (currently only Solr is supported)
 - search indexer (syncs database with search engine)
 - OCR worker - performs OCRs on the documents

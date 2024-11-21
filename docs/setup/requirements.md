@@ -2,40 +2,23 @@
 
 ## Software
 
-{{ extra.project }} is designed to run on Linux/Unix compatible system.
+{{ extra.project }} is designed to run on Linux compatible system.
 
-You need to have docker installed, as {{ extra.project }} is shipped as docker image.
+You need to have docker installed, or docker runtime, as {{ extra.project }} is shipped as docker image.
 All docker images are stored on <a href="https://hub.docker.com/u/papermerge" class="external-link" target="_blank">docker hub</a>.
 
 Make sure that you have docker available:
 
         $ docker --version
-        Docker version 24.0.3, build 3713ee1
+        Docker version 26.1.3, build b72abbb
+
 
 ## Hardware
 
-Hardware specification for {{ extra.project }} depends on number of documents and users.
+It depends on the setup. The hardware requiremnets for k8s cluster setup
+will be very different than for lab deployment on one single VM.
+It also deplends if you intend to use OCR features.
 
-For one user with 1000-2000 pages a system spec with:
-
-* 2 CPU at 2.8GHz clock
-* 2 GB RAM
-* 25 GB Storage
-
-will do just fine.
-
-For OCR, {{ extra.project }} uses [Tesseract](https://github.com/tesseract-ocr/tesseract).
-OCR is very CPU intensive operation, thus more CPUs and RAM memory your system has - better.
-More CPU cores and more powerful the CPUs means OCR will be performed faster.
-
-
-!!! Note
-
-        **GPU is not required** as Tesseract runs OCR entirely on your CPU.
-
-Testing system for {{ extra.project }} has following specs:
-
-* Ubuntu 22.04
-* 8 Core i7 2.8GHz CPU
-* 16 GB RAM
-* 50 GB storage
+An absolute minimul requirement, for running just web app, would be 1GB of RAM memory.
+In k8s deployment - {{ extra.project }} helm chart describes minimum resource requirement
+for each individual web service. See k8s deployment setups for details.
