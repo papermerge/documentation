@@ -155,4 +155,4 @@ and
 ```
 $ docker compose down
 ```
-How many times you want! You documents will still be there for you 🥳! We call that - persistent 😎.
+How many times you want! Your documents will still be there for you 🥳! We call that - persistent 😎.
