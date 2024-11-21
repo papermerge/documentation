@@ -39,7 +39,7 @@ add S3 storage.
 	Starting with complex deployment may be overwhelming, especially if you
 	don't understand the basics. {{ extra.project }}
 	can have extremely complex deployment k8s cluster setups: with many stateless web app pods,
-	with external authentication server, with S3 storage backend and CDN etc.
+	with external authentication server, with S3 storage backend, CDN etc.
 
 
 
@@ -62,3 +62,9 @@ In following sections you will find details of setup of each separate service.
 Each service is deployed as docker image. As such, it can be deployed in any
 dockerized environment. However, this documentation focuses on docker, docker
 compose, ansible and kubernetes.
+
+
+## Progressive Setup
+
+We call this architecture - *progressive setup*: you start small, and then you
+grow and extend {{ extra.project }} deployment environment as much as you like.

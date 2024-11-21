@@ -1,95 +1,139 @@
 # Docker Compose
 
 This section describes how to setup {{ extra.project }} using docker compose.
+As mentioned in overview section, {{ extra.project }} philosophy revolves around
+progressive setup concept. As such, you are adviced to start with simple setups
+and progress, in small steps, towards more complicated scenarios. The idea is
+that on the way you will learn and understand better internals, which in
+turn will enable you to be build very creative deployments.
+
+We assign a complexity level, to each of following docker compose setups.
+
+Complexity level ranges from 1 to 10.
+Level 1 is simplest.
+Level 10 is the most advanced.
+
+Level 1, 2, ..., 10 here are meant to rate only docker compose setups.
+Even the complexity level 10 of docker compose setups are innocent babies 👶 when compared to he very basic
+k8s 🤓 deployments!
+
+So, my heros, let's start!
 
 
-## Web App + Worker
+## Level 1 - Database/PostgreSQL
 
-The simpliest docker compose setup for {{ extra.project }} is following:
+By default, web app uses SQLite database. SQLite is great for quick demos, not for
+production environments.
+
+Following docker compose file starts {{extra.project}} with PostgreSQL 16.1 database:
 
 ```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
+services:
+  webapp:
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
       PAPERMERGE__AUTH__PASSWORD: admin
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-      - data:/db
-      - index_db:/core_app/index_db
-      - media:/core_app/media
-services:
-  web:
-    <<: *common
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
     ports:
      - "12000:80"
     depends_on:
-      - redis
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
+      - db
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
 volumes:
-  data:
-  index_db:
-  media:
+  pgdata:
 ```
+
+Start it with:
+
+```
+  $ docker compose up
+```
+
 
 You can access {{ extra.project }} user interface using any modern web browser (e.g. Firefox, Chrome).
 Open your web browser and point it to http://localhost:12000.
 
+🥳 Congratulations! 🥳 You have two microservices running: web app and
+PostgreSQL 16.1 database. The web app will wait until db service is up and
+running - and only then it will start.
 
-## PostgreSQL
+The format `PAPERMERGE__DATABASE__URL` is documented in [database settings](../settings/database.md#database__url).
 
-By default {{ extra.project }} uses sqlite3 database. Here is setup to which
-uses PostgreSQL:
+However, in this setup has a problem 🙁. To understand it - upload couple of documents.
+Now if you remove docker containers with:
+
+```
+  $ docker compose down
+```
+
+And then bring them back with:
+
+```
+  $ docker compose up
+```
+You will notice that all documents "sort of disappeared". You can see document's titles, but when opening them there are errors.
+
+Why so?
+
+The problem is that the storage where uploaded documents are stored is not persistent i.e. it uploaded pdf files
+lives inside docker container and when docker container is removed - so are our documents! Only documents "titles"
+are still there, because that part is stored in database, which at this time is persistent.
+
+!!! note
+
+    Uploaded **files are NOT stored in database**! They are stored in file system directory called **media root**
+
+
+## Level 2 - Persistent Media Storage
+
+Uploaded files are not stored in database. They are stored in file system directory called *media root*.
+In order to persist uploaded files, you need to:
+
+1. Mount persistent volume
+2. Point {{ extra.project }} to upload files to the persistem directory
+
+In our example we will create docker compose volume `media_root` and mount it to internal (to container) directory `/var/media/pmg`. Finally, we use `PAPERMERGE__MAIN__MEDIA_ROOT` environment variable to tell
+{{ extra.project }} where to upload documents.
+Here is docker compose file:
 
 ```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 12345
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
-    PAPERMERGE__DATABASE__URL: postgresql://coco:kesha@db:5432/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-    - index_db:/core_app/index_db
-    - media:/core_app/media
 services:
-  web:
-    <<: *common
+  webapp:
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+    volumes:
+      - media_root:/var/media/pmg
     ports:
      - "12000:80"
     depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
+      - db
   db:
     image: postgres:16.1
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - pgdata:/var/lib/postgresql/data/
     environment:
-      POSTGRES_PASSWORD: kesha
-      POSTGRES_DB: cocodb
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
       POSTGRES_USER: coco
     healthcheck:
       test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
@@ -98,321 +142,17 @@ services:
       retries: 5
       start_period: 10s
 volumes:
-  postgres_data:
-  index_db:
-  media:
-```
-
-
-## Solr
-
-By default {{ extra.project }} uses Xapian search engine. However, for
-production environments, full fledged search engine like Solr is recommanded.
-
-```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
-    PAPERMERGE__DATABASE__URL: postgresql://coco:kesha@db:5432/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - media_root:/core_app/media
-  depends_on:
-    db:
-      condition: service_healthy
-    redis:
-      condition: service_healthy
-
-services:
-  web:
-    <<: *common
-    ports:
-     - "12000:80"
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-  solr:
-    image: solr:9.3
-    ports:
-     - "8983:8983"
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: postgres:16.1
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      POSTGRES_PASSWORD: kesha
-      POSTGRES_DB: cocodb
-      POSTGRES_USER: coco
-
-    healthcheck:
-      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-
-volumes:
-  postgres_data:
-  solr_data:
+  pgdata:
   media_root:
 ```
 
-## MySQL / MariaDB
+Now you can:
 
-Here is an example of docker compose setup with MariaDB:
-
-```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
-    PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - media_root:/core_app/media
-  depends_on:
-    db:
-      condition: service_healthy
-    redis:
-      condition: service_healthy
-
-services:
-  web:
-    <<: *common
-    ports:
-     - "12000:80"
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-  solr:
-    image: solr:9.3
-    ports:
-     - "8983:8983"
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: mariadb:11.2
-    volumes:
-      - maria:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: kesha
-      MYSQL_DATABASE: cocodb
-      MYSQL_USER: coco
-      MYSQL_PASSWORD: kesha
-    ports:
-      - "3306:3306"
-    healthcheck:
-      test: mariadb-admin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-
-volumes:
-  maria:
-  solr_data:
-  media_root:
 ```
-
-## OAuth2.0/OpenID
-
-{{ extra.project }} supports OAuth2.0/OpenID authentication any provider.
-
-Here is an example of OIDC setup with Keycloak provider.
-
-
-```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: hohoho-no-relevent
-    PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - media_root:/core_app/media
-  depends_on:
-    db:
-      condition: service_healthy
-    redis:
-      condition: service_healthy
-
-services:
-  web:
-    <<: *common
-    environment:
-      PAPERMERGE__AUTH__OIDC_CLIENT_SECRET: OHGMBgyAjcvDtn4PAu8w8vE9yf06aHn1
-      PAPERMERGE__AUTH__OIDC_CLIENT_ID: papermerge
-      PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/auth
-      PAPERMERGE__AUTH__OIDC_ACCESS_TOKEN_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token
-      PAPERMERGE__AUTH__OIDC_INTROSPECT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/token/introspect
-      PAPERMERGE__AUTH__OIDC_USER_INFO_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/userinfo
-      PAPERMERGE__AUTH__OIDC_LOGOUT_URL: http://keycloak.trusel.net:8080/realms/myrealm/protocol/openid-connect/logout
-      PAPERMERGE__AUTH__OIDC_REDIRECT_URL: http://demo.trusel.net:12000/oidc/callback
-      PAPERMERGE__AUTH__OIDC_SCOPE: "openid email profile"
-    ports:
-     - "12000:80"
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-  solr:
-    image: solr:9.3
-    ports:
-     - "8983:8983"
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: mariadb:11.2
-    volumes:
-      - maria:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: kesha
-      MYSQL_DATABASE: cocodb
-      MYSQL_USER: coco
-      MYSQL_PASSWORD: kesha
-    ports:
-      - "3306:3306"
-    healthcheck:
-      test: mariadb-admin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-
-volumes:
-  maria:
-  solr_data:
-  media_root:
+$ docker compose up
 ```
-
-For detailed information about SSO/OIDC check [Keycloak + Papermerge](../sso/oidc/keycloak.md) section.
-
-## LDAP
-
-
-{{ extra.project }} supports LDAP authentication.
-
-Here is an example of LDAP authencation setup:
-
-```yaml
-version: "3.9"
-
-x-backend: &common
-  image: papermerge/papermerge:{{ extra.docker_image_version }}
-  environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: admin
-    PAPERMERGE__DATABASE__URL: mysql://coco:kesha@db:3306/cocodb
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - media_root:/core_app/media
-  depends_on:
-    db:
-      condition: service_healthy
-    redis:
-      condition: service_healthy
-
-services:
-  web:
-    <<: *common
-    environment:
-      ... # replace here with ldap configs
-    ports:
-     - "12000:80"
-  worker:
-    <<: *common
-    command: worker
-  redis:
-    image: redis:6
-    healthcheck:
-      test: redis-cli --raw incr ping
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-  solr:
-    image: solr:9.3
-    ports:
-     - "8983:8983"
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: mariadb:11.2
-    volumes:
-      - maria:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: kesha
-      MYSQL_DATABASE: cocodb
-      MYSQL_USER: coco
-      MYSQL_PASSWORD: kesha
-    ports:
-      - "3306:3306"
-    healthcheck:
-      test: mariadb-admin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      interval: 5s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
-
-volumes:
-  maria:
-  solr_data:
-  media_root:
+and
 ```
-
-For detailed information on authentication check [SSO](../sso/overview.md) section.
+$ docker compose down
+```
+How many times you want! You documents will still be there for you 🥳! We call that - persistent 😎.
