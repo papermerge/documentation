@@ -14,6 +14,9 @@ nav:
     - user/getting-started.md
     - user/user-interface.md
     - user/upload-documents.md
+    - user/document-types.md
+    - user/custom-fields.md
+    - user/path-templates.md
     - user/tags.md
     - user/search.md
     - user/page-management.md
@@ -101,9 +104,12 @@ extra_css:
 markdown_extensions:
   - admonition
   - pymdownx.highlight:
+      use_pygments: true
       anchor_linenums: true
+      auto_title: false
       line_spans: __span
       pygments_lang_class: true
+      linenums: true
   - pymdownx.inlinehilite
   - pymdownx.critic
   - pymdownx.caret

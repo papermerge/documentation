@@ -14,10 +14,6 @@ Level 1 is simplest.
 Level 10 is the most advanced.
 
 Level 1, 2, ..., 10 here are meant to rate only docker compose setups.
-Even the complexity level 10 of docker compose setups are innocent babies 👶 when compared to the basic
-k8s 🤓 deployments!
-
-So, my heroes, let's start!
 
 
 ## Level 1 - Database/PostgreSQL
@@ -156,3 +152,17 @@ and
 $ docker compose down
 ```
 How many times you want! Your documents will still be there for you 🥳! We call that - persistent 😎.
+
+Here are important parts of the compose file highlighted:
+
+![Persistent media storage](img/picture-1.svg)
+
+Following illustration visualizes the concept of persistent media storage:
+
+![Persistent media storage](img/picture-2.svg)
+
+
+## Level 4 - Path Templates Worker
+
+This one is optional, but you definitely want it in your team. To understand why,
+you need to understand why is Path Templates feature all about.
