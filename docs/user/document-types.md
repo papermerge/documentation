@@ -1,6 +1,6 @@
 # Document Types / Categories
 
-Document type is a fundamental concept which marks the line between
+Document type is a fundamental concept which draws the line between
 common file browser and document management system.
 
 Document types enable you to categorize documents. You
@@ -8,7 +8,7 @@ can define types such as "Receipt", "Invoice", or "Contract".
 
 !!! Note
 
-	*Document type* is same as *category*, *document category* or *document class".
+	*Document type* is same as *category*, *document category* or *document class*.
 	In following documentation we will you those terms interchangeable.
 
 Types are optional in sense that you don't need to specify document type when
@@ -34,7 +34,7 @@ Let's add some document types:
 	Although a document type represents an unlimited number of documents, when deciding on a name,
 	use the singular form. Singular form improves clarity.
 
-Notice in above animated picture that document type form, beside name, it also
+Notice in above animated picture that document type form, beside name, also
 features [custom fields](custom-fields.md) and [path templates](path-templates.md).
 That's where usefulness of documents types comes into
 the fore! **You can assign custom fields and path templates to the documents
@@ -58,6 +58,6 @@ that category.
 	Use document types to assign same custom fields (or path templates)
 	to specific category of documents.
 
-In general, may parts of the system will rely of the document types, because
-it is much more custom to apply operations on groups (classes, or categories)
-of documents then to individual documents.
+In general, many parts of {{ extra.project }} will rely of the document types, because
+it is much more custom to apply operations on group (class, or category)
+of documents than to individual documents.
