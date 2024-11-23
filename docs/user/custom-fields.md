@@ -73,7 +73,21 @@ You need to do that for all your receipts.
     of custom field values. Stay tuned! :saluting_face:
 
 
+Do following:
 
+- in commander switch view from "Tiles" to "Document Type".
+- in drop down list choose which document type you want to view - in our example "Receipt"
+
+If you want to preview documents while list "document type" view, then you need to **hold
+"Ctrl" key pressed while clicking on document's titles**.
+
+
+![List documents by type](img/custom-fields/list-documents-by-type.gif)
+
+
+Following illustration shows how to switch back and forth between "document type" and "tiles" views:
+
+![Switch views](img/custom-fields/switch-views.gif)
 
 
 ## Custom Field Types
