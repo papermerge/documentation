@@ -5,6 +5,13 @@ defined data associated to the document. See the receipt in following illustrati
 The information which may concern you about the receipt may be: when receipt was issued,
 who issued the receipt and the amount (price, monetary value) on it.
 
+
+!!! Note
+
+    Custom fields are also known as "metadata". In following documentation
+    we will use terms "custom fields" and "metadata" interchangeable
+
+
 ![Custom fields example](img/custom-fields/custom-fields.svg)
 
 This information, date, shop, total amount, can be attached to the document.
@@ -37,12 +44,35 @@ We already did step 1. Let's quickly do 2. and 3:
 
 ![Create document type with custom fields](img/custom-fields/create-document-type.gif)
 
-Now if you assign document to "Receipt" category - it will automatically show "Receipt"
-custom fields. An animated gif show this in action:
+Lastly, step 4: let's assign document to the document type "Receipt".
+Because document type "Receipt" has custom fields associated, if you
+assign any document to "Receipt" category - it will automatically
+show "Receipt" custom fields. An animated gif show this in action:
+
+![Assign document types](img/custom-fields/assign-document-types.gif)
 
 
+## Custom Field Values
 
-## View All CF By Category
+What is great about custom fields feature is that you can list all documents
+along with their custom field values - this opens new insights
+into the "structure" of all of your documents.
+This is very powerful feature. But before we see it in action, let's
+fill in values for couple of receipts:
+
+
+![Fill in custom field values](img/custom-fields/fill-in-cfv.gif)
+
+You need to do that for all your receipts.
+
+!!! Info
+
+    Filling metadata for each of your document may look like boring :sleeping:.
+    And indeed, boring task it is!
+    Future versions of {{ extra.project }} will add ways to completely automate extraction
+    of custom field values. Stay tuned! :saluting_face:
+
+
 
 
 

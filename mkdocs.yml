@@ -109,7 +109,9 @@ markdown_extensions:
       auto_title: false
       line_spans: __span
       pygments_lang_class: true
-      linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.critic
   - pymdownx.caret
