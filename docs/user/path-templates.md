@@ -36,10 +36,19 @@ one. It distracts you from your real tasks.
 Meet *path templates*. The idea is simple: you need to decide where to place
 your receipts only once. Once you decide where you put to them - you write it
 down as "path template" and then all your receipts will automatically be
-placed to that path. Of course you can do that for every document type.
+placed to that path. Of course you can do that for any document type.
 
 Basically, for each document type you create a "template" of
 the place where documents of that type will be stored. And then {{extra.project}}
-will use that information to place the document to the
-target folder for you! Automatically :magic_wand:!
+will use that information to move the document to the
+target folder automatically :magic_wand:!
+
+
+!!! Info
+
+	Path templates are per document type. They create a "template"
+	of where documents of that type will be placed. The path includes
+	both target folder and file name.
+
+Let's see couple of examples.
 
