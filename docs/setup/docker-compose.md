@@ -186,7 +186,7 @@ services:
       - db
       - redis
   path_template_worker:
-    image: papermerge/path-tmpl-worker:0.3b1
+    image: papermerge/path-tmpl-worker:0.3
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
