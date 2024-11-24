@@ -166,3 +166,55 @@ Following illustration visualizes the concept of persistent media storage:
 
 This one is optional, but you definitely want it in your team. To understand why,
 you need to understand why is Path Templates feature all about.
+
+```yaml
+services:
+  webapp:
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - "12000:80"
+    depends_on:
+      - db
+      - redis
+  path_template_worker:
+    image: papermerge/path-tmpl-worker:0.3b1
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PATH_TMPL_WORKER_ARGS: "-Q path_tmpl -c 2"
+    depends_on:
+      - redis
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - "6379:6379"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+volumes:
+  pgdata:
+  media_root:
+```
