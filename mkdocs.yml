@@ -53,7 +53,9 @@ nav:
     - cli/cli.md
   - Contributor Manual:
     - contributor/docker.md
-  - "changelog.md"
+  - roadmap.md
+  - changelog.md
+
 
 theme:
   name: material

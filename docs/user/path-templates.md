@@ -46,9 +46,82 @@ target folder automatically :magic_wand:!
 
 !!! Info
 
-	Path templates are per document type. They create a "template"
-	of where documents of that type will be placed. The path includes
-	both target folder and file name.
+    Path templates are per document type. They create a "template"
+    of where documents of that type will be placed. The path includes
+    both target folder and file name.
 
 Let's see couple of examples.
+
+In first example, let's create document type "Receipt" and set its path
+template to `/home/My Documents/Receipts/`:
+
+
+![Create simple path template](./img/path-templates/create-simple-path-template.gif)
+
+Notice that path template ends with "/". If path ends with "/", it means that
+the last part is a folder. We will come back to this point later.
+Also please remark that there no `My Documents` folder; neither
+`Receipts` folder is not there; both of them will be automatically created.
+
+From now on, any document of type Receipt will be moved into `/home/My Documents/Receipts/`.
+Let's see it in action. In video below initially document `brother_004485.pdf` is in `inbox`
+and it has no document type assigned yet. Also, notice that in `home` there is no folder `My Documents` yet.
+However, once `brother_004485` is changed to type "Receipt" it is automatically moved from `inbox`
+into its target folder designed by Receipt's path template: `/home/My Documents/Receipts/`.
+
+![Move one doc from inbox to target](./img/path-templates/move-one-doc-from-inbox-to-target.gif)
+
+
+It is very important that template path `/home/My Documents/Receipts/` ends
+with "/". It tells {{extra.project}} that target is a folder. If we would
+change it to `/home/My Documents/coco`, then {{extra.project}} would move
+`brother_004485.pdf` into target folder `My Documents` and rename file from
+`brother_004485.pdf` to `coco`.
+
+!!! Info
+
+    Path templates ending in "/" designates a folder. Any other ending means last part of the
+    path is document name.
+
+    Examples:
+
+    * /home/coco - target folder is `home` and file will be renamed to `coco`
+    * /home/Clients/CocoInc/invoice.pdf - target folder is `CocoInc` and file will be renamed to `invoice.pdf`
+    * /home/Clients/CocoInc/ - target `CocoInc` - a folder. Documents will be moved into `/home/Clients/CocoInc/` folder
+
+
+## Target Root
+
+In all examples above, path template, started with `/home`. Actually you can omit `/home` part as it is
+always implicit. Thus following paths are equivalent:
+
+* /home/Invoices/Clients/
+* /Invoices/Clients/
+
+!!! Info
+
+    Template path root folder is always assumed to be user's home folder
+
+Thus if you set template path as `Toto/` - it will move documents of respective type into `/home/Toto/` folder.
+If you set template path to `/inbox/Toto/` - it will move documents of respective type into `/home/inbox/Toto/` folder.
+
+
+!!! Tip
+
+    Always start you path templates target folders with `/home/`
+
+Following table is a summary of cases described so far:
+
+| Path Template           | Document Title                       | Evaluation Outcome             |
+| ------------------------| ------------------------------------ |--------------------------------|
+| /home/Clients/Invoices/ | bon.pdf                              | /home/Clients/Invoices/bon.pdf |
+| /home/Clients/Invoices  | bon.pdf                              | /home/Clients/Invoices         |
+| /Letters/Misc/          | zdf-love.pdf                         | /home/Letters/Misc/zdf-love.pdf|
+| Letters/Misc/           | zdf-love.pdf                         | /home/Letters/Misc/zdf-love.pdf|
+| /inbox/Taxes/           | 2021.pdf                             | /home/inbox/Taxes/2021.pdf     |
+
+## Jinja2 Syntax
+
+
+
 
