@@ -97,12 +97,13 @@ always implicit. Thus following paths are equivalent:
 
 * /home/Invoices/Clients/
 * /Invoices/Clients/
+* Invoices/Clients/
 
 !!! Info
 
     Template path root folder is always assumed to be user's home folder
 
-Thus if you set template path as `Toto/` - it will move documents of respective type into `/home/Toto/` folder.
+Thus, if you set template path as `Toto/` - it will move documents of respective type into `/home/Toto/` folder.
 If you set template path to `/inbox/Toto/` - it will move documents of respective type into `/home/inbox/Toto/` folder.
 
 
@@ -122,6 +123,7 @@ Following table is a summary of cases described so far:
 
 ## Jinja2 Syntax
 
-
-
+Path templates use so called <a href="https://jinja.palletsprojects.com/en/stable/templates/" class="external-link" target="_blank">jinja templates</a> syntax. Using jinja syntax you can mix into template different attributes known
+at evaluation time (when template is evaluated for that specific document).
+An example:
 
