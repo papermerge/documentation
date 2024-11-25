@@ -1,8 +1,8 @@
-name: Deploy 3.2 docs
+name: Deploy 3.3 docs
 on:
   push:
     branches:
-      - "v3.2"
+      - "v3.3"
 
 permissions:
   contents: write
@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: "v3.2"
+          ref: "v3.3"
       - uses: actions/setup-python@v4
         with:
-          python-version: 3.x
+          python-version: 3.13
       - run: |
           pip install poetry
           poetry install --no-root
           git fetch origin gh-pages --depth=1
           git config user.name ci-bot
           git config user.email ci-bot@example.com
-          poetry run mike deploy -p 3.2 latest --update-aliases
+          poetry run mike deploy -p 3.3 latest --update-aliases
