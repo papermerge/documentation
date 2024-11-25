@@ -127,3 +127,77 @@ Path templates use so called <a href="https://jinja.palletsprojects.com/en/stabl
 at evaluation time (when template is evaluated for that specific document).
 An example:
 
+
+{% raw %}
+    /home/Invoices/Misc/{{ document.id }}-{{ document.title }}.pdf
+{% endraw %}
+
+The part between curly braces is evaluated for each document.
+
+
+{% raw %}
+    {{ document.id }}
+{% endraw %}
+
+will be replaced with document's ID.
+And
+
+{% raw %}
+    {{ document.title }}
+{% endraw %}
+
+with document's title. `document` within curly braces is contextual object; it can reference
+current document' attributes using `document.<name of attribute>` notation.
+
+You can use if statements:
+
+
+{% raw %}
+    {% if document.id %}
+        /home/My Documents/Invoices/{{ document.id }}.pdf
+    {% else %}
+        /home/My Documents/Invoices/
+    {% endif %}
+{% endraw %}
+
+Object `document` has following attributes:
+
+* id
+* title
+* cf
+* has_all_cf
+
+Via `cf` object you can access custom fields values. `has_all_cf` is true if
+and only if all all document's custom fields have non-empty values.
+
+Examples:
+
+{% raw %}
+
+    {% if document.has_all_cf %}
+        /home/Receipts/{{ document.cf['Shop'] }}-{{document.cf['Effective Date']}}.pdf
+    {% else %}
+        /home/Receipts/{{ document.id }}.pdf
+    {% endif %}
+
+{% endraw %}
+
+The template above reads: if document has all custom fields filled with non
+empty values, then use Shop, Effective Date custom fields to build its path,
+otherwise use only document id to build it's path. Using document ID is
+safety measure, because document's ID attribute is always defined.
+
+!!! Warning
+
+    Inside square brackets you must reference custom fields using custom fields
+    names together with their spaces and their case.
+
+If field name is "Total (EUR)", then you reference it with
+
+{% raw %}
+    {{ document.cf['Total (EUR)'] }}
+{% endraw %}
+
+There is one space between word "Total" and "(EUR)". Word "Total" must be capital case (same case as custom
+field name).
+
