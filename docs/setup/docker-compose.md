@@ -7,16 +7,8 @@ and progress, in small steps, towards more complicated scenarios. The idea is
 that on the way you will learn and understand better internals, which in
 turn will enable you to be build very creative deployments.
 
-We assign a complexity level, to each of following docker compose setups.
 
-Complexity level ranges from 1 to 10.
-Level 1 is simplest.
-Level 10 is the most advanced.
-
-Level 1, 2, ..., 10 here are meant to rate only docker compose setups.
-
-
-## Level 1 - Database/PostgreSQL
+## Database/PostgreSQL
 
 By default, web app uses SQLite database. SQLite is great for quick demos, not for
 production environments.
@@ -95,7 +87,7 @@ are still there, because that part is stored in database, which at this time is 
     Uploaded **files are NOT stored in database**! They are stored in file system directory called **media root**
 
 
-## Level 2 - Persistent Media Storage
+## Persistent Media Storage
 
 Uploaded files are not stored in database. They are stored in file system directory called *media root*.
 In order to persist uploaded files, you need to:
@@ -162,7 +154,7 @@ Following illustration visualizes the concept of persistent media storage:
 ![Persistent media storage](img/picture-2.svg)
 
 
-## Level 4 - Path Templates Worker
+## Path Templates Worker
 
 This one is optional, but you definitely want it in your team. To understand why,
 you need to understand why is Path Templates feature all about.
