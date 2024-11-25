@@ -434,27 +434,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#level-1-databasepostgresql" class="md-nav__link">
+  <a href="#databasepostgresql" class="md-nav__link">
     <span class="md-ellipsis">
-      Level 1 - Database/PostgreSQL
+      Database/PostgreSQL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#level-2-persistent-media-storage" class="md-nav__link">
+  <a href="#persistent-media-storage" class="md-nav__link">
     <span class="md-ellipsis">
-      Level 2 - Persistent Media Storage
+      Persistent Media Storage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#level-4-path-templates-worker" class="md-nav__link">
+  <a href="#path-templates-worker" class="md-nav__link">
     <span class="md-ellipsis">
-      Level 4 - Path Templates Worker
+      Path Templates Worker
     </span>
   </a>
   
@@ -1699,27 +1699,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#level-1-databasepostgresql" class="md-nav__link">
+  <a href="#databasepostgresql" class="md-nav__link">
     <span class="md-ellipsis">
-      Level 1 - Database/PostgreSQL
+      Database/PostgreSQL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#level-2-persistent-media-storage" class="md-nav__link">
+  <a href="#persistent-media-storage" class="md-nav__link">
     <span class="md-ellipsis">
-      Level 2 - Persistent Media Storage
+      Persistent Media Storage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#level-4-path-templates-worker" class="md-nav__link">
+  <a href="#path-templates-worker" class="md-nav__link">
     <span class="md-ellipsis">
-      Level 4 - Path Templates Worker
+      Path Templates Worker
     </span>
   </a>
   
@@ -1750,12 +1750,7 @@ progressive setup concept. As such, you are advised to start with simple setups
 and progress, in small steps, towards more complicated scenarios. The idea is
 that on the way you will learn and understand better internals, which in
 turn will enable you to be build very creative deployments.</p>
-<p>We assign a complexity level, to each of following docker compose setups.</p>
-<p>Complexity level ranges from 1 to 10.
-Level 1 is simplest.
-Level 10 is the most advanced.</p>
-<p>Level 1, 2, ..., 10 here are meant to rate only docker compose setups.</p>
-<h2 id="level-1-databasepostgresql">Level 1 - Database/PostgreSQL</h2>
+<h2 id="databasepostgresql">Database/PostgreSQL</h2>
 <p>By default, web app uses SQLite database. SQLite is great for quick demos, not for
 production environments.</p>
 <p>Following docker compose file starts Papermerge DMS with PostgreSQL 16.1 database:</p>
@@ -1813,7 +1808,7 @@ are still there, because that part is stored in database, which at this time is 
 <p class="admonition-title">Note</p>
 <p>Uploaded <strong>files are NOT stored in database</strong>! They are stored in file system directory called <strong>media root</strong></p>
 </div>
-<h2 id="level-2-persistent-media-storage">Level 2 - Persistent Media Storage</h2>
+<h2 id="persistent-media-storage">Persistent Media Storage</h2>
 <p>Uploaded files are not stored in database. They are stored in file system directory called <em>media root</em>.
 In order to persist uploaded files, you need to:</p>
 <ol>
@@ -1867,7 +1862,7 @@ volumes:
 <p><img alt="Persistent media storage" src="../img/picture-1.svg" /></p>
 <p>Following illustration visualizes the concept of persistent media storage:</p>
 <p><img alt="Persistent media storage" src="../img/picture-2.svg" /></p>
-<h2 id="level-4-path-templates-worker">Level 4 - Path Templates Worker</h2>
+<h2 id="path-templates-worker">Path Templates Worker</h2>
 <p>This one is optional, but you definitely want it in your team. To understand why,
 you need to understand why is Path Templates feature all about.</p>
 <pre><code class="language-yaml">services:
