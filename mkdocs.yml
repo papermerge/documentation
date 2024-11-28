@@ -1,6 +1,7 @@
-site_name: Papermerge 3
+site_name: Papermerge DMS
 site_url: https://docs.papermerge.io
 nav:
+  - whatsnew.md
   - Setup:
     - setup/overview.md
     - setup/requirements.md

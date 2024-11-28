@@ -1,4 +1,4 @@
-# Roadmap 2025
+# Roadmap 2025 :compass:
 
 For year 2025 we plan to implement in {{ extra.project }} following major features:
 
