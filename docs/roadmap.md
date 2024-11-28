@@ -3,11 +3,11 @@
 For year 2025 we plan to implement in {{ extra.project }} following major features:
 
 1. Localization
-2. UI Settings
+2. UI settings
 3. Per object access management
-4. Group Ownership
-5. Search by Custom Fields
-6. System Audit
+4. Group ownership
+5. Search by custom fields
+6. System audit
 
 
 ## 1. Localization

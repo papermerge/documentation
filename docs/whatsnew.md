@@ -2,9 +2,9 @@
 
 Version 3.3 introduces following new major features:
 
-- Document Types
-- Custom Fields
-- Path Templates
+- Document types
+- Custom fields
+- Path templates
 - S3 storage backend
 
 ## Document Types
