@@ -41,5 +41,5 @@ Read more about it in [Path Templates](user/path-templates.md)
 You can configure S3 compatible storage for you documents. It means that you
 may configure {{ extra.project }} to store documents on S3 storage.
 
-Feature is there, but document is not :slightly_frowning_face:.
-Documentation is on this topic is being written :hourglass: ...
+Feature is there, but its documentation is not :slightly_frowning_face:.
+Documentation is being written :hourglass: ...
