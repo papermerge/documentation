@@ -29,7 +29,7 @@ date format etc via web user interface.
 
 This is big one. "Per Object" here means access management for specific folder or documents.
 In short, it is about shared folders and shared documents.
-We will address sharing of tags, categories, and custom fields.
+We will address sharing of tags, categories, and custom fields as well.
 
 ## 4. Group Ownership
 
