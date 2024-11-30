@@ -309,10 +309,13 @@ Picture below illustrates relationship between services:
 
 
 http traffic, incoming on `http://localhost:12000`, is handled by `webapp`.
-`webapp` communicates with `s3worker` via redis. They communicated
+`webapp` communicates with `s3worker` via redis. They communicate
 via dedicated message queue named `s3`.
-Both `webapp` and `s3worker` have access to *same*:
+Both `webapp` and `s3worker` have access to **same**:
 
 * database - `PAPERMERGE__DATABASE__URL`
 * media storage - `PAPERMERGE__MAIN__MEDIA_ROOT`
 * message broker - `PAPERMERGE__REDIS__URL`
+
+
+For detailed configuration of S3worker see [S3 Worker Settings](../settings/s3worker.md) section.

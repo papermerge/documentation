@@ -44,6 +44,7 @@ nav:
     - settings/database.md
     - settings/redis.md
     - settings/search.md
+    - settings/s3worker.md
   - "backup-restore.md"
   - REST API:
     - "rest-api/overview.md"
