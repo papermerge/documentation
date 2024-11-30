@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.3/settings/search/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.3/settings/s3worker/">
       
       
-        <link rel="prev" href="../redis/">
+        <link rel="prev" href="../search/">
       
       
-        <link rel="next" href="../s3worker/">
+        <link rel="next" href="../../backup-restore/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Search Engine - Papermerge DMS</title>
+        <title>S3 Worker - Papermerge DMS</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#search-engine" class="md-skip">
+        <a href="#s3-worker" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Search Engine
+              S3 Worker
             
           </span>
         </div>
@@ -1289,6 +1289,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search Engine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1305,7 +1326,7 @@
           
   
   <span class="md-ellipsis">
-    Search Engine
+    S3 Worker
   </span>
   
 
@@ -1316,7 +1337,7 @@
         
   
   <span class="md-ellipsis">
-    Search Engine
+    S3 Worker
   </span>
   
 
@@ -1338,9 +1359,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#search__url" class="md-nav__link">
+  <a href="#papermerge__database__url" class="md-nav__link">
     <span class="md-ellipsis">
-      SEARCH__URL
+      PAPERMERGE__DATABASE__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__main__media_root" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__MAIN__MEDIA_ROOT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__redis__url" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__REDIS__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__s3__bucket_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__S3__BUCKET_NAME
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3_worker_args" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3_WORKER_ARGS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_region_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS_REGION_NAME
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_access_key_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS_ACCESS_KEY_ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_secret_access_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS_SECRET_ACCESS_KEY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__main__logging_cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__MAIN__LOGGING_CFG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__main__prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__MAIN__PREFIX
     </span>
   </a>
   
@@ -1350,27 +1452,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../s3worker/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    S3 Worker
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1722,9 +1803,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#search__url" class="md-nav__link">
+  <a href="#papermerge__database__url" class="md-nav__link">
     <span class="md-ellipsis">
-      SEARCH__URL
+      PAPERMERGE__DATABASE__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__main__media_root" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__MAIN__MEDIA_ROOT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__redis__url" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__REDIS__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__s3__bucket_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__S3__BUCKET_NAME
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3_worker_args" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3_WORKER_ARGS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_region_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS_REGION_NAME
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_access_key_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS_ACCESS_KEY_ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_secret_access_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS_SECRET_ACCESS_KEY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__main__logging_cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__MAIN__LOGGING_CFG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__main__prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__MAIN__PREFIX
     </span>
   </a>
   
@@ -1748,25 +1910,83 @@
   
 
 
-<h1 id="search-engine">Search Engine</h1>
-<p>Papermerge DMS supports multiple search engine backends. Currently two backends are available:</p>
-<ul>
-<li><a href="https://xapian.org/" class="external-link" target="_blank">xapian</a></li>
-<li><a href="https://solr.apache.org/" class="external-link" target="_blank">solr</a></li>
-</ul>
-<h2 id="search__url">SEARCH__URL</h2>
-<p>Search engine backend to use. For Solr
-format is:</p>
-<pre><code>solr://HOST:PORT/INDEX
-</code></pre>
-<p>Example: <code>solr://solr:8983/pmg-index</code></p>
-<p>For Xapian URL format is <code>xapian:///PATH</code>. Example: <code>xapian:////index_db</code> - in other words, xapian will store all index
-data in <code>/index_db</code> folder.</p>
-<p>Default value for <code>PAPERMERGE__SEARCH__URL</code> is <code>xapian:////index_db</code></p>
+<h1 id="s3-worker">S3 Worker</h1>
+<p>S3 Worker is configured via environment variables.
+Note that database, media root and redis url must be <strong>same</strong> as for webapp.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Both web_app and worker must have same <code>PAPERMERGE__SEARCH__URL</code></p>
+<p>Source code for S3 worker is <a href="https://github.com/papermerge/s3-worker/" class="external-link" target="_blank">on github</a>.
+Its docker image is <a href="https://hub.docker.com/r/papermerge/s3worker" class="external-link" target="_blank">on dockerhub</a>.</p>
 </div>
+<h2 id="papermerge__database__url">PAPERMERGE__DATABASE__URL</h2>
+<p>Database URL. For PostgreSQL the database URL is given in following format:</p>
+<pre><code>postgresql://USER:PASSWORD@HOST:PORT/NAME
+</code></pre>
+<p>Example:</p>
+<pre><code>postgresql://scott:tiger@db:5432/mydatabase
+</code></pre>
+<p>For MariaDB and MySQL the URL scheme is <code>mysql</code>.</p>
+<p>Example:</p>
+<pre><code>mysql://myuser:mypass@db:3306/paperdb
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and s3worker must have same <code>PAPERMERGE__DATABASE__URL</code></p>
+</div>
+<h2 id="papermerge__main__media_root">PAPERMERGE__MAIN__MEDIA_ROOT</h2>
+<p>Absolute filesystem path to the directory where to store the document files.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__MAIN__MEDIA_ROOT=/var/www/example.com/media/
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and s3worker must have same <code>PAPERMERGE__MAIN__MEDIA_ROOT</code></p>
+</div>
+<h2 id="papermerge__redis__url">PAPERMERGE__REDIS__URL</h2>
+<p>For Redis the URL is given in following format:</p>
+<pre><code>redis://HOST:PORT/NUMBER
+</code></pre>
+<p>For example:</p>
+<pre><code>redis://redis:6379/0
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and s3worker must have same <code>PAPERMERGE__REDIS__URL</code></p>
+</div>
+<h2 id="papermerge__s3__bucket_name">PAPERMERGE__S3__BUCKET_NAME</h2>
+<p>Self explanatory</p>
+<h2 id="s3_worker_args">S3_WORKER_ARGS</h2>
+<p>Pass celery worker parameters via this environment variable.
+In case <code>PAPERMERGE__MAIN__PREFIX</code> value is empty, use S3_WORKER_ARGS="-Q s3" to
+instruct worker to use name "s3" for the input queue.
+For non-empty prefixes, use S3_WORKER_ARG="-Q prefix_s3".</p>
+<p>For example, if <code>PAPERMERGE__MAIN__PREFIX=demo</code>, then S3_WORKER_ARG should have -Q as S3_WORKER_ARG="-Q demo_s3".</p>
+<p>Long story short, if you don't know what celery is and how to work with it, use either:</p>
+<p><code>S3_WORKER_ARGS="-Q s3"</code></p>
+<p>or</p>
+<p><code>S3_WORKER_ARGS="-Q s3 -c 2"</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Celery? Not the plant <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f604.svg" title=":smile:" />! But Python's Celery <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" class="external-link" target="_blank">this one</a>. The task distribution thingy <img alt="😛" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f61b.svg" title=":stuck_out_tongue:" />!</p>
+</div>
+<h2 id="aws_region_name">AWS_REGION_NAME</h2>
+<p>Self explanatory</p>
+<h2 id="aws_access_key_id">AWS_ACCESS_KEY_ID</h2>
+<p>Self explanatory</p>
+<h2 id="aws_secret_access_key">AWS_SECRET_ACCESS_KEY</h2>
+<p>Self explanatory</p>
+<h2 id="papermerge__main__logging_cfg">PAPERMERGE__MAIN__LOGGING_CFG</h2>
+<p>Absolute filesystem path to the yaml file with configuration.
+Content of logging configuration file is expected to be in
+yaml format and it is very python specific.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__MAIN__LOGGING_CFG=/etc/papermerge/logging.yaml
+</code></pre></div>
+<h2 id="papermerge__main__prefix">PAPERMERGE__MAIN__PREFIX</h2>
+<p>This parameter is used in case of multi-tenant deployments. Each tenant has
+it's own prefix. E.g. "demo", "prod1".
+In case <code>PAPERMERGE__MAIN__PREFIX</code> is not empty, its value will
+be used to prefix object documents path in S3 bucket.</p>
 
 
 

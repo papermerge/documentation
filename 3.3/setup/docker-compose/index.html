@@ -1382,6 +1382,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/s3worker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3 Worker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2040,14 +2061,15 @@ can perform i.e. it can perform two task in one shot.</p>
 <p>Picture below illustrates relationship between services:</p>
 <p><img alt="S3 Worker Setup" src="../img/s3worker.svg" /></p>
 <p>http traffic, incoming on <code>http://localhost:12000</code>, is handled by <code>webapp</code>.
-<code>webapp</code> communicates with <code>s3worker</code> via redis. They communicated
+<code>webapp</code> communicates with <code>s3worker</code> via redis. They communicate
 via dedicated message queue named <code>s3</code>.
-Both <code>webapp</code> and <code>s3worker</code> have access to <em>same</em>:</p>
+Both <code>webapp</code> and <code>s3worker</code> have access to <strong>same</strong>:</p>
 <ul>
 <li>database - <code>PAPERMERGE__DATABASE__URL</code></li>
 <li>media storage - <code>PAPERMERGE__MAIN__MEDIA_ROOT</code></li>
 <li>message broker - <code>PAPERMERGE__REDIS__URL</code></li>
 </ul>
+<p>For detailed configuration of S3worker see <a href="../../settings/s3worker/">S3 Worker Settings</a> section.</p>
 
 
 
