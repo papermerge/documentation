@@ -210,3 +210,109 @@ volumes:
   pgdata:
   media_root:
 ```
+
+
+## S3 Object Storage
+
+{{ extra.project }} supports S3 object storage. This means that it can synchronize
+local media storage with remote S3 in other words all your documents will
+be copied to remote S3 storage.
+
+!!! Note
+
+    If you delete a document, then both copies - the local one and S3
+    one will be deleted as well - this is what "synchronized" means.
+    Stated other way: in simple scenarios when you have only one web app
+    running - S3 storage is exact copy of you local media storage.
+
+
+To enable S3 storage backend you need to add another worker - `s3worker`.
+Here is docker compose file:
+
+```yaml
+services:
+  webapp:
+    image: papermerge/papermerge:3.3b17
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - "12000:80"
+    depends_on:
+      - db
+      - redis
+  path_template_worker:
+    image: papermerge/path-tmpl-worker:0.3.1
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PATH_TMPL_WORKER_ARGS: "-Q path_tmpl -c 2"
+    depends_on:
+      - redis
+  s3worker:
+    image: papermerge/s3worker:0.4
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__S3__BUCKET_NAME: name-of-your-s3-backet
+      S3_WORKER_ARGS: "-Q s3 -c 2"
+      AWS_REGION_NAME: eu-central-1
+      AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
+      AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
+    depends_on:
+      - redis
+    volumes:
+      - media_root:/var/media/pmg
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - "6379:6379"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+volumes:
+  pgdata:
+  media_root:
+```
+
+Note that `s3worker` needs *SAME* database url, redis url and media root as
+web app. Also notice that media root (same one as for webapp) volume is
+mounted. For `S3_WORKER_ARGS` the `-Q s3` argument is the name of the queue -
+don't change this value. And `-c 2` is number of concurrent tasks your worker
+can perform i.e. it can perform two task in one shot.
+
+Picture below illustrates relationship between services:
+
+![S3 Worker Setup](img/s3worker.svg)
+
+
+http traffic, incoming on `http://localhost:12000`, is handled by `webapp`.
+`webapp` communicates with `s3worker` via redis. They communicated
+via dedicated message queue named `s3`.
+Both `webapp` and `s3worker` have access to *same*:
+
+* database - `PAPERMERGE__DATABASE__URL`
+* media storage - `PAPERMERGE__MAIN__MEDIA_ROOT`
+* message broker - `PAPERMERGE__REDIS__URL`
