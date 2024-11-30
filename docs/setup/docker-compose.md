@@ -269,6 +269,7 @@ services:
       AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
       AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
     depends_on:
+      - db
       - redis
     volumes:
       - media_root:/var/media/pmg
