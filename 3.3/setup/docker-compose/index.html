@@ -480,6 +480,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#s3-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Object Storage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1745,6 +1754,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#s3-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Object Storage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1935,6 +1953,101 @@ volumes:
   pgdata:
   media_root:
 </code></pre>
+<h2 id="s3-object-storage">S3 Object Storage</h2>
+<p>Papermerge DMS supports S3 object storage. This means that it can synchronize
+local media storage with remote S3 in other words all your documents will
+be copied to remote S3 storage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you delete a document, then both copies - the local one and S3
+one will be deleted as well - this is what "synchronized" means.
+Stated other way: in simple scenarios when you have only one web app
+running - S3 storage is exact copy of you local media storage.</p>
+</div>
+<p>To enable S3 storage backend you need to add another worker - <code>s3worker</code>.
+Here is docker compose file:</p>
+<pre><code class="language-yaml">services:
+  webapp:
+    image: papermerge/papermerge:3.3b17
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - &quot;12000:80&quot;
+    depends_on:
+      - db
+      - redis
+  path_template_worker:
+    image: papermerge/path-tmpl-worker:0.3.1
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PATH_TMPL_WORKER_ARGS: &quot;-Q path_tmpl -c 2&quot;
+    depends_on:
+      - redis
+  s3worker:
+    image: papermerge/s3worker:0.4
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__S3__BUCKET_NAME: name-of-your-s3-backet
+      S3_WORKER_ARGS: &quot;-Q s3 -c 2&quot;
+      AWS_REGION_NAME: eu-central-1
+      AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
+      AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
+    depends_on:
+      - redis
+    volumes:
+      - media_root:/var/media/pmg
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - &quot;6379:6379&quot;
+    environment:
+      ALLOW_EMPTY_PASSWORD: &quot;yes&quot;
+volumes:
+  pgdata:
+  media_root:
+</code></pre>
+<p>Note that <code>s3worker</code> needs <em>SAME</em> database url, redis url and media root as
+web app. Also notice that media root (same one as for webapp) volume is
+mounted. For <code>S3_WORKER_ARGS</code> the <code>-Q s3</code> argument is the name of the queue -
+don't change this value. And <code>-c 2</code> is number of concurrent tasks your worker
+can perform i.e. it can perform two task in one shot.</p>
+<p>Picture below illustrates relationship between services:</p>
+<p><img alt="S3 Worker Setup" src="../img/s3worker.svg" /></p>
+<p>http traffic, incoming on <code>http://localhost:12000</code>, is handled by <code>webapp</code>.
+<code>webapp</code> communicates with <code>s3worker</code> via redis. They communicated
+via dedicated message queue named <code>s3</code>.
+Both <code>webapp</code> and <code>s3worker</code> have access to <em>same</em>:</p>
+<ul>
+<li>database - <code>PAPERMERGE__DATABASE__URL</code></li>
+<li>media storage - <code>PAPERMERGE__MAIN__MEDIA_ROOT</code></li>
+<li>message broker - <code>PAPERMERGE__REDIS__URL</code></li>
+</ul>
 
 
 
