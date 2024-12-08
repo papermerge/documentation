@@ -232,7 +232,7 @@ Here is docker compose file:
 ```yaml
 services:
   webapp:
-    image: papermerge/papermerge:3.3b17
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -320,3 +320,187 @@ Both `webapp` and `s3worker` have access to **same**:
 
 
 For detailed configuration of S3worker see [S3 Worker Settings](../settings/s3worker.md) section.
+
+
+
+## OCR Worker
+
+Following docker compose file is for simple webapp + one OCR worker scenario.
+Both webapp and OCR worker have access to the same local media storage.
+
+```yaml
+services:
+  webapp:
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__OCR__LANG_CODES: "eng,deu"
+      PAPERMERGE__OCR__DEFAULT_LANG_CODE: "deu"
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - "12000:80"
+    depends_on:
+      - db
+      - redis
+  ocr_worker:
+    image: papermerge/ocrworker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      OCR_WORKER_ARGS: "-Q ocr -c 2"
+    depends_on:
+      - redis
+      - db
+    volumes:
+      - media_root:/var/media/pmg
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - "6379:6379"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+volumes:
+  pgdata:
+  media_root:
+
+```
+
+You need to instruct webapp what OCR languages are available with
+ [PAPERMERGE__OCR__LANG_CODES](/settings/ocr/#ocr__lang_codes) 
+and what language to use by default: [PAPERMERGE__OCR__DEFAULT_LANG_CODE](/settings/ocr/#ocr__default_lang_code)
+
+
+Picture bellow illustrates docker compose setup.
+
+![OCR Worker Setup](img/ocrworker.svg)
+
+
+Note that OCRWorker and webapp have access to the same database, redis and media storage.
+
+
+
+## OCR Worker + S3
+
+OCR Workers may get document's to be processed as well store their processing
+results to S3 Object Storage. In other words, S3 object storage may be used
+as storage medium between webapp and OCRWorkers. This is useful in advanced
+scenarios where OCR workers run on separate machines.
+
+All you need to instruct OCRWorker to get documents (and store results into) from
+S3 - just pass following options:
+
+  * `PAPERMERGE__S3__BUCKET_NAME`
+  * `AWS_REGION_NAME`
+  * `AWS_ACCESS_KEY_ID`
+  * `AWS_SECRET_ACCESS_KEY`
+
+
+```yaml
+services:
+  webapp:
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__OCR__LANG_CODES: "eng,deu"
+      PAPERMERGE__OCR__DEFAULT_LANG_CODE: "deu"
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - "12000:80"
+    depends_on:
+      - db
+      - redis
+  ocr_worker:
+    image: papermerge/ocrworker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__S3__BUCKET_NAME:  name-of-your-s3-backet
+      AWS_REGION_NAME: eu-central-1
+      AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
+      AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
+      OCR_WORKER_ARGS: "-Q ocr -c 2"
+    depends_on:
+      - redis
+      - db
+  s3worker:
+    image: papermerge/s3worker:0.4
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__S3__BUCKET_NAME: name-of-your-s3-backet
+      S3_WORKER_ARGS: "-Q s3 -c 2"
+      AWS_REGION_NAME: eu-central-1
+      AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
+      AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - media_root:/var/media/pmg
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - "6379:6379"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+volumes:
+  pgdata:
+  media_root:
+
+```
+
+Couple of remarks:
+
+  * OCRWorker does not have media storage mounted (as it gets its documents from S3, and also stores results in S3)
+  * OCRWorker relies on S3Worker to sync webapps media storage with S3
+  * OCRWorker is free to run on any machine as long as it has access to same redis and database as webapp
+  * There may be any number of OCRWorkers
+  * S3Worker and webapp need to run on same machine though, because S3Worker needs to sync S3 storage with webapps local media storage
+
+
+![OCR Worker with S3 Storage](img/ocrworker_with_s3.svg)
