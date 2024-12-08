@@ -1275,9 +1275,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ocr__default_language" class="md-nav__link">
+  <a href="#ocr__default_lang_code" class="md-nav__link">
     <span class="md-ellipsis">
-      OCR__DEFAULT_LANGUAGE
+      OCR__DEFAULT_LANG_CODE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr__lang_codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR__LANG_CODES
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr__automatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR__AUTOMATIC
     </span>
   </a>
   
@@ -1722,9 +1740,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ocr__default_language" class="md-nav__link">
+  <a href="#ocr__default_lang_code" class="md-nav__link">
     <span class="md-ellipsis">
-      OCR__DEFAULT_LANGUAGE
+      OCR__DEFAULT_LANG_CODE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr__lang_codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR__LANG_CODES
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr__automatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR__AUTOMATIC
     </span>
   </a>
   
@@ -1750,14 +1786,41 @@
 
 <h1 id="ocr">OCR</h1>
 <p>This section groups all OCR specific configurations.</p>
-<h2 id="ocr__default_language">OCR__DEFAULT_LANGUAGE</h2>
+<h2 id="ocr__default_lang_code">OCR__DEFAULT_LANG_CODE</h2>
 <p>By default Papermerge DMS will use language specified with this option to
 perform OCR. Change this value for language used by majority of your documents. For detailed list of three letter
 codes see 639-2/T column from <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes" class="external-link" target="_blank">ISO 639 2</a>.</p>
 <p>Example as environment variable:</p>
-<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__DEFAULT_LANGUAGE=spa
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__DEFAULT_LANG_CODE=spa
 </code></pre></div>
-<p>Default value is "deu" (German language).</p>
+<p>Default value is "deu":</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__DEFAULT_LANG_CODE=deu
+</code></pre></div>
+<p>This options is used only when <code>PAPERMERGE__OCR__AUTOMATIC=false</code>.</p>
+<h2 id="ocr__lang_codes">OCR__LANG_CODES</h2>
+<p>List of comma delimited <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes" class="external-link" target="_blank">language codes</a> to be displayed in UI. Note this is just UI configuration. Whatever codes you put here, it is your resposability to make sure that OCR worker does have those languages available.</p>
+<p>Examples:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__LANG_CODES=&quot;eng,deu,fra,spa&quot;
+PAPERMERGE__OCR__LANG_CODES=&quot;eng, deu&quot;
+PAPERMERGE__OCR__LANG_CODES=&quot;ita, fra, ron&quot;
+</code></pre></div>
+<p>Default value:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__LANG_CODES=&quot;deu,eng,ron&quot;
+</code></pre></div>
+<p>This options is used only when <code>PAPERMERGE__OCR__AUTOMATIC=false</code>.</p>
+<h2 id="ocr__automatic">OCR__AUTOMATIC</h2>
+<p>When automatic is set to <code>true</code> - it means that OCR processing will be started without end user
+intervention (e.g. by means of some sort of OCR scheduling worker)</p>
+<p>When automatic is set to <code>false</code> -  it means that OCR will be performed only
+if requested by end user. In this case user can choose to start schedule OCR
+on upload; also in this case use can choose to schedule OCR later on any
+document as ofter as he/she wishes.</p>
+<p>PAPERMERGE__OCR__AUTOMATIC=<code>false</code> is practical only in environments where end
+user is same as the one maintening Papermerge DMS instance, thus he/she
+owns computational resources and thus is not prone to abuse it.</p>
+<p>Default value is:</p>
+<div class="language-text highlight"><pre><span></span><code>PAPERMERGE__OCR__AUTOMATIC=false
+</code></pre></div>
 
 
 
