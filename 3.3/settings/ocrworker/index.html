@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.3/user/ocr/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.3/settings/ocrworker/">
       
       
-        <link rel="prev" href="../merge-documents/">
+        <link rel="prev" href="../s3worker/">
       
       
-        <link rel="next" href="../file-formats/">
+        <link rel="next" href="../../backup-restore/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>OCR - Papermerge DMS</title>
+        <title>OCR Worker - Papermerge DMS</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ocr" class="md-skip">
+        <a href="#ocr-worker" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OCR
+              OCR Worker
             
           </span>
         </div>
@@ -515,19 +515,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -541,7 +539,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Manual
@@ -555,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
+      <a href="../../user/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -576,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-interface/" class="md-nav__link">
+      <a href="../../user/user-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -597,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../upload-documents/" class="md-nav__link">
+      <a href="../../user/upload-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -618,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../document-types/" class="md-nav__link">
+      <a href="../../user/document-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -639,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../custom-fields/" class="md-nav__link">
+      <a href="../../user/custom-fields/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -660,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../path-templates/" class="md-nav__link">
+      <a href="../../user/path-templates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -681,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+      <a href="../../user/tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../search/" class="md-nav__link">
+      <a href="../../user/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -723,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../page-management/" class="md-nav__link">
+      <a href="../../user/page-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -744,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versions/" class="md-nav__link">
+      <a href="../../user/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -765,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../merge-documents/" class="md-nav__link">
+      <a href="../../user/merge-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -783,30 +781,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    OCR
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../user/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -815,80 +793,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#default-ocr-language" class="md-nav__link">
-    <span class="md-ellipsis">
-      Default OCR Language
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status-indicator" class="md-nav__link">
-    <span class="md-ellipsis">
-      Status Indicator
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ocred-text-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      OCRed Text Layer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#document-ocred-text" class="md-nav__link">
-    <span class="md-ellipsis">
-      Document OCRed Text
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#selected-pages-ocred-text" class="md-nav__link">
-    <span class="md-ellipsis">
-      Selected Pages OCRed Text
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ocr-languages-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      OCR Languages Support
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -901,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-formats/" class="md-nav__link">
+      <a href="../../user/file-formats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -922,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-management/" class="md-nav__link">
+      <a href="../../user/user-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,17 +1105,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1225,7 +1131,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Settings
@@ -1239,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1260,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/auth/" class="md-nav__link">
+      <a href="../auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1281,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/main/" class="md-nav__link">
+      <a href="../main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1302,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1323,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/ocr/" class="md-nav__link">
+      <a href="../ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1344,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/database/" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1365,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/redis/" class="md-nav__link">
+      <a href="../redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1386,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/search/" class="md-nav__link">
+      <a href="../search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1407,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/s3worker/" class="md-nav__link">
+      <a href="../s3worker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1425,10 +1331,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../settings/ocrworker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OCR Worker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1437,6 +1363,86 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__database__url" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__DATABASE__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__redis__url" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__REDIS__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr_worker_args" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR_WORKER_ARGS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#media-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1788,56 +1794,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#default-ocr-language" class="md-nav__link">
+  <a href="#papermerge__database__url" class="md-nav__link">
     <span class="md-ellipsis">
-      Default OCR Language
+      PAPERMERGE__DATABASE__URL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-indicator" class="md-nav__link">
+  <a href="#papermerge__redis__url" class="md-nav__link">
     <span class="md-ellipsis">
-      Status Indicator
+      PAPERMERGE__REDIS__URL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ocred-text-layer" class="md-nav__link">
+  <a href="#ocr_worker_args" class="md-nav__link">
     <span class="md-ellipsis">
-      OCRed Text Layer
+      OCR_WORKER_ARGS
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#document-ocred-text" class="md-nav__link">
+  <a href="#storage" class="md-nav__link">
     <span class="md-ellipsis">
-      Document OCRed Text
+      Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#media-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Root
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#selected-pages-ocred-text" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
     <span class="md-ellipsis">
-      Selected Pages OCRed Text
+      S3
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ocr-languages-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      OCR Languages Support
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1859,78 +1871,58 @@
   
 
 
-<h1 id="ocr">OCR</h1>
-<p>OCR is the process which extracts text information from the scanned document
-and makes them searchable.</p>
-<p>By default, ocr process is triggered automatically on document file upload.
-The OCR process status is indicated by little circle next to document's
-title. When OCR process is completed new document version is created and
-document becomes searchable.</p>
-<h2 id="default-ocr-language">Default OCR Language</h2>
-<p>In order to perform OCR on the document you need to indicate beforehand the
-language of respective document. When you click "Run OCR" in document viewer
-you will need to choose OCR language.</p>
-<p>When you upload documents, the value of <code>PAPERMERGE__OCR__DEFAULT_LANGUAGE</code>
-indicates OCR language system will use (if you don't change anything it will use <code>deu</code>,
-which stands for German).</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Or maybe UI should ask user OCR language on upload as well, some sort of
-  modal dialog which appears when user drops docs/clicks upload? Or there
-  should be an UI preference where user can opt which way he/she wants to
-  indicate default OCR language without being ask on every doc upload?
-  Open a <a href="https://github.com/ciur/papermerge/discussions">disscussion</a> on this
-  topic and let's disscuss it!</p>
-</div>
-<h2 id="status-indicator">Status Indicator</h2>
-<p>Papermerge DMS features real time OCR status indicator - this means that you can
-see document's OCR status updates as they happen (i.e. in real time).
-The OCR status is displayed by a small circle next to the document's title.
-The status indicates has following meanings:</p>
-<ul>
-<li>gray circle - status is unknown (figure 1)</li>
-<li>orange still circle - document was scheduled for OCR (figure 2)</li>
-<li>orange rotating circle - document's OCR process is in progress (figure 3)</li>
-<li>green check - document's OCR process completed successfully and document is now searchable (figure 4)</li>
-<li>red cross - document's OCR process failed.</li>
-</ul>
-<p><img alt="" src="../../img/user-manual/ocr/unknown.png" />
-<img alt="" src="../../img/user-manual/ocr/pending.png" />
-<img alt="" src="../../img/user-manual/ocr/in-progress.png" />
-<img alt="" src="../../img/user-manual/ocr/complete.png" /></p>
-<h2 id="ocred-text-layer">OCRed Text Layer</h2>
-<p>Once OCR process completed successfully a new document version is created -
-version with OCRed text layer. This version is available for download from
-the <code>Download</code> dropdown in document view.</p>
-<p><img alt="" src="../../img/user-manual/ocr/download-dropdown.svg" /></p>
+<h1 id="ocr-worker">OCR Worker</h1>
+<p>OCR Worker is configured via environment variables.
+Note that database and redis url must be <strong>same</strong> as for webapp.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Under the hood Papermerge DMS uses awesome <a href="https://ocrmypdf.readthedocs.io/en/latest/" class="external-link" target="_blank">OCRmyPDF</a> utility to create
-  OCRed text layer. Thus, in respect of OCRed text layer, Papermerge DMS acts
-  like a graphical user interface for OCRmyPDF.</p>
+<p>Source code for OCR worker is <a href="https://github.com/papermerge/ocr-worker/" class="external-link" target="_blank">on github</a>.
+Its docker image is <a href="https://hub.docker.com/r/papermerge/ocrworker" class="external-link" target="_blank">on dockerhub</a>.</p>
 </div>
-<h2 id="document-ocred-text">Document OCRed Text</h2>
-<p>You can view OCRed text of the entire document either from <a href="../user-interface/#commander">commander</a> or from <a href="../user-interface/#viewer">viewer</a>,
-in both cases choose "OCRed Text" from context menu:</p>
-<p><img alt="" src="../../img/user-manual/ocr/commander-ocred-text-entire-document.svg" /></p>
-<p>If you want to see OCRed text of entire document (to be exact - all pages of the last document version) from
-the viewer - just make sure that no pages are selected:</p>
-<p><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-entire-document.svg" /></p>
-<h2 id="selected-pages-ocred-text">Selected Pages OCRed Text</h2>
-<p>In case document has many pages and you are interested in OCRed text of one
-(or multiple) very specific pages, then select pages first and then from
-context menu choose "OCRed Text" item:</p>
-<p><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-selected-page.svg" /></p>
+<h2 id="papermerge__database__url">PAPERMERGE__DATABASE__URL</h2>
+<p>Database URL. For PostgreSQL the database URL is given in following format:</p>
+<pre><code>postgresql://USER:PASSWORD@HOST:PORT/NAME
+</code></pre>
+<p>Example:</p>
+<pre><code>postgresql://scott:tiger@db:5432/mydatabase
+</code></pre>
+<p>For MariaDB and MySQL the URL scheme is <code>mysql</code>.</p>
+<p>Example:</p>
+<pre><code>mysql://myuser:mypass@db:3306/paperdb
+</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In case there are selected pages, OCRed Text menu item will show you OCRed
-  text ONLY of the selected pages.</p>
+<p>Both web_app and ocrworker must have same <code>PAPERMERGE__DATABASE__URL</code></p>
 </div>
-<p><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-one-page-modal.png" /></p>
-<h2 id="ocr-languages-support">OCR Languages Support</h2>
-<p>Papermerge DMS uses <a href="https://github.com/tesseract-ocr/tesseract" class="external-link" target="_blank">Tesseract</a> to
-extract text from scanned documents. Tesseract supports over 130 languages -
-thus with Papermerge DMS you can have documents in any of those languages.</p>
+<h2 id="papermerge__redis__url">PAPERMERGE__REDIS__URL</h2>
+<p>For Redis the URL is given in following format:</p>
+<pre><code>redis://HOST:PORT/NUMBER
+</code></pre>
+<p>For example:</p>
+<pre><code>redis://redis:6379/0
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and ocrworker must have same <code>PAPERMERGE__REDIS__URL</code></p>
+</div>
+<h2 id="ocr_worker_args">OCR_WORKER_ARGS</h2>
+<p>Pass celery worker parameters via this environment variable.
+In case <code>PAPERMERGE__MAIN__PREFIX</code> value is empty, use OCR_WORKER_ARGS="-Q ocr" to
+instruct worker to use name "ocr" for the input queue.
+For non-empty prefixes, use OCR_WORKER_ARG="-Q prefix_ocr".</p>
+<p>For example, if <code>PAPERMERGE__MAIN__PREFIX=demo</code>, then OCR_WORKER_ARG should have -Q as OCR_WORKER_ARG="-Q demo_ocr".</p>
+<p>Long story short, if you don't know what celery is and how to work with it, use either:</p>
+<p><code>OCR_WORKER_ARGS="-Q ocr"</code></p>
+<p>or</p>
+<p><code>OCR_WORKER_ARGS="-Q ocr -c 2"</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Celery? Not the plant <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f604.svg" title=":smile:" />! But Python's Celery <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" class="external-link" target="_blank">this one</a>. The task distribution thingy <img alt="😛" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f61b.svg" title=":stuck_out_tongue:" />!</p>
+</div>
+<h2 id="storage">Storage</h2>
+<p>OCR Worker supports two storage backends: local file system and S3.</p>
+<h3 id="media-root">Media Root</h3>
+<h3 id="s3">S3</h3>
 
 
 

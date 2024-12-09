@@ -1421,6 +1421,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/ocrworker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCR Worker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2227,7 +2248,7 @@ S3 - just pass following options:</p>
       PAPERMERGE__REDIS__URL: redis://redis:6379/0
       PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
       PAPERMERGE__S3__BUCKET_NAME: name-of-your-s3-backet
-      S3_WORKER_ARGS: &quot;-Q s3 -c 2&quot;
+      S3_WORKER_ARGS: &quot;-Q s3,s3preview -c 2&quot;
       AWS_REGION_NAME: eu-central-1
       AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
       AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
@@ -2270,6 +2291,8 @@ volumes:
 <li>S3Worker and webapp need to run on same machine though, because S3Worker needs to sync S3 storage with webapps local media storage</li>
 </ul>
 <p><img alt="OCR Worker with S3 Storage" src="../img/ocrworker_with_s3.svg" /></p>
+<p>Notice that OCRWorkers sends messages to S3worker (via message <code>s3preview</code> queue). This means that S3 worker
+needs to listen to <code>s3</code> and <code>s3preview</code> queues i.e S3 worker's <code>-Q</code> arguments should be <code>-Q s3,s3preview</code></p>
 
 
 
