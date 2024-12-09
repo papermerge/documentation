@@ -459,7 +459,7 @@ services:
       PAPERMERGE__REDIS__URL: redis://redis:6379/0
       PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
       PAPERMERGE__S3__BUCKET_NAME: name-of-your-s3-backet
-      S3_WORKER_ARGS: "-Q s3 -c 2"
+      S3_WORKER_ARGS: "-Q s3,s3preview -c 2"
       AWS_REGION_NAME: eu-central-1
       AWS_ACCESS_KEY_ID: your-aws-access-key-id-here
       AWS_SECRET_ACCESS_KEY: your-aws-secret-access-key-here
@@ -504,3 +504,6 @@ Couple of remarks:
 
 
 ![OCR Worker with S3 Storage](img/ocrworker_with_s3.svg)
+
+Notice that OCRWorkers sends messages to S3worker (via message `s3preview` queue). This means that S3 worker
+needs to listen to `s3` and `s3preview` queues i.e S3 worker's `-Q` arguments should be `-Q s3,s3preview`

@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.64052329"
-     inkscape:cx="502.71396"
-     inkscape:cy="344.24978"
+     inkscape:zoom="1.2810466"
+     inkscape:cx="563.60168"
+     inkscape:cy="282.19114"
      inkscape:window-width="1860"
      inkscape:window-height="1016"
      inkscape:window-x="1719"
@@ -291,6 +291,20 @@
          d="M 5.77,0 -2.88,5 V -5 Z"
          id="path11155-5" />
     </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path11155-53" />
+    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -455,20 +469,36 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#2c5aa0;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.86, 1.86;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-       d="m 64.496641,30.592602 c 13.89625,0.202368 16.337034,-0.18858 29.186847,-0.0047"
+       d="m 66.563724,34.16904 c 13.89625,0.202368 16.337034,-0.18858 29.186847,-0.0047"
        id="path54424"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke-width:0.264583"
-       x="99.632698"
-       y="32.10569"
+       x="101.69978"
+       y="35.682129"
        id="text59683"><tspan
          sodipodi:role="line"
          id="tspan59681"
          style="font-size:7.05556px;fill:#0055d4;stroke:none;stroke-width:0.264583"
-         x="99.632698"
-         y="32.10569">s3 queue</tspan></text>
+         x="101.69978"
+         y="35.682129">s3 queue</tspan></text>
+    <path
+       style="fill:#cc00ff;stroke:#cc00ff;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.86, 1.86;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutL-7)"
+       d="m 65.97132,26.164969 c 13.89625,0.202368 16.337034,-0.18858 29.186847,-0.0047"
+       id="path54424-5"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;fill:#cc00ff;stroke:#cc00ff;stroke-width:0.264583"
+       x="101.10738"
+       y="27.678061"
+       id="text59683-62"><tspan
+         sodipodi:role="line"
+         id="tspan59681-9"
+         style="font-size:7.05556px;fill:#cc00ff;stroke:#cc00ff;stroke-width:0.264583"
+         x="101.10738"
+         y="27.678061">s3preview queue</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.05556px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;stroke:none;stroke-width:0.264583"
@@ -557,5 +587,9 @@
          style="font-size:8.46667px;stroke-width:0.264583"
          x="229.51459"
          y="58.330791">AWS S3</tspan></text>
+    <path
+       style="fill:none;stroke:#cc00ff;stroke-width:0.46500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1.39500005, 1.39500005;stroke-dashoffset:0;marker-end:url(#TriangleOutL)"
+       d="M 174.8088,104.72473 V 58.962287 h -24.42334 v 14.336"
+       id="path973" />
   </g>
 </svg>
