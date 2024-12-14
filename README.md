@@ -27,10 +27,6 @@ repository will be automatically rebuild.
 For each Papermerge major version there is separate repository branch in this
 repository.
 
-- Papermerge version 2.0.x docs are in git branch v2.0
-- Papermerge version 2.1.x docs are in git branch v2.1
 - Papermerge version 3.0.x docs are in git branch v3.0 # !
 - Papermerge version 3.1.x docs are in git branch v3.1 # !
-- etc
-
-As of writing this readme, 3.0 is under development. Its documentation is in v3.0-dev branch.
+- Papermerge version 3.3 docs are in git branch v3.3

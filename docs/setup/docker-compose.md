@@ -178,7 +178,7 @@ services:
       - db
       - redis
   path_template_worker:
-    image: papermerge/path-tmpl-worker:0.3
+    image: papermerge/path-tmpl-worker:{{ extra.path_tmpl_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -248,7 +248,7 @@ services:
       - db
       - redis
   path_template_worker:
-    image: papermerge/path-tmpl-worker:0.3.1
+    image: papermerge/path-tmpl-worker:{{ extra.path_tmpl_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -257,7 +257,7 @@ services:
     depends_on:
       - redis
   s3worker:
-    image: papermerge/s3worker:0.4
+    image: papermerge/s3worker:{{ extra.s3_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -349,7 +349,7 @@ services:
       - db
       - redis
   ocr_worker:
-    image: papermerge/ocrworker:0.3
+    image: papermerge/ocrworker:{{ extra.ocr_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -438,7 +438,7 @@ services:
       - db
       - redis
   ocr_worker:
-    image: papermerge/ocrworker:0.3
+    image: papermerge/ocrworker:{{ extra.ocr_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -452,7 +452,7 @@ services:
       - redis
       - db
   s3worker:
-    image: papermerge/s3worker:0.4
+    image: papermerge/s3worker:{{ extra.s3_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -517,7 +517,7 @@ Here is a simple docker compose which uses SOLR for indexing search data.
 ```yaml
 services:
   webapp:
-    image: paper:3.3b22
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -537,7 +537,7 @@ services:
       - redis
       - solr
   i3worker:
-    image: i3worker:0.3
+    image: papermerge/i3worker:{{ extra.i3_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -600,7 +600,7 @@ Here is docker compose yaml with both OCR and I3 workers:
 ```yaml
 services:
   webapp:
-    image: paper:3.3b22
+    image: papermerge/papermerge:{{ extra.docker_image_version }}
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -620,7 +620,7 @@ services:
       - redis
       - solr
   ocr_worker:
-    image: papermerge/ocrworker:0.3
+    image: papermerge/ocrworker:{{ extra.ocr_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -633,7 +633,7 @@ services:
     volumes:
       - media_root:/var/media/pmg
   i3worker:
-    image: i3worker:0.3
+    image: papermerge/i3worker:{{ extra.i3_worker_version }}
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
