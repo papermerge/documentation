@@ -507,3 +507,175 @@ Couple of remarks:
 
 Notice that OCRWorkers sends messages to S3worker (via message `s3preview` queue). This means that S3 worker
 needs to listen to `s3` and `s3preview` queues i.e S3 worker's `-Q` arguments should be `-Q s3,s3preview`
+
+
+## I3 Worker
+
+{{extra.project}} uses SOLR for search. I3 Worker's job is to synchronize database data with search index.
+Here is a simple docker compose which uses SOLR for indexing search data.
+
+```yaml
+services:
+  webapp:
+    image: paper:3.3b22
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__OCR__LANG_CODES: "deu,eng,ron"
+      PAPERMERGE__OCR__DEFAULT_LANG_CODE: "deu"
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - "12000:80"
+    depends_on:
+      - db
+      - redis
+      - solr
+  i3worker:
+    image: i3worker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      I3_WORKER_ARGS: "-Q i3 -c 2"
+    depends_on:
+      - redis
+      - db
+      - solr
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - "6379:6379"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+  solr:
+    image: solr:9.7
+    ports:
+     - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg
+
+volumes:
+  pgdata:
+  media_root:
+  solr_data:
+```
+
+In above setup note that on startup SOLR service creates `pmg` index (in SOLR's terminology -
+a *core*), while web app uses `PAPERMERGE__SEARCH__URL` set to
+`solr://solr:8983/pmg` as configuration. You pass arguments to worker via
+`I3_WORKER_ARGS` environment variable. I3 Worker uses `i3` queue to get it
+tasks.
+
+## I3 + OCR Workers
+
+Usually you will have both I3 Worker and OCR workers configured, as they cooperate: after
+each OCR processing OCR worker notifies I3 to update search index with newly extract content.
+
+Here is docker compose yaml with both OCR and I3 workers:
+
+```yaml
+services:
+  webapp:
+    image: paper:3.3b22
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__OCR__LANG_CODES: "deu,eng,ron"
+      PAPERMERGE__OCR__DEFAULT_LANG_CODE: "deu"
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - "12000:80"
+    depends_on:
+      - db
+      - redis
+      - solr
+  ocr_worker:
+    image: papermerge/ocrworker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      OCR_WORKER_ARGS: "-Q ocr -c 2"
+    depends_on:
+      - redis
+      - db
+    volumes:
+      - media_root:/var/media/pmg
+  i3worker:
+    image: i3worker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      I3_WORKER_ARGS: "-Q i3 -c 2"
+    depends_on:
+      - redis
+      - db
+      - solr
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - "6379:6379"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+  solr:
+    image: solr:9.7
+    ports:
+     - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg
+
+volumes:
+  pgdata:
+  media_root:
+  solr_data:
+```

@@ -21,4 +21,3 @@ Example as environment variable:
 Example, set token to expire in 7 days (10080 = 60x24x7):
 
     PAPERMERGE__SECURITY__TOKEN_EXPIRE_MINUTES=10080
-

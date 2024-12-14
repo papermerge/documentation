@@ -46,18 +46,14 @@ nav:
     - settings/search.md
     - settings/s3worker.md
     - settings/ocrworker.md
+    - settings/i3worker.md
   - "backup-restore.md"
   - REST API:
     - "rest-api/overview.md"
     - "rest-api/reference.md"
     - "rest-api/token.md"
-  - Command Line Utilities:
-    - cli/overview.md
-    - cli/cli.md
-  - Contributor Manual:
-    - contributor/docker.md
   - roadmap.md
-  - changelog.md
+
 
 
 theme:
