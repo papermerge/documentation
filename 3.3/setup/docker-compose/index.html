@@ -507,6 +507,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#i3-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      I3 Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i3-ocr-workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      I3 + OCR Workers
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1442,6 +1460,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/i3worker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I3 Worker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1580,179 +1619,12 @@
   
   
   
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Command Line Utilities
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Command Line Utilities
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cli/overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cli/cli/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Papermerge CLI
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Contributor Manual
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Contributor Manual
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../contributor/docker/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Roadmap 2025 🧭
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Changelog
   </span>
   
 
@@ -1836,6 +1708,24 @@
   <a href="#ocr-worker-s3" class="md-nav__link">
     <span class="md-ellipsis">
       OCR Worker + S3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i3-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      I3 Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i3-ocr-workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      I3 + OCR Workers
     </span>
   </a>
   
@@ -2293,6 +2183,167 @@ volumes:
 <p><img alt="OCR Worker with S3 Storage" src="../img/ocrworker_with_s3.svg" /></p>
 <p>Notice that OCRWorkers sends messages to S3worker (via message <code>s3preview</code> queue). This means that S3 worker
 needs to listen to <code>s3</code> and <code>s3preview</code> queues i.e S3 worker's <code>-Q</code> arguments should be <code>-Q s3,s3preview</code></p>
+<h2 id="i3-worker">I3 Worker</h2>
+<p>Papermerge DMS uses SOLR for search. I3 Worker's job is to synchronize database data with search index.
+Here is a simple docker compose which uses SOLR for indexing search data.</p>
+<pre><code class="language-yaml">services:
+  webapp:
+    image: paper:3.3b22
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__OCR__LANG_CODES: &quot;deu,eng,ron&quot;
+      PAPERMERGE__OCR__DEFAULT_LANG_CODE: &quot;deu&quot;
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - &quot;12000:80&quot;
+    depends_on:
+      - db
+      - redis
+      - solr
+  i3worker:
+    image: i3worker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      I3_WORKER_ARGS: &quot;-Q i3 -c 2&quot;
+    depends_on:
+      - redis
+      - db
+      - solr
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - &quot;6379:6379&quot;
+    environment:
+      ALLOW_EMPTY_PASSWORD: &quot;yes&quot;
+  solr:
+    image: solr:9.7
+    ports:
+     - &quot;8983:8983&quot;
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg
+
+volumes:
+  pgdata:
+  media_root:
+  solr_data:
+</code></pre>
+<p>In above setup note that on startup SOLR service creates <code>pmg</code> index (in SOLR's terminology -
+a <em>core</em>), while web app uses <code>PAPERMERGE__SEARCH__URL</code> set to
+<code>solr://solr:8983/pmg</code> as configuration. You pass arguments to worker via
+<code>I3_WORKER_ARGS</code> environment variable. I3 Worker uses <code>i3</code> queue to get it
+tasks.</p>
+<h2 id="i3-ocr-workers">I3 + OCR Workers</h2>
+<p>Usually you will have both I3 Worker and OCR workers configured, as they cooperate: after
+each OCR processing OCR worker notifies I3 to update search index with newly extract content.</p>
+<p>Here is docker compose yaml with both OCR and I3 workers:</p>
+<pre><code class="language-yaml">services:
+  webapp:
+    image: paper:3.3b22
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: 12345
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: admin
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__OCR__LANG_CODES: &quot;deu,eng,ron&quot;
+      PAPERMERGE__OCR__DEFAULT_LANG_CODE: &quot;deu&quot;
+    volumes:
+      - media_root:/var/media/pmg
+    ports:
+     - &quot;12000:80&quot;
+    depends_on:
+      - db
+      - redis
+      - solr
+  ocr_worker:
+    image: papermerge/ocrworker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      OCR_WORKER_ARGS: &quot;-Q ocr -c 2&quot;
+    depends_on:
+      - redis
+      - db
+    volumes:
+      - media_root:/var/media/pmg
+  i3worker:
+    image: i3worker:0.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      I3_WORKER_ARGS: &quot;-Q i3 -c 2&quot;
+    depends_on:
+      - redis
+      - db
+      - solr
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - &quot;6379:6379&quot;
+    environment:
+      ALLOW_EMPTY_PASSWORD: &quot;yes&quot;
+  solr:
+    image: solr:9.7
+    ports:
+     - &quot;8983:8983&quot;
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - pmg
+
+volumes:
+  pgdata:
+  media_root:
+  solr_data:
+</code></pre>
 
 
 

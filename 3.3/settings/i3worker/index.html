@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.3/contributor/docker/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.3/settings/i3worker/">
       
       
-        <link rel="prev" href="../../cli/cli/">
+        <link rel="prev" href="../ocrworker/">
       
       
-        <link rel="next" href="../../roadmap/">
+        <link rel="next" href="../../backup-restore/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Docker - Papermerge DMS</title>
+        <title>I3 Worker - Papermerge DMS</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#i3-worker" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              I3 Worker
             
           </span>
         </div>
@@ -1105,17 +1105,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1129,7 +1131,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Settings
@@ -1143,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1164,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/auth/" class="md-nav__link">
+      <a href="../auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1185,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/main/" class="md-nav__link">
+      <a href="../main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1206,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1227,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/ocr/" class="md-nav__link">
+      <a href="../ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1248,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/database/" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1269,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/redis/" class="md-nav__link">
+      <a href="../redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1290,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/search/" class="md-nav__link">
+      <a href="../search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1311,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/s3worker/" class="md-nav__link">
+      <a href="../s3worker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1332,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../settings/ocrworker/" class="md-nav__link">
+      <a href="../ocrworker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1341,6 +1343,94 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    I3 Worker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    I3 Worker
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__database__url" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__DATABASE__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papermerge__redis__url" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAPERMERGE__REDIS__URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i3_worker_args" class="md-nav__link">
+    <span class="md-ellipsis">
+      I3_WORKER_ARGS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1484,275 +1574,12 @@
   
   
   
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Command Line Utilities
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Command Line Utilities
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cli/overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cli/cli/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Papermerge CLI
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Contributor Manual
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Contributor Manual
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Docker
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      Web App
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
-    <span class="md-ellipsis">
-      Web App + Worker
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      Logging Config
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solr
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      PostgreSQL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    <span class="md-ellipsis">
-      OAuth 2.0
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Roadmap 2025 🧭
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Changelog
   </span>
   
 
@@ -1788,54 +1615,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#web-app" class="md-nav__link">
+  <a href="#papermerge__database__url" class="md-nav__link">
     <span class="md-ellipsis">
-      Web App
+      PAPERMERGE__DATABASE__URL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#web-app-worker" class="md-nav__link">
+  <a href="#papermerge__redis__url" class="md-nav__link">
     <span class="md-ellipsis">
-      Web App + Worker
+      PAPERMERGE__REDIS__URL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging-config" class="md-nav__link">
+  <a href="#i3_worker_args" class="md-nav__link">
     <span class="md-ellipsis">
-      Logging Config
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solr
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      PostgreSQL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oauth-20" class="md-nav__link">
-    <span class="md-ellipsis">
-      OAuth 2.0
+      I3_WORKER_ARGS
     </span>
   </a>
   
@@ -1859,274 +1659,50 @@
   
 
 
-<h1 id="docker">Docker</h1>
-<p>There is docker image for development mode. Docker image is tagged with <code>3.0devX</code>.
-With dev image, you can get feedback of your source code changes without needing to install
-any dependency or any deveopment environment configurations.</p>
-<p>All examples described below assume that you got Papermerge DMS <a href="https://github.com/papermerge/papermerge-core" class="external-link" target="_blank">source code</a>
-and you are in root repository of source code folder:</p>
-<div class="language-text highlight"><pre><span></span><code>$ git clone git@github.com:papermerge/papermerge-core.git PapermergeSourceCode
-$ cd PapermergeSourceCode
-</code></pre></div>
-<h2 id="web-app">Web App</h2>
-<p>This is the simplest local dev scenario, you start docker compose file only with
-web app i.e. REST API server + ui.</p>
-<p>The go to the folder where source was cloned and create following docker compose file:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-services:
-  backend:
-    image: papermerge/papermege:3.0dev  # check the latest dev image number in dockerhub!
-    volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
-    environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<p>Assuming you are in root folder of the source code, above docker compose will
-mount the source code to the correct location in docker image. The appliction will
-be accessible to on local port 11000.</p>
-<p>Here is docker compose file for the case when you want to build dev docker image yourself:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-services:
-  backend:
-    build:
-      context: .
-      dockerfile: docker/dev/Dockerfile
-    volumes:
-        - ./papermerge:/core_app/papermerge/
-        - ./ui:/core_ui/
-    environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-    ports:
-      - &quot;11000:80&quot;
-</code></pre></div>
-<h2 id="web-app-worker">Web App + Worker</h2>
-<p>Following docker compose adds worker service. Worker and Web App
-communicate via redis (message broker), thus we need to add redis service as
-well:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common  # yaml anchor definition
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="logging-config">Logging Config</h2>
-<p>Both worker and web app read their logging configurations from file pointed by
-<code>PAPERMERGE__MAIN__LOGGING_CFG</code> environment variable. An example of custom
-logging config would be:</p>
-<div class="language-text highlight"><pre><span></span><code>version: 1
-disable_existing_loggers: true
-
-formatters:
-  verbose:
-    format: &#39;%(asctime)s %(levelname)s %(name)s.%(funcName)s %(message)s&#39;
-
-handlers:
-  console:
-    level: DEBUG
-    class: logging.StreamHandler
-    formatter: verbose
-
-loggers:
-  auth_server:
-    level: DEBUG
-    handlers: [console]
-  papermerge.search.tasks:
-    level: DEBUG
-    handlers: [console]
-    propagate: no
-    format: verbose
-</code></pre></div>
-<p>You may recognize it. It should be YAML version of <a href="https://docs.python.org/3/library/logging.config.html#configuration-file-format" class="external-link" target="_blank">python logging config</a>.</p>
-<p>Here is an example of docker compose with web wepp + worker + custom logging configuration:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__MAIN__LOGGING_CFG: /logging.yml  # &lt;-- absolute path to custom config file
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-      - ./custom_logging.yml:/logging.yml  # mount local logging config file
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-
-volumes:
-    data:
-    index_db:
-    media_root:
-</code></pre></div>
-<h2 id="solr">Solr</h2>
-<p>Papermerge DMS is shipped with a default search library - Xapian.</p>
-<p>However, you may opt-in to use full fledged search engine like Solr. In order to
-change search backend, use <code>PAPERMERGE__SEARCH__URL</code> env variable:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index  # &lt;- use Solr&#39;s &quot;pmg-index&quot; index
-  volumes:
-      - ./papermerge:/core_app/papermerge/
-      - ./ui:/core_ui/
-      - data:/db
-      - index_db:/core_app/index_db
-      - media_root:/core_app/media
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-    depends_on:
-      - redis
-      - solr
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index  # &lt;- creates index at startup of the Solr service
-
-volumes:
-  data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<p>Notice that Solr is started with <code>solr-precreate pmg-index</code> command, which means that Solr service will be started with
-pre-created index named <code>pmg-index</code>.</p>
-<h2 id="postgresql">PostgreSQL</h2>
-<p>Here is an example of docker compose which uses PostgreSQL as database:</p>
-<div class="language-text highlight"><pre><span></span><code>version: &quot;3.9&quot;
-
-x-backend: &amp;common
-  build:
-    context: .
-    dockerfile: docker/dev/Dockerfile
-  environment:
-      PAPERMERGE__SECURITY__SECRET_KEY: 1234  # top secret
-      PAPERMERGE__AUTH__USERNAME: admin
-      PAPERMERGE__AUTH__PASSWORD: 1234
-      PAPERMERGE__DATABASE__URL: postgresql://postgres:123@db:5432/postgres
-      PAPERMERGE__REDIS__URL: redis://redis:6379/0
-      PAPERMERGE__SEARCH__URL: solr://solr:8983/pmg-index
-  volumes:
-    - ./papermerge:/core_app/papermerge/
-    - ./ui:/core_ui/
-    - index_db:/core_app/index_db
-    - media_root:/core_app/media
-  depends_on:
-    - redis
-    - solr
-    - db
-
-services:
-  web:
-    &lt;&lt;: *common
-    ports:
-     - &quot;11000:80&quot;
-  worker:
-    &lt;&lt;: *common
-    command: worker
-  redis:
-    image: redis:6
-  solr:
-    image: solr:9.3
-    ports:
-     - &quot;8983:8983&quot;
-    volumes:
-      - solr_data:/var/solr
-    command:
-      - solr-precreate
-      - pmg-index
-  db:
-    image: bitnami/postgresql:14.4.0
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_PASSWORD=123
-
-volumes:
-  postgres_data:
-  solr_data:
-  index_db:
-  media_root:
-</code></pre></div>
-<h2 id="oauth-20">OAuth 2.0</h2>
+<h1 id="i3-worker">I3 Worker</h1>
+<p>I3 Worker is configured via environment variables.
+Note that database and redis url must be <strong>same</strong> as for webapp.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Source code for I3 worker is <a href="https://github.com/papermerge/i3-worker/" class="external-link" target="_blank">on github</a>.
+Its docker image is <a href="https://hub.docker.com/r/papermerge/i3worker" class="external-link" target="_blank">on dockerhub</a>.</p>
+</div>
+<h2 id="papermerge__database__url">PAPERMERGE__DATABASE__URL</h2>
+<p>Database URL. For PostgreSQL the database URL is given in following format:</p>
+<pre><code>postgresql://USER:PASSWORD@HOST:PORT/NAME
+</code></pre>
+<p>Example:</p>
+<pre><code>postgresql://scott:tiger@db:5432/mydatabase
+</code></pre>
+<p>For MariaDB and MySQL the URL scheme is <code>mysql</code>.</p>
+<p>Example:</p>
+<pre><code>mysql://myuser:mypass@db:3306/paperdb
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and ocrworker must have same <code>PAPERMERGE__DATABASE__URL</code></p>
+</div>
+<h2 id="papermerge__redis__url">PAPERMERGE__REDIS__URL</h2>
+<p>For Redis the URL is given in following format:</p>
+<pre><code>redis://HOST:PORT/NUMBER
+</code></pre>
+<p>For example:</p>
+<pre><code>redis://redis:6379/0
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both web_app and ocrworker must have same <code>PAPERMERGE__REDIS__URL</code></p>
+</div>
+<h2 id="i3_worker_args">I3_WORKER_ARGS</h2>
+<p>Pass celery worker parameters via this environment variable.
+In case <code>PAPERMERGE__MAIN__PREFIX</code> value is empty, use I3_WORKER_ARGS="-Q i3" to
+instruct worker to use name "i3" for the input queue.
+For non-empty prefixes, use I3_WORKER_ARG="-Q prefix_i3".</p>
+<p>For example, if <code>PAPERMERGE__MAIN__PREFIX=demo</code>, then I3_WORKER_ARG should have -Q as I3_WORKER_ARG="-Q demo_i3".</p>
+<p>Long story short, if you don't know what celery is and how to work with it, use either:</p>
+<p><code>I3_WORKER_ARGS="-Q i3"</code></p>
+<p>or</p>
+<p><code>I3_WORKER_ARGS="-Q i3 -c 2"</code></p>
 
 
 
