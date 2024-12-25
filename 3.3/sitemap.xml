@@ -2,186 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.papermerge.io/3.3/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/backup-restore/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/roadmap/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/whatsnew/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/rest-api/overview/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/rest-api/reference/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/rest-api/token/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/auth/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/database/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/i3worker/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/main/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/ocr/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/ocrworker/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/overview/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/redis/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/s3worker/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/search/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/settings/security/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/add-ocr-langs/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/ansible/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/authentification/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/docker-compose/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/docker/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/kubernetes/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/overview/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/setup/requirements/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/sso/overview/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/sso/oidc/authentik/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/sso/oidc/keycloak/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/sso/oidc/overview/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/sso/remote-user/authelia/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/sso/remote-user/overview/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/custom-fields/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/document-types/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/file-formats/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/getting-started/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/merge-documents/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/ocr/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/page-management/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/path-templates/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/search/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/tags/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/upload-documents/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/user-interface/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/user-management/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
     <url>
          <loc>https://docs.papermerge.io/3.3/user/versions/</loc>
-         <lastmod>2024-12-21</lastmod>
+         <lastmod>2024-12-25</lastmod>
     </url>
 </urlset>
