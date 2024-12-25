@@ -23,4 +23,5 @@ jobs:
           git fetch origin gh-pages --depth=1
           git config user.name ci-bot
           git config user.email ci-bot@example.com
+          poetry run mike set-default 3.3
           poetry run mike deploy -p 3.3 latest --update-aliases
