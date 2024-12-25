@@ -129,4 +129,4 @@ markdown_extensions:
 plugins:
   - macros
   - search
-
+  - git-revision-date-localized

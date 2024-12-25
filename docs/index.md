@@ -11,7 +11,7 @@ templates, OCR, full text search, users and permissions management.
 It supports PDF, TIFF, JPEG and PNG document file formats. {{ extra.project }} is
 perfect tool for long term storage of your documents.
 
-![Papermerge screenshot](img/papermerge3.png)
+![Papermerge screenshot](img/papermerge3-3.png)
 
 
 ## Features Highlights
