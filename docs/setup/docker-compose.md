@@ -157,7 +157,7 @@ Following illustration visualizes the concept of persistent media storage:
 ## Path Templates Worker
 
 This one is optional, but you definitely want it in your team. To understand why,
-you need to understand why is [Path Templates](user/path-templates) feature all about.
+you need to understand why is [Path Templates](/user/path-templates.md) feature all about.
 
 ```yaml
 services:
