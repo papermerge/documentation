@@ -1733,7 +1733,7 @@ production environments.</p>
 <p>Following docker compose file starts Papermerge DMS with PostgreSQL 16.1 database:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1797,7 +1797,7 @@ Papermerge DMS where to upload documents.
 Here is docker compose file:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1844,7 +1844,7 @@ volumes:
 you need to understand why is <a href="/user/path-templates">Path Templates</a> feature all about.</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1907,7 +1907,7 @@ running - S3 storage is exact copy of you local media storage.</p>
 Here is docker compose file:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1994,7 +1994,7 @@ Both <code>webapp</code> and <code>s3worker</code> have access to <strong>same</
 Both webapp and OCR worker have access to the same local media storage.</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2070,7 +2070,7 @@ S3 - just pass following options:</p>
 </ul>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2159,7 +2159,7 @@ needs to listen to <code>s3</code> and <code>s3preview</code> queues i.e S3 work
 Here is a simple docker compose which uses SOLR for indexing search data.</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2236,7 +2236,7 @@ each OCR processing OCR worker notifies I3 to update search index with newly ext
 <p>Here is docker compose yaml with both OCR and I3 workers:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.3
+    image: papermerge/papermerge:3.3.1
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2335,7 +2335,7 @@ volumes:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 25, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2025</span>
   </span>
 
     
