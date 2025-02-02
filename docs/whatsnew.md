@@ -1,3 +1,7 @@
+# What's new in 3.4?
+
+...
+
 # What's new in 3.3?
 
 Version 3.3 introduces following new major features:
