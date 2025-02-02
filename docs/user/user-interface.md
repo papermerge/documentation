@@ -10,7 +10,7 @@ is divided into four areas:
 4. Commander Panel - or Commander - area for browsing documents and folders
 
 
-![ui layout](../img/user-manual/ui/user-interface-layout.svg)
+![ui layout](./user-interface/ui-layout.jpg)
 
 
 ## Dual Panel Mode
