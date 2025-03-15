@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.4/backup-restore/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.4/pmdump/">
       
       
         <link rel="prev" href="../settings/i3worker/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Backup/Restore - Papermerge DMS</title>
+        <title>PMDump - Papermerge DMS</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backuprestore" class="md-skip">
+        <a href="#pmdump" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backup/Restore
+              PMDump
             
           </span>
         </div>
@@ -1365,7 +1365,7 @@
           
   
   <span class="md-ellipsis">
-    Backup/Restore
+    PMDump
   </span>
   
 
@@ -1376,7 +1376,7 @@
         
   
   <span class="md-ellipsis">
-    Backup/Restore
+    PMDump
   </span>
   
 
@@ -1398,29 +1398,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
+  <a href="#get-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup
+      Get It
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Restore
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Config
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-file-structure" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup File Structure
+      Export
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1584,29 +1608,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
+  <a href="#get-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup
+      Get It
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Restore
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Config
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-file-structure" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup File Structure
+      Export
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1628,105 +1676,139 @@
   
 
 
-<h1 id="backuprestore">Backup/Restore</h1>
-<p>Papermerge DMS docker image is shipped with backup and restore utilities.
-Shipped utility will backup all your folders, documents with their associated versions
-and OCR data, tags and users. Search engine index is not included in backup though.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>User passwords are included in backup file as well. Passwords are stored
-as digests.</p>
-</div>
-<h2 id="backup">Backup</h2>
-<p>Backup your documents with following command:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker exec &lt;papermerge-server-container&gt; backup.sh &lt;optional-location&gt;
-</code></pre></div>
-<p>where <code>&lt;optional-location&gt;</code> is the path to file or folder <strong>inside container</strong> where to save backup
-file. If location is not provided, backup file will be saved in /core_app/ folder
-- the papermerge core application's current folder.</p>
-<p>Example:</p>
-<pre><code>    $ docker ps --format '{\{.ID\}} {\{.Command\}} {\{.Names\}}'
-
-    914dda21dd3d &quot;/run.bash server&quot; 091223_30-web-1
-    42095cee91f0 &quot;docker-entrypoint.s…&quot; 091223_30-solr-1
-    d65b3205d9ec &quot;/run.bash worker&quot; 091223_30-worker-1
-    ac5cfd76993a &quot;docker-entrypoint.s…&quot; 091223_30-redis-1
-    8ad6d0a7eb6c &quot;/opt/bitnami/script…&quot; 091223_30-db-1
+<h1 id="pmdump">PMDump</h1>
+<p>Tool for migrating Papermerge DMS data between different versions. PMDump can
+be used for backups as well. PMDump is not installed automatically with
+Papermerge DMS, it is an independent tool and must be installed,
+as binary file, separately from Papermerge DMS.</p>
+<p>PMDump has two main commands:</p>
+<ul>
+<li><code>export</code></li>
+<li><code>import</code></li>
+</ul>
+<p><code>export</code> command will create a tar.gz archive with all your documents files as well as data
+from the database.</p>
+<p><code>import</code> command takes tar.gz created by the <code>export</code> command and imports all files and data.</p>
+<p><code>export</code> and <code>import</code> works across different Papermerge DMS versions.</p>
+<p>For PMDump version 0.4 <code>export</code> command works for following Papermerge DMS versions/databases</p>
+<table>
+<thead>
+<tr>
+<th>db/pmg version</th>
+<th>2.0</th>
+<th>2.1</th>
+<th>3.2</th>
+<th>3.3</th>
+<th>3.4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQLite</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Currently <code>import</code> command works to import only into 3.4 either SQLite or PostgreSQL database.</p>
+<ul>
+<li>✅ - means: it works</li>
+<li>❌ - means: no plans to implement this part yet. If you need this to be implemented, please
+     <a href="https://github.com/ciur/papermerge/issues">open a ticket</a> and provide docker compose with your setup.</li>
+</ul>
+<h2 id="get-it">Get It</h2>
+<p>Download suitable binary file directly from <a href="https://github.com/papermerge/pmdump/releases">release page</a></p>
+<pre><code>wget -O pmdump &lt;URL to the binary of the latest version for your platform&gt;
 </code></pre>
-<p>In above example the Papermerge DMS has 5 containers: app server (the core
-or web or http or REST API server, pick the name you like :P), solr search
-engine, redis, database and finally one paper worker.</p>
-<p>To create a backup in root folder of the app container just run:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker exec 914dda21dd3d backup.sh /
-</code></pre></div>
-<p>When above command is ready, check that backup file was created:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker exec 914dda21dd3d ls /
-
-auth_server_app
-backup_10_12_2023-11_30_37.tar.gz
-bin
-boot
-...
-core_app
-core_ui
-db
-...
-usr
-var
-</code></pre></div>
-<p>Backup file is backup_10_12_2023-06_30_37.tar.gz.
-Now you can copy backup file to your local filesystem:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker cp 914dda21dd3d:/backup_10_12_2023-06_30_37.tar.gz .
-</code></pre></div>
-<p>You may choose to name file differently:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker exec 914dda21dd3d backup.sh /my-daily-backup.tar.gz
-</code></pre></div>
-<p>Then copy it to your local filesystem:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker cp 914dda21dd3d:/my-daily-backup.tar.gz .
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Backup files are gzipped tar archives, thus you probably want to
-append ".tar.gz" to their name.</p>
-</div>
-<h2 id="restore">Restore</h2>
-<p>When you plan to restore previous backup, we suggest to start with new Papermerge DMS instance,
-with only one superuser (which is created by
-default anyway). Make sure there are no documents in the new instance.</p>
-<p>For sake of example, let's say the superuser's username is "admin".
-For restoring use <code>restore.sh</code> command:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker exec &lt;papermerge-server-container&gt; restore.sh &lt;backup-file&gt;
-</code></pre></div>
-<p>For that to work, you need first to copy backup archive file
-to core (server) container. Sticking with example from previous section:</p>
-<div class="language-text highlight"><pre><span></span><code>$ docker cp my-backup.tar.gz 914dda21dd3d:/my-backup.tar.gz
-$ docker exec 914dda21dd3d restore.sh /my-backup.tar.gz
-</code></pre></div>
-<p>If "admin" user already existed in backup file, then admin's password will
-be set to the one from the backup file.</p>
-<h2 id="backup-file-structure">Backup File Structure</h2>
-<p>The backup file is a gzipped tar archive with following content:</p>
-<ol>
-<li><code>backup.json</code> file</li>
-<li><code>ocr/</code> folder</li>
-<li><code>docvers/</code>  folder</li>
-<li><code>username1</code>/, <code>username2</code>, ... i.e. one folder per user with folder title being user's username</li>
-</ol>
-<p><code>backup.json</code> file contains all necessary info to restore the database i.e.
-all users, their nodes, tags etc.</p>
-<p><code>docvers/</code> contains actually document versions files. Your documents are here.</p>
-<p><code>ocr/</code> contains OCR data of each individual page in the document.</p>
-<p>User folders mentioned in point 4. are provided for convenience, so that you
-may quickly get an understanding of the folder structure and their content.
-Each file in user folder is actually a symbolic link pointing to the last
-version of the document (from <code>docvers</code>).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Each user has two special folders: <code>.home</code> and <code>.inbox</code>; special folder's title
-start with dot. If you open backup archive in file browsers which hides dot files
-(file starting with dot character) - the content of user folder may appear
-empty! When opening backup archive <strong>make sure you set 'show hidden files flag' on</strong>.</p>
-</div>
+<p>OR</p>
+<pre><code>curl -o pmdump  &lt;URL to the binary of the latest version for your platform&gt;
+</code></pre>
+<p>And then:</p>
+<pre><code>chmod +x pmdump
+sudo mv pmdump /usr/local/bin/
+</code></pre>
+<p>You can add the current directory to your PATH temporarily:</p>
+<pre><code>export PATH=$PWD:$PATH
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>There are two commands:</p>
+<ul>
+<li>export</li>
+<li>import</li>
+</ul>
+<p>for both you need to specify also configuration file. For <code>export</code> command,
+configuration file indicates "the source". For <code>import</code> command
+configuration file indicates "the destination".</p>
+<p>For help use <code>-h</code> flag:</p>
+<pre><code class="language-bash">pmdump -h
+</code></pre>
+<h3 id="export-config">Export Config</h3>
+<p>create <code>source.yaml</code> file in which you need specify
+version of the Papermerge DMS from where to export, media
+root folder, and database.</p>
+<p>For example, to export from Papermerge DMS 2.0 (i.e. app version 2.0),
+which stores its data in SQLite database:</p>
+<pre><code class="language-yaml">app_version: 2.0
+media_root: /path/to/media/folder/
+database_url: sqlite:///path/to/data/papermerge.db
+</code></pre>
+<p>In case of exporting data from app version 3.3 which
+store data in postgres database, configuration yaml file
+would look like:</p>
+<pre><code class="language-yaml">media_root: /home/eugen/DockerCompose/pm3.3.1-pg/media
+database_url: postgresql://coco:jumbo@127.0.0.1:5432/pmgdb?sslmode=disable
+app_version: 3.3
+</code></pre>
+<p><code>app_version</code> - it the version of Papermerge DMS from which you intend to export data. Version must be specified in <code>&lt;major&gt;.&lt;minor&gt;</code> format. Here are some examples of valid values: <code>2.0</code>, <code>2.1</code>, <code>3.0</code>, <code>3.2</code>, <code>3.4</code>.</p>
+<p><code>media_root</code> is folder where Papermerge DMS stores actual files. <code>pmdump</code> should have access to this folder.
+Papermerge DMS uses <code>PAPERMERGE__MAIN__MEDIA_ROOT</code> environment variable to configure its media root folder. If not configured, it defaults to <code>/core_app/media/</code>.</p>
+<p><code>database_url</code> - is the database URL. For SQLite it is the path to sqlite3 file, prefixed with <code>sqlite://</code>. Some examples: <code>sqlite:///home/eugen/DockerCompose/pm3.4-sqlite/data/db.sqlite3</code>, <code>sqlite:///var/data/db.sqlite3</code>. Notice in examples
+there are three <code>///</code>: two stand for the sqlite scheme, and one stands for root folder.</p>
+<p>For PostgreSQL scheme must either <code>postgres://</code> or <code>postgresql://</code>. Here are some valid examples: <code>postgresql://coco:jumbo@127.0.0.1:5432/pmgdb?sslmode=disable</code>, <code>postgresql://coco:jumbo@127.0.0.1:5432/pmgdb</code></p>
+<h3 id="export">Export</h3>
+<p>Export command will save all data into zipped tar archive. You specify name of the exported file via <code>-f</code> flag and configuration file via <code>-c</code> flag:</p>
+<pre><code class="language-bash">pmdump -c source.yaml -f pm3.3.tar.gz export
+</code></pre>
+<p>Note <code>export</code> command <strong>must be at the end of parameters list</strong>.
+Placing <code>export</code> command BEFORE parameters list won't work:</p>
+<pre><code>// wrong! &quot;export&quot; command must be at the end!
+$ pmdump export -c source.yaml -f pm3.3.tar.gz
+</code></pre>
+<p>If you place <code>export</code> before parameters flag, you will get "missing configuration" error.</p>
+<p>The general form for export command is:</p>
+<pre><code class="language-bash">pmdump &lt;flag parameters&gt; export
+</code></pre>
+<p>Here are couple of valid examples for <code>export</code> command:</p>
+<pre><code class="language-bash">pmdump -c examples/source_3_3_pg.yaml -f pm3.3_pg.tar.gz export
+</code></pre>
+<h3 id="import">Import</h3>
+<p>Create <code>dest_pg.yaml</code> file</p>
+<pre><code class="language-yaml">media_root: /home/eugen/DockerCompose/pm3.4-pg/media/
+database_url: postgresql://coco:kesha@127.0.0.1:5432/pmg34?sslmode=disable
+app_version: 3.4
+</code></pre>
+<p>Run import command (notice that <code>import</code> is at the end of parameters)</p>
+<pre><code class="language-bash">pmdump -c dest_pg.yaml -f /path/to/archive.tar.gz import
+</code></pre>
+<p>If you are importing into SQLite database, configuration file, dest_sqlite.yaml, will look like:</p>
+<pre><code class="language-yaml">media_root: /home/eugen/DockerCompose/pm3.4-sqlite/media/
+database_url: sqlite:///home/eugen/DockerCompose/pm3.4-sqlite/data/db.sqlite3
+app_version: 3.4
+</code></pre>
+<p>And command is same:</p>
+<pre><code class="language-bash">pmdump -c dest_sqlite.yaml -f /path/to/archive.tar.gz import
+</code></pre>
 
 
 
@@ -1747,7 +1829,7 @@ empty! When opening backup archive <strong>make sure you set 'show hidden files 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 15, 2025</span>
   </span>
 
     
