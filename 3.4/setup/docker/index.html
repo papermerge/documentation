@@ -1620,7 +1620,7 @@ web app use following command:</p>
 <pre><code class="language-console">docker run -p 12000:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=pass123 \
-    papermerge/papermerge:3.4
+    papermerge/papermerge:3.4.1
 </code></pre>
 <p>Point your web browser to <code>http://localhost:12000</code>:</p>
 <p><img alt="login screen" src="../img/overview.gif" /></p>
@@ -1635,13 +1635,13 @@ it serves well as quick demo to get a feeling of Papermerge DMS.
 Check docker compose section for more advanced setups.</p>
 <h2 id="apple-m1-m2-users">Apple M1 (M2...) Users</h2>
 <p>Apple M1 (M2...) users should include <code>--platform linux/amd64</code> option:</p>
-<pre><code class="language-console">docker pull --platform linux/amd64  papermerge/papermerge:3.4
+<pre><code class="language-console">docker pull --platform linux/amd64  papermerge/papermerge:3.4.1
 </code></pre>
 <p>And then:</p>
 <pre><code class="language-console">docker run -p 12000:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=pass123 \
-    papermerge/papermerge:3.4
+    papermerge/papermerge:3.4.1
 </code></pre>
 
 
