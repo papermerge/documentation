@@ -1,7 +1,7 @@
 # What's new?
 
-This document briefly describes what's new in each version.
-For detailed changelog see <a href="https://github.com/papermerge/papermerge-core/blob/master/changelog.md" class="external-link" target="_blank">changelog.md on github</a>.
+This document briefly describes what's new in each major and minor versions.
+For detailed changelog, which includes patch versions (e.g. 3.4.1), see <a href="https://github.com/papermerge/papermerge-core/blob/master/changelog.md" class="external-link" target="_blank">changelog.md on github</a>.
 
 ## 3.4
 

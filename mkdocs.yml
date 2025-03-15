@@ -91,7 +91,7 @@ theme:
 repo_url: https://github.com/ciur/papermerge
 extra:
   project: Papermerge DMS # custom variable for macros plugin
-  docker_image_version: 3.4
+  docker_image_version: 3.4.1
   i3_worker_version: 0.3
   s3_worker_version: 0.4.3
   ocr_worker_version: 0.3.1
