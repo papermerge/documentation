@@ -47,7 +47,7 @@ nav:
     - settings/s3worker.md
     - settings/ocrworker.md
     - settings/i3worker.md
-  - "backup-restore.md"
+  - "pmdump.md"
   - REST API:
     - "rest-api/overview.md"
     - "rest-api/reference.md"
