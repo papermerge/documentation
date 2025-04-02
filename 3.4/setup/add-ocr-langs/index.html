@@ -472,6 +472,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Add OCR Languages
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -481,6 +492,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-your-custom-ocr-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 - Create your custom OCR docker image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-verify-the-languages-in-the-ocr-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 - Verify the languages in the OCR worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-add-the-language-support-in-the-papermerge-codebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 - Add the language support in the Papermerge codebase:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-build-custom-papermerge-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 - Build custom Papermerge image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-run-papermerge-with-the-custom-ocr-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 - Run Papermerge with the custom OCR worker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1522,6 +1597,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-your-custom-ocr-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 - Create your custom OCR docker image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-verify-the-languages-in-the-ocr-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 - Verify the languages in the OCR worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-add-the-language-support-in-the-papermerge-codebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 - Add the language support in the Papermerge codebase:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-build-custom-papermerge-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 - Build custom Papermerge image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-run-papermerge-with-the-custom-ocr-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 - Run Papermerge with the custom OCR worker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1541,22 +1669,97 @@
 <h1 id="add-ocr-languages">Add OCR Languages</h1>
 <p>By default the Papermerge DMS docker image includes English, German, French, Italian, Spanish, Dutch,
 Romanian and Portugues OCR languages.</p>
-<p>You can install extra languages by creating a new docker image from base <code>papermerge/papermerge</code>.</p>
-<p>Create new docker file with following content:</p>
-<pre><code>FROM papermerge/papermerge:3.4.1
-
-# add Danish and Polish OCR languages
-RUN apt install tesseract-ocr-dan tesseract-ocr-pol
-</code></pre>
 <p>All languages are specified in three letters code as per <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 " class="external-link" target="_blank">ISO 639-2T</a> standard -
 second column in the table.</p>
-<p>In order to build your image run:</p>
-<pre><code>docker build -t mypaper:3.0 -f Dockerfile .
+<p>You can install extra languages in couple of steps described in following guide.</p>
+<h2 id="step-1-create-your-custom-ocr-docker-image">Step 1 - Create your custom OCR docker image</h2>
+<p>First, you need to create your own OCR worker image to include the necessary
+languages. Create a Dockerfile based on the existing
+<code>papermerge/ocrworker:0.3.1</code> image and install the required OCR language
+packages:</p>
+<pre><code>FROM papermerge/ocrworker:0.3.1
+# Add the required languages here
+RUN apt update &amp;&amp; apt install -y tesseract-ocr-kaz tesseract-ocr-rus
 </code></pre>
-<p>Check that OCR languages were installed:</p>
-<pre><code>docker run -it --rm  mypaper:3.0  tesseract --list-langs
+<h2 id="step-2-verify-the-languages-in-the-ocr-worker">Step 2 - Verify the languages in the OCR worker</h2>
+<p>Once the docker image is built and the ocr worker is running verify that the languages are installed:</p>
+<pre><code>docker exec -it &lt;ocr_worker_docker_container_id&gt; tesseract --list-langs
 </code></pre>
+<h2 id="step-3-add-the-language-support-in-the-papermerge-codebase">Step 3 - Add the language support in the Papermerge codebase:</h2>
+<p>a. Update OCR task schema:
+In the <code>papermerge/core/features/tasks/schema.py</code> file, add the new language codes to the LangCode type:</p>
+<pre><code>LangCode = Literal[
+    &quot;ces&quot;,
+    &quot;dan&quot;,
+    &quot;deu&quot;,
+    &quot;ell&quot;,
+    &quot;eng&quot;,
+    &quot;fas&quot;,
+    &quot;fin&quot;,
+    &quot;fra&quot;,
+    &quot;guj&quot;,
+    &quot;heb&quot;,
+    &quot;hin&quot;,
+    &quot;ita&quot;,
+    &quot;jpn&quot;,
+    &quot;kor&quot;,
+    &quot;lit&quot;,
+    &quot;nld&quot;,
+    &quot;nor&quot;,
+    &quot;pol&quot;,
+    &quot;por&quot;,
+    &quot;ron&quot;,
+    &quot;san&quot;,
+    &quot;spa&quot;,
+    # add additional languages here
+    &quot;kaz&quot;,
+    &quot;rus&quot;,
+]
+</code></pre>
+<p>b. Update UI Constants:</p>
+<p>In the <code>`ui2/src/cconstants.ts</code> file, add required language names:</p>
+<pre><code>export const OCR_LANG: OCRLangType = {
+    ces: &quot;Čeština&quot;,
+    dan: &quot;Dansk&quot;,
+    deu: &quot;Deutsch&quot;,
+    ell: &quot;Ελληνικά&quot;,
+    eng: &quot;English&quot;,
+    fin: &quot;Suomi&quot;,
+    fra: &quot;Français&quot;,
+    guj: &quot;ગુજરાતી&quot;,
+    heb: &quot;עברית&quot;,
+    hin: &quot;हिंदी&quot;,
+    ita: &quot;Italiano&quot;,
+    jpn: &quot;日本語&quot;,
+    kor: &quot;한국어&quot;,
+    lit: &quot;Lietuvių&quot;,
+    nld: &quot;Nederlands&quot;,
+    nor: &quot;Norsk&quot;,
+    osd: &quot;Osd&quot;,
+    pol: &quot;Polski&quot;,
+    por: &quot;Português&quot;,
+    ron: &quot;Română&quot;,
+    san: &quot;संस्कृत&quot;,
+    spa: &quot;Español&quot;,
+    // Add additional languages here
+    kaz: &quot;Қазақша&quot;,
+    rus: &quot;Русский&quot;,
+};
+</code></pre>
+<p>c. Update OCRCode Type:
+In the <code>ui2/src/types.ts</code> and <code>ui2/src/types/ocr.ts</code> files, extend the OCRCode type:</p>
+<pre><code>export type OCRCode =
+    | &quot;ces&quot; | &quot;dan&quot; | &quot;deu&quot; | &quot;ell&quot; | &quot;eng&quot; | &quot;fin&quot; | &quot;fra&quot; | &quot;guj&quot; | &quot;heb&quot;
+    | &quot;hin&quot; | &quot;ita&quot; | &quot;jpn&quot; | &quot;kor&quot; | &quot;lit&quot; | &quot;nld&quot; | &quot;nor&quot; | &quot;osd&quot; | &quot;pol&quot;
+    | &quot;por&quot; | &quot;ron&quot; | &quot;san&quot; | &quot;spa&quot;
+    // Add additional languages here
+    | &quot;kaz&quot; | &quot;rus&quot;;
+</code></pre>
+<h2 id="step-4-build-custom-papermerge-image">Step 4 - Build custom Papermerge image</h2>
+<pre><code>docker buildx build --platform linux/amd64 -t myimage:0.0.1 -f docker/standard/Dockerfile .
+</code></pre>
+<h2 id="step-5-run-papermerge-with-the-custom-ocr-worker">Step 5 - Run Papermerge with the custom OCR worker</h2>
 
 
 
@@ -1577,7 +1780,7 @@ second column in the table.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 2, 2025</span>
   </span>
 
     
