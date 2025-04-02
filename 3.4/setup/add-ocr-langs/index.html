@@ -1668,10 +1668,13 @@
 
 <h1 id="add-ocr-languages">Add OCR Languages</h1>
 <p>By default the Papermerge DMS docker image includes English and German OCR languages.</p>
+<p>You can install extra languages in couple of steps described in the following guide.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>All languages are specified in three letters code as per <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 " class="external-link" target="_blank">ISO 639-2T</a> standard -
 second column in the table.</p>
-<p>You can install extra languages in couple of steps described in following guide.</p>
+</div>
 <h2 id="step-1-create-your-custom-ocr-docker-image">Step 1 - Create your custom OCR docker image</h2>
 <p>First, you need to create your own OCR worker image to include the necessary
 languages. Create a Dockerfile based on the existing
