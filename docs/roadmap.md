@@ -4,8 +4,8 @@ For year 2025 we plan to implement in {{ extra.project }} following major featur
 
 1. Localization
 2. UI settings
-3. Per object access management
-4. Group ownership
+3. Per object access management (work in progress, will be released in version 3.5)
+4. Group ownership (work in progress, will be released in version 3.5)
 5. Search by custom fields
 6. System audit
 
