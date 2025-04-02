@@ -70,7 +70,7 @@ LangCode = Literal[
 
 b. Update UI Constants:
 
-In the ```ui2/src/cconstants.ts`` file, add required language names:
+In the `ui2/src/cconstants.ts` file, add required language names:
 
 ```
 export const OCR_LANG: OCRLangType = {
