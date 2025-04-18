@@ -35,5 +35,12 @@
     "version": "2.0",
     "title": "2.0",
     "aliases": []
+  },
+  {
+    "version": "v3.5",
+    "title": "v3.5",
+    "aliases": [
+      "dev"
+    ]
   }
 ]
