@@ -2,7 +2,7 @@ name: Deploy 3.4 docs
 on:
   push:
     branches:
-      - "v3.4"
+      - "v3.5"
 
 permissions:
   contents: write
@@ -24,4 +24,4 @@ jobs:
           git config user.name ci-bot
           git config user.email ci-bot@example.com
           poetry run mike set-default 3.4
-          poetry run mike deploy -p 3.4 latest --update-aliases
+          poetry run mike deploy -p 3.5 dev --update-aliases
