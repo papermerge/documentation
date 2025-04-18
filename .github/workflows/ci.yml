@@ -1,4 +1,4 @@
-name: Deploy 3.4 docs
+name: Deploy 3.5 docs
 on:
   push:
     branches:
