@@ -134,3 +134,14 @@ case you need to do so.
 
 There is a separate chapter about [page management](page-management.md) where you can learn
 details about this feature.
+
+
+## Group
+
+A group is a set of users.
+
+
+## Role
+
+A role is a set of permissions.
+

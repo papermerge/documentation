@@ -26,6 +26,10 @@ nav:
     - user/ocr.md
     - user/file-formats.md
     - user/user-management.md
+    - user/groups.md
+    - user/group-ownership.md
+    - user/roles.md
+    - user/sharing.md
   - SSO:
     - sso/overview.md
     - OIDC:
