@@ -1,5 +1,12 @@
 [
   {
+    "version": "3.5",
+    "title": "3.5",
+    "aliases": [
+      "dev"
+    ]
+  },
+  {
     "version": "3.4",
     "title": "3.4",
     "aliases": [
@@ -35,12 +42,5 @@
     "version": "2.0",
     "title": "2.0",
     "aliases": []
-  },
-  {
-    "version": "v3.5",
-    "title": "v3.5",
-    "aliases": [
-      "dev"
-    ]
   }
 ]
