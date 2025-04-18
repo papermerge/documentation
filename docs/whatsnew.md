@@ -15,6 +15,7 @@ It introduces following new features:
 - Group ownership
 - Sharing of folders and documents
 - i18n - internationalization -  user interface is now available in multiple languages
+- Role entity
 
 
 ## 3.4

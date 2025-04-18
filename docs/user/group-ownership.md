@@ -12,14 +12,14 @@ entity (folder, document etc), which means that owners can view, change,
 and event delete it.
 
 In the following parts of this section we will use as example
-hypothetical small organization - Acme Inc.
+hypothetical organization - Acme Inc.
 Acme Inc has five teams:
 
-- Marketing
-- QA
-- Development
-- HR
-- Managers
+- Marketing (Merry, Mara, Jane)
+- QA (Casper, Elizabeth)
+- Development (Mark, Dora, David)
+- HR (Lila, Hana, Luke)
+- Managers (Mark, Jane, Luke)
 
 Each team has its own separate set of documents. Each team member
 has full access to the documents of his/her own team, in other
@@ -50,3 +50,5 @@ Users outside HR team don't have access to HR `home` folder: e.g. user Marry
 from Marketing team does not have access to documents in HR's `home` folder.
 
 Similarly story goes with group's `inbox` folder.
+
+...
