@@ -1,7 +1,21 @@
 # What's new?
 
 This document briefly describes what's new in each major and minor versions.
-For detailed changelog, which includes patch versions (e.g. 3.4.1), see <a href="https://github.com/papermerge/papermerge-core/blob/master/changelog.md" class="external-link" target="_blank">changelog.md on github</a>.
+For detailed changelog, which includes patch versions (e.g. 3.5), see <a href="https://github.com/papermerge/papermerge-core/blob/master/changelog.md" class="external-link" target="_blank">changelog.md on github</a>.
+
+
+## 3.5 (to be released)
+
+!!! Note
+
+    Implemented in 3.5. Will be released soon.
+
+It introduces following new features:
+
+- Group ownership
+- Sharing of folders and documents
+- i18n - internationalization -  user interface is now available in multiple languages
+
 
 ## 3.4
 
