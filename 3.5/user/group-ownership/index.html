@@ -924,9 +924,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#group-special-folders" class="md-nav__link">
+  <a href="#groups-with-special-folders" class="md-nav__link">
     <span class="md-ellipsis">
-      Group Special Folders
+      Groups with Special Folders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-ownership-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Ownership Transfer
     </span>
   </a>
   
@@ -1698,9 +1707,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#group-special-folders" class="md-nav__link">
+  <a href="#groups-with-special-folders" class="md-nav__link">
     <span class="md-ellipsis">
-      Group Special Folders
+      Groups with Special Folders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-ownership-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Ownership Transfer
     </span>
   </a>
   
@@ -1756,7 +1774,7 @@ Then every user should be assigned to that group.</p>
 outside Papermerge DMS e.g. in Keycloak instance which acts as authentication provider, or
 in LDAP service etc.</p>
 </div>
-<h2 id="group-special-folders">Group Special Folders</h2>
+<h2 id="groups-with-special-folders">Groups with Special Folders</h2>
 <p>Group entity may have special folders - <code>inbox</code> and <code>home</code>. Group's <code>home</code> folder
 is folder where all documents and folder for that group reside. Thus HR team
 will have its own <code>home</code> folder where all HR documents are. Each HR team member
@@ -1765,7 +1783,37 @@ change, and delete them.</p>
 <p>Users outside HR team don't have access to HR <code>home</code> folder: e.g. user Marry
 from Marketing team does not have access to documents in HR's <code>home</code> folder.</p>
 <p>Similarly story goes with group's <code>inbox</code> folder.</p>
-<p>...</p>
+<p>In animated picture below user <code>lila</code>, she is part of <code>HR</code> team, has two <code>home</code>
+folders: her own and home folder of <code>HR</code> department. In her own private <code>home</code>
+folder she has her private documents, among others a folder titled "Lila Hobby".
+In <code>HR</code> home folder she can access, view, change, upload/download as well as delete at
+her heart's will - <code>HR</code> department's documents.</p>
+<p><img alt="Lila and HR folder" src="lila-and-hr-folder.gif" /></p>
+<p>User <code>hana</code> is also part of <code>HR</code> department. She also has full access to <code>HR</code> <code>home</code>
+folder. <code>hana</code>'s private home folder is empty.</p>
+<p><img alt="Hana and HR folder" src="hana-and-hr-folder.gif" /></p>
+<p>Both <code>hana</code> and <code>lila</code> are full owners of every document and folder found in <code>HR</code> home.</p>
+<p>Both users see <code>HR</code> <code>home</code> folder in the drop-down menu because they are both
+part of <code>HR</code> group and <code>HR</code> group was created with
+"special folder" checked.</p>
+<p><img alt="HR group edit" src="hr-group-edit.svg" /></p>
+<p><img alt="HR group view" src="hr-group-view.svg" /></p>
+<h2 id="implicit-ownership-transfer">Implicit Ownership Transfer</h2>
+<p>Everything placed in group's <code>home</code> or <code>inbox</code> folder will be automatically
+owned by that group. For example if user <code>lila</code> uploads new document
+from her local computer into <code>HR</code> <code>home</code> folder - uploaded document automatically
+will be owned by <code>HR</code> group (not by <code>lila</code>). A less obvious example is following:
+if <code>lila</code> moves her private document from her <code>home</code> into <code>HR</code> group <code>home</code>, then
+ownership of that document will be implicitly transferred from <code>lila</code> to <code>HR</code>.
+If she does it other way around i.e. moves document from <code>HR</code> <code>home</code> folder into
+her own private <code>home</code>, then the ownership is transferred from <code>HR</code> department to
+user <code>lila</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To transfer ownership of a document (or of a folder) from user to specific group,
+you need to move that document (or folder) from your private <code>home</code> or <code>inbox</code>
+to respective group <code>home</code> or <code>inbox</code> folder.</p>
+</div>
 
 
 
@@ -1786,7 +1834,7 @@ from Marketing team does not have access to documents in HR's <code>home</code> 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 19, 2025</span>
   </span>
 
     
