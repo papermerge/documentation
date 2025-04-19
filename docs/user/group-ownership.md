@@ -37,8 +37,7 @@ Then every user should be assigned to that group.
     in LDAP service etc.
 
 
-
-## Group Special Folders
+## Groups with Special Folders
 
 Group entity may have special folders - `inbox` and `home`. Group's `home` folder
 is folder where all documents and folder for that group reside. Thus HR team
@@ -51,4 +50,46 @@ from Marketing team does not have access to documents in HR's `home` folder.
 
 Similarly story goes with group's `inbox` folder.
 
-...
+In animated picture below user `lila`, she is part of `HR` team, has two `home`
+folders: her own and home folder of `HR` department. In her own private `home`
+folder she has her private documents, among others a folder titled "Lila Hobby".
+In `HR` home folder she can access, view, change, upload/download as well as delete at
+her heart's will - `HR` department's documents.
+
+![Lila and HR folder](./group-ownership/lila-and-hr-folder.gif)
+
+User `hana` is also part of `HR` department. She also has full access to `HR` `home`
+folder. `hana`'s private home folder is empty.
+
+![Hana and HR folder](./group-ownership/hana-and-hr-folder.gif)
+
+
+Both `hana` and `lila` are full owners of every document and folder found in `HR` home.
+
+Both users see `HR` `home` folder in the drop-down menu because they are both
+part of `HR` group and `HR` group was created with
+"special folder" checked.
+
+![HR group edit](./group-ownership/hr-group-edit.svg)
+
+![HR group view](./group-ownership/hr-group-view.svg)
+
+## Implicit Ownership Transfer
+
+Everything placed in group's `home` or `inbox` folder will be automatically
+owned by that group. For example if user `lila` uploads new document
+from her local computer into `HR` `home` folder - uploaded document automatically
+will be owned by `HR` group (not by `lila`). A less obvious example is following:
+if `lila` moves her private document from her `home` into `HR` group `home`, then
+ownership of that document will be implicitly transferred from `lila` to `HR`.
+If she does it other way around i.e. moves document from `HR` `home` folder into
+her own private `home`, then the ownership is transferred from `HR` department to
+user `lila`.
+
+
+!!! Note
+
+    To transfer ownership of a document (or of a folder) from user to specific group,
+    you need to move that document (or folder) from your private `home` or `inbox`
+    to respective group `home` or `inbox` folder.
+
