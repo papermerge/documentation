@@ -8,7 +8,7 @@ documents. When a group is set as the owner, all members of that group
 automatically inherit full permissions for the document, including the
 ability to delete it.
 
-This solution significantly simplifies permission management and eliminate the
+This feature significantly simplifies permission management and eliminate the
 need for special rules or workarounds, such as explicitly granting deletion
 rights to group members. At the same time, it is better aligned with the
 requirements of real-world organizational structures, where ownership is
