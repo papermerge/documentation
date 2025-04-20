@@ -1806,6 +1806,24 @@
 
 
 <h1 id="group-ownership">Group Ownership</h1>
+<p>In a team or organizational environment documents are typically handled
+collectively by multiple group members.</p>
+<p>Group ownership feature enables groups to be defined as the owners of
+documents. When a group is set as the owner, all members of that group
+automatically inherit full permissions for the document, including the
+ability to delete it.</p>
+<p>This solution significantly simplifies permission management and eliminate the
+need for special rules or workarounds, such as explicitly granting deletion
+rights to group members. At the same time, it is better aligned with the
+requirements of real-world organizational structures, where ownership is
+often collective rather than individual.</p>
+<p>Benefits of group ownership feature:</p>
+<ul>
+<li>Facilitates collaboration in team-based workflows</li>
+<li>Removes dependencies on individual users for document management</li>
+<li>Provides a clear and intuitive system that seamlessly integrates with
+group-oriented work structures</li>
+</ul>
 <h2 id="concept">Concept</h2>
 <p>Every document, folder, tag, category and custom field can be owned by user or
 by a group. In case entity (document, folder, tag etc) is owned by a
@@ -1880,11 +1898,11 @@ group, you need to move that document (or folder) from your private
 <p>Following animated images illustrates this idea.</p>
 <p>In this example, <code>lila</code> is moving document initially belonging to <code>HR</code> team to
 her private folder. You can see that <code>Owner</code> field automatically changes from
-<code>lila</code> to <code>HR</code>.</p>
+<code>HR</code> to <code>lila</code>.</p>
 <p><a class="glightbox" href="ownership-transfer-from-group-to-private.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Ownership transfer from group to private" src="ownership-transfer-from-group-to-private.gif" /></a></p>
 <p>In this example, it is other way around: <code>lila</code> is moving document initially
-belonging to her team to <code>HR</code> folder. You can see that <code>Owner</code> field
-automatically changes from <code>HR</code> to <code>lila</code>.</p>
+belonging to her to <code>HR</code> department folder. You can see that <code>Owner</code> field
+automatically changes from <code>lila</code> to <code>HR</code>.</p>
 <p><a class="glightbox" href="ownership-transfer-from-private-to-group.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Ownership transfer from private to group" src="ownership-transfer-from-private-to-group.gif" /></a></p>
 <h2 id="multiple-group-homes">Multiple Group Homes</h2>
 <p>If user belongs to multiple groups with special folders, then that user will
