@@ -1,5 +1,26 @@
 # Group Ownership
 
+In a team or organizational environment documents are typically handled
+collectively by multiple group members.
+
+Group ownership feature enables groups to be defined as the owners of
+documents. When a group is set as the owner, all members of that group
+automatically inherit full permissions for the document, including the
+ability to delete it.
+
+This solution significantly simplifies permission management and eliminate the
+need for special rules or workarounds, such as explicitly granting deletion
+rights to group members. At the same time, it is better aligned with the
+requirements of real-world organizational structures, where ownership is
+often collective rather than individual.
+
+Benefits of group ownership feature:
+
+* Facilitates collaboration in team-based workflows
+* Removes dependencies on individual users for document management
+* Provides a clear and intuitive system that seamlessly integrates with
+group-oriented work structures
+
 ## Concept
 
 Every document, folder, tag, category and custom field can be owned by user or
@@ -98,14 +119,14 @@ Following animated images illustrates this idea.
 
 In this example, `lila` is moving document initially belonging to `HR` team to
 her private folder. You can see that `Owner` field automatically changes from
-`lila` to `HR`.
+`HR` to `lila`.
 
 ![Ownership transfer from group to private](./group-ownership/ownership-transfer-from-group-to-private.gif)
 
 
 In this example, it is other way around: `lila` is moving document initially
-belonging to her team to `HR` folder. You can see that `Owner` field
-automatically changes from `HR` to `lila`.
+belonging to her to `HR` department folder. You can see that `Owner` field
+automatically changes from `lila` to `HR`.
 
 ![Ownership transfer from private to group](./group-ownership/ownership-transfer-from-private-to-group.gif)
 
