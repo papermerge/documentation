@@ -89,21 +89,22 @@ user `lila`.
 
 !!! Note
 
-    To transfer ownership of a document (or of a folder) from user to specific group,
-    you need to move that document (or folder) from your private `home` or `inbox`
-    to respective group `home` or `inbox` folder.
+    To transfer ownership of a document (or of a folder) from user to specific
+    group, you need to move that document (or folder) from your private
+    `home` or `inbox` to respective group `home` or `inbox` folder.
 
 
 Following animated images illustrates this idea.
 
-In this example, `lila` is moving document initially belonging to `HR` team to her
-private folder. You can see that `Owner` field automatically changes from `lila` to `HR`.
+In this example, `lila` is moving document initially belonging to `HR` team to
+her private folder. You can see that `Owner` field automatically changes from
+`lila` to `HR`.
 
 ![Ownership transfer from group to private](./group-ownership/ownership-transfer-from-group-to-private.gif)
 
 
-In this example, it is other way around: `lila` is moving document initially belonging to her team to `HR`
-folder. You can see that `Owner` field automatically changes from `HR` to `lila`.
+In this example, it is other way around: `lila` is moving document initially
+belonging to her team to `HR` folder. You can see that `Owner` field
+automatically changes from `HR` to `lila`.
 
 ![Ownership transfer from private to group](./group-ownership/ownership-transfer-from-private-to-group.gif)
-
