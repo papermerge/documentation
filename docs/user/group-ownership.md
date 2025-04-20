@@ -108,3 +108,37 @@ belonging to her team to `HR` folder. You can see that `Owner` field
 automatically changes from `HR` to `lila`.
 
 ![Ownership transfer from private to group](./group-ownership/ownership-transfer-from-private-to-group.gif)
+
+
+## Multiple Group Homes
+
+
+If user belongs to multiple groups with special folders, then that user will
+have multiple group folders in drop-down menu. For example user `mark`, who
+belongs to Managers team as well as Development team. Both teams have their
+own group with special folders.
+
+![Multiple home folders](./group-ownership/multiple-home-folders.svg)
+
+
+!!! Remember
+
+    Besides his/her own private home/inbox folder, user may multiple group home/inbox
+    folders - one for each group he/her is part of. Precondition is that respective
+    group has special folders.
+
+
+
+## Custom Fields, Categories and Tags
+
+Custom Fields, Categories and Tags also may be owned by group. In fact, when
+you create a tag (Custom Field, Category) you will need to decide who is the
+owner of that tag. In case of user `mark`, because he belongs multiple teams,
+he needs to choose who is the owner of "revised" tag:
+
+
+![Pick Owner](./group-ownership/pick-owner.png)
+
+
+## Tags and Categories Visibility
+
