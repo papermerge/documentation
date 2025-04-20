@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1801,7 +1810,7 @@ both target folder and file name.</p>
 <p>Let's see couple of examples.</p>
 <p>In first example, let's create document type "Receipt" and set its path
 template to <code>/home/My Documents/Receipts/</code>:</p>
-<p><img alt="Create simple path template" src="../img/path-templates/create-simple-path-template.gif" /></p>
+<p><a class="glightbox" href="../img/path-templates/create-simple-path-template.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create simple path template" src="../img/path-templates/create-simple-path-template.gif" /></a></p>
 <p>Notice that path template ends with "/". If path ends with "/", it means that
 the last part is a folder. We will come back to this point later.
 Also please remark that there no <code>My Documents</code> folder; neither
@@ -1811,7 +1820,7 @@ Let's see it in action. In video below initially document <code>brother_004485.p
 and it has no document type assigned yet. Also, notice that in <code>home</code> there is no folder <code>My Documents</code> yet.
 However, once <code>brother_004485</code> is changed to type "Receipt" it is automatically moved from <code>inbox</code>
 into its target folder designed by Receipt's path template: <code>/home/My Documents/Receipts/</code>.</p>
-<p><img alt="Move one doc from inbox to target" src="../img/path-templates/move-one-doc-from-inbox-to-target.gif" /></p>
+<p><a class="glightbox" href="../img/path-templates/move-one-doc-from-inbox-to-target.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Move one doc from inbox to target" src="../img/path-templates/move-one-doc-from-inbox-to-target.gif" /></a></p>
 <p>It is very important that template path <code>/home/My Documents/Receipts/</code> ends
 with "/". It tells Papermerge DMS that target is a folder. If we would
 change it to <code>/home/My Documents/coco</code>, then Papermerge DMS would move
@@ -2040,5 +2049,7 @@ field name).</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

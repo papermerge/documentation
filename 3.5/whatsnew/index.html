@@ -55,7 +55,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1916,16 +1925,16 @@ document in second panel while browsing custom fields. On Mac, users
 can open document in second panel (while in document type view) by pressing
 <strong>Alt</strong> and clicking on the document title. For PC users the key to press
 is <strong>Ctrl</strong>.</p>
-<p><img alt="custom fields browsing" src="3.4/custom-fields-browsing.gif" /></p>
+<p><a class="glightbox" href="3.4/custom-fields-browsing.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom fields browsing" src="3.4/custom-fields-browsing.gif" /></a></p>
 <h3 id="tags-list">Tags List</h3>
 <p>Here is how tags list view column sorting and quick filters look like:</p>
-<p><img alt="tags list column sort" src="3.4/tags-sorting.gif" /></p>
+<p><a class="glightbox" href="3.4/tags-sorting.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="tags list column sort" src="3.4/tags-sorting.gif" /></a></p>
 <h3 id="custom-fields">Custom Fields</h3>
 <p>Here is how custom fields list view column sorting and quick filters look like:</p>
-<p><img alt="custom fields list column sort" src="3.4/custom-fields-sorting.gif" /></p>
+<p><a class="glightbox" href="3.4/custom-fields-sorting.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="custom fields list column sort" src="3.4/custom-fields-sorting.gif" /></a></p>
 <h3 id="document-types">Document Types</h3>
 <p>Here is how document types list view column sorting and quick filters look like:</p>
-<p><img alt="document types list column sort" src="3.4/document-types-sorting.gif" /></p>
+<p><a class="glightbox" href="3.4/document-types-sorting.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="document types list column sort" src="3.4/document-types-sorting.gif" /></a></p>
 <h2 id="33">3.3</h2>
 <p>Version 3.3 introduces following new major features:</p>
 <ul>
@@ -2058,5 +2067,7 @@ may configure Papermerge DMS to store documents on S3 storage.</p>
       <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1948,7 +1957,7 @@ Subject mode (in Advanced protocol settings): Based on User&#39;s UUID
 Scopes (in Advanced protocol settings): make sure email, openid, profile are selected
 </code></pre></div>
 <p>Last point is very important as it will setup <code>sub</code> claim to contain user's UUID.</p>
-<p><img alt="Authentik new provider" src="../../../img/auth/oidc/authentik-new-provider.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/authentik-new-provider.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Authentik new provider" src="../../../img/auth/oidc/authentik-new-provider.gif" /></a></p>
 <h3 id="step-3-associated-provider-with-application">Step 3 - Associated Provider with Application</h3>
 <p>Applications -&gt; Papermerge -&gt; Edit.
 Change <code>Provider</code> field to <code>papermerge</code>.
@@ -2008,9 +2017,9 @@ format: <code>[http|https]://&lt;papermerge-instance-domain&gt;/oidc/callback</c
 <p><code>PAPERMERGE__AUTH__OIDC_SCOPE</code> must include "profile", otherwise JWT token won't contain <code>preferred_username</code> and <code>groups</code> claims</p>
 <p>It may happen that not all OIDC endpoints are shown in Authentik UI.
 To get all OIDC endpoints, use "OpenID Configuration URL" directly in your browser:</p>
-<p><img alt="All OIDC endpoints" src="../../../img/auth/oidc/authentik-all-oidc-endpoints.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/authentik-all-oidc-endpoints.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All OIDC endpoints" src="../../../img/auth/oidc/authentik-all-oidc-endpoints.gif" /></a></p>
 <h3 id="step-6-login-as-superuser">Step 6 - Login as Superuser</h3>
-<p><img alt="Login as superuser" src="../../../img/auth/oidc/authentik-login-as-bender.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/authentik-login-as-bender.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Login as superuser" src="../../../img/auth/oidc/authentik-login-as-bender.gif" /></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There is a known issue that after successful login - "sign in" view is still shown.
@@ -2029,7 +2038,7 @@ but view/create/delete for users/groups.</p>
 <h3 id="step-1-create-group-in-papermerge">Step 1 - Create Group in Papermerge</h3>
 <p>First we need to create group, named "family", with desired set of
 permissions. You do this in Papermerge DMS with user "bender".</p>
-<p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/add-family-group.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Group names in Authentik and in Papermerge DMS should match.</p>
@@ -2040,12 +2049,12 @@ Create "family" group in Authentik.
 Add user "leela" to group "family" (in Authentik).
 Of course you will set leela's password in Authentik as well.</p>
 <p>The outcome should look like:</p>
-<p><img alt="User Leela in Family Group" src="../../../img/auth/oidc/authentik-user-leela-in-family-group.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/authentik-user-leela-in-family-group.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="User Leela in Family Group" src="../../../img/auth/oidc/authentik-user-leela-in-family-group.gif" /></a></p>
 <h3 id="step-3-login-as-leela">Step 3 - Login as "leela"</h3>
 <p>Login with as leela in Papermerge DMS. Notice that "users" and "groups" tabs on
 the left side bar are not visible, as leela does not have permissions to
 to manage users and groups.</p>
-<p><img alt="Login as Leela" src="../../../img/auth/oidc/authentik-login-as-leela.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/authentik-login-as-leela.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Login as Leela" src="../../../img/auth/oidc/authentik-login-as-leela.gif" /></a></p>
 
 
 
@@ -2151,5 +2160,7 @@ to manage users and groups.</p>
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

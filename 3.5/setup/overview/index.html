@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1739,7 +1748,7 @@ only what you need.</p>
 <p>It starts the basic Papermerge DMS microservice, the web app, with one
 administrative user account, which has username <code>admin</code> and password
 <code>pass123</code>. Instance is accessible on <code>http://localhost:12000</code>.</p>
-<p><img alt="Web app overview" src="../img/overview.gif" /></p>
+<p><a class="glightbox" href="../img/overview.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Web app overview" src="../img/overview.gif" /></a></p>
 <p>What you see in picture above is so called <em>web app</em> microservice. It is the
 starting point of many setups. Although incomplete, it is pretty good
 start. Other capabilities can be added as separate microservices. For example
@@ -1878,5 +1887,7 @@ grow and extend Papermerge DMS deployment environment as much as you like.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

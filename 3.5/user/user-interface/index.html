@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1769,7 +1778,7 @@ is divided into four areas:</p>
 <li>User Menu - contains user preferences, API tokens and other menu items.</li>
 <li>Commander Panel - or Commander - area for browsing documents and folders</li>
 </ol>
-<p><img alt="ui layout" src="ui-layout.jpg" /></p>
+<p><a class="glightbox" href="ui-layout.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ui layout" src="ui-layout.jpg" /></a></p>
 <h2 id="dual-panel-mode">Dual Panel Mode</h2>
 <p>Commander (in figure 1. marked with number 4.) is designed to have
 similar look and feel of modern desktop file browsers. This is the place
@@ -1779,12 +1788,12 @@ there is a special mode - <em>dual panel model</em>. In dual panel mode there
 are two panels displayed side by side. Between two panels documents (as well
 as folders and pages) can be moved with one simple drag'n drop. Figure
 below shows how dual panel mode looks like:</p>
-<p><img alt="dual panel mode" src="../../img/user-manual/ui/ui-dual-panel-mode.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/ui-dual-panel-mode.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dual panel mode" src="../../img/user-manual/ui/ui-dual-panel-mode.svg" /></a></p>
 <p>In order to switch to dual panel mode, use Commander's upper right button:</p>
-<p><img alt="switch to dual panel mode" src="../../img/user-manual/ui/switch-to-dual-panel-mode.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/switch-to-dual-panel-mode.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="switch to dual panel mode" src="../../img/user-manual/ui/switch-to-dual-panel-mode.svg" /></a></p>
 <p>To switch back to single panel mode, use close button - which is in the upper right
 corner of one of the panels:</p>
-<p><img alt="close right panel" src="../../img/user-manual/ui/close-right-panel.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/close-right-panel.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="close right panel" src="../../img/user-manual/ui/close-right-panel.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="language-text highlight"><pre><span></span><code>Close button will be displayed only on one of the panels.
@@ -1798,21 +1807,21 @@ opens and closes i.e. the one with &quot;close button&quot; in upper right corne
 <p>Commander or Commander Panel is one of the two available panels. Commander is
 the panel which shows documents and folders - modern web based file browser if
 you will.</p>
-<p><img alt="commander" src="../../img/user-manual/ui/one_commander.svg" /></p>
-<p><img alt="two commanders" src="../../img/user-manual/ui/two_commanders.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/one_commander.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="commander" src="../../img/user-manual/ui/one_commander.svg" /></a></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/two_commanders.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="two commanders" src="../../img/user-manual/ui/two_commanders.svg" /></a></p>
 <h2 id="viewer">Viewer</h2>
 <p>Viewer or Viewer Panel or Document Viewer is one of the two available panels.
 Viewer is the panel in which document is opened.</p>
-<p><img alt="one viewer" src="../../img/user-manual/ui/one_viewer.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/one_viewer.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one viewer" src="../../img/user-manual/ui/one_viewer.svg" /></a></p>
 <p>There can be two Viewers opened side by side. This mode (i.e. dual panel mode
 with a Viewer in each panel) is very handy when it comes to moving
 pages between documents.</p>
-<p><img alt="two viewers" src="../../img/user-manual/ui/two_viewers.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/two_viewers.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="two viewers" src="../../img/user-manual/ui/two_viewers.svg" /></a></p>
 <h2 id="thumbnails-panel">Thumbnails Panel</h2>
 <p>Document viewer features a thumbnails panel which can be toggles on and off.
 Pages can be selected only inside thumbnails panel; also pages can be
 dragged/dropped only from thumbnails panel.</p>
-<p><img alt="thumbnails panel" src="../../img/user-manual/ui/thumbnails_panel.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ui/thumbnails_panel.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="thumbnails panel" src="../../img/user-manual/ui/thumbnails_panel.svg" /></a></p>
 
 
 
@@ -1918,5 +1927,7 @@ dragged/dropped only from thumbnails panel.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

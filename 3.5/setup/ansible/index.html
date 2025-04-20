@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1820,7 +1829,7 @@
 engine on target host. All services will be deployed as docker containers.
 All services will be placed behind traefik, reverse proxy
 which will take care of TLS certficates.</p>
-<p><img alt="" src="../../img/setup/ansible/production.svg" /></p>
+<p><a class="glightbox" href="../../img/setup/ansible/production.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/setup/ansible/production.svg" /></a></p>
 <p>Choose one of following options:</p>
 <ul>
 <li>option 1: install Papermerge with PostgreSQL database</li>
@@ -1991,5 +2000,7 @@ means that <code>database_url</code> should point to pgbouncer.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

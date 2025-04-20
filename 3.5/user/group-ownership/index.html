@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1788,16 +1797,16 @@ folders: her own and home folder of <code>HR</code> department. In her own priva
 folder she has her private documents, among others a folder titled "Lila Hobby".
 In <code>HR</code> home folder she can access, view, change, upload/download as well as delete at
 her heart's will - <code>HR</code> department's documents.</p>
-<p><img alt="Lila and HR folder" src="lila-and-hr-folder.gif" /></p>
+<p><a class="glightbox" href="lila-and-hr-folder.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Lila and HR folder" src="lila-and-hr-folder.gif" /></a></p>
 <p>User <code>hana</code> is also part of <code>HR</code> department. She also has full access to <code>HR</code> <code>home</code>
 folder. <code>hana</code>'s private home folder is empty.</p>
-<p><img alt="Hana and HR folder" src="hana-and-hr-folder.gif" /></p>
+<p><a class="glightbox" href="hana-and-hr-folder.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hana and HR folder" src="hana-and-hr-folder.gif" /></a></p>
 <p>Both <code>hana</code> and <code>lila</code> are full owners of every document and folder found in <code>HR</code> home.</p>
 <p>Both users see <code>HR</code> <code>home</code> folder in the drop-down menu because they are both
 part of <code>HR</code> group and <code>HR</code> group was created with
 "special folder" checked.</p>
-<p><img alt="HR group edit" src="hr-group-edit.svg" /></p>
-<p><img alt="HR group view" src="hr-group-view.svg" /></p>
+<p><a class="glightbox" href="hr-group-edit.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="HR group edit" src="hr-group-edit.svg" /></a></p>
+<p><a class="glightbox" href="hr-group-view.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="HR group view" src="hr-group-view.svg" /></a></p>
 <h2 id="implicit-ownership-transfer">Implicit Ownership Transfer</h2>
 <p>Everything placed in group's <code>home</code> or <code>inbox</code> folder will be automatically
 owned by that group. For example if user <code>lila</code> uploads new document
@@ -1818,11 +1827,11 @@ group, you need to move that document (or folder) from your private
 <p>In this example, <code>lila</code> is moving document initially belonging to <code>HR</code> team to
 her private folder. You can see that <code>Owner</code> field automatically changes from
 <code>lila</code> to <code>HR</code>.</p>
-<p><img alt="Ownership transfer from group to private" src="ownership-transfer-from-group-to-private.gif" /></p>
+<p><a class="glightbox" href="ownership-transfer-from-group-to-private.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Ownership transfer from group to private" src="ownership-transfer-from-group-to-private.gif" /></a></p>
 <p>In this example, it is other way around: <code>lila</code> is moving document initially
 belonging to her team to <code>HR</code> folder. You can see that <code>Owner</code> field
 automatically changes from <code>HR</code> to <code>lila</code>.</p>
-<p><img alt="Ownership transfer from private to group" src="ownership-transfer-from-private-to-group.gif" /></p>
+<p><a class="glightbox" href="ownership-transfer-from-private-to-group.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Ownership transfer from private to group" src="ownership-transfer-from-private-to-group.gif" /></a></p>
 
 
 
@@ -1928,5 +1937,7 @@ automatically changes from <code>HR</code> to <code>lila</code>.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

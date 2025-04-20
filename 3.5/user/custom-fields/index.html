@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1818,7 +1827,7 @@ who issued the receipt and the amount (price, monetary value) on it.</p>
 <p>Custom fields are also known as "metadata". In following documentation
 we will use terms "custom fields" and "metadata" interchangeable</p>
 </div>
-<p><img alt="Custom fields example" src="../img/custom-fields/custom-fields.svg" /></p>
+<p><a class="glightbox" href="../img/custom-fields/custom-fields.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Custom fields example" src="../img/custom-fields/custom-fields.svg" /></a></p>
 <p>This information, date, shop, total amount, can be attached to the document.</p>
 <p>In illustration above "amount = 17,96 EUR" - that is essentially a custom field with a value.
 Custom fields have a name. Name of the field in last example is "amount".
@@ -1828,7 +1837,7 @@ Custom fields have also a value associated.</p>
 <p>Seeing these concepts in action will help.
 Let's create three custom fields: one of type "date", one "monetary" type
 and one of type "text":</p>
-<p><img alt="Create custom fields" src="../img/custom-fields/create-custom-fields.gif" /></p>
+<p><a class="glightbox" href="../img/custom-fields/create-custom-fields.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create custom fields" src="../img/custom-fields/create-custom-fields.gif" /></a></p>
 <p>With custom fields created, they can now be assigned to the documents. The
 key point here, is that you never assign custom fields directly to the document.
 Instead, you assign them via document types.
@@ -1840,19 +1849,19 @@ It is four step process:</p>
 <li>Assign document to the document type</li>
 </ol>
 <p>We already did step 1. Let's quickly do 2. and 3:</p>
-<p><img alt="Create document type with custom fields" src="../img/custom-fields/create-document-type.gif" /></p>
+<p><a class="glightbox" href="../img/custom-fields/create-document-type.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create document type with custom fields" src="../img/custom-fields/create-document-type.gif" /></a></p>
 <p>Lastly, step 4: let's assign document to the document type "Receipt".
 Because document type "Receipt" has custom fields associated, if you
 assign any document to "Receipt" category - it will automatically
 show "Receipt" custom fields. An animated gif show this in action:</p>
-<p><img alt="Assign document types" src="../img/custom-fields/assign-document-types.gif" /></p>
+<p><a class="glightbox" href="../img/custom-fields/assign-document-types.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Assign document types" src="../img/custom-fields/assign-document-types.gif" /></a></p>
 <h2 id="custom-field-values">Custom Field Values</h2>
 <p>What is great about custom fields feature is that you can list all documents
 along with their custom field values - this opens new insights
 into the "structure" of all of your documents.
 This is very powerful feature. But before we see it in action, let's
 fill in values for couple of receipts:</p>
-<p><img alt="Fill in custom field values" src="../img/custom-fields/fill-in-cfv.gif" /></p>
+<p><a class="glightbox" href="../img/custom-fields/fill-in-cfv.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fill in custom field values" src="../img/custom-fields/fill-in-cfv.gif" /></a></p>
 <p>You need to do that for all your receipts.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1868,9 +1877,9 @@ of custom field values. Stay tuned! <img alt="🫡" class="twemoji" src="https:/
 </ul>
 <p>If you want to preview documents while list "document type" view, then you need to <strong>hold
 "Ctrl" key pressed while clicking on document's titles</strong>.</p>
-<p><img alt="List documents by type" src="../img/custom-fields/list-documents-by-type.gif" /></p>
+<p><a class="glightbox" href="../img/custom-fields/list-documents-by-type.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="List documents by type" src="../img/custom-fields/list-documents-by-type.gif" /></a></p>
 <p>Following illustration shows how to switch back and forth between "document type" and "tiles" views:</p>
-<p><img alt="Switch views" src="../img/custom-fields/switch-views.gif" /></p>
+<p><a class="glightbox" href="../img/custom-fields/switch-views.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Switch views" src="../img/custom-fields/switch-views.gif" /></a></p>
 <h2 id="custom-field-types">Custom Field Types</h2>
 <h3 id="monetary">Monetary</h3>
 <h3 id="date">Date</h3>
@@ -1981,5 +1990,7 @@ of custom field values. Stay tuned! <img alt="🫡" class="twemoji" src="https:/
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

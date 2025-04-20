@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1661,7 +1670,7 @@ passwords, 2FA etc. In our case it will be <a href="https://www.authelia.com/">A
 <p>Papermerge DMS will receive only information about already authenticated
 users via HTTP headers. The name of respective headers usually starts
 with "Remote", hence the name "Remote User" authentication.</p>
-<p><img alt="Authelia Papermerge" src="../../../img/auth/remote-user/authelia-papermerge.svg" /></p>
+<p><a class="glightbox" href="../../../img/auth/remote-user/authelia-papermerge.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Authelia Papermerge" src="../../../img/auth/remote-user/authelia-papermerge.svg" /></a></p>
 <p>With this approach there is no more Papermerge DMS own login view. Authelia
 takes over entirely login screen part as well. In other words
 Papermerge DMS does not participate in authentication process at all, it
@@ -1773,5 +1782,7 @@ will just receive the ready user ID (plus some extra info) via HTTP header.</p>
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

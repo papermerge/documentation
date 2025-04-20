@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1917,7 +1926,7 @@ documents you uploaded (because you own the documents uploaded by you).</p>
 Although many scanners have automatic "remove blank pages" feature, many
 times they get confused of what a blank page is. In case your scans end up
 with undesired blank pages you can easily remove those pages.</p>
-<p><img alt="delete page" src="../../img/user-manual/page-management/delete-page.png" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/delete-page.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="delete page" src="../../img/user-manual/page-management/delete-page.png" /></a></p>
 <p>In order to delete a page, you need to select desired page by clicking on it,
 then <code>Right Click--&gt; Delete Page</code>.</p>
 <p>Every time you delete one or several pages, document version is incremented by
@@ -1925,29 +1934,29 @@ one. For instance if document Invoice-X56.pdf currently has four pages and
 the document latest version is version 1, then, after deleting one page -
 document latest version will be 2. Thus document's version 1 has all four
 pages and document version 2 has three pages:</p>
-<p><img alt="delete-page-versioning" src="../../img/user-manual/page-management/delete-page-versioning.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/delete-page-versioning.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="delete-page-versioning" src="../../img/user-manual/page-management/delete-page-versioning.svg" /></a></p>
 <h2 id="reorder">Reorder</h2>
 <p>Out of order pages occur very often during scanning process. Papermerge DMS
 empowers users to change pages order within the document.</p>
 <p>For instance, in figure below you can see that pages 2 and 4 are out of place.
 To correct pages' order use drag 'n drop. For example grab page 2 and drop it
 in correct position, and then do same thing with page 3:</p>
-<p><img alt="page-ordering-demo" src="../../img/user-manual/page-management/page-ordering-demo.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/page-ordering-demo.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="page-ordering-demo" src="../../img/user-manual/page-management/page-ordering-demo.gif" /></a></p>
 <p>For these changes to take effect you need to click 'Apply Changes' button.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Document pages reorder will only be saved when you click 'Apply Changes'</p>
 </div>
-<p><img alt="apply changes button" src="../../img/user-manual/page-management/apply-changes-button.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/apply-changes-button.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="apply changes button" src="../../img/user-manual/page-management/apply-changes-button.svg" /></a></p>
 <p>Similarly to deleting pages, every time you save new pages order, document
 version will be incremented (i.e. advanced by one).</p>
-<p><img alt="order pages versioning" src="../../img/user-manual/page-management/order-page-versioning.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/order-page-versioning.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="order pages versioning" src="../../img/user-manual/page-management/order-page-versioning.svg" /></a></p>
 <h2 id="rotate">Rotate</h2>
 <p>Often scanned pages are upside down or maybe rotated 90° (degrees). In order to
 quickly fix that, select one or multiple pages you want to rotate and then
 <code>Right Click --&gt; Rotate --&gt; 180° CCW</code> (or 90°
 CW, 90° CCW depending on your specific case):</p>
-<p><img alt="rotate page" src="../../img/user-manual/page-management/rotate-page.png" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/rotate-page.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rotate page" src="../../img/user-manual/page-management/rotate-page.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>CW stand for <em>clockwise</em>. CCW stands for <em>counter-clockwise</em>.</p>
@@ -1975,8 +1984,8 @@ move strategies:</p>
 <li>Append to target</li>
 </ol>
 <p>The outcome between replace vs append strategies is illustrated below:</p>
-<p><img alt="move replace" src="../../img/user-manual/page-management/move_replace.svg" /></p>
-<p><img alt="move append" src="../../img/user-manual/page-management/move_append.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/move_replace.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="move replace" src="../../img/user-manual/page-management/move_replace.svg" /></a></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/move_append.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="move append" src="../../img/user-manual/page-management/move_append.svg" /></a></p>
 <p>The difference is outcome of the B.pdf (target). With replace strategy, the
 document B.pdf ended up having two pages (which replaced previous ones),
 while with append strategy the document B.pdf ended up with four pages as
@@ -2017,7 +2026,7 @@ In other words, "move" menu item will be visible only if:</p>
 <li>both panels are in :ref:<code>viewer mode &lt;Viewer&gt;</code></li>
 <li>there is at least one page selected</li>
 </ol>
-<p><img alt="move pages context menu" src="../../img/user-manual/page-management/move_pages_context_menu.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/move_pages_context_menu.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="move pages context menu" src="../../img/user-manual/page-management/move_pages_context_menu.svg" /></a></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <div class="language-text highlight"><pre><span></span><code>The arrow next to the &quot;Move&quot; menu item changes direction depending in which
@@ -2025,7 +2034,7 @@ panel you invoke context menu - it hints direction of the pages transfer.
 Arrow icon of the &quot;Move&quot; item always **points from source to target**.
 </code></pre></div>
 </div>
-<p><img alt="arrow in context menu" src="../../img/user-manual/page-management/arrow-in-context-menu.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/arrow-in-context-menu.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="arrow in context menu" src="../../img/user-manual/page-management/arrow-in-context-menu.svg" /></a></p>
 <h3 id="drag-n-drop">Drag 'n Drop</h3>
 <p>In example illustrated in pictures below there are two documents:</p>
 <ul>
@@ -2041,7 +2050,7 @@ In example above, page B1 is strayed page.
 </div>
 <p>In order to fix this scanning issue, you need open documents in two panels and
 then drag 'n drop page B1 from document A (source) to document B (target):</p>
-<p><img alt="move pages demo" src="../../img/user-manual/page-management/move-pages-demo.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/move-pages-demo.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="move pages demo" src="../../img/user-manual/page-management/move-pages-demo.gif" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="language-text highlight"><pre><span></span><code>Pages are moved immediately after &#39;mouse drop&#39; i.e. there
@@ -2087,11 +2096,11 @@ all of the following conditions are true:</p>
 <li>One of the panels is in <code>viewer mode</code> while another is in <code>commander mode</code></li>
 <li>There is at least one page selected</li>
 </ol>
-<p><img alt="extract pages context menu" src="../../img/user-manual/page-management/extract-pages-context-menu.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/extract-pages-context-menu.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="extract pages context menu" src="../../img/user-manual/page-management/extract-pages-context-menu.svg" /></a></p>
 <p>After you've clicked "Extract", the "Extract Pages" modal dialog will prompt you
 for additional details like title of the newly created document(s) and if you want
 to extract all pages as you or multiple documents:</p>
-<p><img alt="extract page context menu" src="../../img/user-manual/page-management/extract-pages-modal.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/extract-pages-modal.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="extract page context menu" src="../../img/user-manual/page-management/extract-pages-modal.svg" /></a></p>
 <p>A couple of notes here. First, newly created document will have
 extension ".pdf", you cannot change that. Second, if "Extract each page into
 separate document" is checked, each pages will be, obviously enough,
@@ -2115,10 +2124,10 @@ cases:</p>
 <li>Both pages B1 and B2 are extracted into one single new document (two page document)</li>
 <li>Both pages B1 and B2 are extracted into multiple (new) single page documents.</li>
 </ol>
-<p><img alt="" src="../../img/user-manual/page-management/extract-pages-as-multi-doc-demo.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/extract-pages-as-multi-doc-demo.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/page-management/extract-pages-as-multi-doc-demo.gif" /></a></p>
 <p>In order to extract pages B1 and B2 into one single new document you need to uncheck
 'Extract each page into separate document' checkbox in modal dialog:</p>
-<p><img alt="" src="../../img/user-manual/page-management/extract-pages-as-single-doc-demo.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/extract-pages-as-single-doc-demo.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/page-management/extract-pages-as-single-doc-demo.gif" /></a></p>
 <p>Similarly to other operations document A's (source document) version is
 incremented by one.</p>
 <h2 id="ocr-data">OCR Data</h2>
@@ -2173,7 +2182,7 @@ fruits.pdf document (from Inbox). After 'apples' page was extracted into
 separate document (found in Home/My Documents folder) search term 'apples'
 correctly reveals new document! Notice here that search index is updated
 instantaneously:</p>
-<p><img alt="" src="../../img/user-manual/page-management/ocr-data-up-to-date.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/page-management/ocr-data-up-to-date.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/page-management/ocr-data-up-to-date.gif" /></a></p>
 
 
 
@@ -2279,5 +2288,7 @@ instantaneously:</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

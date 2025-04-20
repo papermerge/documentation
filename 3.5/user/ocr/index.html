@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1831,15 +1840,15 @@ The status indicates has following meanings:</p>
 <li>green check - document's OCR process completed successfully and document is now searchable (figure 4)</li>
 <li>red cross - document's OCR process failed.</li>
 </ul>
-<p><img alt="" src="../../img/user-manual/ocr/unknown.png" />
-<img alt="" src="../../img/user-manual/ocr/pending.png" />
-<img alt="" src="../../img/user-manual/ocr/in-progress.png" />
-<img alt="" src="../../img/user-manual/ocr/complete.png" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ocr/unknown.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/unknown.png" /></a>
+<a class="glightbox" href="../../img/user-manual/ocr/pending.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/pending.png" /></a>
+<a class="glightbox" href="../../img/user-manual/ocr/in-progress.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/in-progress.png" /></a>
+<a class="glightbox" href="../../img/user-manual/ocr/complete.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/complete.png" /></a></p>
 <h2 id="ocred-text-layer">OCRed Text Layer</h2>
 <p>Once OCR process completed successfully a new document version is created -
 version with OCRed text layer. This version is available for download from
 the <code>Download</code> dropdown in document view.</p>
-<p><img alt="" src="../../img/user-manual/ocr/download-dropdown.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ocr/download-dropdown.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/download-dropdown.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Under the hood Papermerge DMS uses awesome <a href="https://ocrmypdf.readthedocs.io/en/latest/" class="external-link" target="_blank">OCRmyPDF</a> utility to create
@@ -1849,21 +1858,21 @@ the <code>Download</code> dropdown in document view.</p>
 <h2 id="document-ocred-text">Document OCRed Text</h2>
 <p>You can view OCRed text of the entire document either from <a href="../user-interface/#commander">commander</a> or from <a href="../user-interface/#viewer">viewer</a>,
 in both cases choose "OCRed Text" from context menu:</p>
-<p><img alt="" src="../../img/user-manual/ocr/commander-ocred-text-entire-document.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ocr/commander-ocred-text-entire-document.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/commander-ocred-text-entire-document.svg" /></a></p>
 <p>If you want to see OCRed text of entire document (to be exact - all pages of the last document version) from
 the viewer - just make sure that no pages are selected:</p>
-<p><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-entire-document.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ocr/viewer-ocred-text-entire-document.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-entire-document.svg" /></a></p>
 <h2 id="selected-pages-ocred-text">Selected Pages OCRed Text</h2>
 <p>In case document has many pages and you are interested in OCRed text of one
 (or multiple) very specific pages, then select pages first and then from
 context menu choose "OCRed Text" item:</p>
-<p><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-selected-page.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ocr/viewer-ocred-text-selected-page.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-selected-page.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In case there are selected pages, OCRed Text menu item will show you OCRed
   text ONLY of the selected pages.</p>
 </div>
-<p><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-one-page-modal.png" /></p>
+<p><a class="glightbox" href="../../img/user-manual/ocr/viewer-ocred-text-one-page-modal.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/ocr/viewer-ocred-text-one-page-modal.png" /></a></p>
 <h2 id="ocr-languages-support">OCR Languages Support</h2>
 <p>Papermerge DMS uses <a href="https://github.com/tesseract-ocr/tesseract" class="external-link" target="_blank">Tesseract</a> to
 extract text from scanned documents. Tesseract supports over 130 languages -
@@ -1973,5 +1982,7 @@ thus with Papermerge DMS you can have documents in any of those languages.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

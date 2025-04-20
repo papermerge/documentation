@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1762,7 +1771,7 @@ target have two pages.</p>
 version created (v2) and <strong>new version contains only source pages</strong> (BS1 and
 BS2). Previous pages of scan_d.pdf document (D1, D2) are still available in
 version 1 (v1 in figure) of the document.</p>
-<p><img alt="" src="../../img/user-manual/merge-documents/total_merge_I.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/merge-documents/total_merge_I.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/merge-documents/total_merge_I.svg" /></a></p>
 <p>This use case is useful when you scan same document twice and for some reason
 you want to keep both copies around. Because both copies contain slightly
 different versions of the same document, it is more practical to keep them as
@@ -1776,7 +1785,7 @@ target have two pages.</p>
 version created (v2) and new version contains now four pages: BS1, BS2, D1,
 D2. Previous version of scan_d.pdf document (v1) has contains two pages: D1
 and D2.</p>
-<p><img alt="" src="../../img/user-manual/merge-documents/total_merge_II.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/merge-documents/total_merge_II.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/merge-documents/total_merge_II.svg" /></a></p>
 <p>This scenario is special case of 'moving pages' between documents with all pages
 selected on the source. How to use Papermerge DMS in this scenario is
 described in detail in <a href="../page-management/#move-document-to-document">Moving Pages</a> section.</p>
@@ -1791,7 +1800,7 @@ how you can merge document with Papermerge DMS.</p>
 <h2 id="dual-panel">Dual Panel</h2>
 <p>In order to merge two documents in Papermerge DMS you need to open each of them in two
 panels:</p>
-<p><img alt="" src="../../img/user-manual/merge-documents/dual_panel.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/merge-documents/dual_panel.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/merge-documents/dual_panel.gif" /></a></p>
 <p>In one of the panels, the one which you want to be the source, right click the
 mouse button to open the context menu.</p>
 <div class="admonition important">
@@ -1799,7 +1808,7 @@ mouse button to open the context menu.</p>
 <p><em>Merge Documents</em> context menu item will be displayed only if
 there are no selected pages.</p>
 </div>
-<p><img alt="" src="../../img/user-manual/merge-documents/context-menu.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/merge-documents/context-menu.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/merge-documents/context-menu.svg" /></a></p>
 <p>In Figure 3, notice the direction of the arrow icon just before "Merge
 Document". The arrow icon points from source to the target. In Figure 3,
 context menu was opened in left panel, this means that document opened in
@@ -1809,7 +1818,7 @@ left - which also implies that in such case document opened in the right
 panel would be the source.</p>
 <p>Click the "Merge Document" context menu item. After you confirm the operation,
 the source document (better_scan.pdf) will be merged with scan_d.pdf.</p>
-<p><img alt="" src="../../img/user-manual/merge-documents/merge_demo.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/merge-documents/merge_demo.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/merge-documents/merge_demo.gif" /></a></p>
 
 
 
@@ -1915,5 +1924,7 @@ the source document (better_scan.pdf) will be merged with scan_d.pdf.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

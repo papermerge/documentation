@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1770,7 +1779,7 @@
 <p>With OIDC, the accounts registration, authentication, accounts management
 (e.g. password management), is offloaded from the shoulders of the app to
 separate entity - <strong>identity provider</strong>.</p>
-<p><img alt="One Identity Provider" src="../../../img/auth/oidc/one-ip-many-apps.svg" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/one-ip-many-apps.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="One Identity Provider" src="../../../img/auth/oidc/one-ip-many-apps.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>"Authenticate" means same as "sign in", "login".
@@ -1788,7 +1797,7 @@ I think couple of illustration will clear the waters.</p>
 <p>First, in order to authenticate, OIDC enabled app (Papermerge DMS) will
 redirect user to OIDC provider sign in page. On successful authentication
 Papermerge DMS receives a token - so called jwt token.</p>
-<p><img alt="One Identity Provider" src="../../../img/auth/oidc/auth-process.svg" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/auth-process.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="One Identity Provider" src="../../../img/auth/oidc/auth-process.svg" /></a></p>
 <p>In above illustration, for step 1 -&gt; 2 to work <code>PAPERMERGE__AUTH__OIDC_AUTHORIZE_URL</code> setting
 is employed. For step 2 -&gt; 3 to work <code>PAPERMERGE__AUTH__OIDC_REDIRECT_URL</code> is used.</p>
 <p>The trophy, which Papermerge DMS receives from identity provider for
@@ -1813,8 +1822,8 @@ contain valid JWT token - it is denied access to the app.</p>
 it is not expired and maybe some other checks specific to identity provider.</p>
 </div>
 <p>Following illustrations depict what happens with incoming requests:</p>
-<p><img alt="HTTP Request Access Granted" src="../../../img/auth/oidc/request-access-granted.svg" /></p>
-<p><img alt="HTTP Request Access Denied" src="../../../img/auth/oidc/request-access-denied.svg" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/request-access-granted.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="HTTP Request Access Granted" src="../../../img/auth/oidc/request-access-granted.svg" /></a></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/request-access-denied.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="HTTP Request Access Denied" src="../../../img/auth/oidc/request-access-denied.svg" /></a></p>
 <p>Inside Papermerge DMS there is a "guard" which, for every incoming
 request, asks identity provider if respective HTTP request is valid or not.
 If identity provider says that JWT token is valid - request is permitted to pass,
@@ -1854,7 +1863,7 @@ Group &lt;-&gt; Permissions association is accomplished on Papermerge DMS side.<
 the Papermerge DMS side, user gains all permissions of the groups they
 were assigned.</p>
 <p>Users, groups, permissions entities relations can be illustrated as in following picture:</p>
-<p><img alt="Users Groups Permissions" src="../../../img/auth/oidc/users-groups-permissions.svg" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/users-groups-permissions.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Users Groups Permissions" src="../../../img/auth/oidc/users-groups-permissions.svg" /></a></p>
 
 
 
@@ -1960,5 +1969,7 @@ were assigned.</p>
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

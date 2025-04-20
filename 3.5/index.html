@@ -53,7 +53,16 @@
     
     
     
-  </head>
+   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1668,7 +1677,7 @@ it has very powerful DMS features: document versioning, custom fields, path
 templates, OCR, full text search, users and permissions management.</p>
 <p>It supports PDF, TIFF, JPEG and PNG document file formats. Papermerge DMS is
 perfect tool for long term storage of your documents.</p>
-<p><img alt="Papermerge screenshot" src="img/papermerge3-3.png" /></p>
+<p><a class="glightbox" href="img/papermerge3-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Papermerge screenshot" src="img/papermerge3-3.png" /></a></p>
 <h2 id="features-highlights">Features Highlights</h2>
 <ul>
 <li>Supports PDF, TIFF, JPEG, PNG file formats</li>
@@ -1810,5 +1819,7 @@ as document.</p>
       <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

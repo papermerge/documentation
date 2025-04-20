@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2010,7 +2019,7 @@ because administrative user will login with password managed in Keycloak (in our
 <p><code>PAPERMERGE__AUTH__OIDC_REDIRECT_URL</code> should match "Valid redirect URIs" from Step 3 and it should be of
 format: <code>[http|https]://&lt;papermerge-instance-domain&gt;/oidc/callback</code>.</p>
 <h3 id="step-5-login-as-superuser">Step 5 - Login as Superuser</h3>
-<p><img alt="Login as superuser" src="../../../img/auth/oidc/login-as-bender.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/login-as-bender.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Login as superuser" src="../../../img/auth/oidc/login-as-bender.gif" /></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There is a known issue that after successful login - "sign in" view is still shown.
@@ -2029,14 +2038,14 @@ but view/create/delete for users/groups.</p>
 <h3 id="step-1-create-group-in-papermerge">Step 1 - Create Group in Papermerge</h3>
 <p>First we need to create group, named "family", with desired set of
 permissions. You do this in Papermerge DMS with user "bender".</p>
-<p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/add-family-group.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Group names in Keycloak and in Papermerge DMS should match.</p>
 </div>
 <h3 id="step-2-add-user">Step 2 - Add User</h3>
 <p>Create user "leela" in Keycloak and add her to group "family".</p>
-<p><img alt="Add user and assign o group" src="../../../img/auth/oidc/add-user-and-group-in-keycloak.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/add-user-and-group-in-keycloak.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add user and assign o group" src="../../../img/auth/oidc/add-user-and-group-in-keycloak.gif" /></a></p>
 <h3 id="step-3-configure-groups-claim">Step 3 - Configure "groups" Claim</h3>
 <p>By default Keycloak creates JWT token without "groups" claim.
 We need to add "groups" claim to the JWT token. While adding it <strong>make sure you uncheck "Full group path"</strong>:
@@ -2047,13 +2056,13 @@ Clients -&gt; papermerge -&gt; Client Scopes -&gt; papermerge-dedicated -&gt; Ad
 <li>Token Claim Name: "groups"  (it must be plural!)</li>
 <li>Uncheck "Full group path"  (important!)</li>
 </ul>
-<p><img alt="Add groups claim" src="../../../img/auth/oidc/add-groups-claim.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/add-groups-claim.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add groups claim" src="../../../img/auth/oidc/add-groups-claim.gif" /></a></p>
 <h3 id="step-4-login-as-leela">Step 4 - Login as "leela"</h3>
 <p>Leela's password is managed by Keycloak. In Keycloak You can go to Users -&gt; leela -&gt; Credentials
 to change her password.</p>
 <p>Login with as leela in Papermerge DMS. Notice that "users" and "groups" tabs on the left side bar are
 not visible, as leela does not have permissions to manage users and groups.</p>
-<p><img alt="login as leela" src="../../../img/auth/oidc/leela.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/leela.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="login as leela" src="../../../img/auth/oidc/leela.gif" /></a></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>While troubleshooting you may want to see the actual JWT token. For that right
 click -&gt; Inspect -&gt; Application -&gt; Cookies
@@ -2164,5 +2173,7 @@ click -&gt; Inspect -&gt; Application -&gt; Cookies
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

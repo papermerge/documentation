@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1865,7 +1874,7 @@ above mentioned domains (and takes care of the certs) and proxy passes
 the requests to the locally running Papermerge DMS or Authelia.</p>
 <p>Local Authelia will run on <code>127.0.0.1:9091</code> and local Papermerge DMS will
 run on <code>127.0.0.1:12000</code>.</p>
-<p><img alt="Nginx Authelia Papermerge" src="../../../img/auth/remote-user/nginx-authelia-papermerge.svg" /></p>
+<p><a class="glightbox" href="../../../img/auth/remote-user/nginx-authelia-papermerge.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Nginx Authelia Papermerge" src="../../../img/auth/remote-user/nginx-authelia-papermerge.svg" /></a></p>
 <h2 id="step-1-authelias-compose">Step 1 - Authelia's Compose</h2>
 <p>Let's start with docker compose file for Authelia:</p>
 <pre><code class="language-yaml">networks:
@@ -2202,18 +2211,18 @@ as you will be authenticating with password configured on Authelia side.</li>
 on Authelia side.</p>
 <p>Once you have all containers + nginx up and running you
 can sign in with superuser.</p>
-<p><img alt="Login as superuser" src="../../../img/auth/remote-user/bender-sign-in.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/remote-user/bender-sign-in.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Login as superuser" src="../../../img/auth/remote-user/bender-sign-in.gif" /></a></p>
 <h2 id="step-7-create-family-group">Step 7 - Create "family" Group</h2>
 <p>Once inside Papermerge DMS with superuser account, create
 "family" group. Any user from "family" group will have all
 permissions but to manage users and groups.
 In our configuration example the only user from "family" group is "leela".</p>
-<p><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/oidc/add-family-group.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add family group" src="../../../img/auth/oidc/add-family-group.gif" /></a></p>
 <h2 id="step-8-sign-in-as-leela">Step 8 - Sign In as "leela"</h2>
 <p>Sign in as "leela". Notice that for user "leela" there are no "users"
 and "groups" tab on the left side panel, as she does not have permissions to
 manage users and groups.</p>
-<p><img alt="Login as leela" src="../../../img/auth/remote-user/leela-sign-in.gif" /></p>
+<p><a class="glightbox" href="../../../img/auth/remote-user/leela-sign-in.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Login as leela" src="../../../img/auth/remote-user/leela-sign-in.gif" /></a></p>
 
 
 
@@ -2319,5 +2328,7 @@ manage users and groups.</p>
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

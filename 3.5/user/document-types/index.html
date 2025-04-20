@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1671,7 +1680,7 @@ it has a type - it can be only one type.</p>
 can be associated with only one document type.</p>
 </div>
 <p>Let's add some document types:</p>
-<p><img alt="Add document types" src="../img/document-types/add.gif" /></p>
+<p><a class="glightbox" href="../img/document-types/add.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add document types" src="../img/document-types/add.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Although a document type represents an unlimited number of documents, when deciding on a name,
@@ -1691,7 +1700,7 @@ one by one to 10 million documents is definitely not feasible. Instead, one
 can assign "Total(EUR)" and "Effective Date" custom fields to the
 category "Receipt", and then assign all documents, in one bulk operation to
 that category.</p>
-<p><img alt="Add custom fields via categories" src="../img/document-types/add-custom-fields-via-categories.gif" /></p>
+<p><a class="glightbox" href="../img/document-types/add-custom-fields-via-categories.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add custom fields via categories" src="../img/document-types/add-custom-fields-via-categories.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Use document types to assign same custom fields (or path templates)
@@ -1805,5 +1814,7 @@ of documents than to individual documents.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

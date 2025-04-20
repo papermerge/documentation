@@ -57,7 +57,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1751,13 +1760,13 @@ command line utilities and REST API.</p>
 <h2 id="web-ui">Web UI</h2>
 <p>Uploading documents via user interface is the most straightforward method, just click
 <code>upload</code> button:</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/upload-button.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/upload-documents/upload-button.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/upload-documents/upload-button.svg" /></a></p>
 <p>Documents will be uploaded into your current folder. Current folder is
 considered the one which you currently see as opened in web UI:</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/current-folder.svg" /></p>
+<p><a class="glightbox" href="../../img/user-manual/upload-documents/current-folder.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/upload-documents/current-folder.svg" /></a></p>
 <p>Also, instead of using upload button, you can drag'n drop documents from your desktop
 file manager into Papermerge DMS's web ui.</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/drag-n-drop.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/upload-documents/drag-n-drop.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/upload-documents/drag-n-drop.gif" /></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Currently drag 'n drop feature does not work for folders, in other words
@@ -1778,7 +1787,7 @@ recursively i.e. it will preserve the structure of local folder in Papermerge DM
 <p>By default all imported documents and folders will end up inside user's Inbox folder.</p>
 </div>
 <p>For more information about <code>papermerge-cli</code> check <a href="../cli/cli.md">papermerge-cli</a> section.</p>
-<p><img alt="" src="../../img/user-manual/upload-documents/upload-documents-from-local-folder.gif" /></p>
+<p><a class="glightbox" href="../../img/user-manual/upload-documents/upload-documents-from-local-folder.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/user-manual/upload-documents/upload-documents-from-local-folder.gif" /></a></p>
 <h2 id="rest-api">REST API</h2>
 <p>For uploading documents you can use directly REST API.
 You can access REST API swagger schema definition from user menu (upper right corner of the web UI).
@@ -1895,5 +1904,7 @@ created in first step.</p>
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
