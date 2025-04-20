@@ -134,3 +134,4 @@ plugins:
   - macros
   - search
   - git-revision-date-localized
+  - glightbox  # for image zooming
