@@ -163,3 +163,17 @@ he needs to choose who is the owner of "revised" tag:
 
 ## Tags and Categories Visibility
 
+Custom fields, categories and tags belonging to `HR` are visible only to
+HR team. Group owned categories can be assigned only to documents
+belonging to that group, which means that, for example, to a document
+belonging to HR team can be assigned only categories which are owned
+by HR team:
+
+![Categories dropdown](./group-ownership/category-dropdown.svg)
+
+
+Same story is with tags: if document is owned by HR, then when trying
+to assign a tag, user will see only tags belonging to HR department.
+Same with custom fields: if category belongs to HR and you try to
+assign it custom fields, then you can choose only from custom fields
+belonging to HR team.
