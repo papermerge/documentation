@@ -1660,16 +1660,6 @@
 
 
 <h1 id="sharing-documents-and-folders">Sharing Documents and Folders</h1>
-<p>In order to be able to share documents and folders, user needs to have following
-permissions:</p>
-<ul>
-<li><code>Shared Node</code> - <code>Create</code></li>
-<li><code>Shared Node</code> - <code>Update</code></li>
-<li><code>Shared Node</code> - <code>Delete</code></li>
-<li><code>Users</code> - <code>Select</code></li>
-<li><code>Groups</code> - <code>Select</code></li>
-<li><code>Roles</code> - <code>Select</code></li>
-</ul>
 <p>In the following parts of this section we will use as example
 hypothetical organization - Acme Inc.
 Acme Inc has five teams:</p>
@@ -1680,6 +1670,50 @@ Acme Inc has five teams:</p>
 <li>HR (Lila, Hana, Luke)</li>
 <li>Managers (Mark, Jane, Luke)</li>
 </ul>
+<p>In order to be able to share documents and folders, user needs to have following
+permissions:</p>
+<ul>
+<li><code>Shared Node</code> - <code>Create</code></li>
+<li><code>Shared Node</code> - <code>Update</code></li>
+<li><code>Shared Node</code> - <code>Delete</code></li>
+<li><code>Users</code> - <code>Select</code></li>
+<li><code>Groups</code> - <code>Select</code></li>
+<li><code>Roles</code> - <code>Select</code></li>
+</ul>
+<p>Thus, if <code>hana</code> from <code>HR</code> want to share a folder with user <code>david</code> from <code>Development</code> team
+she needs to have permissions mentioned above.
+But <code>hana</code> want to give <code>david</code> just read only permissions, i.e david can only view document
+and do nothing else with it.</p>
+<p>For that, system administrator needs to create in advance a role named, e.g. "Read Only Documents and Folders"
+with following permissions:</p>
+<div class="language-text highlight"><pre><span></span><code>- Nodes View
+- Pages View
+</code></pre></div>
+<p>To grant access to e.g. one of documents of the <code>HR</code> department <code>hana</code> needs
+to select respective folder and click "Share Documents and Folders" button. Then
+in "Users" dropdown she needs to pick <code>david</code> and then in "Roles" dropdown she needs
+to pick role "Read Only Documents and Folders". Then click "Save":</p>
+<p><a class="glightbox" href="../share/hana-sharing-a-folder.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../share/hana-sharing-a-folder.gif" /></a></p>
+<p>Now <code>david</code> has access to shared "Events-2025" folder:</p>
+<p><a class="glightbox" href="../share/david-accessing-hr-folder.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../share/david-accessing-hr-folder.gif" /></a></p>
+<p>In order to revoke access permissions to shared folder, <code>hana</code> needs to select respective
+shared folder, click "Manage Access" button, then select permissions she wants to revoke
+then click "Trash" button. Then click "Save":</p>
+<p><a class="glightbox" href="../share/hana-revokes-shared-folder-access.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../share/hana-revokes-shared-folder-access.gif" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Role "Read Only Documents and Folders" needs to be created in advance by
+privileged user. For accessing
+documents and folders in read-only mode it is sufficient that associated
+role these two permissions:</p>
+<div class="language-text highlight"><pre><span></span><code>- Nodes View
+- Pages View
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Role is just a set of permissions</p>
+</div>
 
 
 
@@ -1700,7 +1734,7 @@ Acme Inc has five teams:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 22, 2025</span>
   </span>
 
     
