@@ -111,6 +111,7 @@ If you set template path to `/inbox/Toto/` - it will move documents of respectiv
 
     Always start you path templates target folders with `/home/`
 
+
 Following table is a summary of cases described so far:
 
 | Path Template           | Document Title                       | Evaluation Outcome             |
@@ -120,6 +121,12 @@ Following table is a summary of cases described so far:
 | /Letters/Misc/          | zdf-love.pdf                         | /home/Letters/Misc/zdf-love.pdf|
 | Letters/Misc/           | zdf-love.pdf                         | /home/Letters/Misc/zdf-love.pdf|
 | /inbox/Taxes/           | 2021.pdf                             | /home/inbox/Taxes/2021.pdf     |
+
+
+## Group Home/Inbox
+
+In case document is owned by a group, the `home` part (or `inbox`) will be
+interpreted as group's `home` (or groups `inbox`) folders.
 
 ## Jinja2 Syntax
 
