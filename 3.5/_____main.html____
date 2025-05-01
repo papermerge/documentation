@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block announce %}
+<!-- Custom Banner -->
+  <style>
+    .md-banner {
+      background-color:#7b0000;
+    }
+    a.announce {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+
+  Version 3.5 is still in development. It will be released in May or June 2025.
+{% endblock %}
