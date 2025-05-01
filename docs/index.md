@@ -22,9 +22,9 @@ perfect tool for long term storage of your documents.
 * Document versioning
 * Custom fields
 * Document types
-* OCR - used to extract text for documents indexing
-* OCRed text overlay (you can download document with OCRed text overlay)
-* Full text search (supports multiple search engines)
+* Group ownership
+* Share documents and folders between users and/or groups of users
+* UI is available in multiple languages
 * Tags - assign colored tags to documents or folders
 * Folders - users can organize documents in folders
 * Multi-User (Users/Groups/Permissions)
@@ -32,6 +32,9 @@ perfect tool for long term storage of your documents.
 * SSO - single sign on using standard protocols such as OIDC
 * REST API
 * Page Management - delete, reorder, rotate, merge, move, extract pages
+* OCR - used to extract text for documents indexing
+* OCRed text overlay (you can download document with OCRed text overlay)
+* Full text search (supports multiple search engines)
 
 
 ## What is a Document?
