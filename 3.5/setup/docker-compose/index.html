@@ -1846,7 +1846,7 @@ production environments.</p>
 <p>Following docker compose file starts Papermerge DMS with PostgreSQL 16.1 database:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1910,7 +1910,7 @@ Papermerge DMS where to upload documents.
 Here is docker compose file:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1957,7 +1957,7 @@ volumes:
 you need to understand why is <a href="../../user/path-templates/">Path Templates</a> feature all about.</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -1973,7 +1973,7 @@ you need to understand why is <a href="../../user/path-templates/">Path Template
       - db
       - redis
   path_template_worker:
-    image: papermerge/path-tmpl-worker:0.3.2
+    image: papermerge/path-tmpl-worker:0.4
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -2020,7 +2020,7 @@ running - S3 storage is exact copy of you local media storage.</p>
 Here is docker compose file:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2036,7 +2036,7 @@ Here is docker compose file:</p>
       - db
       - redis
   path_template_worker:
-    image: papermerge/path-tmpl-worker:0.3.2
+    image: papermerge/path-tmpl-worker:0.4
     command: worker
     environment:
       PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
@@ -2107,7 +2107,7 @@ Both <code>webapp</code> and <code>s3worker</code> have access to <strong>same</
 Both webapp and OCR worker have access to the same local media storage.</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2183,7 +2183,7 @@ S3 - just pass following options:</p>
 </ul>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2272,7 +2272,7 @@ needs to listen to <code>s3</code> and <code>s3preview</code> queues i.e S3 work
 Here is a simple docker compose which uses SOLR for indexing search data.</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
@@ -2349,7 +2349,7 @@ each OCR processing OCR worker notifies I3 to update search index with newly ext
 <p>Here is docker compose yaml with both OCR and I3 workers:</p>
 <pre><code class="language-yaml">services:
   webapp:
-    image: papermerge/papermerge:3.4.1
+    image: papermerge/papermerge:3.5
     environment:
       PAPERMERGE__SECURITY__SECRET_KEY: 12345
       PAPERMERGE__AUTH__USERNAME: admin
