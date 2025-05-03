@@ -7,7 +7,7 @@ nav:
     - setup/requirements.md
     - setup/docker.md
     - setup/docker-compose.md
-    - setup/ansible.md
+    - setup/s3backend.md
     - setup/kubernetes.md
     - setup/authentification.md
     - setup/add-ocr-langs.md
