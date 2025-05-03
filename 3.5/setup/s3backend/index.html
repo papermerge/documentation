@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.5/setup/ansible/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.5/setup/s3backend/">
       
       
         <link rel="prev" href="../docker-compose/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Ansible - Papermerge DMS</title>
+        <title>S3 Backend - Papermerge DMS</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ansible" class="md-skip">
+        <a href="#s3-backend" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ansible
+              S3 Backend
             
           </span>
         </div>
@@ -422,7 +422,7 @@
           
   
   <span class="md-ellipsis">
-    Ansible
+    S3 Backend
   </span>
   
 
@@ -433,7 +433,7 @@
         
   
   <span class="md-ellipsis">
-    Ansible
+    S3 Backend
   </span>
   
 
@@ -455,63 +455,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#secrets" class="md-nav__link">
+  <a href="#documents-upload-to-s3-storage" class="md-nav__link">
     <span class="md-ellipsis">
-      Secrets
+      Documents Upload to S3 Storage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#option-1-postgresql" class="md-nav__link">
+  <a href="#content-delivery" class="md-nav__link">
     <span class="md-ellipsis">
-      Option 1 / PostgreSQL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-2-postgresql-pgbouncer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2 / PostgreSQL + PgBouncer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-3-mariadb" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 3 / MariaDB
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backup
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restore
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contribute
+      Content Delivery
     </span>
   </a>
   
@@ -1735,63 +1690,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#secrets" class="md-nav__link">
+  <a href="#documents-upload-to-s3-storage" class="md-nav__link">
     <span class="md-ellipsis">
-      Secrets
+      Documents Upload to S3 Storage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#option-1-postgresql" class="md-nav__link">
+  <a href="#content-delivery" class="md-nav__link">
     <span class="md-ellipsis">
-      Option 1 / PostgreSQL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-2-postgresql-pgbouncer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2 / PostgreSQL + PgBouncer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-3-mariadb" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 3 / MariaDB
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backup
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restore
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contribute
+      Content Delivery
     </span>
   </a>
   
@@ -1815,78 +1725,115 @@
   
 
 
-<h1 id="ansible">Ansible</h1>
-<p>Ansible playbook is available at <a href="https://github.com/papermerge/ansible">papermerge/ansible</a>.</p>
-<p>Playbook will install web app, two workers, database, Redis and Solr search
-engine on target host. All services will be deployed as docker containers.
-All services will be placed behind traefik, reverse proxy
-which will take care of TLS certficates.</p>
-<p><a class="glightbox" href="../../img/setup/ansible/production.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../img/setup/ansible/production.svg" /></a></p>
-<p>Choose one of following options:</p>
-<ul>
-<li>option 1: install Papermerge with PostgreSQL database</li>
-<li>option 2: install Papermerge with PostgreSQL + PgBouncer</li>
-<li>option 3: install Papermerge with MariaDB as database</li>
-</ul>
-<h2 id="secrets">Secrets</h2>
-<p>Ansible repository does not include secrets file.
-Secrets file contains all sensitive (paswords, api tokens) information.</p>
-<p>You need to create secrets filein <code>group_vars</code> folder:</p>
-<div class="language-text highlight"><pre><span></span><code>$ touch groups_vars/secrets
-</code></pre></div>
-<p>Place following content:</p>
-<div class="language-text highlight"><pre><span></span><code>secret_key: ...
-superuser_password: ...
-database_url: ...
-db_pass: ...
-cloudflare_api_key: ...
-traefik_api_password: ...
-</code></pre></div>
-<p>Of course you need to replace dots with correct passwords, secret_key etc.
-<a href="../../settings/database/">database_url</a> is in secrets file
-because it includes password.</p>
-<h2 id="option-1-postgresql">Option 1 / PostgreSQL</h2>
-<p>Make sure <code>database_url</code> in your secrets files matches database related
-options in <code>group_vars/all</code> (db_user, db_name). Also port number <code>database_url</code>
-should match the one in <code>db_postgres/vars/main.yml</code>.</p>
-<p><code>database_url</code> should have following format:</p>
-<div class="language-text highlight"><pre><span></span><code>postgresql://&lt;user&gt;:&lt;pass&gt;@db:5432/&lt;dbname&gt;
-</code></pre></div>
-<p>Install Papermerge DMS with PostgreSQL:</p>
-<pre><code>$ ansible-playbook install_1.yml -i inventory --extra-vars &quot;@group_vars/secrets&quot;
+<h1 id="s3-backend">S3 Backend</h1>
+<p>Papermerge DMS supports S3 backend. This means that it can store
+document files in S3 storage.</p>
+<p>There are two parts to consider here:</p>
+<ol>
+<li>Documents upload to S3 storage</li>
+<li>Content delivery i.e. serving of document files</li>
+</ol>
+<p>The second part, content delivery, is about offloading document files delivery
+from Papermerge DMS to CDN. Once files are served via CDN, <code>webapp</code>
+becomes stateless, which means you can have multiple instances of <code>webapp</code>
+and thus scale it as much as you have want.</p>
+<h2 id="documents-upload-to-s3-storage">Documents Upload to S3 Storage</h2>
+<p>This scenario is straightforward - Papermerge DMS will upload every
+document version to S3 storage. However, in this scenario
+Papermerge DMS <strong>serves documents from its local disk</strong>. This works if
+and only if you have exactly one instance of webapp.</p>
+<p>If you change document version, Papermerge DMS will upload changed version as well.
+If you delete a document, Papermerge DMS will remove deleted document
+from S3 bucket as well.</p>
+<p>This setup is useful for small deployments accessible only to couple of users on
+local network.</p>
+<div class="admonition remember">
+<p class="admonition-title">Remember</p>
+<ol>
+<li>This setup works only for one instance of <code>webapp</code></li>
+<li>In this scenario <code>webapp</code> is serving document files</li>
+</ol>
+</div>
+<p>To make this work, you need to provide to S3 worker following settings:</p>
+<pre><code>* PAPERMERGE__S3__BUCKET_NAME
+* AWS_REGION_NAME
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+* S3_WORKER_ARGS should be set to &quot;-Q s3 -c 2&quot;
 </code></pre>
-<p>Application will be accessible via https://<acme_domain>
-<code>acme_domain</code> is variable you set in <code>group_vars/all</code> e.g. trusel.net</p>
-<h2 id="option-2-postgresql-pgbouncer">Option 2 / PostgreSQL + PgBouncer</h2>
-<p>In this setup application will connect to the database via pgbouncer, this
-means that <code>database_url</code> should point to pgbouncer.</p>
-<p>Your <code>database_url</code> should look like:</p>
-<div class="language-text highlight"><pre><span></span><code>postgresql://&lt;user&gt;:&lt;pass&gt;@pgbouncer:6432/&lt;dbname&gt;
-</code></pre></div>
-<p>Install Papermerge DMS with PostgreSQL and PgBouncer:</p>
-<pre><code>$ ansible-playbook install_2.yml -i inventory --extra-vars &quot;@group_vars/secrets&quot;
+<p>Note that both <code>webapp</code> and <code>s3worker</code> need to have access same <code>PAPERMERGE__REDIS__URL</code>
+and <code>PAPERMERGE__DATABASE__URL</code>.</p>
+<p>Here is an example of docker compose file:</p>
+<pre><code class="language-yaml">services:
+  webapp:
+    image: papermerge/papermerge:3.5
+    environment:
+      PAPERMERGE__SECURITY__SECRET_KEY: &quot;random-sequence-of-characters&quot;
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: 1234
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+    ports:
+     - &quot;12000:80&quot;
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - media_root:/var/media/pmg
+  path_template_worker:
+    image: papermerge/path-tmpl-worker:0.4
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PATH_TMPL_WORKER_ARGS: &quot;-Q path_tmpl -c 2&quot;
+    depends_on:
+      - db
+      - redis
+  s3worker:
+    image: papermerge/s3worker:0.4.3
+    command: worker
+    environment:
+      PAPERMERGE__DATABASE__URL: postgresql://coco:jumbo@db:5432/pmgdb
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
+      PAPERMERGE__MAIN__MEDIA_ROOT: /var/media/pmg
+      PAPERMERGE__S3__BUCKET_NAME: p&lt;your bucket name&gt;l
+      S3_WORKER_ARGS: &quot;-Q s3 -c 2&quot;
+      AWS_REGION_NAME: eu-central-1
+      AWS_ACCESS_KEY_ID: A&lt;your value here&gt;L
+      AWS_SECRET_ACCESS_KEY: s&lt;your value here&gt;j
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - media_root:/var/media/pmg
+  db:
+    image: postgres:16.1
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: jumbo
+      POSTGRES_DB: pmgdb
+      POSTGRES_USER: coco
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  redis:
+    image: bitnami/redis:7.2
+    ports:
+      - &quot;6379:6379&quot;
+    environment:
+      ALLOW_EMPTY_PASSWORD: &quot;yes&quot;
+volumes:
+  pgdata:
+  media_root:
 </code></pre>
-<p>Application will be accessible via https://<acme_domain>
-<code>acme_domain</code> is variable you set in <code>group_vars/all</code> e.g. trusel.net</p>
-<h2 id="option-3-mariadb">Option 3 / MariaDB</h2>
-<p>For Mysql/MariaDB <code>database_url</code> should have following format:</p>
-<div class="language-text highlight"><pre><span></span><code>mysql://&lt;user&gt;:&lt;pass&gt;@db:3306/&lt;dbname&gt;
-</code></pre></div>
-<p>Install Papermerge DMS with MariaDB:</p>
-<pre><code>$ ansible-playbook install_3.yml -i inventory --extra-vars &quot;@group_vars/secrets&quot;
-</code></pre>
-<h2 id="backup">Backup</h2>
-<p>In order to create a backup:</p>
-<pre><code>$ ansible-playbook backup.yml
-</code></pre>
-<h2 id="restore">Restore</h2>
-<p>In order to restore the backup:</p>
-<pre><code>ansible-playbook restore.yml --extra-vars &quot;backup_file=/backup/backup_20_11_2023-07_33_03.tar.gz&quot;
-</code></pre>
-<p>The backup file path is the one from inside docker container.</p>
-<h2 id="contribute">Contribute</h2>
-<p><a href="https://github.com/papermerge/ansible">papermerge/ansible</a> assumes Debian12/Ubuntu 22.04 host.</p>
-<p>We are happy to accept your pull requests for other hosts.</p>
+<h2 id="content-delivery">Content Delivery</h2>
+<p>docs: work in progress</p>
 
 
 
@@ -1907,7 +1854,7 @@ means that <code>database_url</code> should point to pgbouncer.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 3, 2025</span>
   </span>
 
     
