@@ -139,4 +139,14 @@ $ pmcompose -u admin -p 1234 -lc -s3
 
 ## Content Delivery
 
-docs: work in progress
+To enable files delivery via CDN, you need to set, in `webapp`, `PAPERMERGE__MAIN__FILE_SERVER` to `s3`:
+
+`PAPERMERGE__MAIN__FILE_SERVER=s3`
+
+At this point the only CDN provider which can be used with {{extra.project}} is AWS Cloud Front.
+Besides `PAPERMERGE__MAIN__FILE_SERVER=s3`, you need to set, on `webapp`, following, cloud front specific,
+environment variables (CF=AWS Cloud Front):
+
+* `PAPERMERGE__MAIN__CF_SIGN_URL_PRIVATE_KEY`
+* `PAPERMERGE__MAIN__CF_SIGN_URL_KEY_ID`
+* `PAPERMERGE__MAIN__CF_DOMAIN`
