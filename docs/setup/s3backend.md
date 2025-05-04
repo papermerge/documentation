@@ -150,3 +150,9 @@ environment variables (CF=AWS Cloud Front):
 * `PAPERMERGE__MAIN__CF_SIGN_URL_PRIVATE_KEY`
 * `PAPERMERGE__MAIN__CF_SIGN_URL_KEY_ID`
 * `PAPERMERGE__MAIN__CF_DOMAIN`
+
+
+With above these settings all URLs to the document files will be 1. signed 2.
+pointing to cloud front domain. Each signed URL will be valid for 10 minutes.
+The key take away here is that document files will be retrieved from
+(signed URLS of) aws cloud front distribution.
