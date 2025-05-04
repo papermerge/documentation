@@ -46,7 +46,7 @@ To make this work, you need to provide to S3 worker following settings:
 Note that both `webapp` and `s3worker` need to have access same `PAPERMERGE__REDIS__URL`
 and `PAPERMERGE__DATABASE__URL`.
 
-Here is an example of docker compose file:
+In following is an example of docker compose file which features S3 backend:
 
 
 ```yaml
@@ -118,6 +118,23 @@ volumes:
   pgdata:
   media_root:
 ```
+
+
+You can use [pmcompose](https://github.com/papermerge/pmcompose) to generate docker compose
+for {{extra.project}}. To generate above configuration, use following command:
+
+```
+$ pmcompose -u admin -p 1234 -lc -s3
+```
+
+!!! Note
+
+    You can also run [pmcompose](https://github.com/papermerge/pmcompose) in iterative mode,
+    in which you will be asked configuration questions one by one:
+
+    ```
+    $ pmcompose -i
+    ```
 
 
 ## Content Delivery
