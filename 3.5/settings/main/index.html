@@ -1315,6 +1315,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#main__file_server" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__FILE_SERVER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main__cf_sign_url_private_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__CF_SIGN_URL_PRIVATE_KEY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main__cf_sign_url_key_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__CF_SIGN_URL_KEY_ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main__cf_domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__CF_DOMAIN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#main__timezone" class="md-nav__link">
     <span class="md-ellipsis">
       MAIN__TIMEZONE
@@ -1717,6 +1753,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#main__file_server" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__FILE_SERVER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main__cf_sign_url_private_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__CF_SIGN_URL_PRIVATE_KEY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main__cf_sign_url_key_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__CF_SIGN_URL_KEY_ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main__cf_domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAIN__CF_DOMAIN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#main__timezone" class="md-nav__link">
     <span class="md-ellipsis">
       MAIN__TIMEZONE
@@ -1756,6 +1828,31 @@ yaml format and it is very python specific.</p>
 <p>Example:</p>
 <div class="language-text highlight"><pre><span></span><code>  PAPERMERGE__MAIN__LOGGING_CFG=/etc/papermerge/logging.yaml
 </code></pre></div>
+<h2 id="main__file_server">MAIN__FILE_SERVER</h2>
+<p>Context: <code>webapp</code>.
+Who is serving document files? Is it <code>webapp</code> ? or CDN?
+This environment variable can have two values:</p>
+<ul>
+<li><code>local</code> (default)</li>
+<li><code>s3</code></li>
+</ul>
+<p>With <code>local</code> (which is set by default), <code>webapp</code> is the one serving document files.
+With <code>s3</code> is CDN serving document files. At this point only AWS CloudFront is supported as CDN.
+If <code>PAPERMERGE__MAIN__FILE_SERVER=s3</code> then you need to provide following environment variables:</p>
+<ul>
+<li><code>PAPERMERGE__MAIN__CF_SIGN_URL_PRIVATE_KEY</code></li>
+<li><code>PAPERMERGE__MAIN__CF_SIGN_URL_KEY_ID</code></li>
+<li><code>PAPERMERGE__MAIN__CF_DOMAIN</code></li>
+</ul>
+<h2 id="main__cf_sign_url_private_key">MAIN__CF_SIGN_URL_PRIVATE_KEY</h2>
+<p>Used only in combination with <code>PAPERMERGE__MAIN__FILE_SERVER=s3</code>.
+<code>PAPERMERGE__MAIN__CF_SIGN_URL_PRIVATE_KEY</code> is the Cloud Front private key (as string).</p>
+<h2 id="main__cf_sign_url_key_id">MAIN__CF_SIGN_URL_KEY_ID</h2>
+<p>Used only in combination with <code>PAPERMERGE__MAIN__FILE_SERVER=s3</code>.
+<code>MAIN__CF_SIGN_URL_KEY_ID</code> is the Cloud Front (CF) sign url key id.</p>
+<h2 id="main__cf_domain">MAIN__CF_DOMAIN</h2>
+<p>Used only in combination with <code>PAPERMERGE__MAIN__FILE_SERVER=s3</code>.
+<code>MAIN__CF_DOMAIN</code> is the Cloud Front (CF) domain.</p>
 <h2 id="main__timezone">MAIN__TIMEZONE</h2>
 <p>Which timezone to use.</p>
 <p>Example:</p>

@@ -1843,7 +1843,16 @@ in which you will be asked configuration questions one by one:</p>
 <p><code>$ pmcompose -i</code></p>
 </div>
 <h2 id="content-delivery">Content Delivery</h2>
-<p>docs: work in progress</p>
+<p>To enable files delivery via CDN, you need to set, in <code>webapp</code>, <code>PAPERMERGE__MAIN__FILE_SERVER</code> to <code>s3</code>:</p>
+<p><code>PAPERMERGE__MAIN__FILE_SERVER=s3</code></p>
+<p>At this point the only CDN provider which can be used with Papermerge DMS is AWS Cloud Front.
+Besides <code>PAPERMERGE__MAIN__FILE_SERVER=s3</code>, you need to set, on <code>webapp</code>, following, cloud front specific,
+environment variables (CF=AWS Cloud Front):</p>
+<ul>
+<li><code>PAPERMERGE__MAIN__CF_SIGN_URL_PRIVATE_KEY</code></li>
+<li><code>PAPERMERGE__MAIN__CF_SIGN_URL_KEY_ID</code></li>
+<li><code>PAPERMERGE__MAIN__CF_DOMAIN</code></li>
+</ul>
 
 
 
