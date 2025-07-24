@@ -21,7 +21,7 @@ perfect tool for long term storage of your documents.
 * Dual panel mode
 * Document versioning
 * Custom fields
-* Document types
+* Document types (categories)
 * Group ownership
 * Share documents and folders between users and/or groups of users
 * UI is available in multiple languages
