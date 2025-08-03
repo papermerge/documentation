@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.5/settings/redis/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.5/admin-manual/upgrade-instructions/">
       
       
-        <link rel="prev" href="../database/">
+        <link rel="prev" href="../version-matrix/">
       
       
-        <link rel="next" href="../search/">
+        <link rel="next" href="../../sso/overview/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Redis - Papermerge DMS</title>
+        <title>Upgrades - Papermerge DMS</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#redis" class="md-skip">
+        <a href="#upgrades" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Redis
+              Upgrades
             
           </span>
         </div>
@@ -915,17 +915,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -939,7 +941,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Administrator Manual
@@ -953,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../admin-manual/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../admin-manual/version-matrix/" class="md-nav__link">
+      <a href="../version-matrix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -992,10 +994,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../admin-manual/upgrade-instructions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Upgrades
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1004,6 +1026,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#353-not-yet-released" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3 (not yet released)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1274,19 +1325,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1300,7 +1349,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Settings
@@ -1314,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../settings/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1335,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/" class="md-nav__link">
+      <a href="../../settings/auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1356,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../main/" class="md-nav__link">
+      <a href="../../settings/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1377,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../../settings/security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1398,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ocr/" class="md-nav__link">
+      <a href="../../settings/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1419,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/" class="md-nav__link">
+      <a href="../../settings/database/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1437,30 +1486,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Redis
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../settings/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,35 +1498,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#redis__url" class="md-nav__link">
-    <span class="md-ellipsis">
-      REDIS__URL
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1510,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../search/" class="md-nav__link">
+      <a href="../../settings/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1531,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../s3worker/" class="md-nav__link">
+      <a href="../../settings/s3worker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1552,7 +1552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ocrworker/" class="md-nav__link">
+      <a href="../../settings/ocrworker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1573,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../i3worker/" class="md-nav__link">
+      <a href="../../settings/i3worker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1870,9 +1870,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#redis__url" class="md-nav__link">
+  <a href="#353-not-yet-released" class="md-nav__link">
     <span class="md-ellipsis">
-      REDIS__URL
+      3.5.3 (not yet released)
     </span>
   </a>
   
@@ -1896,19 +1896,17 @@
   
 
 
-<h1 id="redis">Redis</h1>
-<p>Papermerge DMS uses redis.</p>
-<h2 id="redis__url">REDIS__URL</h2>
-<p>For Redis the URL is given in following format:</p>
-<pre><code>redis://HOST:PORT/NUMBER
-</code></pre>
-<p>For example:</p>
-<pre><code>redis://redis:6379/0
-</code></pre>
+<h1 id="upgrades">Upgrades</h1>
+<p>This document describes version specific upgrade instructions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Both web_app and worker must have same <code>PAPERMERGE__REDIS__URL</code></p>
+<p>Always backup your database before performing an upgrade to next Papermerge version</p>
 </div>
+<h2 id="353-not-yet-released">3.5.3 (not yet released)</h2>
+<p>When migration from <code>3.5.2</code> to <code>3.5.3</code> make sure that you don't have in database table <code>users</code> entries with <code>home_folder_id</code> or <code>inbox_folder_id</code> columns set to NULL - in such case migration will fail. </p>
+<p>Though it was possible before 3.5.3 under certain circumstances to create users with either one or both of these two columns set to NULL, it is very unlikely that this case is relevant for you.
+In case you have some - please delete these entries (<code>DELETE users WHERE home_folder_id IS NULL OR inbox_folder_id IS NULL</code>)
+No worries about deleting user entity with NULL value for <code>home_folder_id</code> or <code>home_folder_id</code> as such entities are stale anyway - they have no documents associated and no login is possible. </p>
 
 
 
