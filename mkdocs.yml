@@ -52,6 +52,12 @@ nav:
     - settings/ocrworker.md
     - settings/i3worker.md
   - "pmdump.md"
+  - Administrator Manual:
+    - "admin-manual/overview.md"
+    - "admin-manual/version-matrix.md"
+  - Changelog:
+    - "changelog/overview.md"
+    - "changelog/3.5/3.5.3.md"
   - REST API:
     - "rest-api/overview.md"
     - "rest-api/reference.md"
