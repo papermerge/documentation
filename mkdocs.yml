@@ -30,6 +30,10 @@ nav:
     - user/group-ownership.md
     - user/roles.md
     - user/sharing.md
+  - Administrator Manual:
+    - "admin-manual/overview.md"
+    - "admin-manual/version-matrix.md"
+    - "admin-manual/upgrade-instructions.md"
   - SSO:
     - sso/overview.md
     - OIDC:
@@ -52,9 +56,6 @@ nav:
     - settings/ocrworker.md
     - settings/i3worker.md
   - "pmdump.md"
-  - Administrator Manual:
-    - "admin-manual/overview.md"
-    - "admin-manual/version-matrix.md"
   - Changelog:
     - "changelog/overview.md"
     - "changelog/3.5/3.5.3.md"
