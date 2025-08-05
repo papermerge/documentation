@@ -166,48 +166,56 @@ Really, this setup is **identical to Part 1**, just **wrapped in a nice UI**.
 
 ## Authentication Server
 
-Here I introduce one more piece of puzzle: the authentication server.
-In the end, there must be something which takes user's username
-and password and says: yes, 1. this is valid account 2. no, credentials are wrong, go away.
-That something is called "authentication server".
-The confusing part is that many web frameworks (hello, Django!) include authentication as
-part of web framework - the result is that authentication is generally perceived as part of
-the same application - and only rarely regarded as separate application.
-In {{ extra.project }} universe the "Authentication Server" is just another web application - nothing
-more nothing less.
+Now let’s introduce one more piece of the puzzle: the **Authentication Server**.
+
+At some point, there must be a component that takes a username and password and responds with one of two answers:
+
+1. ✅ Yes – the credentials are valid, the user is authenticated.
+2. ❌ No – the credentials are invalid, access denied.
+
+That component is the **authentication server**.
+
+A common source of confusion is that many web frameworks (looking at you, Django!) bundle authentication logic into the framework itself. This leads to a general assumption that authentication is just part of the app—not a standalone service.
+
+In the **{{ extra.project }}** universe, the **Authentication Server is a separate web application.**
 
 !!! Remember
+        
+    ❗️ **Authentication Server is just another web application** ❗️
 
-    Authentication server is just another web application
+Typically, the Authentication Server displays a login form where users can enter their credentials. If the combination of username and password is valid, the server responds with a **JWT (JSON Web Token)**.
 
-Authentication Server usually shows you some sort of login UI form where you can
-enter username and password and it will check if username + password is a valid combination.
-If Authentication Server validates successfully user credentials - it issues a so called
-JWT token. This JWT token is cryptographically signed using a secret: in other words,
-later on, same authentication server (or maybe other application?) can check - was token signed by it?
+This token is **cryptographically signed** using a secret. That signature allows other services to later verify the token’s origin and integrity.
 
 !!! Remember
+    
+    ❗️ **Authentication Server issues JWT tokens** ❗️
 
-    Authentication server issues JWT tokens
 
-Anyway, all incoming request are checked if they have a valid JWT token. Valid JWT token is one
-which was signed by component with same secret. The internal mechanics is irrelevant, what is really
-important is that if incoming HTTP request does not have valid JWT token, then http request is redirected
-to "login form". If incoming HTTP request is valid - it is routed towards REST API (which stays "behind" UI)
-server i.e. towards papermerge core.
+---
 
-Illustration below illustrates what I explained so far.
+All incoming HTTP requests are then checked for a valid JWT token. A token is considered valid if:
 
-![REST API and FE and Auth server](./architecture/3-be-fe-auth.svg)
+* It is properly formed.
+* It was signed using the expected secret.
 
-{{ extra.project }} includes very basic authentication server. Its source code is here:
+If a request lacks a valid JWT, it is **redirected to the login form**.
+If it includes a valid JWT, the request proceeds to the REST API (which sits behind the UI).
 
-https://github.com/papermerge/auth-server
+Here’s how this flow is illustrated:
 
-All components inside the gray area delimited with brown dotted line are included
-in papermerge container:
+![REST API, FE, and Auth Server](./architecture/3-be-fe-auth.svg)
 
-```
+---
+
+### Included Authentication Server
+
+**{{ extra.project }}** includes a very basic authentication server. Its source code is here:
+[https://github.com/papermerge/auth-server](https://github.com/papermerge/auth-server)
+
+All components inside the gray box outlined with a brown dotted line are bundled in the official Papermerge container:
+
+```bash
 docker run -p 12000:80 \
     -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
     -e PAPERMERGE__AUTH__PASSWORD=pass123 \
@@ -216,95 +224,125 @@ docker run -p 12000:80 \
 
 !!! Remember
 
-    Core + Auth Server = App Container
-
-    And
-
+    ❗️ Core + Auth Server = App Container ❗️
+    
+    where
+    
     Core = BE + FE
+    
+    where
+    
+    * BE = REST API Server
+    * FE = Frontend Application
 
-    Where
+---
 
-    BE = Rest API Server
-    FE = Frontend application
+### Pluggable Authentication
 
-The beauty of such a solution is that authentication server can be easily replaced.
-I have mentioned several times that auth server included by default in {{ extra.project }}
-is very basic. What does this mean? It means for example that it does not support 2FA or user
-registration flows. But that's not an issue, and the design it conceived so that
-basic auth-server may be replaced with full fledged authentication server like Keycloak, Authelia etc
+The beauty of this design is its flexibility: the included authentication server is **basic by design**—you can easily replace it.
+
+For example, the included server does **not** support:
+
+* 2FA (Two-Factor Authentication)
+* User registration flows
+
+But that’s by design. You can replace it with more full-featured authentication systems like:
+
+* [Keycloak](https://www.keycloak.org/)
+* [Authelia](https://www.authelia.com/)
+
+---
 
 ## Workers and Redis
 
-So far I've explained only parts that directly interact with HTTP protocol i.e. the web part of the
-equation.
+So far, we’ve only discussed components that deal with HTTP—the **web-facing parts** of the system.
 
-Workers on the other hand have nothing to do with HTTP. They are small applications that run in background and
-interact between them and main app via message queues. Here main app is "producer" and workers
-are "consumers": in other works main app puts tasks in the queue and workers executes those tasks one by one.
+Now let’s explore the **workers**.
 
-The "message bus" or the transport medium for messages between app and workers (or between workers as they can send messages as well) is Redis. The communication takes place via so called "queues". Each queue has a unique name.
+Workers are small background applications that handle long-running or asynchronous tasks. They **don’t use HTTP** to communicate. Instead, they interact with the main app via a **message queue**.
 
-{{ extra.project }} uses following workers:
+* The **main app** acts as the **producer**, placing tasks onto the queue.
+* The **workers** act as **consumers**, picking up and executing those tasks.
 
-- [path template worker](https://github.com/papermerge/path-tmpl-worker)
-- [s3 worker](https://github.com/papermerge/s3-worker)
-- [ocr worker](https://github.com/papermerge/ocr-worker)
-- [i3 worker](https://github.com/papermerge/i3-worker)
+The transport mechanism is **Redis**, which functions as the message bus. Communication happens via **named queues**.
+
+{{ extra.project }} uses the following workers:
+
+* [Path Template Worker](https://github.com/papermerge/path-tmpl-worker)
+* [S3 Worker](https://github.com/papermerge/s3-worker)
+* [OCR Worker](https://github.com/papermerge/ocr-worker)
+* [i3 Worker](https://github.com/papermerge/i3-worker)
+
+---
 
 ## Path Template Worker
 
-Every document category has associated a jinja path template. Category path template may looks
-like this:
+Each document **category** in {{ extra.project }} has an associated [Jinja](https://jinja.palletsprojects.com/) path template
+that defines where documents in that category should be stored.
+
+Example 1 – basic template:
 
 {% raw %}
 
-    {% if document.id %}
+```jinja
+{% if document.id %}
     /home/My Documents/Invoices/{{ document.id }}.pdf
-    {% else %}
+{% else %}
     /home/My Documents/Invoices/
-    {% endif %}
+{% endif %}
+```
 
 {% endraw %}
 
-Or more sophisticated like:
+Example 2 – more sophisticated template:
 
 {% raw %}
 
-    {% if document.has_all_cf %}
-    /home/Receipts/{{ document.cf['Shop'] }}-{{document.cf['Effective Date']}}.pdf
-    {% else %}
+```jinja
+{% if document.has_all_cf %}
+    /home/Receipts/{{ document.cf['Shop'] }}-{{ document.cf['Effective Date'] }}.pdf
+{% else %}
     /home/Receipts/{{ document.id }}.pdf
-    {% endif %}
+{% endif %}
+```
 
 {% endraw %}
 
-If you have, say 63000 documents of category "receipts" and you change its path template (say from example 1 above to example 2), then there is no other way, except to go all 63000 documents one by one and to reevaluate its path
-so that all documents will be placed correctly according to the new path template. This is serious task - and this is exactly why path template worker is there for.
+Now imagine you have **63,000 documents** in the "receipts" category, and you change the template from example 1 to example 2. The system must now **re-evaluate the path** for each of those 63,000 documents.
 
+This is a huge task—and that’s exactly what the **Path Template Worker** is for.
 
 ![Path Template Worker](./architecture/4-path-template-worker.svg)
 
-Path template worker source code: [https://github.com/papermerge/path-tmpl-worker](https://github.com/papermerge/path-tmpl-worker)
+🔗 [Path Template Worker – Source Code](https://github.com/papermerge/path-tmpl-worker)
 
+---
 
 ## S3 Worker
 
-{{ extra.project }} supports S3 storage. When S3 is enabled, all documents
-will be uploaded to S3 storage - uploading documents to s3 storage is the task of s3-worker.
+**{{ extra.project }}** supports S3-compatible storage systems. When S3 is enabled, all documents are uploaded to the S3 bucket.
 
+The **S3 Worker** handles this upload process.
 
 ![S3 Worker](./architecture/5-s3-worker-simple.svg)
 
-Notice that S3 Worker must have access to the same local storage as the app (or the entity where
-documents are uploaded by the client)
+The **S3 Worker** must have access to the **same local storage** used by the app (i.e., where documents are uploaded by the user).
 
-What is designated as "local storage" in the picture - is docker volume in case of deployments based
-on docker compose. In case of k8s deployments "local volume" will be the pod storage.
+In deployments:
 
-S3-worker source code: [https://github.com/papermerge/s3-worker](https://github.com/papermerge/s3-worker)
+* With **Docker Compose**: local storage is typically a **Docker volume**.
+* With **Kubernetes**: local storage is usually a **pod volume**.
 
+🔗 [S3 Worker – Source Code](https://github.com/papermerge/s3-worker)
+
+---
 
 ## OCR Worker
 
+📌 *Coming soon*
+
+---
 
 ## i3 Worker
+
+📌 *Coming soon*
