@@ -318,7 +318,7 @@ This is a huge task—and that’s exactly what the **Path Template Worker** is 
 
 ---
 
-## S3 Worker
+## S3 Worker – Part 1
 
 **{{ extra.project }}** supports S3-compatible storage systems. When S3 is enabled, all documents are uploaded to the S3 bucket.
 
@@ -334,6 +334,44 @@ In deployments:
 * With **Kubernetes**: local storage is usually a **pod volume**.
 
 🔗 [S3 Worker – Source Code](https://github.com/papermerge/s3-worker)
+
+---
+
+## S3 Worker – Part 2
+
+The example from *S3 Worker – Part 1* was intentionally simple. However, its simplicity may obscure the real value of using S3 storage. S3 serves two key purposes:
+
+1. **Scalability**
+2. **Performance**
+
+The diagram below illustrates the first point:
+
+![S3 Worker](./architecture/6-s3-worker-multiple-apps.svg)
+
+In this scenario, there are two Kubernetes nodes, each running two app instances. Since nodes are isolated, `app1` and `app2` have access to different local storage than `app3` and `app4`. Now imagine `app4` receives a request to "merge two documents," but those documents are only present in node 1’s local storage. This is where S3 becomes essential: because **all documents are stored centrally in the S3 bucket**, `app4` can simply **download the necessary documents from S3** and proceed with the task.
+
+This setup allows {{ extra.project }} containers to be **stateless**—they don’t need attached persistent storage. Local storage may be ephemeral, as pods move between nodes. But S3 remains the **single source of truth** for document storage. As a result, **any app can access any document at any time**, regardless of where it runs. This pattern enables horizontal scalability: add more apps, add more nodes—S3 makes it work.
+
+---
+
+### What About Performance?
+
+You may wonder: how is performance related to S3?
+
+Until now, it was implicitly assumed that app containers serve documents directly to end-users. This might work fine for low-traffic scenarios (e.g. 5–10 users), but it quickly becomes a bottleneck in high-load situations (e.g. 1000+ users). Here’s why:
+
+> Serving PDF files is **very slow** compared to typical HTTP requests.
+> (Think: 5 seconds to download a PDF vs. 200ms for a JSON API call)
+
+In practical terms: instead of handling 25–50 lightweight API requests, the app might be **busy serving one large file**. Add to this the potential distance between user and server (e.g. user in the US, app running in Europe), and the situation worsens—users may wait **10+ seconds** just to download a 2–3 MB PDF.
+
+S3 solves this by **offloading document delivery** from the app container:
+
+* Users can download documents **directly from S3**
+* App containers stay free to handle fast, critical API calls
+* With **CDN integration**, files are served even faster and closer to the user
+
+In fact, {{ extra.project }} integrates seamlessly with S3 and AWS CloudFront (CDN). The [demo instance](https://demo.papermerge.com) uses exactly this setup. With a bit of effort, you can adapt {{ extra.project }} to work with **any S3-compatible storage** and **any CDN provider**.
 
 ---
 
