@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.papermerge.io/3.5/user/versions/">
+        <link rel="canonical" href="https://docs.papermerge.io/3.5/developer-manual/architecture/">
       
       
-        <link rel="prev" href="../page-management/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../merge-documents/">
+        <link rel="next" href="../../sso/overview/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Versions - Papermerge DMS</title>
+        <title>High-Level Architecture - Papermerge DMS</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#versions" class="md-skip">
+        <a href="#high-level-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Versions
+              High-Level Architecture
             
           </span>
         </div>
@@ -495,19 +495,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -521,7 +519,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Manual
@@ -535,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
+      <a href="../../user/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -556,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-interface/" class="md-nav__link">
+      <a href="../../user/user-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -577,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../upload-documents/" class="md-nav__link">
+      <a href="../../user/upload-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -598,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../document-types/" class="md-nav__link">
+      <a href="../../user/document-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -619,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../custom-fields/" class="md-nav__link">
+      <a href="../../user/custom-fields/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -640,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../path-templates/" class="md-nav__link">
+      <a href="../../user/path-templates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -661,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+      <a href="../../user/tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../search/" class="md-nav__link">
+      <a href="../../user/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -703,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../page-management/" class="md-nav__link">
+      <a href="../../user/page-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -721,19 +719,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../user/versions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +731,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -755,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../merge-documents/" class="md-nav__link">
+      <a href="../../user/merge-documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ocr/" class="md-nav__link">
+      <a href="../../user/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -797,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-formats/" class="md-nav__link">
+      <a href="../../user/file-formats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-management/" class="md-nav__link">
+      <a href="../../user/user-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -839,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../groups/" class="md-nav__link">
+      <a href="../../user/groups/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -860,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../group-ownership/" class="md-nav__link">
+      <a href="../../user/group-ownership/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -881,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../roles/" class="md-nav__link">
+      <a href="../../user/roles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -902,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sharing/" class="md-nav__link">
+      <a href="../../user/sharing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1032,17 +1020,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1056,7 +1046,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Developer Manual
@@ -1070,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer-manual/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1088,10 +1078,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../developer-manual/architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    High-Level Architecture
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1100,6 +1110,188 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-part-1-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Core Part 1 – REST API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-very-important-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Very Important Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two Very Important Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-no-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. No UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-no-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. No Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#so-who-is-the-current-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      So, who is the current user?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-about-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      What About JWT?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-part-2-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Core Part 2 – UI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Core Part 2 – UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-few-important-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Few Important Points
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#included-authentication-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Authentication Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pluggable-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pluggable Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workers-and-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workers and Redis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-template-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Template Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i3-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      i3 Worker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1908,6 +2100,176 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-part-1-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Core Part 1 – REST API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-very-important-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Very Important Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two Very Important Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-no-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. No UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-no-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. No Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#so-who-is-the-current-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      So, who is the current user?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-about-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      What About JWT?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-part-2-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Core Part 2 – UI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Core Part 2 – UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-few-important-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Few Important Points
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#included-authentication-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Authentication Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pluggable-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pluggable Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workers-and-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workers and Redis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-template-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Template Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR Worker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i3-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      i3 Worker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1924,19 +2286,243 @@
   
 
 
-<h1 id="versions">Versions</h1>
-<p>Papermerge DMS is a non-destructive DMS, which means you always have
-available original document regardless how many transformations
-(page rotations, deletion, document merges) you apply on the document.</p>
-<p>Retention of the original is ensured because of document versioning feature.
-With each extra transformation you apply - a new document
-version is created.</p>
-<p><mark class="critic"> Version 1 (one) </mark> of the uploaded document <mark class="critic"> is the original file </mark>
-i.e. document without any changes applied. Original document version is always
-available, regardless what operation(s) you apply to the document (except
-deletion of the document itself).</p>
-<p>Any page management OCR operation on the document will increment (increase by one) its
-version.</p>
+<h1 id="high-level-architecture">High-Level Architecture</h1>
+<p>This section describes the different components of Papermerge DMS, their roles, and how they interact.
+It is important to understand that the architecture is intentionally designed to avoid a monolithic structure—that is, bundling everything into a single piece.</p>
+<p>In this regard, Papermerge DMS adheres to the proven Unix philosophy:
+Build small, focused parts with clear interfaces, and combine them as needed.</p>
+<p>Please note: Ignore technical details for now and focus on the overall structure.
+This section is not intended as a setup guide for your development environment, but rather as a high-level architectural overview.</p>
+<h2 id="the-core-part-1-rest-api">The Core Part 1 – REST API</h2>
+<p>If you have <code>git</code>, <code>python</code>, and the <code>poetry</code> package manager installed on your computer, try the following:</p>
+<ol>
+<li><code>git clone https://github.com/papermerge/papermerge-core</code></li>
+<li><code>cd papermerge-core/</code></li>
+<li><code>poetry install</code></li>
+<li><code>poetry run task server</code></li>
+</ol>
+<p>The last command attempts to start the REST API server on port <strong>8000</strong>.</p>
+<p>Well, almost—it's likely to throw some errors if you don’t have a database configured yet.
+For example, you might not have PostgreSQL running, or the required environment variables might be missing.</p>
+<p>However, <strong>assuming</strong> you have:</p>
+<ul>
+<li>PostgreSQL up and running,</li>
+<li>a database already created,</li>
+<li>and the correct environment variables (such as <code>PAPERMERGE__DATABASE__URL</code>) set,</li>
+</ul>
+<p>...then the REST API server should start successfully.</p>
+<p>The illustration below shows a basic REST API server waiting for HTTP requests on port <strong>8000</strong>:</p>
+<p><a class="glightbox" href="1-core-rest-api.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="REST API" src="1-core-rest-api.svg" /></a></p>
+<hr />
+<h2 id="two-very-important-points">Two Very Important Points</h2>
+<p>There are two key things to understand about the Core REST API server:</p>
+<ol>
+<li><strong>There is no UI</strong> (i.e. no frontend)</li>
+<li><strong>There is no authentication</strong></li>
+</ol>
+<p>Let’s unpack both points.</p>
+<hr />
+<h3 id="1-no-ui">1. No UI</h3>
+<p>I assume you already know what a REST API is. Personally, I find it intuitive to think of a REST API <strong>without any UI</strong>—and you probably do as well.</p>
+<hr />
+<h3 id="2-no-authentication">2. No Authentication</h3>
+<p>Now, this is where even experienced developers might get confused.</p>
+<p>Let’s start with a very basic REST API call:</p>
+<pre><code class="language-bash">curl http://localhost:8000/users/me
+</code></pre>
+<p>This request is meant to return information about the <strong>current user</strong>—that is, the user making the HTTP request.</p>
+<p>But wait—didn’t I just say there is <strong>no authentication</strong>?</p>
+<p>So… who is the current user?
+And is there <strong>any user</strong> at all in the database's <code>users</code> table?</p>
+<p>Yes, the Core REST API server really <strong>has no authentication</strong>. None. Zero. Nada.</p>
+<hr />
+<h3 id="so-who-is-the-current-user">So, who is the current user?</h3>
+<p><strong>Answer:</strong> Whoever we say it is.</p>
+<p>The REST API is a naive creature—it trusts the information you give it. You can tell it who the current user is by using a custom HTTP header.</p>
+<p>Example:</p>
+<pre><code class="language-bash">curl -H &quot;Remote-User: admin&quot; http://localhost:8000/users/me
+</code></pre>
+<p>This request informs REST API server to use user with username <code>admin</code> as current one.
+Assuming you have a user named <code>admin</code> in your database, the server will respond with details about <code>admin</code>.</p>
+<p>In fact, as long as the username exists in your database, you can perform <strong>any REST API call</strong> just by supplying the <code>Remote-User</code> header.</p>
+<blockquote>
+<p><strong>Note:</strong>
+The REST API server has no concept of authentication.
+It simply receives information about the current user via HTTP headers and trusts it.</p>
+</blockquote>
+<hr />
+<h3 id="what-about-jwt">What About JWT?</h3>
+<p>The <code>Remote-User</code> example works—but it’s pretty basic.</p>
+<p>A more standardized and feature-rich method is to use a <strong>JWT (JSON Web Token)</strong>. JWTs allow you to pass more structured information in the header—like username, user ID, roles, and more.</p>
+<p>So instead of:</p>
+<pre><code class="language-http">Remote-User: admin
+</code></pre>
+<p>You might pass something like:</p>
+<pre><code class="language-http">Authorization: Bearer &lt;your_jwt_token_here&gt;
+</code></pre>
+<p>The principle remains the same:
+Whatever information about the current user is provided in the HTTP headers, the REST API server will <strong>extract it and trust it</strong>.</p>
+<p>No validation.
+No verification.
+No actual authentication.</p>
+<p>All authentication logic is expected to happen <strong>upstream</strong>—in whatever system is calling the REST API (e.g. an API gateway or a separate auth service).</p>
+<hr />
+<h2 id="the-core-part-2-ui">The Core Part 2 – UI</h2>
+<p>This part is basically the same as Part 1—except that instead of interacting directly with the REST API, the <strong>end user</strong> interacts with a <strong>fancy UI</strong> (the frontend).
+Put another way: the frontend communicates with the REST API server <strong>on behalf of the user</strong>.</p>
+<p><a class="glightbox" href="2-core-rest-api-and-fe.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="REST API and FE" src="2-core-rest-api-and-fe.svg" /></a></p>
+<p>The illustration above shows the frontend (FE) running on port <strong>5173</strong>.
+That’s true <strong>only in development mode</strong>, where a developer can start the frontend server using:</p>
+<pre><code class="language-bash">yarn install
+yarn workspace ui dev
+</code></pre>
+<p>Really, this setup is <strong>identical to Part 1</strong>, just <strong>wrapped in a nice UI</strong>.</p>
+<hr />
+<h3 id="a-few-important-points">A Few Important Points</h3>
+<ol>
+<li>
+<p><strong>Both the frontend and backend live in the same repository</strong>:</p>
+</li>
+<li>
+<p>Frontend (FE) = TypeScript / JavaScript / CSS / HTML</p>
+</li>
+<li>Backend (BE) = REST API server in Python</li>
+<li>
+<p>GitHub repo: <a href="https://github.com/papermerge/papermerge-core/">papermerge/papermerge-core</a></p>
+</li>
+<li>
+<p><strong>There is still no authentication</strong>:</p>
+</li>
+<li>
+<p>The REST API server accepts whatever the upstream passes as the current user via an HTTP header—
+     e.g., <code>Remote-User</code> or <code>Authorization: Bearer &lt;JWT token&gt;</code>.</p>
+</li>
+<li>
+<p><strong>Everything shown so far lives in one single repo</strong>:
+   <a href="https://github.com/papermerge/papermerge-core/">https://github.com/papermerge/papermerge-core/</a></p>
+</li>
+</ol>
+<h2 id="authentication-server">Authentication Server</h2>
+<p>Now let’s introduce one more piece of the puzzle: the <strong>Authentication Server</strong>.</p>
+<p>At some point, there must be a component that takes a username and password and responds with one of two answers:</p>
+<ol>
+<li>✅ Yes – the credentials are valid, the user is authenticated.</li>
+<li>❌ No – the credentials are invalid, access denied.</li>
+</ol>
+<p>That component is the <strong>authentication server</strong>.</p>
+<p>A common source of confusion is that many web frameworks (looking at you, Django!) bundle authentication logic into the framework itself. This leads to a general assumption that authentication is just part of the app—not a standalone service.</p>
+<p>In the <strong>Papermerge DMS</strong> universe, the <strong>Authentication Server is a separate web application.</strong></p>
+<div class="admonition remember">
+<p class="admonition-title">Remember</p>
+<p>❗️ <strong>Authentication Server is just another web application</strong> ❗️</p>
+</div>
+<p>Typically, the Authentication Server displays a login form where users can enter their credentials. If the combination of username and password is valid, the server responds with a <strong>JWT (JSON Web Token)</strong>.</p>
+<p>This token is <strong>cryptographically signed</strong> using a secret. That signature allows other services to later verify the token’s origin and integrity.</p>
+<div class="admonition remember">
+<p class="admonition-title">Remember</p>
+<p>❗️ <strong>Authentication Server issues JWT tokens</strong> ❗️</p>
+</div>
+<hr />
+<p>All incoming HTTP requests are then checked for a valid JWT token. A token is considered valid if:</p>
+<ul>
+<li>It is properly formed.</li>
+<li>It was signed using the expected secret.</li>
+</ul>
+<p>If a request lacks a valid JWT, it is <strong>redirected to the login form</strong>.
+If it includes a valid JWT, the request proceeds to the REST API (which sits behind the UI).</p>
+<p>Here’s how this flow is illustrated:</p>
+<p><a class="glightbox" href="3-be-fe-auth.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="REST API, FE, and Auth Server" src="3-be-fe-auth.svg" /></a></p>
+<hr />
+<h3 id="included-authentication-server">Included Authentication Server</h3>
+<p><strong>Papermerge DMS</strong> includes a very basic authentication server. Its source code is here:
+<a href="https://github.com/papermerge/auth-server">https://github.com/papermerge/auth-server</a></p>
+<p>All components inside the gray box outlined with a brown dotted line are bundled in the official Papermerge container:</p>
+<pre><code class="language-bash">docker run -p 12000:80 \
+    -e PAPERMERGE__SECURITY__SECRET_KEY=abc \
+    -e PAPERMERGE__AUTH__PASSWORD=pass123 \
+    papermerge/papermerge:3.5.2
+</code></pre>
+<div class="admonition remember">
+<p class="admonition-title">Remember</p>
+<p>❗️ Core + Auth Server = App Container ❗️</p>
+<p>where</p>
+<p>Core = BE + FE</p>
+<p>where</p>
+<ul>
+<li>BE = REST API Server</li>
+<li>FE = Frontend Application</li>
+</ul>
+</div>
+<hr />
+<h3 id="pluggable-authentication">Pluggable Authentication</h3>
+<p>The beauty of this design is its flexibility: the included authentication server is <strong>basic by design</strong>—you can easily replace it.</p>
+<p>For example, the included server does <strong>not</strong> support:</p>
+<ul>
+<li>2FA (Two-Factor Authentication)</li>
+<li>User registration flows</li>
+</ul>
+<p>But that’s by design. You can replace it with more full-featured authentication systems like:</p>
+<ul>
+<li><a href="https://www.keycloak.org/">Keycloak</a></li>
+<li><a href="https://www.authelia.com/">Authelia</a></li>
+</ul>
+<hr />
+<h2 id="workers-and-redis">Workers and Redis</h2>
+<p>So far, we’ve only discussed components that deal with HTTP—the <strong>web-facing parts</strong> of the system.</p>
+<p>Now let’s explore the <strong>workers</strong>.</p>
+<p>Workers are small background applications that handle long-running or asynchronous tasks. They <strong>don’t use HTTP</strong> to communicate. Instead, they interact with the main app via a <strong>message queue</strong>.</p>
+<ul>
+<li>The <strong>main app</strong> acts as the <strong>producer</strong>, placing tasks onto the queue.</li>
+<li>The <strong>workers</strong> act as <strong>consumers</strong>, picking up and executing those tasks.</li>
+</ul>
+<p>The transport mechanism is <strong>Redis</strong>, which functions as the message bus. Communication happens via <strong>named queues</strong>.</p>
+<p>Papermerge DMS uses the following workers:</p>
+<ul>
+<li><a href="https://github.com/papermerge/path-tmpl-worker">Path Template Worker</a></li>
+<li><a href="https://github.com/papermerge/s3-worker">S3 Worker</a></li>
+<li><a href="https://github.com/papermerge/ocr-worker">OCR Worker</a></li>
+<li><a href="https://github.com/papermerge/i3-worker">i3 Worker</a></li>
+</ul>
+<hr />
+<h2 id="path-template-worker">Path Template Worker</h2>
+<p>Each document <strong>category</strong> in Papermerge DMS has an associated <a href="https://jinja.palletsprojects.com/">Jinja</a> path template
+that defines where documents in that category should be stored.</p>
+<p>Example 1 – basic template:</p>
+<pre><code class="language-jinja">{% if document.id %}
+    /home/My Documents/Invoices/{{ document.id }}.pdf
+{% else %}
+    /home/My Documents/Invoices/
+{% endif %}
+</code></pre>
+<p>Example 2 – more sophisticated template:</p>
+<pre><code class="language-jinja">{% if document.has_all_cf %}
+    /home/Receipts/{{ document.cf['Shop'] }}-{{ document.cf['Effective Date'] }}.pdf
+{% else %}
+    /home/Receipts/{{ document.id }}.pdf
+{% endif %}
+</code></pre>
+<p>Now imagine you have <strong>63,000 documents</strong> in the "receipts" category, and you change the template from example 1 to example 2. The system must now <strong>re-evaluate the path</strong> for each of those 63,000 documents.</p>
+<p>This is a huge task—and that’s exactly what the <strong>Path Template Worker</strong> is for.</p>
+<p><a class="glightbox" href="4-path-template-worker.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Path Template Worker" src="4-path-template-worker.svg" /></a></p>
+<p>🔗 <a href="https://github.com/papermerge/path-tmpl-worker">Path Template Worker – Source Code</a></p>
+<hr />
+<h2 id="s3-worker">S3 Worker</h2>
+<p><strong>Papermerge DMS</strong> supports S3-compatible storage systems. When S3 is enabled, all documents are uploaded to the S3 bucket.</p>
+<p>The <strong>S3 Worker</strong> handles this upload process.</p>
+<p><a class="glightbox" href="5-s3-worker-simple.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="S3 Worker" src="5-s3-worker-simple.svg" /></a></p>
+<p>The <strong>S3 Worker</strong> must have access to the <strong>same local storage</strong> used by the app (i.e., where documents are uploaded by the user).</p>
+<p>In deployments:</p>
+<ul>
+<li>With <strong>Docker Compose</strong>: local storage is typically a <strong>Docker volume</strong>.</li>
+<li>With <strong>Kubernetes</strong>: local storage is usually a <strong>pod volume</strong>.</li>
+</ul>
+<p>🔗 <a href="https://github.com/papermerge/s3-worker">S3 Worker – Source Code</a></p>
+<hr />
+<h2 id="ocr-worker">OCR Worker</h2>
+<p>📌 <em>Coming soon</em></p>
+<hr />
+<h2 id="i3-worker">i3 Worker</h2>
+<p>📌 <em>Coming soon</em></p>
 
 
 
