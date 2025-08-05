@@ -3,103 +3,104 @@ site_url: https://docs.papermerge.io
 nav:
   - whatsnew.md
   - Setup:
-    - setup/overview.md
-    - setup/requirements.md
-    - setup/docker.md
-    - setup/docker-compose.md
-    - setup/s3backend.md
-    - setup/kubernetes.md
-    - setup/authentification.md
-    - setup/add-ocr-langs.md
+      - setup/overview.md
+      - setup/requirements.md
+      - setup/docker.md
+      - setup/docker-compose.md
+      - setup/s3backend.md
+      - setup/kubernetes.md
+      - setup/authentification.md
+      - setup/add-ocr-langs.md
   - User Manual:
-    - user/getting-started.md
-    - user/user-interface.md
-    - user/upload-documents.md
-    - user/document-types.md
-    - user/custom-fields.md
-    - user/path-templates.md
-    - user/tags.md
-    - user/search.md
-    - user/page-management.md
-    - user/versions.md
-    - user/merge-documents.md
-    - user/ocr.md
-    - user/file-formats.md
-    - user/user-management.md
-    - user/groups.md
-    - user/group-ownership.md
-    - user/roles.md
-    - user/sharing.md
+      - user/getting-started.md
+      - user/user-interface.md
+      - user/upload-documents.md
+      - user/document-types.md
+      - user/custom-fields.md
+      - user/path-templates.md
+      - user/tags.md
+      - user/search.md
+      - user/page-management.md
+      - user/versions.md
+      - user/merge-documents.md
+      - user/ocr.md
+      - user/file-formats.md
+      - user/user-management.md
+      - user/groups.md
+      - user/group-ownership.md
+      - user/roles.md
+      - user/sharing.md
   - Administrator Manual:
-    - "admin-manual/overview.md"
-    - "admin-manual/version-matrix.md"
-    - "admin-manual/upgrade-instructions.md"
+      - "admin-manual/overview.md"
+      - "admin-manual/version-matrix.md"
+      - "admin-manual/upgrade-instructions.md"
+  - Developer Manual:
+      - "developer-manual/overview.md"
+      - "developer-manual/architecture.md"
   - SSO:
-    - sso/overview.md
-    - OIDC:
-      - sso/oidc/overview.md
-      - sso/oidc/keycloak.md
-      - sso/oidc/authentik.md
-    - Remote User:
-      - sso/remote-user/overview.md
-      - sso/remote-user/authelia.md
+      - sso/overview.md
+      - OIDC:
+          - sso/oidc/overview.md
+          - sso/oidc/keycloak.md
+          - sso/oidc/authentik.md
+      - Remote User:
+          - sso/remote-user/overview.md
+          - sso/remote-user/authelia.md
   - Settings:
-    - settings/overview.md
-    - settings/auth.md
-    - settings/main.md
-    - settings/security.md
-    - settings/ocr.md
-    - settings/database.md
-    - settings/redis.md
-    - settings/search.md
-    - settings/s3worker.md
-    - settings/ocrworker.md
-    - settings/i3worker.md
+      - settings/overview.md
+      - settings/auth.md
+      - settings/main.md
+      - settings/security.md
+      - settings/ocr.md
+      - settings/database.md
+      - settings/redis.md
+      - settings/search.md
+      - settings/s3worker.md
+      - settings/ocrworker.md
+      - settings/i3worker.md
   - "pmdump.md"
   - Changelog:
-    - "changelog/overview.md"
-    - "changelog/3.5/3.5.3.md"
+      - "changelog/overview.md"
+      - "changelog/3.5/3.5.3.md"
   - REST API:
-    - "rest-api/overview.md"
-    - "rest-api/reference.md"
-    - "rest-api/token.md"
+      - "rest-api/overview.md"
+      - "rest-api/reference.md"
+      - "rest-api/token.md"
   - roadmap.md
   - contribute.md
-
-
 
 theme:
   name: material
   custom_dir: overrides
   palette:
-  - media: '(prefers-color-scheme: light)'
-    scheme: default
-    primary: indigo
-    accent: amber
-    toggle:
-      icon: material/lightbulb
-      name: Switch to dark mode
-  - media: '(prefers-color-scheme: dark)'
-    scheme: slate
-    primary: indigo
-    accent: amber
-    toggle:
-      icon: material/lightbulb-outline
-      name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
   logo: assets/logo.svg
   favicon: img/favicon.ico
   features:
-  - search.suggest
-  - search.highlight
-  - navigation.top
-#  - content.tabs.link
-#  - navigation.indexes
-  - content.tooltips
-#  - navigation.path
-  - content.code.annotate
-  - content.code.copy
-  - content.code.select
-  - announce.dismiss
+    - search.suggest
+    - search.highlight
+    - navigation.top
+    #  - content.tabs.link
+    #  - navigation.indexes
+    - content.tooltips
+    #  - navigation.path
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - announce.dismiss
 repo_url: https://github.com/ciur/papermerge
 extra:
   project: Papermerge DMS # custom variable for macros plugin
@@ -111,10 +112,10 @@ extra:
   version:
     provider: mike
   social:
-  - icon: fontawesome/brands/github
-    link: https://github.com/ciur/papermerge
-  - icon: fontawesome/solid/globe
-    link: https://papermerge.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/ciur/papermerge
+    - icon: fontawesome/solid/globe
+      link: https://papermerge.com
 extra_css:
   - css/custom.css
 
@@ -142,4 +143,4 @@ plugins:
   - macros
   - search
   - git-revision-date-localized
-  - glightbox  # for image zooming
+  - glightbox # for image zooming
