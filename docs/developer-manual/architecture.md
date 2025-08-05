@@ -36,55 +36,96 @@ The illustration below shows a basic REST API server waiting for HTTP requests o
 
 ![REST API](./architecture/1-core-rest-api.svg)
 
-Now there are two very important points here:
+---
 
-1. There is no UI (i.e. no frontend)
-2. There is no authentication
+## Two Very Important Points
 
-I assume you know what REST API is. I find very intuitive to think of REST API without any
-UI (i.e. frontend) - and so probably you do as well.
+There are two key things to understand about the Core REST API server:
 
-Now let's talk about second point - no authentication. This is where even veteran developers
-may be confused.
-Let's play with very basic REST API call like:
+1. **There is no UI** (i.e. no frontend)
+2. **There is no authentication**
 
-```
+Let’s unpack both points.
+
+---
+
+### 1. No UI
+
+I assume you already know what a REST API is. Personally, I find it intuitive to think of a REST API **without any UI**—and you probably do as well.
+
+---
+
+### 2. No Authentication
+
+Now, this is where even experienced developers might get confused.
+
+Let’s start with a very basic REST API call:
+
+```bash
 curl http://localhost:8000/users/me
 ```
 
-Above request is meant to return information about **current user** i.e. user who is performing
-http request. Wait, didn't I said before that there is no authentication? So who is current user?
-Btw, is there any user in the database `users` table at all? What I said earlier - that there is
-no authentication in Core REST API server - I really meant it. There no authentication. None. Nada.
+This request is meant to return information about the **current user**—that is, the user making the HTTP request.
 
-Question: who is current user?
-Answer: whomever we want. REST API is very naive creature - it will trust us on deciding who
-is current user.
+But wait—didn’t I just say there is **no authentication**?
 
-Check this:
+So… who is the current user?
+And is there **any user** at all in the database's `users` table?
 
+Yes, the Core REST API server really **has no authentication**. None. Zero. Nada.
+
+---
+
+### So, who is the current user?
+
+**Answer:** Whoever we say it is.
+
+The REST API is a naive creature—it trusts the information you give it. You can tell it who the current user is by using a custom HTTP header.
+
+Example:
+
+```bash
+curl -H "Remote-User: admin" http://localhost:8000/users/me
 ```
-curl -H "Remote-User: admin" http://localhost:8000/user/me
+
+This request informs REST API server to use user with username `admin` as current one.
+Assuming you have a user named `admin` in your database, the server will respond with details about `admin`.
+
+In fact, as long as the username exists in your database, you can perform **any REST API call** just by supplying the `Remote-User` header.
+
+> **Note:**
+> The REST API server has no concept of authentication.
+> It simply receives information about the current user via HTTP headers and trusts it.
+
+---
+
+### What About JWT?
+
+The `Remote-User` example works—but it’s pretty basic.
+
+A more standardized and feature-rich method is to use a **JWT (JSON Web Token)**. JWTs allow you to pass more structured information in the header—like username, user ID, roles, and more.
+
+So instead of:
+
+```http
+Remote-User: admin
 ```
 
-Above http request passes current user's username via `Remote-User` http header. Assuming
-that you have that "admin" user in `users` table in the database, REST API server will
-return details about "admin" user. Actually if you have username "admin" in your database,
-can perform any REST API call by providing "Remote-User: admin" http header.
+You might pass something like:
 
-!!! Note
+```http
+Authorization: Bearer <your_jwt_token_here>
+```
 
-    REST API server has no concept of authentication at all: it just
-    receives information about current user via http headers
+The principle remains the same:
+Whatever information about the current user is provided in the HTTP headers, the REST API server will **extract it and trust it**.
 
-The example with "Remote-User: admin" header works but it is rather boring.
-A more fancy is to pass via header so called JWT token: a standardized
-way to wrap more details in an http header: username, user role, user id etc.
-In REST API server can get information about current user packed into JWT token.
+No validation.
+No verification.
+No actual authentication.
 
-Though JWT is a very sound term, the basic principle is same - whatever information about
-current user is found in some HTTP header REST API server will unwrap it and trust the
-that upstream. No authentication is performed by REST API server.
+All authentication logic is expected to happen **upstream**—in whatever system is calling the REST API (e.g. an API gateway or a separate auth service).
+
 
 ## The Core Part 2 - UI
 
