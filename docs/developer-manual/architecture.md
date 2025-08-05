@@ -1,14 +1,13 @@
-# Architecture Diagrams
+# High-Level Architecture
 
-This section describes different parts of {{extra.project}} their role and how they
-interact. It is very important to understand that architecture is intentionally
-thought to avoid monolith design i.e. to stuff everything in one piece. In this sense
-{{extra.project}} follows very successful unix principles: create small parts with
-clear interface and assemble them at your heart will.
+This section describes the different components of {{extra.project}}, their roles, and how they interact.
+It is important to understand that the architecture is intentionally designed to avoid a monolithic structure—that is, bundling everything into a single piece.
 
-Please ignore all technical details and try to understand the overall picture, as
-this section of the documentation is not meant to be a guide to setup your development environment
-but an overall architecture guide.
+In this regard, {{extra.project}} adheres to the proven Unix philosophy:
+Build small, focused parts with clear interfaces, and combine them as needed.
+
+Please note: Ignore technical details for now and focus on the overall structure.
+This section is not intended as a setup guide for your development environment, but rather as a high-level architectural overview.
 
 ## The Core Part 1 - REST API
 
