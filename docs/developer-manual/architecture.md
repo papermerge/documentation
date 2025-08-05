@@ -126,30 +126,43 @@ No actual authentication.
 
 All authentication logic is expected to happen **upstream**—in whatever system is calling the REST API (e.g. an API gateway or a separate auth service).
 
+---
 
-## The Core Part 2 - UI
+## The Core Part 2 – UI
 
-This part is basically same as first one - but instead of communicating directly
-via REST API, end user interacts with fancy UI. Stated other way
-around fancy UI, the frontend, interacts with REST API server on user's behalf.
+This part is basically the same as Part 1—except that instead of interacting directly with the REST API, the **end user** interacts with a **fancy UI** (the frontend).
+Put another way: the frontend communicates with the REST API server **on behalf of the user**.
 
 ![REST API and FE](./architecture/2-core-rest-api-and-fe.svg)
 
-Picture above illustrates FE part as it is listens on port 5173. That's true
-only in development mode where developer can start frontend server via:
+The illustration above shows the frontend (FE) running on port **5173**.
+That’s true **only in development mode**, where a developer can start the frontend server using:
 
-```
+```bash
 yarn install
 yarn workspace ui dev
 ```
 
-Really, this is exactly same as "Part 1" just packed with a beautiful UI.
-A few important points:
+Really, this setup is **identical to Part 1**, just **wrapped in a nice UI**.
 
-1. Both frontend (FE = typescript/javascript/css/html etc) and backend (BE = REST API server = python) are in same repository: https://github.com/papermerge/papermerge-core/
-2. No authentication there. REST API server accepts whatever upstream passes as current user it via HTTP header
-   (e.g. Remote-User header, or Authorization header an JWT token)
-3. What was explained so far - lives in one single repo: https://github.com/papermerge/papermerge-core/
+---
+
+### A Few Important Points
+
+1. **Both the frontend and backend live in the same repository**:
+
+   * Frontend (FE) = TypeScript / JavaScript / CSS / HTML
+   * Backend (BE) = REST API server in Python
+   * GitHub repo: [papermerge/papermerge-core](https://github.com/papermerge/papermerge-core/)
+
+2. **There is still no authentication**:
+
+   * The REST API server accepts whatever the upstream passes as the current user via an HTTP header—
+     e.g., `Remote-User` or `Authorization: Bearer <JWT token>`.
+
+3. **Everything shown so far lives in one single repo**:
+   [https://github.com/papermerge/papermerge-core/](https://github.com/papermerge/papermerge-core/)
+
 
 ## Authentication Server
 
