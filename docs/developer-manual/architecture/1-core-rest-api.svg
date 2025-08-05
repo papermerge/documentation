@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="213.30775mm"
+   height="27.510952mm"
+   viewBox="0 0 213.30775 27.510952"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="1-core-rest-api.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.89441639"
+     inkscape:cx="403.05612"
+     inkscape:cy="100.62427"
+     inkscape:window-width="1512"
+     inkscape:window-height="831"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showborder="true" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(21.026882,-106.49403)">
+    <g
+       id="g5"
+       transform="matrix(0.90322579,0,0,0.90322579,11.276893,12.080776)">
+      <g
+         id="g4"
+         transform="translate(8.5786853)">
+        <rect
+           style="fill:#008000;stroke-width:0.264583"
+           id="rect1"
+           width="66.262947"
+           height="26.623508"
+           x="68.925301"
+           y="107.38148" />
+        <text
+           xml:space="preserve"
+           style="font-size:12.1428px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000080;stroke-width:0.252974"
+           x="75.263794"
+           y="123.46226"
+           id="text3"
+           transform="scale(0.98662745,1.0135538)"><tspan
+             sodipodi:role="line"
+             id="tspan3"
+             style="font-size:12.1428px;fill:#ffffff;stroke-width:0.252974"
+             x="75.263794"
+             y="123.46226">REST API</tspan></text>
+      </g>
+      <g
+         id="g3">
+        <rect
+           style="fill:#000080;stroke-width:0.188325"
+           id="rect2"
+           width="34.906376"
+           height="26.623507"
+           x="157.3745"
+           y="106.49403" />
+        <text
+           xml:space="preserve"
+           style="font-size:12.1428px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000080;stroke-width:0.252974"
+           x="168.16241"
+           y="122.34376"
+           id="text3-6"
+           transform="scale(0.98662745,1.0135538)"><tspan
+             sodipodi:role="line"
+             id="tspan3-5"
+             style="font-size:12.1428px;fill:#ffffff;stroke-width:0.252974"
+             x="168.16241"
+             y="122.34376">DB</tspan></text>
+      </g>
+      <path
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.865;stroke-dasharray:none;stroke-opacity:1"
+         d="M 144.06275,119.21414 H 157.3745"
+         id="path4" />
+      <path
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.925721;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+         d="M -21.024473,120.88645 72.476051,120.3998"
+         id="path5" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke:#000000;stroke-width:0.865;stroke-dasharray:none;stroke-opacity:1"
+         x="-19.228086"
+         y="113.88944"
+         id="text5"><tspan
+           sodipodi:role="line"
+           id="tspan5"
+           style="font-size:7.05556px;fill:#333333;stroke:none;stroke-width:0.865"
+           x="-19.228086"
+           y="113.88944">http://localhost:8000</tspan></text>
+    </g>
+  </g>
+</svg>

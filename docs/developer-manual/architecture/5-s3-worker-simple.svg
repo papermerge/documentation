@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="450.73349mm"
+   height="181.20149mm"
+   viewBox="0 0 450.73348 181.20149"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="5-s3-worker-simple.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.63817711"
+     inkscape:cx="1273.1575"
+     inkscape:cy="311.82566"
+     inkscape:window-width="1512"
+     inkscape:window-height="831"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showborder="true" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker13"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path13" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle-1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-5" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(81.539497,16.347593)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.62365;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5"
+       width="450.73349"
+       height="181.20149"
+       x="-81.539497"
+       y="-16.347593" />
+    <g
+       id="g4"
+       transform="matrix(0.90322579,0,0,0.90322579,14.835697,-60.451434)">
+      <rect
+         style="fill:#008000;stroke-width:0.264583"
+         id="rect1"
+         width="66.262947"
+         height="26.623508"
+         x="-7.2708478"
+         y="115.64371" />
+      <text
+         xml:space="preserve"
+         style="font-size:12.1428px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000080;stroke-width:0.252974"
+         x="11.526696"
+         y="131.16112"
+         id="text3"
+         transform="scale(0.98662745,1.0135538)"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           style="font-size:12.1428px;fill:#ffffff;stroke-width:0.252974"
+           x="11.526696"
+           y="131.16112">App</tspan></text>
+    </g>
+    <g
+       id="g3"
+       transform="matrix(0.90322579,0,0,0.90322579,77.15331,-51.330403)">
+      <rect
+         style="fill:#000080;stroke-width:0.188325"
+         id="rect2"
+         width="34.906376"
+         height="26.623507"
+         x="157.3745"
+         y="106.49403" />
+      <text
+         xml:space="preserve"
+         style="font-size:12.1428px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000080;stroke-width:0.252974"
+         x="168.16241"
+         y="122.34376"
+         id="text3-6"
+         transform="scale(0.98662745,1.0135538)"><tspan
+           sodipodi:role="line"
+           id="tspan3-5"
+           style="font-size:12.1428px;fill:#ffffff;stroke-width:0.252974"
+           x="168.16241"
+           y="122.34376">DB</tspan></text>
+    </g>
+    <rect
+       style="fill:#216778;stroke:#5a2ca0;stroke-width:0.27381"
+       id="rect2-6"
+       width="81.694008"
+       height="24.047037"
+       x="3.905726"
+       y="137.54886" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.9677px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000080;stroke-width:0.228493"
+       x="9.6749296"
+       y="152.12975"
+       id="text3-6-0"
+       transform="scale(0.98662745,1.0135538)"><tspan
+         sodipodi:role="line"
+         id="tspan3-5-3"
+         style="font-size:10.9677px;fill:#ffffff;stroke-width:0.228493"
+         x="9.6749296"
+         y="152.12975">local storage</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.9677px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000080;stroke-width:0.228493"
+       x="151.64517"
+       y="86.030327"
+       id="text3-7"
+       transform="scale(0.98662745,1.0135538)"><tspan
+         sodipodi:role="line"
+         id="tspan3-9"
+         style="font-size:10.9677px;fill:#ffffff;stroke-width:0.228493"
+         x="151.64517"
+         y="86.030327">FE</tspan></text>
+    <g
+       id="g7"
+       transform="translate(4.5605156,-36.898717)">
+      <path
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.82515;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-1)"
+         d="m -79.840164,94.220427 79.47216523,-0.4549"
+         id="path5-0" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.37276px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke:#000000;stroke-width:0.78129;stroke-dasharray:none;stroke-opacity:1"
+         x="-78.303192"
+         y="87.885475"
+         id="text5-4"><tspan
+           sodipodi:role="line"
+           id="tspan5-4"
+           style="font-size:6.37276px;fill:#333333;stroke:none;stroke-width:0.78129"
+           x="-78.303192"
+           y="87.885475">http://myinstance:80</tspan></text>
+    </g>
+    <rect
+       style="fill:#2c5aa0;fill-opacity:1;stroke:#000000;stroke-width:0.758101;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7"
+       width="85.697929"
+       height="22.89896"
+       x="111.01987"
+       y="116.25958" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#f9fbfd;fill-opacity:1;stroke:none;stroke-width:0.853001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="126.65872"
+       y="130.2868"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="fill:#f9fbfd;fill-opacity:1;stroke:none;stroke-width:0.853"
+         x="126.65872"
+         y="130.2868">S3 Worker</tspan></text>
+    <rect
+       style="fill:#440055;fill-opacity:0.787645;stroke-width:0.99723"
+       id="rect3"
+       width="147.18028"
+       height="15.75451"
+       x="34.960949"
+       y="89.78804" />
+    <text
+       xml:space="preserve"
+       style="font-size:9.87778px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#fffdff;fill-opacity:0.992278;stroke-width:0.853001"
+       x="104.19787"
+       y="100.98204"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-size:9.87778px;fill:#fffdff;fill-opacity:0.992278;stroke-width:0.853"
+         x="104.19787"
+         y="100.98204">Redis</tspan></text>
+    <path
+       style="fill:#fffdff;fill-opacity:0.992278;stroke-width:0.853;stroke-dasharray:none"
+       d="M 117.05023,56.620655 H 218.62534"
+       id="path5" />
+    <path
+       style="fill:none;fill-opacity:0.992278;stroke:#000000;stroke-width:1.0211;stroke-dasharray:none;stroke-opacity:1"
+       d="M 69.365966,54.964141 218.63148,55.375024"
+       id="path6" />
+    <path
+       style="fill:none;fill-opacity:0.992278;stroke:#000000;stroke-width:0.971417;stroke-dasharray:none;stroke-opacity:1"
+       d="M 196.54194,129.32491 234.70952,67.958625"
+       id="path6-5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#217867;fill-opacity:0.992278;stroke:#217867;stroke-width:0.971;stroke-dasharray:none;stroke-opacity:1"
+       d="m 85.441239,152.31803 26.558991,-16.17572 m -93.34894,2.03832 1.683453,-69.243536"
+       id="path6-5-5"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#9955ff;stroke-width:0.786619;stroke-dasharray:3.14648, 0.786619;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="m 43.129931,68.328595 4.99284,17.917497 7.489256,12.296321 0.416072,30.565137 53.673021,0.35132"
+       id="path7" />
+    <text
+       xml:space="preserve"
+       style="font-size:9.87777px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#222222;fill-opacity:0.996139;stroke:none;stroke-width:0.853001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="117.05023"
+       y="86.056702"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="fill:#222222;fill-opacity:0.996139;stroke:none;stroke-width:0.853;stroke-dasharray:none"
+         x="117.05023"
+         y="86.056702">Message Bus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.87777px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#222222;fill-opacity:0.996139;stroke:none;stroke-width:0.853001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="22.108587"
+       y="125.85757"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="stroke-width:0.853"
+         x="22.108587"
+         y="125.85757">s3-queue</tspan></text>
+    <g
+       id="g13"
+       transform="matrix(0.69124271,0,0,0.73025313,82.808309,16.322006)">
+      <path
+         style="fill:#87aade;fill-opacity:0.996139;stroke:#87aade;stroke-width:0.971;stroke-dasharray:none"
+         d="m 292.00819,-29.614548 70.48068,-10.7794 34.82576,10.7794 8.70645,52.653225 -38.14249,47.678118 -44.36139,-4.560517 -48.0927,-40.215455 13.26695,-55.140779 z"
+         id="path1" />
+      <text
+         xml:space="preserve"
+         style="font-size:9.87777px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#87aade;fill-opacity:0.996139;stroke:#87aade;stroke-width:0.971;stroke-dasharray:none"
+         x="297.8125"
+         y="11.430092"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="fill:#ffffff;stroke:none;stroke-width:0.971"
+           x="297.8125"
+           y="11.430092">S3 Object Storage</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-opacity:0.996139;stroke:#87aade;stroke-width:0.971;stroke-dasharray:7.768, 0.971;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker13)"
+       d="m 78.07855,156.12281 32.75279,-22.80257 84.99144,-0.82919 94.94163,-14.51073 30.67982,-48.921894"
+       id="path2"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>
