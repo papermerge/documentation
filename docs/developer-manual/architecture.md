@@ -9,22 +9,30 @@ Build small, focused parts with clear interfaces, and combine them as needed.
 Please note: Ignore technical details for now and focus on the overall structure.
 This section is not intended as a setup guide for your development environment, but rather as a high-level architectural overview.
 
-## The Core Part 1 - REST API
+## The Core Part 1 – REST API
 
-If you have `git`, `python` and `poetry` package manager on your computer try this:
+If you have `git`, `python`, and the `poetry` package manager installed on your computer, try the following:
 
-1. git clone https://github.com/papermerge/papermerge-core
-2. cd papermerge-core/
-3. poetry install
-4. poetry run task server
+1. `git clone https://github.com/papermerge/papermerge-core`
+2. `cd papermerge-core/`
+3. `poetry install`
+4. `poetry run task server`
 
-Last command will start REST API server on port 8000. Well almost, it probably will
-show some errors because you don't have yet a database configured, you probably don't have PostgreSQL
-even running... but assuming you already have PostgreSQL up and running and assuming you already
-created a database and provided correct environment variables like `PAPERMERGE__DATABASE__URL` then
-it will start a REST API server.
+The last command attempts to start the REST API server on port **8000**.
 
-The illustration below shows basic REST API server waiting for http request on port 8000:
+Well, almost—it's likely to throw some errors if you don’t have a database configured yet.
+For example, you might not have PostgreSQL running, or the required environment variables might be missing.
+
+However, **assuming** you have:
+
+* PostgreSQL up and running,
+* a database already created,
+* and the correct environment variables (such as `PAPERMERGE__DATABASE__URL`) set,
+
+...then the REST API server should start successfully.
+
+The illustration below shows a basic REST API server waiting for HTTP requests on port **8000**:
+
 
 ![REST API](./architecture/1-core-rest-api.svg)
 
