@@ -1262,11 +1262,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#s3-worker" class="md-nav__link">
+  <a href="#s3-worker-part-1" class="md-nav__link">
     <span class="md-ellipsis">
-      S3 Worker
+      S3 Worker – Part 1
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-worker-part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Worker – Part 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S3 Worker – Part 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-about-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      What About Performance?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2242,11 +2266,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#s3-worker" class="md-nav__link">
+  <a href="#s3-worker-part-1" class="md-nav__link">
     <span class="md-ellipsis">
-      S3 Worker
+      S3 Worker – Part 1
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-worker-part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Worker – Part 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S3 Worker – Part 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-about-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      What About Performance?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2506,7 +2554,7 @@ that defines where documents in that category should be stored.</p>
 <p><a class="glightbox" href="4-path-template-worker.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Path Template Worker" src="4-path-template-worker.svg" /></a></p>
 <p>🔗 <a href="https://github.com/papermerge/path-tmpl-worker">Path Template Worker – Source Code</a></p>
 <hr />
-<h2 id="s3-worker">S3 Worker</h2>
+<h2 id="s3-worker-part-1">S3 Worker – Part 1</h2>
 <p><strong>Papermerge DMS</strong> supports S3-compatible storage systems. When S3 is enabled, all documents are uploaded to the S3 bucket.</p>
 <p>The <strong>S3 Worker</strong> handles this upload process.</p>
 <p><a class="glightbox" href="5-s3-worker-simple.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="S3 Worker" src="5-s3-worker-simple.svg" /></a></p>
@@ -2517,6 +2565,33 @@ that defines where documents in that category should be stored.</p>
 <li>With <strong>Kubernetes</strong>: local storage is usually a <strong>pod volume</strong>.</li>
 </ul>
 <p>🔗 <a href="https://github.com/papermerge/s3-worker">S3 Worker – Source Code</a></p>
+<hr />
+<h2 id="s3-worker-part-2">S3 Worker – Part 2</h2>
+<p>The example from <em>S3 Worker – Part 1</em> was intentionally simple. However, its simplicity may obscure the real value of using S3 storage. S3 serves two key purposes:</p>
+<ol>
+<li><strong>Scalability</strong></li>
+<li><strong>Performance</strong></li>
+</ol>
+<p>The diagram below illustrates the first point:</p>
+<p><a class="glightbox" href="6-s3-worker-multiple-apps.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="S3 Worker" src="6-s3-worker-multiple-apps.svg" /></a></p>
+<p>In this scenario, there are two Kubernetes nodes, each running two app instances. Since nodes are isolated, <code>app1</code> and <code>app2</code> have access to different local storage than <code>app3</code> and <code>app4</code>. Now imagine <code>app4</code> receives a request to "merge two documents," but those documents are only present in node 1’s local storage. This is where S3 becomes essential: because <strong>all documents are stored centrally in the S3 bucket</strong>, <code>app4</code> can simply <strong>download the necessary documents from S3</strong> and proceed with the task.</p>
+<p>This setup allows Papermerge DMS containers to be <strong>stateless</strong>—they don’t need attached persistent storage. Local storage may be ephemeral, as pods move between nodes. But S3 remains the <strong>single source of truth</strong> for document storage. As a result, <strong>any app can access any document at any time</strong>, regardless of where it runs. This pattern enables horizontal scalability: add more apps, add more nodes—S3 makes it work.</p>
+<hr />
+<h3 id="what-about-performance">What About Performance?</h3>
+<p>You may wonder: how is performance related to S3?</p>
+<p>Until now, it was implicitly assumed that app containers serve documents directly to end-users. This might work fine for low-traffic scenarios (e.g. 5–10 users), but it quickly becomes a bottleneck in high-load situations (e.g. 1000+ users). Here’s why:</p>
+<blockquote>
+<p>Serving PDF files is <strong>very slow</strong> compared to typical HTTP requests.
+(Think: 5 seconds to download a PDF vs. 200ms for a JSON API call)</p>
+</blockquote>
+<p>In practical terms: instead of handling 25–50 lightweight API requests, the app might be <strong>busy serving one large file</strong>. Add to this the potential distance between user and server (e.g. user in the US, app running in Europe), and the situation worsens—users may wait <strong>10+ seconds</strong> just to download a 2–3 MB PDF.</p>
+<p>S3 solves this by <strong>offloading document delivery</strong> from the app container:</p>
+<ul>
+<li>Users can download documents <strong>directly from S3</strong></li>
+<li>App containers stay free to handle fast, critical API calls</li>
+<li>With <strong>CDN integration</strong>, files are served even faster and closer to the user</li>
+</ul>
+<p>In fact, Papermerge DMS integrates seamlessly with S3 and AWS CloudFront (CDN). The <a href="https://demo.papermerge.com">demo instance</a> uses exactly this setup. With a bit of effort, you can adapt Papermerge DMS to work with <strong>any S3-compatible storage</strong> and <strong>any CDN provider</strong>.</p>
 <hr />
 <h2 id="ocr-worker">OCR Worker</h2>
 <p>📌 <em>Coming soon</em></p>
