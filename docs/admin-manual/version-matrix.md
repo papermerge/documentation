@@ -2,6 +2,10 @@
 
 The individual {{extra.project}} services, can be executed in Docker containers. To retain version compatibility, use only the listed image tags for {{extra.project}} versions.
 
+!!! Note
+
+    Papermerge 3.6 will not support SQLite databases anymore. Please [migrate to PostgreSQL](/admin-manual/db-migrations/#migrate-from-sqlite-to-postgresql).
+
 ## {{extra.project}} Versions
 
 The listed versions have been tested. Other combinations might work as well, but can cause side effects, that are not supported by {{extra.project}}.

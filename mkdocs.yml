@@ -34,6 +34,7 @@ nav:
       - "admin-manual/overview.md"
       - "admin-manual/version-matrix.md"
       - "admin-manual/upgrade-instructions.md"
+      - "admin-manual/db-migrations.md"
   - Developer Manual:
       - "developer-manual/overview.md"
       - "developer-manual/architecture.md"
