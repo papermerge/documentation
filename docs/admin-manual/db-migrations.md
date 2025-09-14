@@ -2,10 +2,6 @@
 
 This document describes the migration of databases, that are used by {{extra.project}}.
 
-!!! Note
-
-    Backup your Papermerge instance, incl. the database first!
-
 ## Migrate from SQLite to PostgreSQL
 
 This scenario assumes, that you have a working installation, which is using a [SQLite database](/3.5/settings/database/?h=db.sqlite3#database__url) setup. For migration, you'll need a PostgreSQL database.
@@ -25,20 +21,30 @@ This scenario assumes, that you have a working installation, which is using a [S
 
 ### Import data
 
-1. Import the data with [pgloader](https://pgloader.readthedocs.io/en/latest/index.html)
+!!! Note
 
-    - create a configuration file `db.load` with this content:
-        ```text
-        LOAD database
-        FROM sqlite:///import/db.sqlite3
-        INTO postgresql://papermerge@localhost:5432/pmgdb
+    Backup your Papermerge instance, incl. the database first!
 
-        WITH include no drop, create no tables, create no indexes, reset sequences, data only
+Migrating data from SQLite to PostgreSQL fortunately is an easy task using e.g. [pgloader](https://pgloader.readthedocs.io/en/latest/index.html). The migration is pretty much straigh forward. We need to point out, that the data types differ for some columns in the two databases. They are compatible, but different (text vs. uuid). By default, pgloader would delete tables and recreate them with the data types that it finds in SQLite. We want to prevent that.
 
-        SET work_mem to '16MB', maintenance_work_mem to '512 MB';
-        ```
-    - Import the data
-        - `sudo apt update`
-        - `sudo apt install pgloader`
-        - `pgloader db.load`
-2. Start papermerge
+Start by creating a configuration file `db.load` for pgloader, which defines source and destination databases, as well as migration options.
+
+```
+LOAD database
+FROM sqlite:///<sourcefolder>/db.sqlite3
+INTO postgresql://papermerge@localhost:5432/pmgdb
+
+WITH include no drop, create no tables, create no indexes, reset sequences, data only
+
+SET work_mem to '16MB', maintenance_work_mem to '512 MB';
+```
+
+1. Install pgloader
+    - `sudo apt update`
+    - `sudo apt install pgloader`
+2. Import the data
+    - `pgloader db.load`
+3. Start PostgreSQL
+4. Start {{extra.project}}
+
+Your {{extra.project}} instance is now using another database, nothing else changed.
