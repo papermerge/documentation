@@ -1051,6 +1051,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#36-not-yet-released" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 (not yet released)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 (not yet released)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-feature-migration-v36" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audit Feature Migration (v3.6)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Feature Migration (v3.6)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-fix-existing-users-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Fix Existing users Rows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-find-your-admins-user-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Find your admin’s user ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-disable-the-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Disable the trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-all-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update all users
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-the-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Verify the update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-re-enable-the-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Re-enable the trigger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1983,6 +2067,90 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#36-not-yet-released" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 (not yet released)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 (not yet released)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-feature-migration-v36" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audit Feature Migration (v3.6)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Feature Migration (v3.6)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-fix-existing-users-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Fix Existing users Rows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-find-your-admins-user-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Find your admin’s user ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-disable-the-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Disable the trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-all-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update all users
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-the-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Verify the update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-re-enable-the-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Re-enable the trigger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2012,6 +2180,57 @@
 <p>Though it was possible before 3.5.3 under certain circumstances to create users with either one or both of these two columns set to NULL, it is very unlikely that this case is relevant for you.
 In case you have some - please delete these entries (<code>DELETE users WHERE home_folder_id IS NULL OR inbox_folder_id IS NULL</code>)
 No worries about deleting user entity with NULL value for <code>home_folder_id</code> or <code>home_folder_id</code> as such entities are stale anyway - they have no documents associated and no login is possible.</p>
+<h2 id="36-not-yet-released">3.6 (not yet released)</h2>
+<p>Here’s a clean version of the migration note you wrote, with steps clearly structured for admins who need to ensure <code>users.created_by</code> and <code>users.updated_by</code> are populated correctly:</p>
+<hr />
+<h3 id="audit-feature-migration-v36">Audit Feature Migration (v3.6)</h3>
+<p>Starting with <strong>version 3.6</strong>, Papermerge introduces the <strong>Audit feature</strong>, which records <em>who did what and when</em>.
+This affects almost all database tables, which now include audit columns:</p>
+<ul>
+<li><code>created_at</code></li>
+<li><code>created_by</code></li>
+<li><code>updated_at</code></li>
+<li><code>updated_by</code></li>
+</ul>
+<p>There are couple more, but they are irrelevant here.
+The most critical change:</p>
+<p>👉 The <code>users</code> table <strong>must have non-empty values for <code>created_by</code> and <code>updated_by</code>.</strong></p>
+<hr />
+<h4 id="how-to-fix-existing-users-rows">How to Fix Existing <code>users</code> Rows</h4>
+<p>If you are upgrading, you must manually update <code>users.created_by</code> and <code>users.updated_by</code> to valid user IDs (for example, your administrator user).</p>
+<p>⚠️ <strong>Important:</strong> You must <strong>disable</strong> the trigger <code>set_created_by_updated_by_trigger_users</code> before updating, otherwise the update will not work.</p>
+<hr />
+<h4 id="step-1-find-your-admins-user-id">Step 1: Find your admin’s user ID</h4>
+<pre><code class="language-sql">SELECT id, username, updated_by, created_by FROM users;
+
+-- Example output:
+-- 49e78737-7c6e-410f-ae27-315b04bdec69 | admin | &lt;empty&gt; | &lt;empty&gt;
+</code></pre>
+<p>Copy your admin user’s <code>id</code>.</p>
+<hr />
+<h4 id="step-2-disable-the-trigger">Step 2: Disable the trigger</h4>
+<pre><code class="language-sql">ALTER TABLE users DISABLE TRIGGER set_created_by_updated_by_trigger_users;
+</code></pre>
+<hr />
+<h4 id="step-3-update-all-users">Step 3: Update all users</h4>
+<pre><code class="language-sql">UPDATE users
+SET updated_by='49e78737-7c6e-410f-ae27-315b04bdec69',
+    created_by='49e78737-7c6e-410f-ae27-315b04bdec69';
+</code></pre>
+<hr />
+<h4 id="step-4-verify-the-update">Step 4: Verify the update</h4>
+<pre><code class="language-sql">SELECT id, username, updated_by, created_by FROM users;
+
+-- Example output:
+-- 49e78737-7c6e-410f-ae27-315b04bdec69 | admin | 49e78737-7c6e-410f-ae27-315b04bdec69 | 49e78737-7c6e-410f-ae27-315b04bdec69
+</code></pre>
+<hr />
+<h4 id="step-5-re-enable-the-trigger">Step 5: Re-enable the trigger</h4>
+<pre><code class="language-sql">ALTER TABLE users ENABLE TRIGGER set_created_by_updated_by_trigger_users;
+</code></pre>
+<hr />
+<p>✅ Now all <code>users.created_by</code> and <code>users.updated_by</code> fields are properly set, and the audit system will function correctly.</p>
+<hr />
 
 
 
@@ -2032,7 +2251,7 @@ No worries about deleting user entity with NULL value for <code>home_folder_id</
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 24, 2025</span>
   </span>
 
     
