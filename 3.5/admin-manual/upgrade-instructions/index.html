@@ -2181,8 +2181,6 @@
 In case you have some - please delete these entries (<code>DELETE users WHERE home_folder_id IS NULL OR inbox_folder_id IS NULL</code>)
 No worries about deleting user entity with NULL value for <code>home_folder_id</code> or <code>home_folder_id</code> as such entities are stale anyway - they have no documents associated and no login is possible.</p>
 <h2 id="36-not-yet-released">3.6 (not yet released)</h2>
-<p>Here’s a clean version of the migration note you wrote, with steps clearly structured for admins who need to ensure <code>users.created_by</code> and <code>users.updated_by</code> are populated correctly:</p>
-<hr />
 <h3 id="audit-feature-migration-v36">Audit Feature Migration (v3.6)</h3>
 <p>Starting with <strong>version 3.6</strong>, Papermerge introduces the <strong>Audit feature</strong>, which records <em>who did what and when</em>.
 This affects almost all database tables, which now include audit columns:</p>
