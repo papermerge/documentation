@@ -17,10 +17,6 @@ No worries about deleting user entity with NULL value for `home_folder_id` or `h
 
 ## 3.6 (not yet released)
 
-Here’s a clean version of the migration note you wrote, with steps clearly structured for admins who need to ensure `users.created_by` and `users.updated_by` are populated correctly:
-
----
-
 ### Audit Feature Migration (v3.6)
 
 Starting with **version 3.6**, Papermerge introduces the **Audit feature**, which records *who did what and when*.
