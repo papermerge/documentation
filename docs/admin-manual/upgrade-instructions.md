@@ -30,7 +30,16 @@ This affects almost all database tables, which now include audit columns:
 There are couple more, but they are irrelevant here.
 The most critical change:
 
-👉 The `users` table **must have non-empty values for `created_by` and `updated_by`.**
+👉 The `users`, `groups`, `roles`, `custom_fields`, `document_types`, `tags`  tables **must have non-empty values for `created_by` and `updated_by`.**
+
+Following steps describe how to update `users` table only. You **need to repeat** these steps for all tables
+that have `created_by` and `updated_by` columns:
+
+  * `groups`
+  * `roles`
+  * `custom_fields`
+  * `document_types`
+  * `tags`
 
 ---
 
@@ -38,7 +47,9 @@ The most critical change:
 
 If you are upgrading, you must manually update `users.created_by` and `users.updated_by` to valid user IDs (for example, your administrator user).
 
-⚠️ **Important:** You must **disable** the trigger `set_created_by_updated_by_trigger_users` before updating, otherwise the update will not work.
+⚠️ **Important:** You must **disable** the trigger `set_created_by_updated_by_trigger_users` (
+   set_created_by_updated_by_trigger_**groups**, set_created_by_updated_by_trigger_**custom_fields** etc)
+before updating, otherwise the update will not work.
 
 ---
 
@@ -61,6 +72,8 @@ Copy your admin user’s `id`.
 ALTER TABLE users DISABLE TRIGGER set_created_by_updated_by_trigger_users;
 ```
 
+"...DISABLE TRIGGER set_created_by_updated_by_trigger_**groups**;", "...DISABLE TRIGGER set_created_by_updated_by_trigger_**custom_fields**;" etc
+
 ---
 
 #### Step 3: Update all users
@@ -70,6 +83,8 @@ UPDATE users
 SET updated_by='49e78737-7c6e-410f-ae27-315b04bdec69',
     created_by='49e78737-7c6e-410f-ae27-315b04bdec69';
 ```
+
+"UPDATE **groups** SET ...", "UPDATE **custom_fields** SET ..." etc
 
 ---
 
@@ -82,6 +97,8 @@ SELECT id, username, updated_by, created_by FROM users;
 -- 49e78737-7c6e-410f-ae27-315b04bdec69 | admin | 49e78737-7c6e-410f-ae27-315b04bdec69 | 49e78737-7c6e-410f-ae27-315b04bdec69
 ```
 
+"... FROM **groups**", "... FROM **custom_fields**" etc
+
 ---
 
 #### Step 5: Re-enable the trigger
@@ -90,9 +107,13 @@ SELECT id, username, updated_by, created_by FROM users;
 ALTER TABLE users ENABLE TRIGGER set_created_by_updated_by_trigger_users;
 ```
 
+"...ENABLE TRIGGER set_created_by_updated_by_trigger_**groups**;", "...ENABLE TRIGGER set_created_by_updated_by_trigger_**custom_fields**;" etc
+
+
 ---
 
 ✅ Now all `users.created_by` and `users.updated_by` fields are properly set, and the audit system will function correctly.
+
 
 ---
 
