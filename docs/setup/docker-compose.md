@@ -201,7 +201,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:
@@ -288,7 +288,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:
@@ -376,7 +376,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:
@@ -483,7 +483,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:
@@ -563,7 +563,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:
@@ -659,7 +659,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:

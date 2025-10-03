@@ -13,7 +13,6 @@ from {{ extra.project }} to CDN. Once files are served via CDN, `webapp`
 becomes stateless, which means you can have multiple instances of `webapp`
 and thus scale it as much as you have want.
 
-
 ## Documents Upload to S3 Storage
 
 This scenario is straightforward - {{ extra.project }} will upload every
@@ -47,7 +46,6 @@ Note that both `webapp` and `s3worker` need to have access same `PAPERMERGE__RED
 and `PAPERMERGE__DATABASE__URL`.
 
 In following is an example of docker compose file which features S3 backend:
-
 
 ```yaml
 services:
@@ -109,7 +107,7 @@ services:
       retries: 5
       start_period: 10s
   redis:
-    image: bitnami/redis:7.2
+    image: redis:7.2
     ports:
       - "6379:6379"
     environment:
@@ -118,7 +116,6 @@ volumes:
   pgdata:
   media_root:
 ```
-
 
 You can use [pmcompose](https://github.com/papermerge/pmcompose) to generate docker compose
 for {{extra.project}}. To generate above configuration, use following command:
@@ -136,7 +133,6 @@ $ pmcompose -u admin -p 1234 -lc -s3
     $ pmcompose -i
     ```
 
-
 ## Content Delivery
 
 To enable files delivery via CDN, you need to set, in `webapp`, `PAPERMERGE__MAIN__FILE_SERVER` to `s3`:
@@ -150,7 +146,6 @@ environment variables (CF=AWS Cloud Front):
 * `PAPERMERGE__MAIN__CF_SIGN_URL_PRIVATE_KEY`
 * `PAPERMERGE__MAIN__CF_SIGN_URL_KEY_ID`
 * `PAPERMERGE__MAIN__CF_DOMAIN`
-
 
 With above these settings all URLs to the document files will be 1. signed 2.
 pointing to cloud front domain. Each signed URL will be valid for 10 minutes.
