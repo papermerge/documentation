@@ -104,7 +104,7 @@ theme:
     - content.code.select
     - announce.dismiss
 repo_url: https://github.com/ciur/papermerge
-copyright: '<a href="/impressum/">Impressum</a>'
+copyright: '<a href="https://docs.papermerge.io/3.5/impressum/">Impressum</a>'
 extra:
   project: Papermerge DMS # custom variable for macros plugin
   docker_image_version: 3.5.3
