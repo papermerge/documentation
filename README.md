@@ -1,3 +1,18 @@
+# ⚠️ Important Notice
+
+This documentation covers **Papermerge OSS** (open-source, self-hosted version).
+
+**Status:** After 9 years of development, I'm transitioning to Papermerge Cloud (SaaS).
+The OSS version is seeking active maintainers.
+
+- **Using Papermerge OSS?** You're in the right place. The docs below are for you.
+- **Interested in the managed, GoBD-compliant version?** 
+  → Try [Papermerge Cloud](https://papermerge.com) and see [Cloud documentation](https://docs.papermerge.com)
+
+For OSS maintainer opportunities, see: [GitHub issue #1318](https://github.com/papermerge/papermerge-core/issues/1318)
+
+---
+
 # Papermerge DMS Documentation
 
 Papermerge DMS documentation is based on [mkdocs material](https://squidfunk.github.io/mkdocs-material/).
