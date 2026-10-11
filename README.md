@@ -1,61 +1,53 @@
-# ⚠️ Important Notice
+# 📢 About Papermerge OSS
 
-This documentation covers **Papermerge OSS** (open-source, self-hosted version).
+This documentation covers **Papermerge OSS** (the open-source, self-hosted version).
 
-**Status:** After 9 years of development, I'm transitioning to Papermerge Cloud (SaaS).
-The OSS version is seeking active maintainers.
+**Status:** Actively maintained by the community maintainer team.
+It was originally created by Eugen Ciur, who now focuses on Papermerge Cloud (SaaS).
 
-- **Using Papermerge OSS?** You're in the right place. The docs below are for you.
-- **Interested in the managed, GoBD-compliant version?** 
-  → Try [Papermerge Cloud](https://papermerge.com) and see [Cloud documentation](https://docs.papermerge.com)
+- **Using Papermerge OSS?** You're in the right place — the docs below are for you.
+- **Interested in the managed, GoBD-compliant version?**
+  Try [Papermerge Cloud](https://papermerge.com) and see the [Cloud documentation](https://docs.papermerge.com).
 
-For OSS maintainer opportunities, see: [GitHub issue #1318](https://github.com/papermerge/papermerge-core/issues/1318)
+For the latest source code, issues, and pull requests, see
+[papermerge/papermerge-core](https://github.com/papermerge/papermerge-core).
 
 ---
 
 # Papermerge DMS Documentation
 
-Papermerge DMS documentation is based on [mkdocs material](https://squidfunk.github.io/mkdocs-material/).
+Papermerge DMS documentation is built with [mkdocs material](https://squidfunk.github.io/mkdocs-material/).
 
 ## Online Version
 
-Papermerge DMS documentation is available online at [https://docs.papermerge.io/](https://docs.papermerge.io/)
-
+The documentation is available online at [https://docs.papermerge.dev/](https://docs.papermerge.dev/).
 
 ## How to Use
 
-Make sure you have installed [python](https://www.python.org/)
-and [poetry](https://python-poetry.org/docs/), then in root repository
-folder run following commands:
+Install [python](https://www.python.org/) and [poetry](https://python-poetry.org/docs/), then run the following commands in the repository's root folder:
 
     $ poetry install
     $ poetry run mkdocs serve
 
-Above commands will install all dependencies, switch into environment variable
-and run documentation in auto build mode. Any change in documentation
-repository will be automatically rebuild.
+This installs all dependencies and starts the documentation server in auto-build mode, so any change is rebuilt automatically.
 
-## Multi-versions
+## Multi-Version Support
 
-For each Papermerge major version there is separate repository branch in this
-repository.
+Each Papermerge major version has its own branch in this repository:
 
-- Papermerge version 3.3.x docs are in git branch v3.3
-- Papermerge version 3.4.x docs are in git branch v3.4
-- Papermerge version 3.5.x docs are in git branch v3.5
+| Papermerge version | Git branch |
+|---|---|
+| 3.3.x | `v3.3` |
+| 3.4.x | `v3.4` |
+| 3.5.x | `v3.5` |
 
 ## How It Works
 
-Documentation is deployed from `gh-pages` branch. There you will find one
-fodler per each version i.e. 3.3, 3.4, 3.5.
-In `gh-pages` branch there is a file `versions.json` which is used by
-mike to figure out what it where. You can manually update that file.
+Documentation is deployed from the `gh-pages` branch, which contains one folder per version (e.g. 3.3, 3.4, 3.5). The `versions.json` file in that branch tells [mike](https://github.com/jimporter/mike) which version is where; you can update it manually if needed.
 
+## How to Add a New Version
 
-## How to Add New Version
-
-Say current stable is 3.4 and you want to add 3.5 as development version.
-Run following commands:
+Say the current stable version is 3.4 and you want to add 3.5 as a development version:
 
 ```
 $ git switch v3.4
@@ -63,4 +55,4 @@ $ git checkout -b v3.5
 $ mike deploy -p 3.5 -t dev
 ```
 
-It is very important that`v3.5` was branched from `v3.4` and not from `master`!
+It is very important that `v3.5` is branched from `v3.4` and **not** from `master`!
